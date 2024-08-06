@@ -119,7 +119,7 @@
 								<td>Continues command entry onto the next line.</td>
 								</tr>
 								<tr>
-								<code>Single Tab</code></td>
+								<td></td><code>Single Tab</code></td>
 								<td>Auto-completes commands and variable names based on partially typed text if there is a unique match.</td>
 								</tr>
 								<tr>
@@ -291,18 +291,15 @@
 								</ul></p>
 							<h2 id="working-with-files-and-directories">Working With Files and Directories</h2>
 								<ul>
-								<li><strong><code>$ mkdir [dirname]</code>: Make a new directory</strong>
-								    <ul>
-								      <li>Creates a new directory. Avoid using spaces; underscores are not recommended.</li>
-								      <li>Example: <code>mkdir results</code></li>
-								    </ul>
-								  </li>
-								</ul>
-								
-								<lu>
-								<li><strong>Create or Edit a File:<code>nano [filename]</code></strong></li>
-								<p>If the file does not exist, it will be created. Type your content, then save and exit.</p></li>
-								<h4 id="shortcut-keys-in-nano-">Shortcut Keys in Nano:</h4>
+								<li><code>$ mkdir [dirname]</code>: make a new directory
+									<ul>
+									<li>Creates a new directory. Avoid using spaces; underscores are not recommended.</li>
+									<li>Example: <code>mkdir results</code></li>
+									</ul></li>
+								<li><code>nano [filename]</code>: create or edit a file
+									<ul><li>If the file does not exist, it will be created. Type your content, then save and exit.</li>
+									</ul></li>
+								<li>Shortcut Keys in Nano:
 									<table>
 									<thead>
 									<tr>
@@ -329,30 +326,37 @@
 									</tr>
 									</tbody>
 									</table>
-								</ul>
+									</li></ul>
 								<ul>
-									<li><code>touch [filename]</code>: create an empty file 
-									<p>Useful for generating placeholder files required by some programs.</p></li>
-									<li><code>cp [old] [new]</code>: make a copy of the file
-									<p>Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></p></li>
-								</ul>
-
+								<li><code>touch [filename]</code>: create an empty file 
+									<ul>
+										<li>Useful for generating placeholder files required by some programs.</li>	
+									</ul></li>
+								<li><code>cp [old] [new]</code>: make a copy of the file
+									<ul>
+										<li>Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></li>
+									</ul></li>
+								<li><code>cp -r [source] [destination]</code>: copy a directory
+									<ul>
+										<li>Copies a directory and all its contents.</li>
+									</ul></li>
+								<li><code>mv [old] [new]</code>: move or rename a file or directory:</li>
+								<li><code>rmdir [directory]</code>: remove an empty directory</li>
+								<li><code>rm [path]</code>: remove a file permanently</li>
+								<ul>
+									<li><code>rm -i [path]</code>: interactive mode:</li>
+									<ul><li>Prompts for confirmation before deletion.</li></ul>
+									<li><code>rm -r [directory]</code>: permanently delete a directory and all its contents</li>
+									<li><code>rm -r -i [path]</code>: interactive mode:</li>
+									<ul><li>Prompts for confirmation before deletion.</li></ul>
+									<li>Important Note: Deleted files are gone forever! There is no trash or recycle bin.</p></li>
+								</ul></ul>
 								
-								<p>Copy a Directory: <code>cp -r [source] [destination]</code>
-								Copies a directory and all its contents.
-								Move/Rename a File or Directory: <code>mv [old] [new]</code></p>
-								<p>Remove an Empty Directory: <code>rmdir [directory]</code></p>
-								<p>Remove a File Permanently: <code>rm [path]</code></p>
-								<p>Interactive Mode: <code>rm -i [path]</code>
-								Prompts for confirmation before deletion.
-								Remove a Directory and Its Contents: <code>rm -r [directory]</code></p>
-								<p>Interactive Mode: <code>rm -r -i [directory]</code>
-								Prompts for confirmation before deletion.
-								Important Note: Deleted files are gone forever—there is no trash or recycle bin.</p>
-							<h3>Wildcard Characters</h3>
-								<ul>
-								<li>— Matches zero or more characters. Example: *.txt matches all .txt files.
-								? — Matches any single character. Example: ?.txt matches a.txt but not any.txt.
+							
+								<ul>Wildcard Characters
+									<li> <code>*</code>: Matches zero or more characters. Example: <code>*.txt</code> matches all .txt files.
+								<li><code>?</code>: Matches any single character. Example: <code>.txt</code>? matches a.txt but not any.txt.</li>
+								</ul>
 							<h2>Pipes and Filters</h2>
 							Pipe Operator: |</li>
 							</ul>
