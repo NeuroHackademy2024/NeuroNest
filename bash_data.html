@@ -70,9 +70,9 @@
 $
 								</code></pre>
 								<p>Note: Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
-								<h2 id="keyboard-shortcuts-for-the-command-window">Keyboard Shortcuts for the Command Window</h2>
-								<p>This cheat sheet includes common keyboard shortcuts that are handy when coding in the shell application.</p>
-								<h4 id="for-windows-users">For Windows Users</h4>
+						<h2 id="keyboard-shortcuts-for-the-command-window">Keyboard Shortcuts for the Command Window</h2>
+							<p>This cheat sheet includes common keyboard shortcuts that are handy when coding in the shell application.</p>
+							<h3 id="for-windows-users">For Windows Users</h3>
 								<table>
 								<thead>
 								<tr>
@@ -119,7 +119,7 @@ $
 								</tr>
 								</tbody>
 								</table>
-								<h4 id="for-mac-users">For Mac Users</h4>
+							<h3 id="for-mac-users">For Mac Users</h3>
 								<table>
 								<thead>
 								<tr>
@@ -166,16 +166,12 @@ $
 								</tr>
 								</tbody>
 								</table>
-								<h2 id="using-the-shell">Using the shell</h2>
-								<h3 id="directories-">Directories:</h3>
-								<p>Folders and files are organized using a directory tree, starting with the root directory (/). </p>
-								<ul>
-								<li><p><strong>Absolute Path:</strong> Specifies the entire path from the root directory. E.g., <code>ls /Users/your-username</code></p>
-								</li>
-								<li><p><strong>Relative Path:</strong> Specifies the path relative to the current directory. E.g., <code>cd Desktop</code></p>
-								</li>
-								</ul>
-								<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
+						<h2 id="navigating files and directories">Navigating Files and Directories</h2>
+							<p>The file system is responsible for managing information on the computer disk. Files can be placed in folders, which we call <i>directories</i>. Directories can also store other directories, making a directory tree. </p>
+							<p>At the top of the file system/directory tree is the root directory, which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>.
+							<p>Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).
+							<p>While we are using the shell, we can only be in one place/directory at a time. This is called our <i>current working directory</i>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
+							<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
 								<table>
 								<thead>
 								<tr>
@@ -242,10 +238,17 @@ $
 								</tr>
 								</tbody>
 								</table>
-
-								
-								
-								
+								<p>Folders and files are organized using a directory tree, starting with the root directory (/). </p>
+								<ul>
+								<li><p><strong>Absolute Path:</strong> Specifies the entire path from the root directory. E.g., <code>ls /Users/your-username</code></p>
+								</li>
+								<li><p><strong>Relative Path:</strong> Specifies the path relative to the current directory. E.g., <code>cd Desktop</code></p>
+								</li>
+								</ul>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">pwd</span>
+</code></pre>
+<pre><code class="lang-output"><span class="hljs-regexp">/Users/</span>nelle
+</code></pre>			
 								<pre><code>
 !/bin/bash
 # This is a sample bash script
