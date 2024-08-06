@@ -51,9 +51,694 @@
 					<div id="main">
 						<div class="inner">
 						<h1 id="matlab-resource-draft">MATLAB Resource Draft</h1>
-						<h2 id="1-what-is-matlab-">1. What is MATLAB?</h2>
-						<p>MATLAB is both a programming language and an interactive environment well utilized by researchers for versatile reasons like running programs and analyzing data. While MATLAB has a graphical interface with point and click on icons to run commands (&quot;MATLAB Desktop&quot;), MATLAB primarily operates through a command line interface. </p>
-						</div>
+<h2 id="1-what-is-matlab-">1. What is MATLAB?</h2>
+<p>MATLAB is both a programming language and an interactive environment well utilized by researchers for versatile reasons like running programs and analyzing data. While MATLAB has a graphical interface with point and click on icons to run commands (&quot;MATLAB Desktop&quot;), MATLAB primarily operates through a command line interface. </p>
+<h3 id="applications-in-research-">Applications in Research:</h3>
+<ul>
+<li>Advanced statistical testing and data fitting</li>
+<li>Automate routine data processing tasks</li>
+<li>Designing and executing complex experimental tasks, including real-time data collection and behavioral tracking</li>
+<li>Develop computational models and apply machine learning algorithms</li>
+<li>Processing and analyzing neuroimaging data</li>
+</ul>
+<p>This resource will focus on the basics of MATLAB to develop the skills necessary for using MATLAB in neuroimaging data analysis. </p>
+<h2 id="2-workspace-basics">2. Workspace Basics</h2>
+<h3 id="matlab-desktop-interface-">MATLAB Desktop Interface:</h3>
+<p>When you first open MATLAB, you will notice that it has several windows and a ribbon of buttons at the top. The window on the left is the <strong>Current Folder</strong>, the central window is the <strong>Command Window</strong>, and the upper-right window is the <strong>Workspace</strong>.</p>
+<ul>
+<li><p><strong>Current Folder:</strong> Shows a list of all the folders located within the folder you are currently in. (This is essentially your window.)</p>
+</li>
+<li><p><strong>Command Window:</strong> The main area where you can type commands directly and see their output.</p>
+</li>
+<li><p><strong>Editor Window:</strong> Where you writing, running, and debugging MATLAB code</p>
+</li>
+<li><p><strong>Workspace Window:</strong> Displays variables created during the session, providing an overview of the data you are working with.</p>
+</li>
+</ul>
+<p><img src="https://github.com/user-attachments/assets/27b88c90-33be-4848-a7ee-04495f7446e0" alt="image"></p>
+<h3 id="custimization-and-setting-preferences">Custimization and Setting Preferences</h3>
+<p>MATLAB offers flexible customization options to optimize your workflow. Some ways to tailor the interface include...</p>
+<ul>
+<li><strong>Resize and Reposition Windows:</strong> Adjust the size and position of MATLAB windows by clicking and dragging the window dividers or title bars to suit your preferences.</li>
+<li><strong>Save Frequently Used Commands :</strong> The Favorites menu allows you to bookmark commonly used commands. Add a command by selecting &#39;New Favorite,&#39; entering the command, and giving it a descriptive name. For quicker access, add these favorites to the Quick Access toolbar and execute them with a single click.</li>
+<li><strong>Display Variable Details:</strong> To gain more insights into the variables you&#39;re working with, such as their types or memory usage, right-click the header bar in the Workspace window and choose the properties you wish to display.</li>
+</ul>
+<p>For more advanced customizations, navigate to <strong>Preferences</strong> under the Home tab.
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/cdc7c230-c22d-41e6-917a-ec8468bc5eeb"></p>
+<h3 id="directories-">Directories:</h3>
+<p>MATLAB organizes folders and files using a directory tree, starting with the root directory (/). </p>
+<ul>
+<li><p><strong>Absolute Path:</strong> Specifies the entire path from the root directory. E.g., <code>ls /Users/your-username</code></p>
+</li>
+<li><p><strong>Relative Path:</strong> Specifies the path relative to the current directory. E.g., <code>cd Desktop</code></p>
+</li>
+</ul>
+<h3 id="commands-for-navigating-workspace">Commands for Navigating Workspace</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pwd</code></td>
+<td>Prints the current working directory path.</td>
+</tr>
+<tr>
+<td><code>cd &#39;folder&#39;</code></td>
+<td>Changes the current working directory to &#39;folder&#39;.</td>
+</tr>
+<tr>
+<td><code>cd ~</code></td>
+<td>Changes the current directory to the user&#39;s home directory.</td>
+</tr>
+<tr>
+<td><code>cd .</code></td>
+<td>Refers to the current directory.</td>
+</tr>
+<tr>
+<td><code>cd ..</code></td>
+<td>Moves up one level in the directory tree.</td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td>Lists all files and directories in the current directory.</td>
+</tr>
+<tr>
+<td><code>dir</code></td>
+<td>Lists directory contents, similar to <code>ls</code>.</td>
+</tr>
+<tr>
+<td><code>exist &#39;name&#39;</code></td>
+<td>Checks if a variable, file, or folder &#39;name&#39; exists.</td>
+</tr>
+<tr>
+<td><code>mkdir &#39;dirname&#39;</code></td>
+<td>Creates a new directory named &#39;dirname&#39;.</td>
+</tr>
+<tr>
+<td><code>rmdir &#39;dirname&#39;</code></td>
+<td>Removes the directory named &#39;dirname&#39;, if it is empty.</td>
+</tr>
+<tr>
+<td><code>edit &#39;filename&#39;</code></td>
+<td>Opens the specified file in MATLAB&#39;s editor.</td>
+</tr>
+<tr>
+<td><code>edit functionName</code></td>
+<td>Opens the function in MATLAB&#39;s editor</td>
+</tr>
+<tr>
+<td><code>doc command</code></td>
+<td>Opens the documentation for &#39;command&#39;.</td>
+</tr>
+<tr>
+<td><code>help command</code></td>
+<td>Displays help text for &#39;command&#39; in the Command Window.</td>
+</tr>
+<tr>
+<td><code>clc</code></td>
+<td>Clears all input and output from the Command Window, keeping history.</td>
+</tr>
+<tr>
+<td><code>quit</code> or  <code>exit</code></td>
+<td>Closes MATLAB.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="keyboard-shortcuts-for-matlab-command-window">Keyboard Shortcuts for MATLAB Command Window</h3>
+<p>This cheat sheet includes common keyboard shortcuts that are handy when coding in MATLAB&#39;s Command Window, mirroring the functionality often used in terminal environments.</p>
+<h4 id="for-windows-users">For Windows Users</h4>
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Tab</code></td>
+<td>Auto-completes commands and variable names based on partially typed text.</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Cancels the current command line input without executing it.</td>
+</tr>
+<tr>
+<td><code>Up Arrow</code></td>
+<td>Scrolls through the history to recall previous commands, useful for repetition or modification.</td>
+</tr>
+<tr>
+<td><code>Down Arrow</code></td>
+<td>Scrolls forward in the command history after using the Up Arrow.</td>
+</tr>
+<tr>
+<td><code>Ctrl + C</code></td>
+<td>Interrupts the execution of the current command or script.</td>
+</tr>
+<tr>
+<td><code>Ctrl + A</code></td>
+<td>Moves the cursor to the beginning of the line.</td>
+</tr>
+<tr>
+<td><code>Ctrl + E</code></td>
+<td>Moves the cursor to the end of the line.</td>
+</tr>
+<tr>
+<td><code>Ctrl + L</code></td>
+<td>Clears the screen, keeping the history intact.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Up Arrow</code></td>
+<td>Scrolls up through the output to view earlier outputs and messages.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Down Arrow</code></td>
+<td>Scrolls down through the output to return to more recent outputs.</td>
+</tr>
+<tr>
+<td><code>Home</code></td>
+<td>Jumps to the beginning of the current line.</td>
+</tr>
+<tr>
+<td><code>End</code></td>
+<td>Jumps to the end of the current line.</td>
+</tr>
+<tr>
+<td><code>Backspace</code></td>
+<td>Deletes the character to the left of the cursor.</td>
+</tr>
+<tr>
+<td><code>Delete</code></td>
+<td>Deletes the character right at the cursor position.</td>
+</tr>
+<tr>
+<td><code>Enter</code></td>
+<td>Executes the command currently typed in the Command Window.</td>
+</tr>
+<tr>
+<td><code>Shift + Enter</code></td>
+<td>Continues command entry onto the next line for multi-line commands.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="for-mac-users">For Mac Users</h4>
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Tab</code></td>
+<td>Auto-completes commands and variable names based on partially typed text.</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Cancels the current command line input without executing it.</td>
+</tr>
+<tr>
+<td><code>Up Arrow</code></td>
+<td>Scrolls through the history to recall previous commands.</td>
+</tr>
+<tr>
+<td><code>Down Arrow</code></td>
+<td>Scrolls forward in the command history after using the Up Arrow.</td>
+</tr>
+<tr>
+<td><code>Cmd + C</code></td>
+<td>Interrupts the execution of the current command or script.</td>
+</tr>
+<tr>
+<td><code>Cmd + A</code></td>
+<td>Moves the cursor to the beginning of the line.</td>
+</tr>
+<tr>
+<td><code>Cmd + E</code></td>
+<td>Moves the cursor to the end of the line.</td>
+</tr>
+<tr>
+<td><code>Cmd + L</code></td>
+<td>Clears the screen, keeping the history intact.</td>
+</tr>
+<tr>
+<td><code>Cmd + Up Arrow</code></td>
+<td>Scrolls up through the output to view earlier outputs and messages.</td>
+</tr>
+<tr>
+<td><code>Cmd + Down Arrow</code></td>
+<td>Scrolls down through the output to return to more recent outputs.</td>
+</tr>
+<tr>
+<td><code>Fn + Left Arrow</code></td>
+<td>Mimics the Home key, jumping to the beginning of the line.</td>
+</tr>
+<tr>
+<td><code>Fn + Right Arrow</code></td>
+<td>Mimics the End key, jumping to the end of the line.</td>
+</tr>
+<tr>
+<td><code>Delete</code></td>
+<td>Deletes the character to the left of the cursor. (Mac keyboards typically do not have a separate Backspace key.)</td>
+</tr>
+<tr>
+<td><code>Fn + Delete</code></td>
+<td>Deletes the character right at the cursor position.</td>
+</tr>
+<tr>
+<td><code>Return</code></td>
+<td>Executes the command currently typed in the Command Window.</td>
+</tr>
+<tr>
+<td><code>Shift + Return</code></td>
+<td>Continues command entry onto the next line for multi-line commands.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="matlab-file-types-">MATLAB File Types:</h3>
+<ul>
+<li><p><strong>.m files</strong>: MATLAB script and function files, each serving different purposes:</p>
+<ul>
+<li><strong>Script Files</strong>: Scripts are collections of MATLAB commands executed exactly as if they were typed into the Command Window. They operate within the current workspace, which means they can modify any existing variables or create new ones. Scripts do not accept inputs directly (though they can work with data already in the workspace) and do not return outputs. They are useful for straightforward tasks like data manipulation and plotting when you do not need to isolate code.</li>
+<li><strong>Function Files</strong>: Functions, on the other hand, are more versatile and encapsulate their code within a separate workspace. They can accept inputs and return outputs, making them essential for modular programming. Functions prevent potential conflicts with the main workspace by keeping variables local, except those explicitly returned. They are ideal for reusing code, enhancing code readability, and managing larger projects where data encapsulation is necessary.</li>
+</ul>
+</li>
+<li><p><strong>.mlx files</strong>: MATLAB live script files that combine code execution with narrative, formatted text, equations, images, and hyperlinks in a single, interactive document. Ideal for instructional purposes, interactive applications, and sharing results.</p>
+</li>
+<li><p><strong>.mat files</strong>: Binary files that store workspace variables. Useful for saving your session data and transferring variables between sessions without losing integrity.</p>
+</li>
+<li><p><strong>.fig files</strong>: Figure files that save MATLAB graphical outputs. They enable you to reopen and modify figures later, preserving the graphical data and properties exactly as saved.</p>
+</li>
+</ul>
+<h3 id="file-formats-for-import-and-export">File Formats for Import and Export</h3>
+<p>MATLAB supports importing various data formats such as TXT, CSV, XLS, XLSX, JPG, PNG, etc. You can find additional documentation including functions and examples <a href="https://www.mathworks.com/help/matlab/import_export/supported-file-formats-for-import-and-export.html">here</a>.</p>
+<h3 id="commands-for-file-handling">Commands for File Handling</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>save &#39;filename&#39;</code></td>
+<td>Saves workspace variables to a file.</td>
+</tr>
+<tr>
+<td><code>load &#39;filename&#39;</code></td>
+<td>Loads variables from a file into the workspace.</td>
+</tr>
+<tr>
+<td><code>readtable(&#39;filename&#39;)</code></td>
+<td>Imports data from a file into a table, supporting CSV, TXT, and Excel formats.</td>
+</tr>
+<tr>
+<td><code>readmatrix(&#39;filename&#39;)</code></td>
+<td>Reads numerical data from a file into a matrix, ideal for straightforward data formats.</td>
+</tr>
+<tr>
+<td><code>xlsread(&#39;filename&#39;)</code></td>
+<td>Imports data from Excel files, useful for datasets in spreadsheets.</td>
+</tr>
+<tr>
+<td><code>csvread(&#39;filename&#39;)</code></td>
+<td>Reads numerical data from CSV files directly into an array.</td>
+</tr>
+<tr>
+<td><code>fopen(&#39;filename&#39;)</code></td>
+<td>Opens a file for reading or writing, necessary for file manipulation.</td>
+</tr>
+<tr>
+<td><code>fwrite(fid, data)</code></td>
+<td>Writes binary data to the file specified by <code>fid</code>.</td>
+</tr>
+<tr>
+<td><code>fprintf(fid, format, data)</code></td>
+<td>Writes formatted data to the file, allowing for customizable text outputs.</td>
+</tr>
+<tr>
+<td><code>fclose(fid)</code></td>
+<td>Closes an open file to free up resources.</td>
+</tr>
+<tr>
+<td><code>importdata(&#39;filename&#39;)</code></td>
+<td>Loads mixed data from files, handling various formats automatically.</td>
+</tr>
+<tr>
+<td><code>exportdata(&#39;data&#39;, &#39;filename&#39;)</code></td>
+<td>Exports data to a file in chosen formats, useful for sharing or external use.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="external-tutorial">External Tutorial</h3>
+<p>MATLAB Desktop – Importing Data, Customizing the MATLAB Desktop, and Setting Preferences from MathWorks Self-Paced Online Courses: MATLAB Desktop Tools and Troubleshooting Scripts Course</p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-desktop-tools-and-troubleshooting-scripts/otmldts">Tutorial Link</a></p>
+<p><a href="https://matlabacademy.mathworks.com/artifacts/quick-reference.html?course=otmldts&amp;language=en&amp;release=R2024a">Quick Reference</a></p>
+<h2 id="basics-of-matlab-syntax">Basics of MATLAB Syntax</h2>
+<p>This section provides an overview of fundamental MATLAB syntax.</p>
+<ul>
+<li><p><strong>Colon <code>:</code></strong></p>
+<ul>
+<li>Used to create vectors, specify ranges, and index arrays.</li>
+<li>Example: <code>1:5</code> generates a vector <code>[1, 2, 3, 4, 5]</code>.</li>
+<li>Used in array slicing: <code>A(:, 2)</code> selects all rows from the second column of matrix <code>A</code>.</li>
+</ul>
+</li>
+<li><p><strong>Semicolon <code>;</code></strong></p>
+<ul>
+<li>Suppresses the output of a command.</li>
+<li>Example: <code>a = 5;</code> assigns 5 to <code>a</code> without displaying the output.</li>
+<li>Used to separate rows in matrix definitions: <code>A = [1, 2; 3, 4]</code>.</li>
+</ul>
+</li>
+<li><p><strong>Percent <code>%</code></strong></p>
+<ul>
+<li>Used for comments. Everything after <code>%</code> on that line is ignored by MATLAB.</li>
+<li>Example: <code>x = 10; % This is a comment</code>.</li>
+</ul>
+</li>
+<li><p><strong>Assignment Operator <code>=</code></strong></p>
+<ul>
+<li>Assigns a value to a variable.</li>
+<li>Example: <code>a = 5</code>.</li>
+</ul>
+</li>
+<li><p><strong>Decimal Point <code>.</code></strong></p>
+<ul>
+<li>Indicates decimal numbers.</li>
+<li>Example: <code>3.14</code>.</li>
+</ul>
+</li>
+<li><p><strong>Comma <code>,</code></strong></p>
+<ul>
+<li>Separates elements in arrays and function arguments.</li>
+<li>Example: <code>[1, 2, 3]</code> or <code>plot(x, y)</code>.</li>
+</ul>
+</li>
+<li><p><strong>Parentheses <code>()</code></strong></p>
+<ul>
+<li>Used for grouping expressions, function arguments, and array indexing.</li>
+<li>Example: <code>a = (b + c) * d</code> or <code>y = myFunction(x)</code>.</li>
+</ul>
+</li>
+<li><p><strong>Square Brackets <code>[]</code></strong></p>
+<ul>
+<li>Used to create arrays and matrices.</li>
+<li>Example: <code>A = [1, 2, 3]</code> or <code>B = [1, 2; 3, 4]</code>.</li>
+</ul>
+</li>
+<li><p><strong>Curly Braces <code>{}</code></strong></p>
+<ul>
+<li>Used for cell arrays, which can hold different types of data.</li>
+<li>Example: <code>C = {1, &#39;text&#39;, [1, 2, 3]}</code>.</li>
+</ul>
+</li>
+<li><p><strong>Single Quote <code>&#39;&#39;&#39;</code></strong></p>
+<ul>
+<li>Defines a string.</li>
+<li>Example: <code>str = &#39;Hello, World!&#39;</code>.</li>
+</ul>
+</li>
+<li><p><strong>Ellipsis <code>...</code></strong></p>
+<ul>
+<li>Indicates that a statement continues on the next line.</li>
+<li>Example:<pre><code class="lang-matlab">a = <span class="hljs-number">1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">3</span> + ...
+    <span class="hljs-number">4</span> + <span class="hljs-number">5</span> + <span class="hljs-number">6</span>;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="relational-operators">Relational Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Equal to</td>
+<td><code>a == b</code></td>
+</tr>
+<tr>
+<td><code>~=</code></td>
+<td>Not equal to</td>
+<td><code>a ~= b</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+<td><code>a &gt; b</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>a &lt; b</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater than or equal to</td>
+<td><code>a &gt;= b</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less than or equal to</td>
+<td><code>a &lt;= b</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="logical-operators">Logical Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;</code></td>
+<td>Logical AND</td>
+<td><code>a &amp; b</code></td>
+</tr>
+<tr>
+<td>`</td>
+<td>`</td>
+<td>Logical OR</td>
+<td>`a</td>
+<td>b`</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>Logical NOT</td>
+<td><code>~a</code></td>
+</tr>
+<tr>
+<td><code>xor</code></td>
+<td>Logical EXCLUSIVE OR</td>
+<td><code>xor(a, b)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-working-with-variables-in-matlab">4. Working with Variables in MATLAB</h2>
+<p>This section provides an overview of how to handle variables in MATLAB, including how to create, manipulate, and delete them, as well as working with vectors and matrices.</p>
+<h4 id="creating-variables">Creating Variables</h4>
+<p>Variables in MATLAB are created simply by assigning values to them. MATLAB does not require explicit declaration of variable types.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = 5;</code></td>
+<td>Creates a variable <code>x</code> and assigns it the value <code>5</code>.</td>
+</tr>
+<tr>
+<td><code>name = &#39;MATLAB&#39;;</code></td>
+<td>Creates a string variable <code>name</code> with the text <code>MATLAB</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="working-with-vectors">Working with Vectors</h4>
+<p>Vectors are a fundamental data structure in MATLAB used to store lists of numbers.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v = [1, 2, 3];</code></td>
+<td>Creates a row vector <code>v</code> with elements 1, 2, and 3.</td>
+</tr>
+<tr>
+<td><code>w = [1; 2; 3];</code></td>
+<td>Creates a column vector <code>w</code> with elements 1, 2, and 3.</td>
+</tr>
+<tr>
+<td><code>length(v);</code></td>
+<td>Returns the number of elements in vector <code>v</code>.</td>
+</tr>
+<tr>
+<td><code>v(2);</code></td>
+<td>Accesses the second element of vector <code>v</code>.</td>
+</tr>
+<tr>
+<td><code>v(1:2);</code></td>
+<td>Accesses the first and second elements of vector <code>v</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="working-with-matrices">Working with Matrices</h4>
+<p>Matrices are two-dimensional arrays of numbers. MATLAB is specifically designed to work efficiently with matrices.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>A = [1, 2; 3, 4];</code></td>
+<td>Creates a 2x2 matrix <code>A</code>.</td>
+</tr>
+<tr>
+<td><code>B = zeros(3,3);</code></td>
+<td>Creates a 3x3 matrix <code>B</code> filled with zeros.</td>
+</tr>
+<tr>
+<td><code>C = ones(2,4);</code></td>
+<td>Creates a 2x4 matrix <code>C</code> filled with ones.</td>
+</tr>
+<tr>
+<td><code>D = eye(3);</code></td>
+<td>Creates a 3x3 identity matrix <code>D</code>.</td>
+</tr>
+<tr>
+<td><code>size(A);</code></td>
+<td>Returns the size of matrix <code>A</code>.</td>
+</tr>
+<tr>
+<td><code>A(2,1);</code></td>
+<td>Accesses the element in the second row, first column of <code>A</code>.</td>
+</tr>
+<tr>
+<td><code>A(:,2);</code></td>
+<td>Accesses all elements in the second column of <code>A</code>.</td>
+</tr>
+<tr>
+<td><code>A(1,:);</code></td>
+<td>Accesses all elements in the first row of <code>A</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="manipulating-variables">Manipulating Variables</h4>
+<p>Once variables are created, they can be manipulated using MATLAB&#39;s built-in functions and operators.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>v = [1, 2, 3];</code></td>
+<td>Creates a row vector <code>v</code> with elements 1, 2, and 3.</td>
+</tr>
+<tr>
+<td><code>w = v + 1;</code></td>
+<td>Adds <code>1</code> to each element of vector <code>v</code>.</td>
+</tr>
+<tr>
+<td><code>u = sum(v);</code></td>
+<td>Sums the elements of <code>v</code> and stores the result in <code>u</code>.</td>
+</tr>
+<tr>
+<td><code>mean(v);</code></td>
+<td>Calculates the mean of vector <code>v</code>.</td>
+</tr>
+<tr>
+<td><code>A = A + 2;</code></td>
+<td>Adds <code>2</code> to each element of matrix <code>A</code>.</td>
+</tr>
+<tr>
+<td><code>A * 2;</code></td>
+<td>Multiplies each element of matrix <code>A</code> by <code>2</code>.</td>
+</tr>
+<tr>
+<td><code>A * B;</code></td>
+<td>Performs matrix multiplication of <code>A</code> and <code>B</code>.</td>
+</tr>
+<tr>
+<td><code>A .* B;</code></td>
+<td>Performs element-wise multiplication of <code>A</code> and <code>B</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="deleting-variables">Deleting Variables</h4>
+<p>To free up resources or clear workspace, you can delete variables that are no longer needed.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>clear x;</code></td>
+<td>Deletes the variable <code>x</code> from the workspace.</td>
+</tr>
+<tr>
+<td><code>clear x y z;</code></td>
+<td>Deletes multiple variables <code>x</code>, <code>y</code>, and <code>z</code>.</td>
+</tr>
+<tr>
+<td><code>clear all;</code></td>
+<td>Clears all variables from the workspace.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="viewing-variables">Viewing Variables</h4>
+<p>To view the variables currently stored in your workspace, you can use the Workspace window or specific commands.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>who;</code></td>
+<td>Lists all variables in the workspace.</td>
+</tr>
+<tr>
+<td><code>whos;</code></td>
+<td>Lists all variables with detailed information including size, bytes, and class.</td>
+</tr>
+</tbody>
+</table>
+<p>These basic commands and techniques provide a foundation for working with variables, vectors, and matrices in MATLAB, essential for any type of data manipulation and analysis.</p>
+
 					</div>
 
 				<!-- Footer -->
