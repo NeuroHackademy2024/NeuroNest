@@ -70,14 +70,10 @@
 									<a href="https://swcarpentry.github.io/shell-novice/#install-software">Software Carpentry Installation Tutorial</a>
 									<a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">Carpentries Workshop Installation Instructions</a></p>
 							<h3>How do I use the command shell?</h3>
-								<p>Upon opening the shell application, you will see a prompt, which indicates that the shell is ready for input. This prompt is also called the “command line”. The prompt typically ends in a $, but can also end with #, &gt;, %, or >>>.</p>
-								<pre><code>
-$
-								</code></pre>
-								<p>Your prompt might look different. Most  shell environments  put your user name and the host name before the $. For example, your prompt might look like:
-									<pre><code>
-amordy@localhost $
-									</code></pre>
+								<p>Upon opening the shell application, you will see a prompt, which indicates that the shell is ready for input. This prompt is also called the “command line”. The prompt typically ends in a $, but can also end with #, &gt;, %, or >>>.</p>								
+<pre><code>$</code></pre>
+								<p>Your prompt might look different. Most  shell environments  put your user name and the host name before the $. For example, your prompt might look like:									
+<pre><code>amordy@localhost $</code></pre>									
 								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs.</p>
 								<p>Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
 							<h2 id="keyboard-shortcuts-for-the-command-window">Keyboard Shortcuts for the Command Window</h2>
@@ -91,8 +87,10 @@ amordy@localhost $
 								</thead>
 								<tbody>
 								<tr>
-								<td><code>Tab</code></td>
-								<td>Auto-completes commands and variable names based on partially typed text.</td>
+								<td><code>Single Tab</code></td>
+								<td>Auto-completes commands and variable names based on partially typed text if there is a unique match.</td>
+								<td><code>Double Tab</code></td>
+								<td>Lists all possible completions if there are multiple matches.</td>
 								</tr>
 								<tr>
 								<td><code>Up Arrow</code></td>
@@ -180,16 +178,11 @@ amordy@localhost $
 								<p>At the top of the file system/directory tree is the root directory, which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).
 								<p>While we are using the shell, we can only be in one directory at a time (unless multiple windows are open). This is called our <i>current working directory</i>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
 								<p>Most home directories follow this path format: <code>/Users/name </code>. In this example, we know that /Users/amordy is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
-								<p>To see your current working directory, we will execute the command that <i>prints our working directory</i>, <code>pwd</code></p>
-								<pre><code>
-$ pwd
-								</code></pre>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">pwd</span></code></pre>
+								<p>To see your current working directory, we will execute the command that <i>prints our working directory</i>, <code>pwd</code></p>								
+<pre><code>$ pwd </code></pre>								
 								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
-								<p>Next, to see the files within our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code></p>
-								<pre><code>
-$ ls
-								</code></pre>
+								<p>Next, to see the files within our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code></p>								
+<pre><code>$ ls</code></pre>								
 								<p>Your output is a list of the files and directories within your current working directory</p>	
 							<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
 								<table>
@@ -205,7 +198,7 @@ $ ls
 								<td>Prints the current working directory path.</td>
 								</tr>
 								<tr>
-								<td><code>cd &#39;foldername&#39;</code></td>
+								<td><code>cd foldername</code></td>
 								<td>Changes the current working directory a subdirectory called "foldername".</td>
 								</tr>
 								<tr>
@@ -241,7 +234,7 @@ $ ls
 								<td>Opens the manual for "command".</td>
 								</tr>
 								<tr>
-								<td><code>help command</code></td>
+								<td><code>command --help</code></td>
 								<td>Displays help text for "command".</td>
 								</tr>
 								<tr>
@@ -264,10 +257,7 @@ $ ls
 <pre><code class="lang-bash"><span class="hljs-built_in">$ command <flags/options> <arguments></span></code></pre>
 							<h3>Executing Commands</h3>
 								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
-								<code></code>
-									<pre><code>
-$ ls
-									</code></pre>
+<pre><code>$ ls</code></pre>									
 								<p><strong>With Arguments </strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
 <pre><code>$ cd /path/to/directory </code></pre>
 								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
@@ -282,7 +272,7 @@ $ ls
 								<p>To list contents of the 'Desktop' directory:</p>
 <pre><code>$ ls -F Desktop</code></pre>
 								<p>To make a new directory:</p>
-<pre><code>$ mkdir -p Desktop/practice/example
+<pre><code>$ mkdir -p Desktop/practice/example</code></pre>
 								<p>To move into the 'Desktop' directory:</p>
 <pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
 							<h2>Path Types</h2>	
