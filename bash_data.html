@@ -289,6 +289,93 @@
 									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory</p></li>
 									<li><p><code>$ cd .. </code></p></li>
 								</ul></p>
+							<h2 id="working-with-files-and-directories">Working With Files and Directories</h2>
+							<h3 id="basic-directory-management">Basic Directory Management</h3>
+								<p><code>$ mkdkir [path]</code></p>
+								<p>Creates a new directory. Avoid using spaces; underscores are not recommended.</p>
+								<p>Example: <code>mkdir results</code></p>
+								<p>The <code>-p</code> flag  creates a project directory with two subdirectories (data and results) in the parent directory (one step up).</p>
+								<p>Example: <code>mkdir -p ../project/data ../project/results</code></p>
+							<h3>File Creation and Editing</h3>
+								<p>Create or Edit a File: <code>nano &lt;filename&gt;</code></p>
+								<p>If the file does not exist, it will be created. Type your content, then save and exit.</p>
+								<h4 id="shortcut-keys-in-nano-">Shortcut Keys in Nano:</h4>
+									<table>
+									<thead>
+									<tr>
+									<th>Command</th>
+									<th>Description</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+									<td><code>Ctrl + O</code></td>
+									<td>Save the file (into a current or new name).</td>
+									</tr>
+									<tr>
+									<td><code>Ctrl + X</code></td>
+									<td>Exit the editor. If unsaved, nano will prompt to save.</td>
+									</tr>
+									<tr>
+									<td><code>Ctrl + K</code></td>
+									<td>Cut (“kill”) a line of text. Repeated use cuts multiple lines.</td>
+									</tr>
+									<tr>
+									<td><code>Ctrl + U</code></td>
+									<td>Paste the cut text.</td>
+									</tr>
+									</tbody>
+									</table>
+							<h3 id="file-and-directory-operations">File and Directory Operations</h3>
+								<p>Create an Empty File: <code>touch &lt;filename&gt;</code>
+								Creates an empty file. Useful for generating placeholder files required by some programs.</p>
+								<p>Copy a File: <code>cp [old] [new]</code>
+								Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></p>
+								<p>Copy a Directory: <code>cp -r [source] [destination]</code>
+								Copies a directory and all its contents.
+								Move/Rename a File or Directory: <code>mv [old] [new]</code></p>
+								<p>Remove an Empty Directory: <code>rmdir [directory]</code></p>
+								<p>Remove a File Permanently: <code>rm [path]</code></p>
+								<p>Interactive Mode: <code>rm -i [path]</code>
+								Prompts for confirmation before deletion.
+								Remove a Directory and Its Contents: <code>rm -r [directory]</code></p>
+								<p>Interactive Mode: <code>rm -r -i [directory]</code>
+								Prompts for confirmation before deletion.
+								Important Note: Deleted files are gone forever—there is no trash or recycle bin.</p>
+							<h3>Wildcard Characters</h3>
+							<ul>
+							<li>— Matches zero or more characters. Example: *.txt matches all .txt files.
+							? — Matches any single character. Example: ?.txt matches a.txt but not any.txt.
+							Pipes and Filters
+							Pipe Operator: |</li>
+							</ul>
+							<p>Redirects the output of one command into another.
+							Example: ls | wc
+							Counts lines, words, and characters in the output of ls.
+							Redirect Output to a File: command &gt; [file]</p>
+							<p>Overwrites the file with command output.
+							Append Output to a File: command &gt;&gt; [file]</p>
+							<h3>Common Commands:</h3>
+							<p>cat: Prints the contents of files. Example: cat file1.txt file2.txt
+							more: Similar to cat, but displays one page at a time. Spacebar to continue.
+							less -N [file]: Displays content page by page with line numbers. Use q to exit.
+							sort [file]: Sorts file contents alphanumerically. Use -n for numerical sorting.
+							head [file]: Displays the first 10 lines. Use -n [#] to specify the number of lines.
+							tail [file]: Displays the last 10 lines.
+							Count and Filter:</p>
+							<p>wc [file]: Counts lines, words, and characters.
+							Example: wc -l *.txt outputs the line count for each file.
+							grep [pattern] [file]: Searches for a pattern in files.
+							Use -v to exclude lines with the pattern, -i for case-insensitivity.
+							Example with Pipes:</p>
+							<p>ls | grep &quot;D&quot; | wc
+							Counts the number of words containing &quot;D&quot; in the ls output.
+							Command Redirection
+							Redirect Output to a File: ls -l &gt; filename.list</p>
+							<p>Pipe Output to Another Command: cat filename.list | grep keyword &gt; filefound.list</p>
+							<p>Remove Duplicates: cut -d , -f 2 [file].csv | sort | uniq</p>
+							<p>cut: Extracts specific columns from a file. Use -d to specify delimiter (default is TAB).</p>
+
 	
 								
 
