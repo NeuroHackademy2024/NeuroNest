@@ -182,21 +182,15 @@ amordy@localhost $
 								<p>Most home directories follow this path format: <code>/Users/name </code>. In this example, we know that /Users/amordy is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
 								<p>To see your current working directory, we will execute the command that <i>prints our working directory</i>, <code>pwd</code></p>
 								<pre><code>
-	$ pwd
+$ pwd
 								</code></pre>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">pwd</span></code></pre>
 								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
 								<p>Next, to see the files within our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code></p>
 								<pre><code>
-	$ ls
+$ ls
 								</code></pre>
-								<p>Your output is a list of the files and directories within your current working directory</p>
-	
-								<p>Note the two types of file paths: </p>
-									<pre><code class="lang-output"><span class="hljs-regexp">/Users/</span>nelle</code></pre>
-									<p><ul>
-										<li><p><strong>Absolute Path:</strong> Specifies the entire path from the root directory. E.g., <code>ls /Users/your-username</code></p></li>
-										<li><p><strong>Relative Path:</strong> Specifies the path relative to the current directory. E.g., <code>cd Desktop</code></p></li>
-									</ul></p>	
+								<p>Your output is a list of the files and directories within your current working directory</p>	
 							<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
 								<table>
 								<thead>
@@ -264,14 +258,48 @@ amordy@localhost $
 								</tr>
 								</tbody>
 								</table>
-						
-<pre><code class="lang-bash">$ <span class="hljs-built_in">pwd</span></code></pre>
 							<h2 id="using-flags-and-arguments-in-commands">Using Flags and Arguments in Commands</h2>
 							<h3 id="syntax-for-commands">Syntax for Commands:</h3>
 							<p>Commands are executed through the command line. Most commands follow the same format: command, then flags/options, then arguments. </p>
-							<pre><code class="lang-bash">$ <span class="hljs-built_in">$ command <flags/options> <arguments></span></code></pre>
-							<h4>Executing Commands</h4>
-								<p>Flags generally precede any arguments passed to a UNIX command.</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">$ command <flags/options> <arguments></span></code></pre>
+							<h3>Executing Commands</h3>
+								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
+								<code></code>
+									<pre><code>
+$ ls
+									</code></pre>
+								<p><strong>With Arguments </strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
+<pre><code>$ cd /path/to/directory </code></pre>
+								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
+<pre><code>$ ls -l </code></pre>
+								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
+								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to list all files, including hidden ones, in the /Desktop directory:<p>
+<pre><code>$ ls -a /Desktop </code></pre>
+								<p><strong>Combing Flags</strong>: You can combine multiple flags with a single -, with no spaces between flags. For example:</p>
+<pre><code>$ ls -Fa </code></pre>
+								<p><strong>Examples</strong>: Here are some examples of using commands with flags and arguments:</p>
+
+								<p>To list contents of the 'Desktop' directory:</p>
+<pre><code>$ ls -F Desktop</code></pre>
+								<p>To make a new directory:</p>
+<pre><code>$ mkdir -p Desktop/practice/example
+								<p>To move into the 'Desktop' directory:</p>
+<pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
+							<h2>Path Types</h2>	
+								<p><ul>
+									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory.</p></li>
+									<li><p><code>$ ls /Users/name</code></p></li>
+									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory.</p></li>
+									<li><p><code>$ cd Desktop</code></p></li>
+									<li><p><strong>Home Directory:</strong> The tilde ~ represents the home directory.</p></li>
+									<li><p><code>$ cd ~ </code></p></li>
+									<li><p><code>$ cd ~/Documents</code></p></li>
+									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory</p></li>
+									<li><p><code>$ ls . </code></p></li>
+									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory</p></li>
+									<li><p><code>$ cd .. </code></p></li>
+								</ul></p>
+	
 								
 
 								
