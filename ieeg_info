@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<!--
+    Phantom by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>Introduction to iEEG - Phantom by HTML5 UP</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+        <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Header -->
+            <header id="header">
+                <div class="inner">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+                    </a>
+                    <!-- Nav -->
+                    <nav>
+                        <ul>
+                            <li><a href="#menu">Menu</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <!-- Menu -->
+            <nav id="menu">
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="generic.html">Ipsum veroeros</a></li>
+                    <li><a href="generic.html">Tempus etiam</a></li>
+                    <li><a href="generic.html">Consequat dolor</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                </ul>
+            </nav>
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+                    <h1>Introduction to Intracranial EEG (iEEG)</h1>
+                    <span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+                    <h2>Overview</h2>
+                    <p>Intracranial EEG (iEEG) is a powerful neurophysiological method that involves recording electrical activity directly from the brain. It is primarily used in clinical settings to monitor and diagnose epilepsy and other neurological disorders. By placing electrodes directly on the surface of the brain or within its structure, iEEG provides high-resolution data about neuronal activity.</p>
+                    <h2>How iEEG Works</h2>
+                    <p>The iEEG process begins with the surgical implantation of electrodes. These electrodes can be placed subdurally (on the brain's surface) or depth electrodes can be inserted into brain tissue. The placement is guided by neuroimaging techniques like MRI and CT scans, ensuring precision in targeting the regions of interest.</p>
+                    <h2>Applications of iEEG</h2>
+                    <p>iEEG is most commonly used in epilepsy surgery evaluations. By identifying the precise regions where seizures originate, surgeons can plan more effective interventions. Additionally, iEEG is used in research to study brain function, cognition, and to map out critical brain areas before neurosurgery.</p>
+                    <h2>Advantages of iEEG</h2>
+                    <p>iEEG offers several advantages over non-invasive EEG, including:</p>
+                    <ul>
+                        <li>Higher spatial resolution: iEEG provides detailed localization of brain activity.</li>
+                        <li>Less interference: iEEG recordings are less affected by artifacts from muscle activity or external electrical sources.</li>
+                        <li>Direct measurement: iEEG measures the electrical activity directly from the brain, providing a more accurate reflection of neuronal activity.</li>
+                    </ul>
+                    <h2>Challenges and Risks</h2>
+                    <p>While iEEG is a valuable tool, it comes with inherent risks and challenges. The surgical procedure carries risks of infection, bleeding, and damage to brain tissue. Additionally, the high cost and invasiveness limit its use to specific clinical and research scenarios.</p>
+                    <h2>Future Directions</h2>
+                    <p>Advancements in iEEG technology and techniques continue to improve its safety and efficacy. Innovations such as high-density electrode arrays and wireless recording systems are expanding the possibilities for iEEG in both clinical and research contexts. As our understanding of the brain deepens, iEEG will remain a crucial method for unlocking the mysteries of neural function.</p>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <section>
+                        <h2>Get in touch</h2>
+                        <form method="post" action="#">
+                            <div class="fields">
+                                <div class="field half">
+                                    <input type="text" name="name" id="name" placeholder="Name" />
+                                </div>
+                                <div class="field half">
+                                    <input type="email" name="email" id="email" placeholder="Email" />
+                                </div>
+                                <div class="field">
+                                    <textarea name="message" id="message" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="submit" value="Send" class="primary" /></li>
+                            </ul>
+                        </form>
+                    </section>
+                    <section>
+                        <h2>Follow</h2>
+                        <ul class="icons">
+                            <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                            <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+                            <li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+                            <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+                            <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+                        </ul>
+                    </section>
+                    <ul class="copyright">
+                        <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
