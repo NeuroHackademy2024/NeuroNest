@@ -52,24 +52,201 @@
 						<div class="inner">
 							<h1>Bash/Command Line</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<h2>What is Bash?</h3>
+							<h2>Introduction to Bash<h2>
+							<h3>What is Bash?</h3>
 							<p>Bash is a command-line interface (CLI) shell program. The name Bash is an acronym for “Bourne Again SHell,” as it was derived from a shell written by Stephen Bourne. Bash is often the default shell in Unix and in most packages that provide Unix-like tools for Windows. </p>
-							<h2>What is a shell?</h2>
+							<h3>What is a shell?</h3>
 								<p>A “shell”  is a computer program that allows us to control a computer’s operating system (OS) with a command-line interface (CLI) or graphical user interface (GUI). The CLI enables us to send commands to the computer, run processes, and receive outputs. A shell may also be referred to as “command line” or “terminal”.</p>
-							<h2>What is Unix?</h2>
+							<h3>What is Unix?</h3>
 								<p>Unix is an operating system. The UNIX operating system is one of the most commonly-used tools for computing, as it is an powerful tool for controlling how the computer executes programs. The Unix shell is both a command-line interface (CLI) and a scripting language that allows users to perform complex tasks like automating repetitive processes, and creating large, efficient workflows.</p>
-							<h2>How do I install a Shell program?</h2>
+							<h3>How do I install a Shell program?</h3>
 								<p>On Apple's Mac computers, you can find the shell application in your Applications/Utilities folder under the name “Terminal” or click on the Finder magnifying glass, and type &quot;Terminal&quot;. On many Linux operating systems, Terminal comes installed with the operating system. On Windows, you can install a shell application by installing <a href="https://gitforwindows.org/">git for Windows</a>. </p>
 								<p>If you're having trouble downloading, installing, or accessing your computer's shell application, here are some helpful links:
 									<a href="https://swcarpentry.github.io/shell-novice/#install-software">https://swcarpentry.github.io/shell-novice/#install-software</a>
 									<a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">https://carpentries.github.io/workshop-template/install_instructions/#shell</a></p>
-							<h2>How do I use the command shell?</h2>
-								<p>Upon opening the shell application, you will see a prompt, which indicates that the shell is ready for input. This prompt is also called the “command line”. The prompt typically ends in a $, but can also end with #, &gt;, or %&gt;%. The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the “enter” or “return” key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs.</p>
-							<pre><code>
+							<h3>How do I use the command shell?</h3>
+								<p>Upon opening the shell application, you will see a prompt, which indicates that the shell is ready for input. This prompt is also called the “command line”. The prompt typically ends in a $, but can also end with #, &gt;, %, or %&gt;%. The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs.</p>
+								<pre><code>
 $
-							</code></pre>
-							<p>Note: Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
-							<pre><code>
+								</code></pre>
+								<p>Note: Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
+								<h2 id="keyboard-shortcuts-for-the-command-window">Keyboard Shortcuts for the Command Window</h2>
+								<p>This cheat sheet includes common keyboard shortcuts that are handy when coding in the shell application.</p>
+								<h4 id="for-windows-users">For Windows Users</h4>
+								<table>
+								<thead>
+								<tr>
+								<th>Shortcut</th>
+								<th>Description</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+								<td><code>Tab</code></td>
+								<td>Auto-completes commands and variable names based on partially typed text.</td>
+								</tr>
+								<tr>
+								<td><code>Up Arrow</code></td>
+								<td>Scrolls up through the history to recall previous commands, useful for repetition or modification.</td>
+								</tr>
+								<tr>
+								<td><code>Down Arrow</code></td>
+								<td>Scrolls down in the command history after using the Up Arrow.</td>
+								</tr>
+								<tr>
+								<td><code>Ctrl + C</code></td>
+								<td>Interrupts the execution of the current command or script.</td>
+								</tr>
+								<tr>
+								<td><code>Ctrl + L</code></td>
+								<td>Clears the screen, keeping the history intact.</td>
+								</tr>
+								<tr>
+								<td><code>Backspace</code></td>
+								<td>Deletes the character to the left of the cursor.</td>
+								</tr>
+								<tr>
+								<td><code>Delete</code></td>
+								<td>Deletes the character right at the cursor position.</td>
+								</tr>
+								<tr>
+								<td><code>Enter</code></td>
+								<td>Executes the command currently typed in the Command Window.</td>
+								</tr>
+								<tr>
+								<td><code>Shift + Enter</code></td>
+								<td>Continues command entry onto the next line for multi-line commands.</td>
+								</tr>
+								</tbody>
+								</table>
+								<h4 id="for-mac-users">For Mac Users</h4>
+								<table>
+								<thead>
+								<tr>
+								<th>Shortcut</th>
+								<th>Description</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+								<td><code>Tab</code></td>
+								<td>Auto-completes commands and variable names based on partially typed text.</td>
+								</tr>
+								<tr>
+								<td><code>Up Arrow</code></td>
+								<td>Scrolls through the history to recall previous commands.</td>
+								</tr>
+								<tr>
+								<td><code>Down Arrow</code></td>
+								<td>Scrolls forward in the command history after using the Up Arrow.</td>
+								</tr>
+								<tr>
+								<td><code>Cmd + C</code></td>
+								<td>Interrupts the execution of the current command or script.</td>
+								</tr>
+								<tr>
+								<td><code>Cmd + L</code></td>
+								<td>Clears the last executed command from the screen, keeping the history intact.</td>
+								</tr>
+								<tr>
+								<td><code>Delete</code></td>
+								<td>Deletes the character to the left of the cursor.</td>
+								</tr>
+								<tr>
+								<td><code>Fn + Delete</code></td>
+								<td>Deletes the character to the right of the cursor position.</td>
+								</tr>
+								<tr>
+								<td><code>Return</code></td>
+								<td>Executes the command currently typed in the Command Window.</td>
+								</tr>
+								<tr>
+								<td><code>Shift + Return</code></td>
+								<td>Continues command entry onto the next line for multi-line commands.</td>
+								</tr>
+								</tbody>
+								</table>
+								<h2 id="using-the-shell">Using the shell</h2>
+								<h3 id="directories-">Directories:</h3>
+								<p>Folders and files are organized using a directory tree, starting with the root directory (/). </p>
+								<ul>
+								<li><p><strong>Absolute Path:</strong> Specifies the entire path from the root directory. E.g., <code>ls /Users/your-username</code></p>
+								</li>
+								<li><p><strong>Relative Path:</strong> Specifies the path relative to the current directory. E.g., <code>cd Desktop</code></p>
+								</li>
+								</ul>
+								<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
+								<table>
+								<thead>
+								<tr>
+								<th>Command</th>
+								<th>Description</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+								<td><code>pwd</code></td>
+								<td>Prints the current working directory path.</td>
+								</tr>
+								<tr>
+								<td><code>cd &#39;folder&#39;</code></td>
+								<td>Changes the current working directory to &#39;folder&#39;.</td>
+								</tr>
+								<tr>
+								<td><code>cd ~</code></td>
+								<td>Changes the current directory to the user&#39;s home directory.</td>
+								</tr>
+								<tr>
+								<td><code>cd .</code></td>
+								<td>Refers to the current directory.</td>
+								</tr>
+								<tr>
+								<td><code>cd ..</code></td>
+								<td>Moves up one level in the directory tree.</td>
+								</tr>
+								<tr>
+								<td><code>ls</code></td>
+								<td>Lists all files and directories in the current directory.</td>
+								</tr>
+								<tr>
+								<td><code>mkdir &#39;dirname&#39;</code></td>
+								<td>Creates a new directory named &#39;dirname&#39;.</td>
+								</tr>
+								<tr>
+								<td><code>rmdir &#39;dirname&#39;</code></td>
+								<td>Removes the directory named &#39;dirname&#39;, if it is empty.</td>
+								</tr>
+								<tr>
+								<td><code>nano &#39;filename&#39;</code></td>
+								<td>Opens the specified file in nano editor.</td>
+								</tr>
+								<tr>
+								<td><code>man command</code></td>
+								<td>Opens the manual for &#39;command&#39;.</td>
+								</tr>
+								<tr>
+								<td><code>help command</code></td>
+								<td>Displays help text for &#39;command&#39; in the Command Window.</td>
+								</tr>
+								<tr>
+								<td><code>exit</code></td>
+								<td>Exits terminal.</td>
+								</tr>
+								<tr>
+								<td><code>echo $NAME</code></td>
+								<td>Prints variable.</td>
+								</tr>
+								<tr>
+								<td><code>clear</code></td>
+								<td>Clears the screen, keeping the history intact.</td>
+								</tr>
+								</tbody>
+								</table>
+
+								
+								
+								
+								<pre><code>
 !/bin/bash
 # This is a sample bash script
 echo "Hello, World!"
