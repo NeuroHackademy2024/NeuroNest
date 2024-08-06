@@ -74,7 +74,7 @@
 <pre><code>$</code></pre>
 								<p>Your prompt might look different. Most  shell environments  put your user name and the host name before the $. For example, your prompt might look like:									
 <pre><code>amordy@localhost $</code></pre>									
-								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs.</p>
+								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs.</p> In some of the example code, you will see file and directory names in brackets (e.g., [username]). Text in brackets should be replaced with your own names.  
 								<p>Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
 							<h2 id="keyboard-shortcuts-for-the-command-window">Keyboard Shortcuts for the Command Window</h2>
 							<h3 id="for-windows-users">For Windows Users</h3>
@@ -226,11 +226,11 @@
 								<td>Creates a new directory named "dirname";.</td>
 								</tr>
 								<tr>
-								<td><code>rmdir dirname;</code></td>
+								<td><code>rmdir dirname</code></td>
 								<td>Removes the directory named "dirname", if empty.</td>
 								</tr>
 								<tr>
-								<td><code>nano filename;</code></td>
+								<td><code>nano filename</code></td>
 								<td>Opens the specified file ("filename") in the nano text editor.</td>
 								</tr>
 								<tr>
@@ -257,7 +257,7 @@
 								</table>
 							<h2 id="using-flags-and-arguments-in-commands">Using Flags and Arguments in Commands</h2>
 							<h3 id="syntax-for-commands">Syntax for Commands:</h3>
-							<p>Commands are executed through the command line. Most commands follow the same format: command, then flags/options, then arguments. </p>
+								<p>Commands are executed through the command line. Most commands follow the same format: command, then flags/options, then arguments. </p>
 <pre><code>$ command <flags/options> <arguments></span></code></pre>
 							<h3>Executing Commands</h3>
 								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
@@ -267,8 +267,8 @@
 								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
 <pre><code>$ ls -l </code></pre>
 								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
-								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to list all files, including hidden ones, in the /Desktop directory:<p>
-<pre><code>$ ls -a /Desktop </code></pre>
+								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to list all files, including hidden ones, in the Desktop directory:<p>
+<pre><code>$ ls -a Desktop </code></pre>
 								<p><strong>Combing Flags</strong>: You can combine multiple flags with a single -, with no spaces between flags. For example:</p>
 <pre><code>$ ls -Fa </code></pre>
 								<p><strong>Examples</strong>: Here are some examples of using commands with flags and arguments:</p>
@@ -281,29 +281,26 @@
 <pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
 							<h2>Path Types</h2>	
 								<p><ul>
-									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory.
-									<code>$ ls /Users/name</code></p></li>
-									
-									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory.</p></li>
-									<li><p><code>$ cd Desktop</code></p></li>
-									<li><p><strong>Home Directory:</strong> The tilde ~ represents the home directory.</p></li>
-									<li><p><code>$ cd ~ </code></p></li>
-									<li><p><code>$ cd ~/Documents</code></p></li>
-									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory</p></li>
-									<li><p><code>$ ls . </code></p></li>
-									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory</p></li>
-									<li><p><code>$ cd .. </code></p></li>
+									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory. Example: <code>$ ls /Users/name</code></p></li>
+									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory.Example: <code>$ cd Desktop</code></p></li>
+									<li><p><strong>Home Directory:</strong> The tilde ~ represents the home directory. 
+										Example: <code>$ cd ~ </code> 
+										<code>$ cd ~/Documents</code></p></li>
+									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory. Example: <code>$ ls . </code></p></li>
+									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory. Example: <code>$ cd .. </code></p></li>
 								</ul></p>
 							<h2 id="working-with-files-and-directories">Working With Files and Directories</h2>
 							<h3 id="basic-directory-management">Basic Directory Management</h3>
-								<p><code>$ mkdkir [path]</code></p>
-								<p>Creates a new directory. Avoid using spaces; underscores are not recommended.</p>
-								<p>Example: <code>mkdir results</code></p>
-								<p>The <code>-p</code> flag  creates a project directory with two subdirectories (data and results) in the parent directory (one step up).</p>
-								<p>Example: <code>mkdir -p ../project/data ../project/results</code></p>
-							<h3>File Creation and Editing</h3>
-								<p>Create or Edit a File: <code>nano &lt;filename&gt;</code></p>
-								<p>If the file does not exist, it will be created. Type your content, then save and exit.</p>
+								<ul>
+								<li><p><strong><code>$ mkdir [dirname]code>: Make a new directory</strong></p>
+								<ul>
+								<li>Creates a new directory. Avoid using spaces; underscores are not recommended.</li>
+								<li>Example: <code>mkdir results</code></li>
+								</ul>
+							<h3>Working with Files</h3>
+								<ul>
+								<li><strong>Create or Edit a File:<code>nano &lt;filename&gt;</code></strong></li>
+								<li>If the file does not exist, it will be created. Type your content, then save and exit.</li>
 								<h4 id="shortcut-keys-in-nano-">Shortcut Keys in Nano:</h4>
 									<table>
 									<thead>
@@ -331,11 +328,18 @@
 									</tr>
 									</tbody>
 									</table>
+								</ul>
 							<h3 id="file-and-directory-operations">File and Directory Operations</h3>
-								<p>Create an Empty File: <code>touch &lt;filename&gt;</code>
-								Creates an empty file. Useful for generating placeholder files required by some programs.</p>
-								<p>Copy a File: <code>cp [old] [new]</code>
-								Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></p>
+								<ul>
+									<li><code>touch [filename]</code>: create an empty file 
+									<p>Useful for generating placeholder files required by some programs.</p></li>
+									<li><code>cp [old] [new]</code>: make a copy of the file
+									<p>Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></p></li>
+								
+								
+								</ul>
+								
+								
 								<p>Copy a Directory: <code>cp -r [source] [destination]</code>
 								Copies a directory and all its contents.
 								Move/Rename a File or Directory: <code>mv [old] [new]</code></p>
