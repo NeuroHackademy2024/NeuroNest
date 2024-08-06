@@ -54,29 +54,33 @@
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
 							<h2>Introduction to Bash<h2>
 							<h3>What is Bash?</h3>
-								<p>Bash is a command-line interface (CLI) shell program. The name Bash is an acronym for “Bourne Again SHell,” as it was derived from a shell written by Stephen Bourne. Bash is often the default shell in Unix and in most packages that provide Unix-like tools for Windows. </p>
+								<p>Bash is a command-line interface (CLI) shell program. The name Bash stands for “Bourne Again SHell,” a reference to its predecessor, the Bourne shell (sh), written by Stephen Bourne. Bash is often the default shell in many Unix-like, including Linux and MacOS, and is available on Windows through tools like Git for Windows (see below).</p>
 							<h3>What is a shell?</h3>
-								<p>A “shell”  is a computer program that allows us to control a computer’s operating system (OS) with a command-line interface (CLI) or graphical user interface (GUI). The CLI enables us to send commands to the computer, run processes, and receive outputs. A shell may also be referred to as “command line” or “terminal”.</p>
+								<p>A “shell”  is a computer program that provides a way for users to interact with the computer's operating system. It can be a command-line interface (CLI) or a graphical user interface (GUI). The CLI allows users to type commands to run processes and manage the system, while the GUI provides a more visual approach.</p>
 							<h3>What is Unix?</h3>
-								<p>Unix is an operating system. The UNIX operating system is one of the most commonly-used tools for computing, as it is an powerful tool for controlling how the computer executes programs. The Unix shell is both a command-line interface (CLI) and a scripting language that allows users to perform complex tasks like automating repetitive processes, and creating large, efficient workflows.</p>
+								<p>Unix is a powerful operating system known for its multitasking and multiuser capabilities. It provides a command-line interface and a scripting language, which allows users to automate tasks and manage complex workflows efficiently. Unix has influenced many modern operating systems, including Linux and macOS.</p>
 							<h3>How do I install a Shell program?</h3>
-								<p>On Apple's Mac computers, you can find the shell application in your Applications/Utilities folder under the name “Terminal” or click on the Finder magnifying glass, and type &quot;Terminal&quot;. On many Linux operating systems, Terminal comes installed with the operating system. On Windows, you can install a shell application by installing <a href="https://gitforwindows.org/">git for Windows</a>. </p>
-								<p>If you're having trouble downloading, installing, or accessing your computer's shell application, here are some helpful links:
-									<a href="https://swcarpentry.github.io/shell-novice/#install-software">https://swcarpentry.github.io/shell-novice/#install-software</a>
-									<a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">https://carpentries.github.io/workshop-template/install_instructions/#shell</a></p>
+								<p><ul>
+									<li><p><strong>macOS:</strong> The shell application is called “Terminal,” located in Applications > Utilities, or you can search for "Terminal" using Spotlight.</p></li>
+									<li><p><strong>Linux:</strong> Terminal applications are usually pre-installed. You can open it from the application menu or by pressing <code>Ctrl + Alt + T</code>.</p></li>
+									<li><p><strong>Windows:</strong> Install  <a href="https://gitforwindows.org/">git for Windows</a> to get Git Bash or use Windows Subsystem for Linux (WSL) for a more comprehensive Unix-like environment.</p></li>
+								</ul></p>
+								<p>For troubleshooting and installation assistance, refer to these resources: </p>
+									<a href="https://gitforwindows.org/">git for Windows</a>
+									<a href="https://swcarpentry.github.io/shell-novice/#install-software">Software Carpentry Installation Tutorial</a>
+									<a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">Carpentries Workshop Installation Instructions</a></p>
 							<h3>How do I use the command shell?</h3>
-								<p>Upon opening the shell application, you will see a prompt, which indicates that the shell is ready for input. This prompt is also called the “command line”. The prompt typically ends in a $, but can also end with #, &gt;, %, or %&gt;%.</p>
+								<p>Upon opening the shell application, you will see a prompt, which indicates that the shell is ready for input. This prompt is also called the “command line”. The prompt typically ends in a $, but can also end with #, &gt;, %, or >>>.</p>
 								<pre><code>
 $
 								</code></pre>
 								<p>Your prompt might look different. Most  shell environments  put your user name and the host name before the $. For example, your prompt might look like:
 									<pre><code>
-										amordy@localhost $
+amordy@localhost $
 									</code></pre>
 								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs.</p>
-								<p>Note: Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
+								<p>Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
 							<h2 id="keyboard-shortcuts-for-the-command-window">Keyboard Shortcuts for the Command Window</h2>
-								<p>This cheat sheet includes common keyboard shortcuts that are handy when coding in the shell application.</p>
 							<h3 id="for-windows-users">For Windows Users</h3>
 								<table>
 								<thead>
@@ -92,19 +96,19 @@ $
 								</tr>
 								<tr>
 								<td><code>Up Arrow</code></td>
-								<td>Scrolls up through the history to recall previous commands, useful for repetition or modification.</td>
+								<td>Scrolls up through command history.</td>
 								</tr>
 								<tr>
 								<td><code>Down Arrow</code></td>
-								<td>Scrolls down in the command history after using the Up Arrow.</td>
+								<td>Scrolls down through command history.</td>
 								</tr>
 								<tr>
 								<td><code>Ctrl + C</code></td>
-								<td>Interrupts the execution of the current command or script.</td>
+								<td>Interrupts the current command or script.</td>
 								</tr>
 								<tr>
 								<td><code>Ctrl + L</code></td>
-								<td>Clears the screen, keeping the history intact.</td>
+								<td>Clears the screen, keeping command history. </td>
 								</tr>
 								<tr>
 								<td><code>Backspace</code></td>
@@ -112,15 +116,15 @@ $
 								</tr>
 								<tr>
 								<td><code>Delete</code></td>
-								<td>Deletes the character right at the cursor position.</td>
+								<td>Deletes the character at the cursor position.</td>
 								</tr>
 								<tr>
 								<td><code>Enter</code></td>
-								<td>Executes the command currently typed in the Command Window.</td>
+								<td>Executes the command typed in the command line</td>
 								</tr>
 								<tr>
 								<td><code>Shift + Enter</code></td>
-								<td>Continues command entry onto the next line for multi-line commands.</td>
+								<td>Continues command entry onto the next line.</td>
 								</tr>
 								</tbody>
 								</table>
@@ -139,19 +143,19 @@ $
 								</tr>
 								<tr>
 								<td><code>Up Arrow</code></td>
-								<td>Scrolls through the history to recall previous commands.</td>
+								<td>Scrolls up through command history.</td>
 								</tr>
 								<tr>
 								<td><code>Down Arrow</code></td>
-								<td>Scrolls forward in the command history after using the Up Arrow.</td>
+								<td>Scrolls down through command history.</td>
 								</tr>
 								<tr>
 								<td><code>Cmd + C</code></td>
-								<td>Interrupts the execution of the current command or script.</td>
+								<td>Interrupts the current command or script.</td>
 								</tr>
 								<tr>
 								<td><code>Cmd + L</code></td>
-								<td>Clears the last executed command from the screen, keeping the history intact.</td>
+								<td>Clears the last executed command from the screen, keeping command history</td>
 								</tr>
 								<tr>
 								<td><code>Delete</code></td>
@@ -159,24 +163,40 @@ $
 								</tr>
 								<tr>
 								<td><code>Fn + Delete</code></td>
-								<td>Deletes the character to the right of the cursor position.</td>
+								<td>Deletes the character to the right of the cursor.</td>
 								</tr>
 								<tr>
 								<td><code>Return</code></td>
-								<td>Executes the command currently typed in the Command Window.</td>
+								<td>Executes the command typed in the command line.</td>
 								</tr>
 								<tr>
 								<td><code>Shift + Return</code></td>
-								<td>Continues command entry onto the next line for multi-line commands.</td>
+								<td>Continues command entry onto the next line.</td>
 								</tr>
 								</tbody>
 								</table>
-						<h2 id="navigating files and directories">Navigating Files and Directories</h2>
-							<p>The file system is responsible for managing information on the computer disk. Files can be placed in folders, which we call <i>directories</i>. Directories can also store other directories, making a directory tree. </p>
-							<p>At the top of the file system/directory tree is the root directory, which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>.
-							<p>Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).
-							<p>While we are using the shell, we can only be in one place/directory at a time. This is called our <i>current working directory</i>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
-							<p>Most home directories follow this path format: /Users/name </p>
+							<h2 id="navigating files and directories">Navigating Files and Directories</h2>
+								<p>The file system organizes data on the disk in files and folders. Files can be placed in folders, which we call <i>directories</i>. Directories can also store other directories, making a directory tree. </p>
+								<p>At the top of the file system/directory tree is the root directory, which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).
+								<p>While we are using the shell, we can only be in one directory at a time (unless multiple windows are open). This is called our <i>current working directory</i>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
+								<p>Most home directories follow this path format: <code>/Users/name </code>. In this example, we know that /Users/amordy is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
+								<p>To see your current working directory, we will execute the command that <i>prints our working directory</i>, <code>pwd</code></p>
+								<pre><code>
+	$ pwd
+								</code></pre>
+								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
+								<p>Next, to see the files within our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code></p>
+								<pre><code>
+	$ ls
+								</code></pre>
+								<p>Your output is a list of the files and directories within your current working directory</p>
+	
+								<p>Note the two types of file paths: </p>
+									<pre><code class="lang-output"><span class="hljs-regexp">/Users/</span>nelle</code></pre>
+									<p><ul>
+										<li><p><strong>Absolute Path:</strong> Specifies the entire path from the root directory. E.g., <code>ls /Users/your-username</code></p></li>
+										<li><p><strong>Relative Path:</strong> Specifies the path relative to the current directory. E.g., <code>cd Desktop</code></p></li>
+									</ul></p>	
 							<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
 								<table>
 								<thead>
@@ -191,12 +211,12 @@ $
 								<td>Prints the current working directory path.</td>
 								</tr>
 								<tr>
-								<td><code>cd &#39;folder&#39;</code></td>
-								<td>Changes the current working directory to &#39;folder&#39;.</td>
+								<td><code>cd &#39;foldername&#39;</code></td>
+								<td>Changes the current working directory a subdirectory called "foldername".</td>
 								</tr>
 								<tr>
 								<td><code>cd ~</code></td>
-								<td>Changes the current directory to the user&#39;s home directory.</td>
+								<td>Changes the current working directory to the user&#39;s home directory.</td>
 								</tr>
 								<tr>
 								<td><code>cd .</code></td>
@@ -208,56 +228,62 @@ $
 								</tr>
 								<tr>
 								<td><code>ls</code></td>
-								<td>Lists all files and directories in the current directory.</td>
+								<td>Lists files and directories in the current directory.</td>
 								</tr>
 								<tr>
-								<td><code>mkdir &#39;dirname&#39;</code></td>
-								<td>Creates a new directory named &#39;dirname&#39;.</td>
+								<td><code>mkdir dirname</code></td>
+								<td>Creates a new directory named "dirname";.</td>
 								</tr>
 								<tr>
-								<td><code>rmdir &#39;dirname&#39;</code></td>
-								<td>Removes the directory named &#39;dirname&#39;, if it is empty.</td>
+								<td><code>rmdir dirname;</code></td>
+								<td>Removes the directory named "dirname", if empty.</td>
 								</tr>
 								<tr>
-								<td><code>nano &#39;filename&#39;</code></td>
-								<td>Opens the specified file in nano editor.</td>
+								<td><code>nano filename;</code></td>
+								<td>Opens the specified file ("filename") in the nano text editor.</td>
 								</tr>
 								<tr>
 								<td><code>man command</code></td>
-								<td>Opens the manual for &#39;command&#39;.</td>
+								<td>Opens the manual for "command".</td>
 								</tr>
 								<tr>
 								<td><code>help command</code></td>
-								<td>Displays help text for &#39;command&#39; in the Command Window.</td>
+								<td>Displays help text for "command".</td>
 								</tr>
 								<tr>
 								<td><code>exit</code></td>
-								<td>Exits terminal.</td>
+								<td>Exits the terminal.</td>
 								</tr>
 								<tr>
 								<td><code>echo $NAME</code></td>
-								<td>Prints variable.</td>
+								<td>Prints the value of the variable "NAME".</td>
 								</tr>
 								<tr>
 								<td><code>clear</code></td>
-								<td>Clears the screen, keeping the history intact.</td>
+								<td>Clears the terminal screen, keeping command history</td>
 								</tr>
 								</tbody>
 								</table>
+						
 <pre><code class="lang-bash">$ <span class="hljs-built_in">pwd</span></code></pre>
-								<pre><code class="lang-output"><span class="hljs-regexp">/Users/</span>nelle</code></pre>
-								<p><ul>
-									<li><p><strong>Absolute Path:</strong> Specifies the entire path from the root directory. E.g., <code>ls /Users/your-username</code></p></li>
-									<li><p><strong>Relative Path:</strong> Specifies the path relative to the current directory. E.g., <code>cd Desktop</code></p></li>
-								</ul></p>
-								<pre><code>
+							<h2 id="using-flags-and-arguments-in-commands">Using Flags and Arguments in Commands</h2>
+							<h3 id="syntax-for-commands">Syntax for Commands:</h3>
+							<p>Commands are executed through the command line. Most commands follow the same format: command, then flags/options, then arguments. </p>
+							<pre><code class="lang-bash">$ <span class="hljs-built_in">$ command <flags/options> <arguments></span></code></pre>
+							<h4>Executing Commands</h4>
+								<p>Flags generally precede any arguments passed to a UNIX command.</p>
+								
+
+								
+								
+<pre><code>
 !/bin/bash
 # This is a sample bash script
 echo "Hello, World!"
 for i in {1..5}; do
 echo "Iteration $i"
 done
-							</code></pre>
+</code></pre>
 						</div>
 					</div>
 
