@@ -80,8 +80,10 @@
 								<p>The colon <code>:</code> is used to differentiate between local and remote paths. For example:</p>
 								<pre><code>scp file.txt user@remotehost:/remote/path/</code></pre>
 								<p>Here, <code>file.txt</code> is copied to <code>/remote/path/</code> on <code>remotehost</code>. Without the colon, SCP will attempt to create a file named <code>user@remotehost</code> on your local machine.</p>
-								<h2 id="high-performance-computing-hpc-">High Performance Computing (HPC)</h2>
-								<p>HPC systems are used for computationally intensive tasks and often involve connecting to large computing systems remotely. Interacting with these systems is typically done via a command-line interface.</p>
+								<h1 id="high-performance-computing-hpc-">High Performance Computing (HPC)</h2>
+								<p>High performance computing (HPC) refers to systems that are able to operate at higher speeds, that have more memory and storage, and have faster connections with other computer systems. HPC systems are used for computationally intensive tasks and often involve connecting to large computing systems remotely. Specifically, we are able to remotely access and utilize large-scale computing systems, often referred to as "clusters", "supercomputers", or "systems for HPC". For more information about HPC clusters, visit <a href="https://epcced.github.io/hpc-shell/00-hpc-intro/index.html">the Carpenter's "Why Use a Cluster?" tutorial</a></p>.	
+								<p>Interacting with these systems is typically done via a command-line interface. To connect to an HPC system, we use <code>ssh</code> to connect remotely. As outlined above, the standard syntax follows this format: <code>ssh yourUsername@some.computer.address</code>.</p>
+								<p>To check if your connection worked, you can look at your command prompt, it should now look something like <code>[yourUsername@some.computer.address ~]$</code>. Alternatively, you can run <code>hostname</code>.</p>
 								<h3 id="modules-in-hpc">Modules in HPC</h3>
 								  <p>Modules are used to manage software environments in HPC systems. They allow users to switch between different software versions and manage dependencies.</p>
 								  <h4 id="module-commands">Module Commands</h3>
