@@ -56,17 +56,20 @@
 							<h3>What is shell scripting?</h2>
 								<p>Shell scripting a way to automate tasks in Unix-like operating systems by writing scripts (sometimes referred to as small programs).</p>
 							<h3>What is a shell script?</h2>
-								<p>A shell script is a text file with a series of commands written in a shell language, such as Bash. Instead of typing commands manually one by one in the terminal, you can save them in a script and run that script to execute all the commands automatically. Shell scripts use plain text with commands written similarly to how you would type them in the terminal. Scripts can use variables to store data and control structures like loops and conditionals to make decisions and repeat actions. </p>
+								<p>A shell script is a text file with a list of UNIX commands written in a shell language, such as Bash. Instead of typing commands manually one by one in the terminal, you can save them in a script and run that script to execute all the commands automatically. Shell scripts use plain text with commands written similarly to how you would type them in the terminal. Scripts can use variables to store data and can use structures like loops and conditionals to make decisions and repeat actions. </p>
 							<h3>Why should I use shell scripting?</h2>
 								<p>Shell scripting enhances productivity by allowing users to bundle a series of commands into a single, executable file, which can be run with a single command. Using shell scripts can be more efficient, saving you time by running multiple commands with a single script. Shell scripts are also good for consisitency and reproducibility. By using a shell script, you ensure that the commands are run the same way every time. In addition, shell scripts are helpful because they can be re-used to perform routine tasks across different projects or systems.</p>
 							<h2>Creating and Running a Script</h2>
 								<ol>
-									<li>To create a shell script, create a text file with the desired name but use a <code>.sh</code> extention instead of <code>.txt</code>. This extension tells the user that the file is a bash script. For example:</li>
-<pre><code>$ nano [scriptname].sh</code></pre>
-									<li>After opening the .sh file in a text editor (like nano), you need to make sure your system knows it is a bash script. To do this, we add a shebang <code>#!</code>. The first line in your script should be:</li>
-<pre><code>$ #!/bin/bash</code></pre>
-									<li>Use <code>./</code> to run scripts in the current directory:</li>
-<pre><code>$ ./[scriptname].sh</code></pre>
+									<li>To create a shell script, create a text file with the desired name but use a <code>.sh</code> extention instead of <code>.txt</code>. The <code>.sh</code> is the standard file extension for shell scripts. This extension indicates that the file is a bash script. For example, to create a script named "practice.sh", we would run:</li>
+<pre><code>$ nano practice.sh</code></pre>
+									<li>After opening the .sh file in a text editor (like nano), we need to add <code>#!/bin/bash to the first line. The <code>#!</code> is known as a shebang or a hashbang. The <code>#!</code> tells our computer what system to run the script with (in this case, Bash). The first line in your script should be:</li>
+<pre><code>#!/bin/bash</code></pre>
+									<li>Now, we can add our first command anywhere below the first line. For example, add <code>echo "This is a bash script!"</code>. When the script runs, <code>echo</code> will print <code>This is a bash script!</code>. For example, your script should now look like this:</li>
+<pre><code>#!/bin/bash
+echo "This is a bash script!"</code></pre>
+									<li>In order to run the script, we need to specify where our script lives. To do this, we can either specify the absolute path, for example: <code>Users/username/directorypath/practice.sh</code>, or with the relative path, <code>./practice.sh</code> (remember that <code>.</code> indicates the current working directory):</li>
+
 									<li>Scripts can also accept arguments that allow us to input variables when running the script. For example:</li>
 <pre><code>$ ./[scriptname].sh [variable]</code></pre>
 								</ol>
