@@ -280,7 +280,7 @@
 								<p>To move into the 'Desktop' directory:</p>
 <pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
 							<h2>Path Types</h2>	
-								<p><ul>
+								<ul>
 									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory. Example: <code>$ ls /Users/name</code></p></li>
 									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory.Example: <code>$ cd Desktop</code></p></li>
 									<li><p><strong>Home Directory:</strong> The tilde ~ represents the home directory. 
@@ -288,14 +288,12 @@
 										<code>$ cd ~/Documents</code></p></li>
 									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory. Example: <code>$ ls . </code></p></li>
 									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory. Example: <code>$ cd .. </code></p></li>
-								</ul></p>
+								</ul>
 							<h2 id="working-with-files-and-directories">Working With Files and Directories</h2>
 								<ul>
-								<li><code>$ mkdir [dirname]</code>: make a new directory
-									<ul>Creates a new directory. Avoid using spaces; underscores are not recommended.</ul>
-									<ul>Example: <code>mkdir results</code></ul>
-								<li><code>$ nano [filename]</code>: create or edit a file
-									<ul>If the file does not exist, it will be created. Type your content, then save and exit.
+								<li><code>$ mkdir [dirname]</code>: Make (create) a new directory.Avoid using spaces; underscores are not recommended.
+									<ul>Example: <code>mkdir results</code></ul></li>
+								<li><code>$ nano [filename]</code>: Create or edit a file. If the file does not exist, it will be created. Type your content, then save and exit.
 									<li>Shortcut Keys in Nano:
 									<table>
 									<thead>
@@ -323,7 +321,7 @@
 									</tr>
 									</tbody>
 									</table>
-									</li></ul></li></li></ul>
+									</li></li></ul>
 								<ul>
 								<li><code>$ touch [filename]</code>: create an empty file 
 									<ul>
@@ -341,19 +339,18 @@
 								<li><code>$ rmdir [directory]</code>: remove an empty directory</li>
 								<li><code>$ rm [path]</code>: remove a file permanently</li>
 								<ul>
-									<li><code>$ rm -i [path]</code>: interactive mode:</li>
-									<li><code>$ rm -r [directory]</code>: permanently delete a directory and all its contents</li>
-									<li><code>$ rm -r -i [path]</code>: interactive mode - prompts for confirmation before deletion.</li>
-									<li>Important Note: Deleted files are gone forever! There is no trash or recycle bin.</p></li>
+									Important Note: Deleted files are gone forever! There is no trash or recycle bin.
+									<ul><code>$ rm -i [path]</code>: interactive mode - prompts for confirmation before deletion</ul>
+									<ul><code>$ rm -r [directory]</code>: permanently delete a directory and all its contents</ul>
 								</ul></ul>
 								<ul>Wildcard Characters
-									<li> <code>*</code>: Matches zero or more characters. Example: <code>*.txt</code> matches all .txt files.
-									<li><code>?</code>: Matches any single character. Example: <code>.txt</code>? matches a.txt but not any.txt.</li>
+									<li> <code>*</code>: Matches zero or more characters. Example: <code>*.txt</code> matches all <code>.txt</code> files.</li>
+									<li><code>?</code>: Matches any single character. Example: <code>?.txt</code> matches <code>a.txt</code> but not <code>any.txt</code>.</li>
 								</ul>
 							<h2>Common Commands:</h2>
 								<ul>
 								<li><code>$ cat</code>: print the contents of files. 
-									<ul>Example: <code>cat file1.txt file2.txt</code></ul></li>
+									<ul><li>Example: <code>cat file1.txt file2.txt</code></li></ul></li>
 								<li><code>$ more </code>: similar to cat, but displays one page at a time, use spacebar to continue </li>
 								<li><code>$ less -N [file]</code>: displays content page by page with line numbers. Use q to exit.</li>
 								<li><code>$ sort [file]</code>: sorts file contents alphanumerically. 
@@ -364,31 +361,29 @@
 									<ul>Use -n [#] to specify the number of lines.</ul></li>
 							<h2>Pipes and Filters</h2>
 								<ul>
-								<li>Pipe Operator: <code> | </code>
-									<ul>Redirects the output of one command into another. Example: <code>ls | wc</code></ul>
-									<ul>Counts lines, words, and characters in the output of ls.</ul>
+								<li>Pipe Operator: <code>$ [command] | [command]</code>: Redirects the output of one command into another. 
+									<ul><li>Example: <code>ls | wc</code></li></ul>
+								<ul>Counts lines, words, and characters in the output of ls.</ul>
 								</li>		
-								<li><code>$ command &gt; [file]</code>: redirect output to a file
-									<ul>Overwrites the file with command output.</ul></li>
-								<li><code>$ command &gt;&gt; [file]</code>: append output to a file</li>
-								<li><code>$ wc [file]</code>: counts lines, words, and characters.
-								<lu>Example: <code>$ wc -l *.txt</code> outputs the line count for each file.</lu></li>
-								<li><code>grep [pattern] [file]</code> searches for a pattern in files. 
-								<lu>Use -v to exclude lines with the pattern, -i for case-insensitivity.</lu></li>
+								<li><code>$ command &gt; [file]</code>: Redirect output into a file. Note: this will overwrite the file.</li>
+								<li><code>$ command &gt;&gt; [file]</code>: Append output to a file</li>
+								<li><code>$ wc [file]</code>: Count lines, words, and characters.
+								<lu>Example: <code>$ wc -l *.txt</code> Output the line count for every file.</lu></li>
+								<li><code>grep [pattern] [file]</code>: Search for a pattern in files. 
+								<lu>Use -v to exclude lines with the pattern, <p></p>-i for case-insensitivity.</p></lu></li>
 								</ul>
 							
-							<p>Example with Pipes:</p>
-							<p>ls | grep &quot;D&quot; | wc
-							Counts the number of words containing &quot;D&quot; in the ls output.</p>
-						
-								
-							<h2>Command Redirection Examples</h2>
-							<lu>
-								<li><code>$ ls -l &gt; filename.list</code>: redirect output to a file:</li>
-								<li><code>$ cat filename.list | grep keyword &gt; filefound.list</code>: pipe output to another command</li>
-								<li><code>$ cut -d , -f 2 [file].csv | sort | uniq</code>: remove duplicates</li>
-							</lu>
-			
+								<p>Examples:
+								<lu>
+								<li><code>ls | grep &quot;D&quot; | wc</code>: counts the number of words containing &quot;D&quot; in the ls output.</li>	
+								<li><code>$ ls -l &gt; filename.list</code>: Redirect output to a file:</li>
+								<li><code>$ cat filename.list | grep keyword &gt; filefound.list</code>: Pipe output to another command</li>
+								<li><code>$ cut -d , -f 2 [file].csv | sort | uniq</code>: Remove duplicates</li>
+								</lu>
+							<h2 id="working-with-files-and-directories">Working With Files and Directories</h2>
+
+									
+									
 <pre><code>
 !/bin/bash
 # This is a sample bash script
