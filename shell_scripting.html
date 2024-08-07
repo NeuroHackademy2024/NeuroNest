@@ -87,19 +87,56 @@ echo "This is a bash script!"
 <pre><code>$ chmod +x practice.sh</code></pre>
 									<li>Re-run <code>ls -l</code>. The permissions for practice.sh should now look like <code>-rwxr-xr-x</code>. Now that we have executable permissions for that file, we can run it:</li>
 <pre><code>$ ./practice.sh</code></pre>
-									<ul>
-										For more information about permissions, please visit the <a href="permissions.html">Permissions</a> page.
-									</ul>
-<pre><code>ls -l</code></pre>
-									
+									<ul>For more information about permissions, please visit the <a href="permissions.html">Permissions</a> page.</ul>									
 								</ol>
-							<h2>Variables in Scripts</h2>
+							<h2>Shell Variables</h2>
+								<p>See the <a href="bash_data.html">Bash/Command Line</a> page for more information about variables.</p>
+								<p>Just like in the command line, we can save information under variables within scripts so that we can access the information later. To set a variable, pick a name (containing only letters, numbers, and underscores). For this example, let's use <code>VAR</code>. Note: shell variable names are traditionally capitalized, but do not have to be. Remember, to access a value stored in a variable, we precede the variable with a <code>$</code>. Let's edit our script to add a variable:</p>
+<pre><code>$ nano practice.sh</code></pre>							
+<pre><code>#!/bin/bash
+
+# This script was made for practice 
+echo "This is a bash script!"
+# Declare our new variable
+VAR = "I am great at this!"
+# Print the variable
+echo $VAR2
+</code></pre>
+								<p>In addition to declaring variables within a script, we can also pass arguments into the script from the command line. For example: </p>
+<pre><code>$ nano practice.sh "I'm a pro"</code></pre>							
+<pre><code>#!/bin/bash
+
+# This script was made for practice 
+echo "This is a bash script!"
+# Declare our new variable
+VAR = "I am great at this!"
+# Print the variable
+echo $VAR2
+# Print variable from command line
+echo $1
+</code></pre>		
+								<p>In this example, we passed the argument "I'm a pro" into our script. Because that is our first argument, we access the variable with <code>$1</code>. If we had two arguments, the second argument would be accessed with <code>$2</code>, and so on.</p>
 								<ul>
 									<li>$1, $2, etc., refer to specific arguments (e.g., $1 for the first argument).</li>
 									<li><code>$@</code>  refers to all command-line arguments. </li>
 									<li>Place variables in quotes if their values might contain spaces to ensure they are correctly interpreted.
 </li>
 								</ul>
+								<p>Here are two example scripts:</p>
+								<ol>
+									<li>This is an example of a for loop in a script..</li>
+<pre><code>$ nano loop.sh</code></pre>							
+<pre><code>#!/bin/bash
+
+# This is a for loop 
+for VAR in a b c
+do
+	echo $VAR
+done
+</code></pre>
+									<ul>The loop runs over once for each item after the word <code>in</code>. Each iteration (i.e., run or loop), the variable $VAR is set to a particular value. The value of <code>$VAR</code> is <code>a</code> in the first iteratation, <code>b</code> in the second iteratation, and <code>c</code> in the third iteratation.</ul>
+								</ol>
+								<p>For more infromation, see <a href="https://andysbrainbook.readthedocs.io/en/latest/unix/Unix_07_Scripting.html">Andy's Brain Book Scripting Tutorial</a> for more information and examples.</p>
 						</div>
 					</div>
 
