@@ -47,15 +47,15 @@
             <div class="inner">
                 <h1>Meta-Analysis in Neuroimaging</h1>
 
-                <h2>Introduction to Meta-Analysis</h2>
+                <h2>1. Introduction to Meta-Analysis</h2>
                 <h3>What is Meta-Analysis?</h3>
                 <p>Meta-analysis is a statistical method that combines results from multiple scientific studies to provide a more comprehensive and reliable conclusion and characterize the degree of agreement across studies. In neuroimaging, it aggregates data from various studies to identify consistent patterns of brain activity.</p>
 
                 <h3>Importance of Meta-Analysis in Neuroimaging</h3>
                 <ul>
-                    <li>Enhanced Statistical Power: By pooling data, meta-analysis increases the ability to detect significant effects that may not be evident in individual studies.</li>
-                    <li>Generalization of Findings: Helps determine if results are consistent across different populations and settings.</li>
-                    <li>Identification of Consistent Patterns: Highlights brain regions that are consistently activated across different studies, providing a clearer understanding of brain functions.</li>
+                    <li>Enhanced Statistical Power</li>
+                    <li>Generalization of Findings</li>
+                    <li>Identification of Consistent Patterns</li>
                 </ul>
 
                 <h3>Limitations</h3>
@@ -64,11 +64,12 @@
                     <li>Selection Bias: Incorrect inclusion criteria or design flaws in individual studies can affect the validity of the meta-analysis.</li>
                 </ul>
 
-                <h2>Types of Meta-Analyses</h2>
-                <h3>Image-Based (IBMA)</h3>
+                
+                <h2>2. Types of Meta-Analyses</h2>
+                <h3>Image-Based Meta-analysis (IBMA)</h3>
                 <p>“Where do the images converge in space?”</p>
                 <h4>Standards</h4>
-                <p>Uses the full statistic images, and allow the use of hierarchical mixed effects models that account for differing intra-study variance and modeling of random inter-study variation [1]. Provides more complete and detailed information from each study.</p>
+                <p>Uses the full statistic images, and allow the use of hierarchical mixed effects models that account for differing intra-study variance and modeling of random inter-study variation [1].</p>
                 <h4>Limitations</h4>
                 <p>Rarely used because accessing original statistical maps is challenging. Using full image data prevents information loss seen when only specific points (foci) are used. However, until sharing full statistical maps with effect sizes and standard errors becomes common practice, researchers might only have access to lists of specific locations (foci) [1].</p>
 
@@ -88,47 +89,14 @@
                 <p>Spatial Normalization: Transforming data from its original space to a standardized template (e.g., Talairach or Montreal Neurological Institute (MNI) space). This preprocessing step ensures that coordinates from different studies can be directly compared and combined.</p>
                 <p>3D Coordinates Reporting: Results are given as x-y-z coordinates, representing the spatial location of peak activations in the brain, following the standardized MNI or Talairach coordinate systems. The x-y-z values correspond to standard spatial directions: left to right (x), back to front (y), and bottom to top (z).</p>
                 <p>Use of Foci: CBMA uses specific points (foci) as data, making it the most common method in neuroimaging meta-analysis. Foci data are easily accessible in neuroimaging literature, and tools like NeuroSynth, NeuroQuery, and BrainMap facilitate sourcing studies by topic or region of interest.</p>
-                <h4>Types of Data</h4>
-                <ul>
-                    <li>Structural*: VBM (voxel-based morphometry), PET</li>
-                    <li>Functional*: fMRI</li>
-                </ul>
-                <p>*Reference to the page MRI (for the differences between structural-functional MRI)</p>
 
                 <h4>Main Methods/Approaches</h4>
-                <h5>Activation Likelihood Estimation (ALE)</h5>
-                <p>Overview: ALE creates maps by modeling activation coordinates as 3D Gaussian probability distributions.</p>
-                <p>Procedure:</p>
                 <ul>
-                    <li>Gather activation coordinates from studies.</li>
-                    <li>Model these as probability distributions.</li>
-                    <li>Combine them into an ALE map.</li>
-                    <li>Compare with random distributions to find significant areas.</li>
-                    <li>Identify clusters of activation.</li>
+                    <li>ACTIVATION LIKELIHOOD ESTIMATION (ALE): creates maps by modeling activation coordinates as 3D Gaussian probability distributions.</li>
+                    <li>SEED-BASED D-MAPPING (SDM): reconstructs whole-brain statistical maps by combining effect sizes and peak coordinates, resulting in mean maps that are then thresholded for significance.</li>
+                    <li>MULTILEVEL KERNEL DENSITY ANALYSIS (MKDA): combines density estimates from individual studies and uses a multilevel modeling approach to account for within-study variance and between-study heterogeneity.</li>
                 </ul>
-
-                <h5>Seed-Based D-Mapping (SDM)</h5>
-                <p>Overview: SDM reconstructs whole-brain statistical maps by combining effect sizes and peak coordinates, resulting in mean maps that are then thresholded for significance.</p>
-                <p>Procedure:</p>
-                <ul>
-                    <li>Extract peak coordinates and effect sizes from studies.</li>
-                    <li>Reconstruct statistical maps.</li>
-                    <li>Create a mean activity map.</li>
-                    <li>Test significance with permutation tests.</li>
-                    <li>Correct for multiple comparisons.</li>
-                </ul>
-
-                <h5>Multilevel Kernel Density Analysis (MKDA)</h5>
-                <p>Overview: MKDA combines density estimates from individual studies and uses a multilevel modeling approach to account for within-study variance and between-study heterogeneity.</p>
-                <p>Procedure:</p>
-                <ul>
-                    <li>Collect peak coordinates and study details.</li>
-                    <li>Create density estimates for each study.</li>
-                    <li>Combine these estimates.</li>
-                    <li>Use a multilevel model for accuracy.</li>
-                    <li>Identify significant clusters.</li>
-                </ul>
-
+                
                 <h5>Other Methods:</h5>
                 <ul>
                     <li>Kernel Density Analysis (KDA)</li>
@@ -136,15 +104,15 @@
                     <li>MKDA Chi2 Extension</li>
                 </ul>
 
-                <h2>Conducting a Meta-Analysis</h2>
+                <h2>3. Conducting a Meta-Analysis</h2>
                 <h3>Data Collection</h3>
-                <p>Literature Search: Comprehensive search strategies using databases like PubMed, Google Scholar, and neuroimaging-specific repositories.</p>
-                <p>Inclusion and Exclusion Criteria: Defining clear criteria for study selection to ensure consistency and quality.</p>
+                <p>Literature Search: comprehensive search strategies using databases like PubMed, Google Scholar, and neuroimaging-specific repositories.</p>
+                <p>Inclusion and Exclusion Criteria: defining clear criteria for study selection to ensure consistency and quality.</p>
 
                 <h3>Data Extraction</h3>
-                <p>Extracting Coordinates: Collecting peak activation coordinates from selected studies.</p>
-                <p>Standardization: Converting coordinates to a common brain template space (e.g., MNI or Talairach).</p>
-                <p>* Alternative option (for ALE meta-analysis): SLEUTH <a href="https://brainmap.org/sleuth/">SLEUTH Tool</a> (a Java Runtime Environment 1.8.0 if needed; <a href="https://www.java.com/it/download/">Java Download</a>). Here for a video tutorial: <a href="https://www.youtube.com/watch?v=vqUOzwV5OQA">SLEUTH Tutorial</a>.</p>
+                <p>Extracting Coordinates: collecting peak activation coordinates from selected studies.</p>
+                <p>Standardization: converting coordinates to a common brain template space (e.g., MNI or Talairach).</p>
+                <p>* Alternative option (for ALE meta-analysis): <a href="https://brainmap.org/sleuth/">SLEUTH Tool</a> (a Java Runtime Environment 1.8.0 if needed; <a href="https://www.java.com/it/download/">Java Download</a>). Here for a video tutorial: <a href="https://www.youtube.com/watch?v=vqUOzwV5OQA">SLEUTH Tutorial</a>.</p>
 
                 <h3>Statistical Analysis</h3>
                 <h4>Software Tools:</h4>
@@ -161,50 +129,13 @@
                 <p><a href="#pssdm-tutorial">Tutorial for performing CBMA with PSI-SDM</a></p>
                 <p>CBMAT [5]: a MATLAB toolbox for data-preparation and post- hoc analyses in neuroimaging meta-analyses. The code can be downloaded from <a href="https://github.com/Jordi-Manuello/CBMAT.git">CBMAT GitHub</a></p>
 
-                <h3>Interpretation and Reporting</h3>
-                <h4>Result Interpretation</h4>
-                <p>Understanding Clusters: Identifying significant clusters and their implications.</p>
-                <p>Brain Regions Involved: Discussing the relevance of activated regions in the context of the studies included.</p>
+                <h3>Visualization of the results</h3>
 
-                <h4>Reporting Standards</h4>
-                <p>PRISMA Guidelines: Following the PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) guidelines for transparency and replicability. For more information <a href="https://www.prisma-statement.org/">PRISMA Guidelines</a></p>
-                <p>Result Visualization: Effective visualization of meta-analysis results using brain maps and summary tables.</p>
-
-                <h4>Suggested tools for the visualization of the results</h4>
+                <h4>Suggested tools</h4>
                 <ul>
                     <li><a href="https://mangoviewer.com/mango.html">Mango</a></li>
                     <li><a href="https://www.nitrc.org/projects/mricrogl">MCRIcroGL</a>. <a href="https://www.youtube.com/watch?v=Htid2mbyav8">MCRIcroGL Tutorial 1</a> and <a href="https://www.youtube.com/watch?v=8-pTS1Cc0RI">MCRIcroGL Tutorial 2</a></li>
                 </ul>
-
-                <h2>Applications of Meta-Analysis</h2>
-                <h3>Clinical Research</h3>
-                <p>Neuropsychiatric Disorders: Identifying consistent brain abnormalities in disorders like depression, schizophrenia, and anxiety.</p>
-                <p><em>Example: "Do patients with OCD (obsessive-compulsive disorder) have gray matter volume regional abnormalities?"</em></p>
-                <p>In a meta-analysis of voxel-based morphometry (VBM) studies, researchers might find that patients with OCD consistently show reduced gray matter volume in the anterior cingulate cortex and the orbitofrontal cortex, which are regions implicated in the disorder's symptomatology.</p>
-
-                <p>Treatment Effects: Assessing the effectiveness of interventions across multiple studies.</p>
-                <p><em>Example: "What are the effects of cognitive-behavioral therapy (CBT) on brain activation patterns in patients with anxiety disorders?"</em></p>
-                <p>A meta-analysis could show that CBT is associated with increased activation in the prefrontal cortex and decreased activation in the amygdala, suggesting improved regulation of anxiety-related neural circuits.</p>
-
-                <p>Functional Specialization: Understanding which brain regions are consistently involved in specific cognitive functions.</p>
-                <p><em>Example: "Which brain areas are consistently activated during language processing tasks?"</em></p>
-                <p>A meta-analysis of fMRI studies might find that the left inferior frontal gyrus (Broca's area) and the left superior temporal gyrus (Wernicke's area) are consistently activated during language comprehension and production tasks.</p>
-
-                <p>Cross-Task Comparisons: Comparing brain activation patterns across different tasks and conditions.</p>
-                <p><em>Example: "How do brain activation patterns differ between tasks involving visual versus auditory attention?"</em></p>
-                <p>A meta-analysis could compare studies on visual and auditory attention, showing distinct activation in the occipital cortex for visual tasks and the superior temporal gyrus for auditory tasks, along with overlapping regions in the prefrontal cortex involved in general attentional control.</p>
-
-                <h2>FAQ and Practical Tips</h2>
-                <h3>Frequently Asked Questions</h3>
-                <h4>How to select studies for a meta-analysis?</h4>
-                <p>When selecting studies for a meta-analysis, ensure they meet predefined inclusion criteria such as whole-brain analyses, voxel-wise statistical testing, and the availability of stereotactic coordinates [2]. Additionally, a minimum number of studies (typically at least 17 for activation likelihood estimation) is required to ensure statistical power and reliability of the results [2,3].</p>
-
-                <h4>What are the common pitfalls in neuroimaging meta-analysis?</h4>
-                <p>Common pitfalls include inconsistent reporting of results, failure to include all relevant studies, and biases introduced by region of interest (ROI) analyses. Moreover, Small sample sizes can lead to unreliable results, making it essential to include sufficiently powered studies [3].</p>
-
-                <h4>How to interpret conflicting results?</h4>
-                <p>Conflicting results can arise due to differences in study designs, sample sizes, and analysis techniques. Meta-analyses can help identify consistent patterns and sources of variability, providing a more comprehensive understanding of the findings [2].</p>
-                <p>For other issues and detailed guidelines, please refer to the papers by Müller et al. (2018) and Manuello et al. (2022).</p>
 
                 <h3>Practical Tips</h3>
                 <h4>Effective Literature Search</h4>
