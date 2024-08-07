@@ -40,10 +40,10 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="resource_menu.html">Resources</a></li>
-							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
-							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
-							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+							<li><a href="generic.html">Ipsum veroeros</a></li>
+							<li><a href="generic.html">Tempus etiam</a></li>
+							<li><a href="generic.html">Consequat dolor</a></li>
+							<li><a href="elements.html">Elements</a></li>
 						</ul>
 					</nav>
 
@@ -292,14 +292,11 @@
 							<h2 id="working-with-files-and-directories">Working With Files and Directories</h2>
 								<ul>
 								<li><code>$ mkdir [dirname]</code>: make a new directory
-									<ul>
-									<li>Creates a new directory. Avoid using spaces; underscores are not recommended.</li>
-									<li>Example: <code>mkdir results</code></li>
-									</ul></li>
-								<li><code>nano [filename]</code>: create or edit a file
-									<ul><li>If the file does not exist, it will be created. Type your content, then save and exit.</li>
-									</ul></li>
-								<li>Shortcut Keys in Nano:
+									<ul>Creates a new directory. Avoid using spaces; underscores are not recommended.</ul>
+									<ul>Example: <code>mkdir results</code></ul>
+								<li><code>$ nano [filename]</code>: create or edit a file
+									<ul>If the file does not exist, it will be created. Type your content, then save and exit.
+									<li>Shortcut Keys in Nano:
 									<table>
 									<thead>
 									<tr>
@@ -326,72 +323,72 @@
 									</tr>
 									</tbody>
 									</table>
-									</li></ul>
+									</li></ul></li></li></ul>
 								<ul>
-								<li><code>touch [filename]</code>: create an empty file 
+								<li><code>$ touch [filename]</code>: create an empty file 
 									<ul>
-										<li>Useful for generating placeholder files required by some programs.</li>	
+										<p>Useful for generating placeholder files required by some programs.</p>	
 									</ul></li>
-								<li><code>cp [old] [new]</code>: make a copy of the file
+								<li><code>$ cp [old] [new]</code>: make a copy of the file
 									<ul>
 										<li>Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></li>
 									</ul></li>
-								<li><code>cp -r [source] [destination]</code>: copy a directory
+								<li><code>$ cp -r [source] [destination]</code>: copy a directory
 									<ul>
 										<li>Copies a directory and all its contents.</li>
 									</ul></li>
-								<li><code>mv [old] [new]</code>: move or rename a file or directory:</li>
-								<li><code>rmdir [directory]</code>: remove an empty directory</li>
-								<li><code>rm [path]</code>: remove a file permanently</li>
+								<li><code>$ mv [old] [new]</code>: move or rename a file or directory:</li>
+								<li><code>$ rmdir [directory]</code>: remove an empty directory</li>
+								<li><code>$ rm [path]</code>: remove a file permanently</li>
 								<ul>
-									<li><code>rm -i [path]</code>: interactive mode:</li>
-									<ul><li>Prompts for confirmation before deletion.</li></ul>
-									<li><code>rm -r [directory]</code>: permanently delete a directory and all its contents</li>
-									<li><code>rm -r -i [path]</code>: interactive mode:</li>
-									<ul><li>Prompts for confirmation before deletion.</li></ul>
+									<li><code>$ rm -i [path]</code>: interactive mode:</li>
+									<li><code>$ rm -r [directory]</code>: permanently delete a directory and all its contents</li>
+									<li><code>$ rm -r -i [path]</code>: interactive mode - prompts for confirmation before deletion.</li>
 									<li>Important Note: Deleted files are gone forever! There is no trash or recycle bin.</p></li>
 								</ul></ul>
-								
-							
 								<ul>Wildcard Characters
 									<li> <code>*</code>: Matches zero or more characters. Example: <code>*.txt</code> matches all .txt files.
-								<li><code>?</code>: Matches any single character. Example: <code>.txt</code>? matches a.txt but not any.txt.</li>
+									<li><code>?</code>: Matches any single character. Example: <code>.txt</code>? matches a.txt but not any.txt.</li>
 								</ul>
+							<h2>Common Commands:</h2>
+								<ul>
+								<li><code>$ cat</code>: print the contents of files. 
+									<ul>Example: <code>cat file1.txt file2.txt</code></ul></li>
+								<li><code>$ more </code>: similar to cat, but displays one page at a time, use spacebar to continue </li>
+								<li><code>$ less -N [file]</code>: displays content page by page with line numbers. Use q to exit.</li>
+								<li><code>$ sort [file]</code>: sorts file contents alphanumerically. 
+									<ul>Use -n for numerical sorting.</ul></li>
+								<li><code>$ head [file]</code>: displays the first 10 lines. 
+									<ul>Use -n [#] to specify the number of lines.</ul></li>
+								<li><code>$ tail [file]</code>: displays the last 10 lines. 
+									<ul>Use -n [#] to specify the number of lines.</ul></li>
 							<h2>Pipes and Filters</h2>
-							Pipe Operator: |</li>
-							</ul>
-							<p>Redirects the output of one command into another.
-							Example: ls | wc
-							Counts lines, words, and characters in the output of ls.
-							Redirect Output to a File: command &gt; [file]</p>
-							<p>Overwrites the file with command output.
-							Append Output to a File: command &gt;&gt; [file]</p>
-							<h3>Common Commands:</h3>
-							<p>cat: Prints the contents of files. Example: cat file1.txt file2.txt
-							more: Similar to cat, but displays one page at a time. Spacebar to continue.
-							less -N [file]: Displays content page by page with line numbers. Use q to exit.
-							sort [file]: Sorts file contents alphanumerically. Use -n for numerical sorting.
-							head [file]: Displays the first 10 lines. Use -n [#] to specify the number of lines.
-							tail [file]: Displays the last 10 lines.
-							Count and Filter:</p>
-							<p>wc [file]: Counts lines, words, and characters.
-							Example: wc -l *.txt outputs the line count for each file.
-							grep [pattern] [file]: Searches for a pattern in files.
-							Use -v to exclude lines with the pattern, -i for case-insensitivity.
-							Example with Pipes:</p>
+								<ul>
+								<li>Pipe Operator: <code> | </code>
+									<ul>Redirects the output of one command into another. Example: <code>ls | wc</code></ul>
+									<ul>Counts lines, words, and characters in the output of ls.</ul>
+								</li>		
+								<li><code>$ command &gt; [file]</code>: redirect output to a file
+									<ul>Overwrites the file with command output.</ul></li>
+								<li><code>$ command &gt;&gt; [file]</code>: append output to a file</li>
+								<li><code>$ wc [file]</code>: counts lines, words, and characters.
+								<lu>Example: <code>$ wc -l *.txt</code> outputs the line count for each file.</lu></li>
+								<li><code>grep [pattern] [file]</code> searches for a pattern in files. 
+								<lu>Use -v to exclude lines with the pattern, -i for case-insensitivity.</lu></li>
+								</ul>
+							
+							<p>Example with Pipes:</p>
 							<p>ls | grep &quot;D&quot; | wc
-							Counts the number of words containing &quot;D&quot; in the ls output.
-							Command Redirection
-							Redirect Output to a File: ls -l &gt; filename.list</p>
-							<p>Pipe Output to Another Command: cat filename.list | grep keyword &gt; filefound.list</p>
-							<p>Remove Duplicates: cut -d , -f 2 [file].csv | sort | uniq</p>
-							<p>cut: Extracts specific columns from a file. Use -d to specify delimiter (default is TAB).</p>
-
-	
+							Counts the number of words containing &quot;D&quot; in the ls output.</p>
+						
 								
-
-								
-								
+							<h2>Command Redirection Examples</h2>
+							<lu>
+								<li><code>$ ls -l &gt; filename.list</code>: redirect output to a file:</li>
+								<li><code>$ cat filename.list | grep keyword &gt; filefound.list</code>: pipe output to another command</li>
+								<li><code>$ cut -d , -f 2 [file].csv | sort | uniq</code>: remove duplicates</li>
+							</lu>
+			
 <pre><code>
 !/bin/bash
 # This is a sample bash script
