@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Meta-Analysis in Neuroimaging</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        body {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+                </a>
+
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource_menu.html">Resources</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1 id="meta-analysis-neuroimaging">Meta-Analysis in Neuroimaging</h1>
+
+                <h2 id="introduction-to-meta-analysis">Introduction to Meta-Analysis</h2>
+                <h3 id="what-is-meta-analysis">What is Meta-Analysis?</h3>
+                <p>Meta-analysis is a statistical method that combines results from multiple scientific studies to provide a more comprehensive and reliable conclusion and characterize the degree of agreement across studies. In neuroimaging, it aggregates data from various studies to identify consistent patterns of brain activity.</p>
+
+                <h3 id="importance-of-meta-analysis-in-neuroimaging">Importance of Meta-Analysis in Neuroimaging</h3>
+                <ul>
+                    <li>Enhanced Statistical Power: By pooling data, meta-analysis increases the ability to detect significant effects that may not be evident in individual studies.</li>
+                    <li>Generalization of Findings: Helps determine if results are consistent across different populations and settings.</li>
+                    <li>Identification of Consistent Patterns: Highlights brain regions that are consistently activated across different studies, providing a clearer understanding of brain functions.</li>
+                </ul>
+
+                <h3 id="limitations">Limitations</h3>
+                <ul>
+                    <li>Publication Bias (File Drawer Effect): Studies with significant results are more likely to be published, skewing the overall findings.</li>
+                    <li>Selection Bias: Incorrect inclusion criteria or design flaws in individual studies can affect the validity of the meta-analysis.</li>
+                </ul>
+
+                <h2 id="types-of-meta-analyses">Types of Meta-Analyses</h2>
+                <h3 id="image-based-ibma">Image-Based (IBMA)</h3>
+                <p>“Where do the images converge in space?”</p>
+                <h4>Standards</h4>
+                <p>Uses the full statistic images, and allow the use of hierarchical mixed effects models that account for differing intra-study variance and modeling of random inter-study variation [1]. Provides more complete and detailed information from each study.</p>
+                <h4>Limitations</h4>
+                <p>Rarely used because accessing original statistical maps is challenging. Using full image data prevents information loss seen when only specific points (foci) are used. However, until sharing full statistical maps with effect sizes and standard errors becomes common practice, researchers might only have access to lists of specific locations (foci) [1].</p>
+
+                <h4>IBMA Methods:</h4>
+                <ul>
+                    <li>Mixed-Effects General Linear Model (GLM)</li>
+                    <li>Fixed-Effects General Linear Model (GLM)</li>
+                    <li>Fisher's IBMA</li>
+                    <li>Stouffer's IBMA</li>
+                    <li>z permutation</li>
+                </ul>
+                <p>For more information: <a href="https://sphinx-doc-brant.readthedocs.io/en/latest/STAT_IBMA.html">IBMA Documentation</a></p>
+
+                <h3 id="coordinated-based-cbma">Coordinated-Based Meta-analysis (CBMA)</h3>
+                <p>“Where do the coordinates converge in space?”</p>
+                <h4>Standards</h4>
+                <p>Spatial Normalization: Transforming data from its original space to a standardized template (e.g., Talairach or Montreal Neurological Institute (MNI) space). This preprocessing step ensures that coordinates from different studies can be directly compared and combined.</p>
+                <p>3D Coordinates Reporting: Results are given as x-y-z coordinates, representing the spatial location of peak activations in the brain, following the standardized MNI or Talairach coordinate systems. The x-y-z values correspond to standard spatial directions: left to right (x), back to front (y), and bottom to top (z).</p>
+                <p>Use of Foci: CBMA uses specific points (foci) as data, making it the most common method in neuroimaging meta-analysis. Foci data are easily accessible in neuroimaging literature, and tools like NeuroSynth, NeuroQuery, and BrainMap facilitate sourcing studies by topic or region of interest.</p>
+                <h4>Types of Data</h4>
+                <ul>
+                    <li>Structural*: VBM (voxel-based morphometry), PET</li>
+                    <li>Functional*: fMRI</li>
+                </ul>
+                <p>*Reference to the page MRI (for the differences between structural-functional MRI)</p>
+
+                <h4>Main Methods/Approaches</h4>
+                <h5>Activation Likelihood Estimation (ALE)</h5>
+                <p>Overview: ALE creates maps by modeling activation coordinates as 3D Gaussian probability distributions.</p>
+                <p>Procedure:</p>
+                <ul>
+                    <li>Gather activation coordinates from studies.</li>
+                    <li>Model these as probability distributions.</li>
+                    <li>Combine them into an ALE map.</li>
+                    <li>Compare with random distributions to find significant areas.</li>
+                    <li>Identify clusters of activation.</li>
+                </ul>
+
+                <h5>Seed-Based D-Mapping (SDM)</h5>
+                <p>Overview: SDM reconstructs whole-brain statistical maps by combining effect sizes and peak coordinates, resulting in mean maps that are then thresholded for significance.</p>
+                <p>Procedure:</p>
+                <ul>
+                    <li>Extract peak coordinates and effect sizes from studies.</li>
+                    <li>Reconstruct statistical maps.</li>
+                    <li>Create a mean activity map.</li>
+                    <li>Test significance with permutation tests.</li>
+                    <li>Correct for multiple comparisons.</li>
+                </ul>
+
+                <h5>Multilevel Kernel Density Analysis (MKDA)</h5>
+                <p>Overview: MKDA combines density estimates from individual studies and uses a multilevel modeling approach to account for within-study variance and between-study heterogeneity.</p>
+                <p>Procedure:</p>
+                <ul>
+                    <li>Collect peak coordinates and study details.</li>
+                    <li>Create density estimates for each study.</li>
+                    <li>Combine these estimates.</li>
+                    <li>Use a multilevel model for accuracy.</li>
+                    <li>Identify significant clusters.</li>
+                </ul>
+
+                <h5>Other Methods:</h5>
+                <ul>
+                    <li>Kernel Density Analysis (KDA)</li>
+                    <li>Specific Coactivation Likelihood Estimation (SCALE)</li>
+                    <li>MKDA Chi2 Extension</li>
+                </ul>
+
+                <h2 id="conducting-a-meta-analysis">Conducting a Meta-Analysis</h2>
+                <h3 id="data-collection">Data Collection</h3>
+                <p>Literature Search: Comprehensive search strategies using databases like PubMed, Google Scholar, and neuroimaging-specific repositories.</p>
+                <p>Inclusion and Exclusion Criteria: Defining clear criteria for study selection to ensure consistency and quality.</p>
+
+                <h3 id="data-extraction">Data Extraction</h3>
+                <p>Extracting Coordinates: Collecting peak activation coordinates from selected studies.</p>
+                <p>Standardization: Converting coordinates to a common brain template space (e.g., MNI or Talairach).</p>
+                <p>* Alternative option (for ALE meta-analysis): SLEUTH <a href="https://brainmap.org/sleuth/">SLEUTH Tool</a> (a Java Runtime Environment 1.8.0 if needed; <a href="https://www.java.com/it/download/">Java Download</a>). Here for a video tutorial: <a href="https://www.youtube.com/watch?v=vqUOzwV5OQA">SLEUTH Tutorial</a>.</p>
+
+                <h3 id="statistical-analysis">Statistical Analysis</h3>
+                <h4>Software Tools:</h4>
+                <ul>
+                    <li><a href="https://www.brainmap.org/ale/">GingerALE</a>: For ALE meta-analyses. <a href="https://www.youtube.com/watch?v=Zt0qrrI4EVI">GingerALE Tutorial</a></li>
+                    <li><a href="https://www.sdmproject.com/software/">PSI-SDM</a>: For Seed-Based d Mapping meta-analyses.</li>
+                    <li><a href="https://nimare.readthedocs.io/en/stable/#nimare-neuroimaging-meta-analysis-research-environment">NiMARE</a>: Python package for neuroimaging meta-analyses.</li>
+                </ul>
+
+                <h4>Analysis Pipeline:</h4>
+                <p>Step-by-step guide to conducting statistical analyses, from data input to result interpretation.</p>
+                <p><a href="https://nimare.readthedocs.io/en/latest/auto_examples/02_meta-analyses/index.html">Tutorial for performing meta-analysis with NiMARE</a></p>
+                <p><a href="#gingerale-tutorial">Tutorial for performing CBMA with GingerALE</a></p>
+                <p><a href="#pssdm-tutorial">Tutorial for performing CBMA with PSI-SDM</a></p>
+                <p>CBMAT [5]: a MATLAB toolbox for data-preparation and post- hoc analyses in neuroimaging meta-analyses. The code can be downloaded from <a href="https://github.com/Jordi-Manuello/CBMAT.git">CBMAT GitHub</a></p>
+
+                <h3 id="interpretation-and-reporting">Interpretation and Reporting</h3>
+                <h4>Result Interpretation</h4>
+                <p>Understanding Clusters: Identifying significant clusters and their implications.</p>
+                <p>Brain Regions Involved: Discussing the relevance of activated regions in the context of the studies included.</p>
+
+                <h4>Reporting Standards</h4>
+                <p>PRISMA Guidelines: Following the PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) guidelines for transparency and replicability. For more information <a href="https://www.prisma-statement.org/">PRISMA Guidelines</a></p>
+                <p>Result Visualization: Effective visualization of meta-analysis results using brain maps and summary tables.</p>
+
+                <h4>Suggested tools for the visualization of the results</h4>
+                <ul>
+                    <li><a href="https://mangoviewer.com/mango.html">Mango</a></li>
+                    <li><a href="https://www.nitrc.org/projects/mricrogl">MCRIcroGL</a>. <a href="https://www.youtube.com/watch?v=Htid2mbyav8">MCRIcroGL Tutorial 1</a> and <a href="https://www.youtube.com/watch?v=8-pTS1Cc0RI">MCRIcroGL Tutorial 2</a></li>
+                </ul>
+
+                <h2 id="applications-of-meta-analysis">Applications of Meta-Analysis</h2>
+                <h3>Clinical Research</h3>
+                <p>Neuropsychiatric Disorders: Identifying consistent brain abnormalities in disorders like depression, schizophrenia, and anxiety.</p>
+                <p><em>Example: "Do patients with OCD (obsessive-compulsive disorder) have gray matter volume regional abnormalities?"</em></p>
+                <p>In a meta-analysis of voxel-based morphometry (VBM) studies, researchers might find that patients with OCD consistently show reduced gray matter volume in the anterior cingulate cortex and the orbitofrontal cortex, which are regions implicated in the disorder's symptomatology.</p>
+
+                <p>Treatment Effects: Assessing the effectiveness of interventions across multiple studies.</p>
+                <p><em>Example: "What are the effects of cognitive-behavioral therapy (CBT) on brain activation patterns in patients with anxiety disorders?"</em></p>
+                <p>A meta-analysis could show that CBT is associated with increased activation in the prefrontal cortex and decreased activation in the amygdala, suggesting improved regulation of anxiety-related neural circuits.</p>
+
+                <p>Functional Specialization: Understanding which brain regions are consistently involved in specific cognitive functions.</p>
+                <p><em>Example: "Which brain areas are consistently activated during language processing tasks?"</em></p>
+                <p>A meta-analysis of fMRI studies might find that the left inferior frontal gyrus (Broca's area) and the left superior temporal gyrus (Wernicke's area) are consistently activated during language comprehension and production tasks.</p>
+
+                <p>Cross-Task Comparisons: Comparing brain activation patterns across different tasks and conditions.</p>
+                <p><em>Example: "How do brain activation patterns differ between tasks involving visual versus auditory attention?"</em></p>
+                <p>A meta-analysis could compare studies on visual and auditory attention, showing distinct activation in the occipital cortex for visual tasks and the superior temporal gyrus for auditory tasks, along with overlapping regions in the prefrontal cortex involved in general attentional control.</p>
+
+                <h2 id="faq-and-practical-tips">FAQ and Practical Tips</h2>
+                <h3>Frequently Asked Questions</h3>
+                <h4>How to select studies for a meta-analysis?</h4>
+                <p>When selecting studies for a meta-analysis, ensure they meet predefined inclusion criteria such as whole-brain analyses, voxel-wise statistical testing, and the availability of stereotactic coordinates [2]. Additionally, a minimum number of studies (typically at least 17 for activation likelihood estimation) is required to ensure statistical power and reliability of the results [2,3].</p>
+
+                <h4>What are the common pitfalls in neuroimaging meta-analysis?</h4>
+                <p>Common pitfalls include inconsistent reporting of results, failure to include all relevant studies, and biases introduced by region of interest (ROI) analyses. Moreover, Small sample sizes can lead to unreliable results, making it essential to include sufficiently powered studies [3].</p>
+
+                <h4>How to interpret conflicting results?</h4>
+                <p>Conflicting results can arise due to differences in study designs, sample sizes, and analysis techniques. Meta-analyses can help identify consistent patterns and sources of variability, providing a more comprehensive understanding of the findings [2].</p>
+                <p>For other issues and detailed guidelines, please refer to the papers by Müller et al. (2018) and Manuello et al. (2022).</p>
+
+                <h3>Practical Tips</h3>
+                <h4>Effective Literature Search</h4>
+                <p>Conduct comprehensive and efficient literature searches using multiple databases like PubMed, Scopus, and Web of Science. If specific data is missing, contact the authors of the original studies for additional information [3].</p>
+
+                <h4>Data Management</h4>
+                <p>Organize and manage meta-analysis data systematically. Use tools like BrainMap and Neurosynth to standardize data collection and ensure reproducibility. Follow best practices for documenting the data collection and analysis processes [2].</p>
+
+                <h2 id="practical-guide-and-tutorials">Practical Guide and Tutorials</h2>
+
+                <h2 id="resources-for-further-learning">Resources for Further Learning</h2>
+                <h3>Recommended Papers</h3>
+                <ul>
+                    <li>Eickhoff, S. B., Bzdok, D., Laird, A. R., Kurth, F., & Fox, P. T. (2012). Activation likelihood estimation meta-analysis revisited. NeuroImage, 59(3), 2349–2361. https://doi.org/10.1016/j.neuroimage.2011.09.017</li>
+                    <li>Radua, J., Rubia, K., Canales-Rodríguez, E. J., Pomarol-Clotet, E., Fusar-Poli, P., & Mataix-Cols, D. (2014). Anisotropic kernels for coordinate-based meta-analyses of neuroimaging studies. Frontiers in psychiatry, 5, 13. https://doi.org/10.3389/fpsyt.2014.00013</li>
+                    <li>Albajes-Eizagirre, A., Solanes, A., Fullana, M. A., Ioannidis, J. P. A., Fusar-Poli, P., Torrent, C., Solé, B., Bonnín, C. M., Vieta, E., Mataix-Cols, D., & Radua, J. (2019). Meta-analysis of Voxel-Based Neuroimaging Studies using Seed-based d Mapping with Permutation of Subject Images (SDM-PSI). Journal of visualized experiments : JoVE, (153), 10.3791/59841. https://doi.org/10.3791/59841. https://app.jove.com/t/59841</li>
+                    <li>Müller, V. I., Cieslik, E. C., Laird, A. R., Fox, P. T., Radua, J., Mataix-Cols, D., Tench, C. R., Yarkoni, T., Nichols, T. E., Turkeltaub, P. E., Wager, T. D., & Eickhoff, S. B. (2018). Ten simple rules for neuroimaging meta-analysis. Neuroscience and Biobehavioral Reviews, 84(April 2017), 151–161. https://doi.org/10.1016/j.neubiorev.2017.11.012</li>
+                    <li>Manuello, J., Costa, T., Cauda, F., & Liloia, D. (2022). Six actions to improve detection of critical features for neuroimaging coordinate-based meta-analysis preparation. Neuroscience and biobehavioral reviews, 137, 104659. https://doi.org/10.1016/j.neubiorev.2022.104659</li>
+                    <li>Manuello, J., Liloia, D., Crocetta, A., Cauda, F., & Costa, T. (2024). CBMAT: a MATLAB toolbox for data preparation and post hoc analyses in neuroimaging meta-analyses. Behavior research methods, 56(5), 4325–4335. https://doi.org/10.3758/s13428-023-02185-3</li>
+                    <li>Samartsidis, P., Montagna, S., Nichols, T. E., & Johnson, T. D. (2017). The coordinate-based meta-analysis of neuroimaging data. Statistical science : a review journal of the Institute of Mathematical Statistics, 32(4), 580–599. https://doi.org/10.1214/17-STS624</li>
+                </ul>
+
+                <h3>Recommended Books and Sites</h3>
+                <ul>
+                    <li><a href="https://andysbrainbook.readthedocs.io/en/latest/MetaAnalysis/MetaAnalysis_Overview.html">Meta-Analysis Overview</a></li>
+                    <li><a href="https://brainmap.org/index.html">BrainMap</a></li>
+                    <li><a href="https://www.sdmproject.com/">SDM Project</a></li>
+                </ul>
+
+                <h3>Online Courses and Lectures</h3>
+                <h4>Introductory Lecture Series on Meta-Analysis</h4>
+                <ul>
+                    <li><a href="https://www.pathlms.com/ohbm/courses/8246/sections/12542/video_presentations/116071">OHBM Course</a></li>
+                    <li><a href="https://youtu.be/wZsXX9F0fQw?si=wcgbp2ztaK6vmy_x">YouTube Lecture 1</a></li>
+                    <li><a href="https://youtu.be/5lwXF091Gls?si=FYxJoiKwik0u2nvN">YouTube Lecture 2</a></li>
+                    <li><a href="https://youtu.be/1yeekmfxAM4?si=QQDteDgK167CLe3K">YouTube Lecture 3</a></li>
+                </ul>
+
+                <h4>Advanced Techniques in Meta-Analysis</h4>
+                <ul>
+                    <li><a href="https://youtu.be/zZE4d_qqdCs?si=zAzheCNzmL3J5x0n">YouTube Lecture</a></li>
+                </ul>
+
+                <h2 id="references">References</h2>
+                <ol>
+                    <li>Salimi-Khorshidi, G., Smith, S. M., Keltner, J. R., Wager, T. D., & Nichols, T. E. (2009). Meta-analysis of neuroimaging data: A comparison of image-based and coordinate-based pooling of studies. NeuroImage, 45(3), 810–823. https://doi.org/10.1016/j.neuroimage.2008.12.039</li>
+                    <li>Müller, V. I., Cieslik, E. C., Laird, A. R., Fox, P. T., Radua, J., Mataix-Cols, D., Tench, C. R., Yarkoni, T., Nichols, T. E., Turkeltaub, P. E., Wager, T. D., & Eickhoff, S. B. (2018). Ten simple rules for neuroimaging meta-analysis. Neuroscience and Biobehavioral Reviews, 84, 151–161. https://doi.org/10.1016/j.neubiorev.2017.11.012</li>
+                    <li>Manuello, J., Costa, T., Cauda, F., & Liloia, D. (2022). Six actions to improve detection of critical features for neuroimaging coordinate-based meta-analysis preparation. https://doi.org/10.1016/j.neubiorev.2022.104659</li>
+                    <li>Costa, T., Ferraro, M., Manuello, J., Camasio, A., Nani, A., Mancuso, L., Cauda, F., Fox, P. T., & Liloia, D. (2024). Activation Likelihood Estimation Neuroimaging Meta-Analysis: A Powerful Tool for Emotion Research. Psychology Research and Behavior Management, 17, 2331–2345. https://doi.org/10.2147/PRBM.S453035</li>
+                    <li>Manuello, J., Liloia, D., Crocetta, A., Cauda, F., & Costa, T. (2023). CBMAT: A MATLAB toolbox for data preparation and post hoc analyses in neuroimaging meta-analyses. Behavior Research Methods. https://doi.org/10.3758/s13428-023-02185-3</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Get in touch</h2>
+                    <form method="post" action="#">
+                        <div class="fields">
+                            <div class="field half">
+                                <input type="text" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div class="field half">
+                                <input type="email" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send" class="primary" /></li>
+                        </ul>
+                    </form>
+                </section>
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
