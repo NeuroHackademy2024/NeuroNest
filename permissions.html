@@ -70,9 +70,9 @@
 						              <li><strong>Write (<code>w</code>)</strong>: Allows modifying the file.</li>
 						              <li><strong>Execute (<code>x</code>)</strong>: Allows running the file if it is a program or script.</li>
 						              </ul>
-						              <h3 id="viewing-permissions">Viewing Permissions</h3>
-						              <p>Use the <code>ls -l</code> command to view detailed file permissions. The output includes a string like <code>-rwxr-xr-x</code> that shows permissions:</p>
 						              <ul>
+								<h3 id="viewing-permissions">Viewing Permissions</h3>
+								<p>Use the <code>ls -l</code> command to view detailed file permissions. The output includes a string like <code>-rwxr-xr-x</code> that shows permissions.</p>
 						              <li>The first character indicates the type (e.g., <code>-</code> for files, <code>d</code> for directories).</li>
 						              <li>The next three characters are the owner&#39;s permissions (aka the &quot;user&quot;).</li>
 						              <li>The following three are the permissions for the group the user belongs to.</li>
@@ -82,67 +82,69 @@
 						              </ul>
 						              <ul>
 								For example, <code>-rwxr-xr-x</code> means:
-						              	<li>Owner: Can read, write, and execute.</li>
-						              	<li>Group: Can read and execute, but not write.</li>
-						              	<li>Others: Can read and execute, but not write.</li>
+								      <ul>
+						              		<li>Owner: Can read, write, and execute.</li>
+						              		<li>Group: Can read and execute, but not write.</li>
+						              		<li>Others: Can read and execute, but not write.</li>
+								      </ul>
 						              </ul>
 						              <h2 id="changing-permissions">Changing Permissions</h2>
 						              <p><h3 id="grant-read-permission">Grant Read Permission</h3>
 						              This command gives the file&#39;s owner read access. The resulting permissions would be <code>-r--------</code>.</p>
-						              <pre><code class="lang-bash">  <span class="hljs-selector-tag">chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">r</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span></code></pre>
+						              <pre><code class="lang-bash">  <span class="hljs-selector-tag">$ chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">r</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span></code></pre>
 						              <h3 id="grant-write-permission">Grant Write Permission</h3>
 						              <p>This command adds write permission for the owner. The file&#39;s permissions will then be <code>--w-------</code>.</p>
-						              <pre><code class="lang-bash"><span class="hljs-selector-tag">chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">w</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
+						              <pre><code class="lang-bash"><span class="hljs-selector-tag">$ chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">w</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
 						              </code></pre>
 						              <h3 id="grant-execute-permission">Grant Execute Permission</h3>
 						              <p>This command allows the owner to execute the file. The permissions would be updated to <code>---x------</code>.</p>
-						              <pre><code class="lang-bash"><span class="hljs-selector-tag">chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">x</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
+						              <pre><code class="lang-bash"><span class="hljs-selector-tag">$ chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">x</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
 						              </code></pre>
 						              <h3 id="grant-read-write-and-execute-permissions">Grant Read, Write, and Execute Permissions</h3>
 						              <p>This command provides full access (read, write, and execute) to the file&#39;s owner. The file permissions will be <code>-rwx------</code>.</p>
-						              <pre><code class="lang-bash"><span class="hljs-selector-tag">chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">rwx</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
+						              <pre><code class="lang-bash"><span class="hljs-selector-tag">$ chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">rwx</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
 						              </code></pre>
 						              <h3 id="applying-permissions-to-the-group-and-others">Applying Permissions to the Group and Others</h3>
 						              <h4 id="for-the-group">For the Group</h4>
 						              <p>This grants the group read, write, and execute permissions, resulting in <code>----rwx---</code>.</p>
-						              <pre><code class="lang-bash"><span class="hljs-selector-tag">chmod</span> <span class="hljs-selector-tag">g</span>+<span class="hljs-selector-tag">rwx</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
+						              <pre><code class="lang-bash"><span class="hljs-selector-tag">$ chmod</span> <span class="hljs-selector-tag">g</span>+<span class="hljs-selector-tag">rwx</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
 						              </code></pre>
 						              <h4 id="for-others">For Others</h4>
 						              <p>This command allows all other users to read, write, and execute the file, setting permissions to <code>-------rwx</code>.</p>
-						              <pre><code class="lang-bash"><span class="hljs-selector-tag">chmod</span> <span class="hljs-selector-tag">o</span>+<span class="hljs-selector-tag">rwx</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
+						              <pre><code class="lang-bash"><span class="hljs-selector-tag">$ chmod</span> <span class="hljs-selector-tag">o</span>+<span class="hljs-selector-tag">rwx</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
 						              </code></pre>
 						              <h3 id="combine-permission-changes">Combine Permission Changes</h3>
 						              <p>This updates permissions to <code>-rwx-rw-r--</code>, providing different levels of access to the owner, group, and others.</p>
-						              <pre><code class="lang-bash"><span class="hljs-selector-tag">chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">rwx</span>,<span class="hljs-selector-tag">g</span>+<span class="hljs-selector-tag">rw</span>,<span class="hljs-selector-tag">o</span>+<span class="hljs-selector-tag">r</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
+						              <pre><code class="lang-bash"><span class="hljs-selector-tag">$ chmod</span> <span class="hljs-selector-tag">u</span>+<span class="hljs-selector-tag">rwx</span>,<span class="hljs-selector-tag">g</span>+<span class="hljs-selector-tag">rw</span>,<span class="hljs-selector-tag">o</span>+<span class="hljs-selector-tag">r</span> <span class="hljs-selector-tag">filename</span><span class="hljs-selector-class">.txt</span>
 						              </code></pre>
 						              <h3 id="setting-exact-permissions">Setting Exact Permissions</h3>
 						              <p>To set permissions precisely, use the equal sign (<code>=</code>) to define permissions explicitly:</p>
 						              <p>This command configures permissions to <code>-rw-rw-r--</code>, ensuring read and write access for the owner and group, and read-only access for others.</p>
-						              <pre><code class="lang-bash"><span class="hljs-attribute">chmod u</span>=rw,g=rw,o=r filename.txt
+						              <pre><code class="lang-bash"><span class="hljs-attribute">$ chmod u</span>=rw,g=rw,o=r filename.txt
 						              </code></pre>
 						              <h3 id="using-numerical-permission-codes">Using Numerical Permission Codes</h3>
 						              <p>Numerical codes offer a compact way to set file permissions. Each digit represents permissions for the owner, group, and others, respectively:</p>
 						              <h4 id="read-permission-only">Read Permission Only</h4>
-						              <p>chmod 400 filename.txt
-						              This sets permissions to <code>-r--------</code>, allowing only the owner to read the file.</p>
+						              <p>This sets permissions to <code>-r--------</code>, allowing only the owner to read the file.</p>
+								<pre><code>$ chmod 400 filename.txt</code></pre>
 						              <h4 id="read-permission-for-owner-and-group">Read Permission for Owner and Group</h4>
-						              <p>chmod 440 filename.txt
-						              This results in <code>-r--r-----</code>, enabling read access for both the owner and the group.</p>
+						              <p>This results in <code>-r--r-----</code>, enabling read access for both the owner and the group.</p>
+								<pre><code>$ chmod 440 filename.txt</code></pre>
 						              <h4 id="read-permission-for-everyone">Read Permission for Everyone</h4>
-						              <p>chmod 444 filename.txt
-						              This configuration, <code>-r--r--r--</code>, allows all users to read the file. Here, the number <code>4</code> signifies read permission.</p>
-						              <h4 id="read-and-write-permissions">Read and Write Permissions</h4>
-						              <p>chmod 664 filename.txt
-						              This sets permissions to <code>-rw-rw-r--</code>, giving both the owner and the group read and write access.</p>
+						               <p>This configuration, <code>-r--r--r--</code>, allows all users to read the file. Here, the number <code>4</code> signifies read permission.</p>
+						              <pre><code>chmod 444 filename.txt</code></pre>
+								<h4 id="read-and-write-permissions">Read and Write Permissions</h4>
+						               <p>This sets permissions to <code>-rw-rw-r--</code>, giving both the owner and the group read and write access.</p>
+						               <pre><code>chmod 664 filename.txt</code></pre>
 						              <h4 id="read-write-and-execute-permissions">Read, Write, and Execute Permissions</h4>
-						              <p>chmod 774 filename.txt
-						              This sets permissions to <code>-rwxrwxr--</code>, allowing full access for the owner and group.</p>
+						              <p:>This sets permissions to <code>-rwxrwxr--</code>, allowing full access for the owner and group.</p>
+						              <pre><code>hmod 774 filename.txt</code></pre>
 						              <h4 id="full-access-for-owner-only">Full Access for Owner Only</h4>
-						              <p>chmod 700 filename.txt
-						              This grants full permissions to the owner (<code>-rwx------</code>) and none to others.</p>
-						              <h4 id="typical-permissions-for-directories">Typical Permissions for Directories</h4>
-						              <p>chmod 755 MyDir
-						              For directories, <code>755</code> results in <code>drwxr-xr-x</code>, providing read, write, and execute access to the owner, and read and execute access to the group and others.</p>
+						              <p>This grants full permissions to the owner (<code>-rwx------</code>) and none to others.</p>
+						             <pre><code> chmod 700 filename.txt</code></pre>
+								<h4 id="typical-permissions-for-directories">Typical Permissions for Directories</h4>
+						              <pre><code>chmod 755 MyDir</code></pre>
+						              <p>For directories, <code>755</code> results in <code>drwxr-xr-x</code>, providing read, write, and execute access to the owner, and read and execute access to the group and others.</p>
 						              <p>See <a href="https://alvinalexander.com/linux-unix/linux-chmod-command-permissions-file-directories/">https://alvinalexander.com/linux-unix/linux-chmod-command-permissions-file-directories/</a> for more information and examples.</p>
 
 						</div>
