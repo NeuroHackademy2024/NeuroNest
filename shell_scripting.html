@@ -7,7 +7,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Phantom by HTML5 UP</title>
+		<title>Shell Scripting</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -51,11 +51,32 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Generic Page</h1>
+							<h1>Shell Scripting</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<h3>What is shell scripting?</h2>
+								<p>Shell scripting a way to automate tasks in Unix-like operating systems by writing scripts (sometimes referred to as small programs).</p>
+							<h3>What is a shell script?</h2>
+								<p>A shell script is a text file with a series of commands written in a shell language, such as Bash. Instead of typing commands manually one by one in the terminal, you can save them in a script and run that script to execute all the commands automatically. Shell scripts use plain text with commands written similarly to how you would type them in the terminal. Scripts can use variables to store data and control structures like loops and conditionals to make decisions and repeat actions. </p>
+							<h3>Why should I use shell scripting?</h2>
+								<p>Shell scripting enhances productivity by allowing users to bundle a series of commands into a single, executable file, which can be run with a single command. Using shell scripts can be more efficient, saving you time by running multiple commands with a single script. Shell scripts are also good for consisitency and reproducibility. By using a shell script, you ensure that the commands are run the same way every time. In addition, shell scripts are helpful because they can be re-used to perform routine tasks across different projects or systems.</p>
+							<h2>Creating and Running a Script</h2>
+								<ol>
+									<li>To create a shell script, create a text file with the desired name but use a <code>.sh</code> extention instead of <code>.txt</code>. This extension tells the user that the file is a bash script. For example:</li>
+<pre><code>$ nano [scriptname].sh</code></pre>
+									<li>After opening the .sh file in a text editor (like nano), you need to make sure your system knows it is a bash script. To do this, we add a shebang <code>#!</code>. The first line in your script should be:</li>
+<pre><code>$ #!/bin/bash</code></pre>
+									<li>Use <code>./</code> to run scripts in the current directory:</li>
+<pre><code>$ ./[scriptname].sh</code></pre>
+									<li>Scripts can also accept arguments that allow us to input variables when running the script. For example:</li>
+<pre><code>$ ./[scriptname].sh [variable]</code></pre>
+								</ol>
+							<h2>Variables in Scripts</h2>
+								<ul>
+									<li>$1, $2, etc., refer to specific arguments (e.g., $1 for the first argument).</li>
+									<li><code>$@</code>  refers to all command-line arguments. </li>
+									<li>Place variables in quotes if their values might contain spaces to ensure they are correctly interpreted.
+</li>
+								</ul>
 						</div>
 					</div>
 
