@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>NAME THAT SHOWS IN THE TAB ABOVE</title>
+		<title>GitHub</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -51,10 +51,150 @@
 					<div id="main">
 						<div class="inner">
 							<h1>GitHub Tutorials and Resources</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+<body>
+
+    <h1>Using GitHub Without the Command Line</h1>
+
+    <div class="glossary">
+        <h2>Glossary of Key GitHub Terms</h2>
+        <ul>
+            <li><strong>Repository (Repo)</strong>: A container for organizing a project, including all of the project’s files and their revision history.</li>
+            <li><strong>Branch</strong>: A parallel version of a repository. It diverges from the main working project to work on changes separately until they're ready to be merged back.</li>
+            <li><strong>Commit</strong>: A snapshot of changes made to files in a repository. Each commit has a unique ID and a message describing the changes.</li>
+            <li><strong>Pull Request (PR)</strong>: A request to merge changes from one branch into another. It allows for code review and discussion before merging.</li>
+            <li><strong>Merge</strong>: Combining changes from different branches into one branch.</li>
+            <li><strong>README.md</strong>: A markdown file typically included in repositories to provide information about the project.</li>
+            <li><strong>Markdown</strong>: A lightweight markup language with plain text formatting syntax, often used for README files.</li>
+        </ul>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>GitHub is a platform used by developers, engineers, and designers worldwide to collaborate and share code. This guide will help you learn to use GitHub without needing to touch the command line. You will learn to:</p>
+    <ul>
+        <li>Create an account on GitHub.com</li>
+        <li>Create a repository</li>
+        <li>Manage and create branches</li>
+        <li>Commit changes to a repository</li>
+        <li>Open and merge pull requests</li>
+        <li>Create mentions and discussion</li>
+    </ul>
+
+    <h2>Step 1: Create a GitHub Account</h2>
+    <ol>
+        <li>Visit <a href="https://github.com" target="_blank">GitHub.com</a>.</li>
+        <li>Pick a username, enter your email address, and choose a password.</li>
+        <li>Follow the prompts to complete the account setup.</li>
+    </ol>
+    <img src="images/image1.png" alt="Create a GitHub Account">
+
+    <h2>Step 2: Create a Repository</h2>
+    <ol>
+        <li>Click the "+" sign next to your avatar in the top right corner and select "New repository."</li>
+        <li>Name your repository <code>hello-world</code>.</li>
+        <li>Write a short description of your project.</li>
+        <li>Select "Public."</li>
+        <li>Select "Initialize this repository with a README."</li>
+        <li>Click "Create repository."</li>
+    </ol>
+    <img src="images/image2.png" alt="Create a New Repository">
+
+    <h3>Switching the Default Branch from "master" to "main"</h3>
+    <ol>
+        <li>Go to your repository page.</li>
+        <li>Click the "Settings" tab.</li>
+        <li>Scroll down to the "Branches" section.</li>
+        <li>Under "Default branch," click the pencil icon to edit.</li>
+        <li>Select <code>main</code> from the dropdown menu (you might need to type in <code>main</code> if it’s not already there).</li>
+        <li>Click "Update."</li>
+        <li>Confirm the change by clicking "I understand, update the default branch."</li>
+    </ol>
+    <img src="images/image3.png" alt="Switch Default Branch to Main">
+
+    <h2>Step 3: Create a New Branch</h2>
+    <ol>
+        <li>In your <code>hello-world</code> repository, click the "Code" tab.</li>
+        <li>Click the dropdown menu that says "main."</li>
+        <li>Type a branch name, e.g., <code>readme-edits</code>.</li>
+        <li>Click "Create branch: readme-edits."</li>
+    </ol>
+    <img src="images/image4.png" alt="Create a New Branch">
+
+    <h3>Understanding Branching</h3>
+    <p>Branching involves diverging from your main line of development and continuing to work without affecting that main line. When you initialize a new Git repository, by default you’re checked into the main branch. Branching can be a great way of working on a feature of a project without affecting the main code. When you have finished working on your new feature you can then merge your new code into the main codebase, the main branch.</p>
+
+    <pre>
+ main
+   |
+   +--- development
+    </pre>
+
+    <p>After multiple changes, the development branch is then merged back into the main branch.</p>
+
+    <h2>Step 4: Make Changes and Commit Them to the Repository</h2>
+    <ol>
+        <li>Ensure you are in the <code>readme-edits</code> branch.</li>
+        <li>Click on the <code>README.md</code> file.</li>
+        <li>Click the pencil icon to edit the file.</li>
+        <li>Add some text about yourself.</li>
+        <li>Write a commit message describing your changes.</li>
+        <li>Click "Commit changes."</li>
+    </ol>
+    <img src="images/image5.png" alt="Make Changes and Commit Them">
+
+    <h3>Understanding Commits</h3>
+    <p>When a change is made, these changes are saved as commits. Each time you commit it is a good idea to add a short commit message. This creates a readable history of the project and allows others who may be contributing to the project to understand what is going on at a glance.</p>
+
+    <h2>Step 5: Open a Pull Request and Merge Changes</h2>
+    <ol>
+        <li>Click the "Pull requests" tab.</li>
+        <li>Click "New pull request."</li>
+        <li>Select <code>readme-edits</code> to compare with <code>main</code>.</li>
+        <li>Review the changes and click "Create pull request."</li>
+        <li>Write a description of your changes.</li>
+        <li>Click "Create pull request."</li>
+        <li>Click "Merge pull request."</li>
+        <li>Click "Confirm merge."</li>
+        <li>Optionally, delete the <code>readme-edits</code> branch if no longer needed.</li>
+    </ol>
+    <img src="images/image6.png" alt="Open a Pull Request and Merge Changes">
+
+    <h3>Understanding Pull Requests</h3>
+    <p>Pull Requests are what makes GitHub such a great tool for collaboration. At this point, we have made changes to a file ourselves, but in theory, anybody could make these changes and then ask for a Pull Request, allowing their edits to be merged into a project. A Pull Request needs to be reviewed before the changes are merged; this prevents bad work from entering a branch.</p>
+    <p>A Pull Request will highlight the differences (often called Diffs) in the content between branches. Changes can be additions or subtractions to the content. Additions are highlighted in green while subtractions are highlighted in red.</p>
+
+    <h2>Step 6: Create Mentions and Discussion</h2>
+    <ol>
+        <li>In a pull request, use the <code>@</code> symbol followed by a username to mention a collaborator.</li>
+        <li>This can flag issues or invite discussion on specific changes.</li>
+    </ol>
+
+    <h3>More on Mentions & Discussions</h3>
+    <p>Mentions are a powerful way to bring specific people's attention to a pull request, issue, or comment. By using <code>@username</code>, you can notify a team member about something that needs their review or input. This is especially useful for highlighting issues, assigning tasks, or simply ensuring that someone is aware of a particular discussion.</p>
+    <p>In addition to mentions, GitHub provides a platform for discussion where collaborators can comment on pull requests and commits. This fosters a collaborative environment where feedback can be given, questions can be asked, and ideas can be shared. Keeping discussions in pull requests and issues helps maintain a clear history of decisions and changes related to the project.</p>
+
+    <h2>Conclusion</h2>
+    <p>By completing this tutorial, you've learned to:</p>
+    <ul>
+        <li>Create a repository.</li>
+        <li>Start and manage a new branch.</li>
+        <li>Make and commit changes.</li>
+        <li>Open and merge a pull request.</li>
+        <li>Create mentions and discussions.</li>
+    </ul>
+    <p>Next, you can explore more advanced features of GitHub or personalize your profile. Happy coding!</p>
+
+    <h2>Reference</h2>
+    <ul>
+        <li><a href="https://pixelpioneers.co/blog/2017/using-github-without-the-command-line" target="_blank">Using GitHub Without The Command Line</a></li>
+        <li><a href="https://docs.github.com/en/get-started/start-your-journey/hello-world" target="_blank">Github Hello World Tutorial</a></li>
+    </ul>
+
+    <h2>Additional Resources</h2>
+    <ul>
+        <li><a href="https://swcarpentry.github.io/git-novice/aio.html" target="_blank">Software Carpentry, Version Control with Git (Command Line)</a></li>
+    </ul>
+
+</body>
 						</div>
 					</div>
 
