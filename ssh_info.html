@@ -52,9 +52,9 @@
 						<div class="inner">
 							<h1 id="introduction-to-ssh-secure-shell-">Introduction to SSH (Secure Shell)</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-              <h2 id="remote-login">Remote Login</h2>
+              <h2 id="secure-remote-login">Secure Remote Login</h2>
                 <p>When you type commands in your local terminal, the characters you input are sent from your keyboard to the shell, which displays them on the screen. If you type a command, the shell executes it and shows the output. To execute commands on another machine, such as a server managing a database, you need to log in to that remote machine. This process is known as a remote login. For a successful remote login, the remote computer must be running a remote login server, while you will use a client program to connect to this server. The client sends your login credentials to the server, which, if authenticated, launches a shell on the remote computer for you. The SSH protocol (Secure Shell) was designed to secure remote logins by encrypting the network traffic, thus protecting against eavesdropping, connection hijacking, and other attacks. SSH uses sophisticated encryption to ensure that communications between the client and server are secure.</p>
-              <h2 id="key-concepts">Key Concepts</h2>
+              <h3 id="key-concepts">Key Concepts</h2>
                 <ul>
                 <li><strong>SSH Daemon (sshd)</strong>: The server-side program that accepts connections from SSH clients.</li>
                 <li><strong>SSH Client</strong>: The program used to connect to the remote SSH server. The command for connecting is <code>ssh yourUsername@remoteComputerAddress</code>.</li>
@@ -77,20 +77,20 @@
                 <p>The colon <code>:</code> is used to differentiate between local and remote paths. For example:</p>
                 <p><code>scp file.txt user@remotehost:/remote/path/</code></p>
                 <p>Here, <code>file.txt</code> is copied to <code>/remote/path/</code> on <code>remotehost</code>. Without the colon, SCP will attempt to create a file named <code>user@remotehost</code> on your local machine.</p>
-              <h2 id="key-points">Key Points</h2>
+              <h3 id="key-points">Key Points</h2>
                 <ul>
                 <li><strong>SSH</strong>: A secure alternative to remote login and file transfer.</li>
                 <li><strong>SSH Keys</strong>: Generated in pairs (public and private). The public key can be shared, while the private key remains on your machine.</li>
                 <li><strong>SCP</strong>: Used for secure file copying between machines.</li>
                 </ul>
-              <h2 id="checking-the-system">Checking the System</h2>
+              <h3 id="checking-the-system">Checking the System</h2>
                 <p>To verify which system your terminal is connected to, use:</p>
                 <p><code>hostname</code></p>
               <h2 id="high-performance-computing-hpc-">High Performance Computing (HPC)</h2>
                 <p>HPC systems are used for computationally intensive tasks and often involve connecting to large computing systems remotely. Interacting with these systems is typically done via a command-line interface.</p>
                 <h3 id="modules-in-hpc">Modules in HPC</h3>
                   <p>Modules are used to manage software environments in HPC systems. They allow users to switch between different software versions and manage dependencies.</p>
-                  <h3 id="module-commands">Module Commands</h3>
+                  <h4 id="module-commands">Module Commands</h3>
                     <ul>
                     <li><strong>List Available Modules</strong>: <code>module avail</code></li>
                     <li><strong>Retrieve Specific Module</strong>: <code>module spider &lt;software-name&gt;</code></li>
