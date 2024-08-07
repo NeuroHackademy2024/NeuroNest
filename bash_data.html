@@ -66,15 +66,16 @@
 									<li><p><strong>Windows:</strong> Install <a href="https://gitforwindows.org/">git for Windows</a> to get Git Bash or use Windows Subsystem for Linux (WSL) for a more comprehensive Unix-like environment.</p></li>
 								</ul></p>
 								<p>For troubleshooting and installation assistance, refer to these resources: </p>
-									<a href="https://gitforwindows.org/">git for Windows</a>
-									<a href="https://swcarpentry.github.io/shell-novice/#install-software">Software Carpentry Installation Tutorial</a>
-									<a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">Carpentries Workshop Installation Instructions</a></p>
+								<ul>
+									<li><a href="https://swcarpentry.github.io/shell-novice/#install-software">Software Carpentry Installation Tutorial</a></li>
+									<li><a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">Carpentries Workshop Installation Instructions</a></li>
+								</ul>
 							<h3>How do I use the command shell?</h3>
 								<p>Upon opening the shell application, you will see a prompt, which indicates that the shell is ready for input. This prompt is also called the “command line”. The prompt typically ends in a $, but can also end with #, &gt;, %, or >>>.</p>								
 <pre><code>$</code></pre>
 								<p>Your prompt might look different. Most  shell environments  put your user name and the host name before the $. For example, your prompt might look like:									
 <pre><code>amordy@localhost $</code></pre>									
-								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs.</p> In some of the example code, you will see file and directory names in brackets (e.g., [username]). Text in brackets should be replaced with your own names.  
+								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs. In some of the example code, you will see file and directory names in brackets (e.g., [username]). Text in brackets should be replaced with your own names.</p>   
 								<p>Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
 							<h2 id="keyboard-shortcuts-for-the-command-window">Keyboard Shortcuts for the Command Window</h2>
 							<h3 id="for-windows-users">For Windows Users</h3>
@@ -119,10 +120,9 @@
 								<td>Continues command entry onto the next line.</td>
 								</tr>
 								<tr>
-								<td></td><code>Single Tab</code></td>
+								<td><code>Single Tab</code></td>
 								<td>Auto-completes commands and variable names based on partially typed text if there is a unique match.</td>
 								</tr>
-								<tr>
 								<td><code>Double Tab</code></td>
 								<td>Lists all possible completions if there are multiple matches.</td>
 								</tr>
@@ -179,16 +179,39 @@
 								</tbody>
 								</table>
 							<h2 id="navigating files and directories">Navigating Files and Directories</h2>
+								<p>Commands are executed through the command line. To execute a command, type it into the command line after the prompt and press <code>return</code> or <code>enter</code>.</p>
 								<p>The file system organizes data on the disk in files and folders. Files can be placed in folders, which we call <i>directories</i>. Directories can also store other directories, making a directory tree. </p>
 								<p>At the top of the file system/directory tree is the root directory, which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).
 								<p>While we are using the shell, we can only be in one directory at a time (unless multiple windows are open). This is called our <i>current working directory</i>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
-								<p>Most home directories follow this path format: <code>/Users/name </code>. In this example, we know that /Users/amordy is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
+								<p>Most home directories follow this path format: <code>/Users/[name]</code>. In this example, we know that /Users/amordy is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
 								<p>To see your current working directory, we will execute the command that <i>prints our working directory</i>, <code>pwd</code>.</p>								
 <pre><code>$ pwd </code></pre>								
 								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
 								<p>Next, to see the files within our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code>. Your output is a list of the files and directories within your current working directory.</p>								
-<pre><code>$ ls</code></pre>								
-							<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
+<pre><code>$ ls</code></pre>							
+							<h2 id="using-flags-and-arguments-in-commands">Using Flags and Arguments in Commands</h2>
+								<p>Most commands follow the same format: command, then flags/options, then arguments. </p>
+<pre><code>$ command [flags/options] [arguments]</code></pre>
+								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
+<pre><code>$ ls</code></pre>									
+								<p><strong>With Arguments </strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
+<pre><code>$ cd /path/to/directory </code></pre>
+								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
+<pre><code>$ ls -l </code></pre>
+								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
+								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to list all files, including hidden ones, in the Desktop directory:<p>
+<pre><code>$ ls -a Desktop </code></pre>
+								<p><strong>Combing Flags</strong>: You can combine multiple flags with a single -, with no spaces between flags. For example:</p>
+<pre><code>$ ls -Fa </code></pre>
+								<p><strong>Examples</strong>: Here are some examples of using commands with flags and arguments:</p>
+
+								<p>To list contents of the 'Desktop' directory:</p>
+<pre><code>$ ls -F Desktop</code></pre>
+								<p>To make a new directory:</p>
+<pre><code>$ mkdir -p Desktop/practice/example</code></pre>
+								<p>To move into the 'Desktop' directory:</p>
+<pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
+								<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
 								<table>
 								<thead>
 								<tr>
@@ -255,31 +278,7 @@
 								</tr>
 								</tbody>
 								</table>
-							<h2 id="using-flags-and-arguments-in-commands">Using Flags and Arguments in Commands</h2>
-							<h3 id="syntax-for-commands">Syntax for Commands:</h3>
-								<p>Commands are executed through the command line. Most commands follow the same format: command, then flags/options, then arguments. </p>
-<pre><code>$ command <flags/options> <arguments></span></code></pre>
-							<h3>Executing Commands</h3>
-								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
-<pre><code>$ ls</code></pre>									
-								<p><strong>With Arguments </strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
-<pre><code>$ cd /path/to/directory </code></pre>
-								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
-<pre><code>$ ls -l </code></pre>
-								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
-								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to list all files, including hidden ones, in the Desktop directory:<p>
-<pre><code>$ ls -a Desktop </code></pre>
-								<p><strong>Combing Flags</strong>: You can combine multiple flags with a single -, with no spaces between flags. For example:</p>
-<pre><code>$ ls -Fa </code></pre>
-								<p><strong>Examples</strong>: Here are some examples of using commands with flags and arguments:</p>
-
-								<p>To list contents of the 'Desktop' directory:</p>
-<pre><code>$ ls -F Desktop</code></pre>
-								<p>To make a new directory:</p>
-<pre><code>$ mkdir -p Desktop/practice/example</code></pre>
-								<p>To move into the 'Desktop' directory:</p>
-<pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
-							<h2>Path Types</h2>	
+								<h2>Path Types</h2>	
 								<ul>
 									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory. Example: <code>$ ls /Users/name</code></p></li>
 									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory.Example: <code>$ cd Desktop</code></p></li>
