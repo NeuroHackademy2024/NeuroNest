@@ -53,7 +53,7 @@
 						<div class="inner">
 							<h1>Shell Scripting</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<h3>What is shell scripting?</h2>
+							<h2>What is shell scripting?</h2>
 								<p>Shell scripting a way to automate tasks in Unix-like operating systems by writing scripts (sometimes referred to as small programs).</p>
 							<h3>What is a shell script?</h2>
 								<p>A shell script is a text file with a list of UNIX commands written in a shell language, such as Bash. Instead of typing commands manually one by one in the terminal, you can save them in a script and run that script to execute all the commands automatically. Shell scripts use plain text with commands written similarly to how you would type them in the terminal. Scripts can use variables to store data and can use structures like loops and conditionals to make decisions and repeat actions. </p>
@@ -103,7 +103,7 @@ VAR = "I am great at this!"
 echo $VAR2
 </code></pre>
 								<p>In addition to declaring variables within a script, we can also pass arguments into the script from the command line. For example: </p>
-<pre><code>$ nano practice.sh "I'm a pro"</code></pre>							
+<pre><code>$ nano practice.sh "I'm a pro."</code></pre>							
 <pre><code>#!/bin/bash
 
 # This script was made for practice 
@@ -111,11 +111,17 @@ echo "This is a bash script!"
 # Declare our new variable
 VAR = "I am great at this!"
 # Print the variable
-echo $VAR2
+echo $VAR
 # Print variable from command line
 echo $1
 </code></pre>		
-								<p>In this example, we passed the argument "I'm a pro" into our script. Because that is our first argument, we access the variable with <code>$1</code>. If we had two arguments, the second argument would be accessed with <code>$2</code>, and so on.</p>
+								<p>In this example, we passed the argument "I'm a pro." into our script. Because "I'm a pro." is our first argument, we will access the variable with <code>$1</code>. If we had two arguments, the second argument would be accessed with <code>$2</code>, and so on. This script should output:</p>
+<pre><code>
+This is a bash script!
+I am great at this!
+I'm a pro.
+</code></pre>
+
 								<ul>
 									<li>$1, $2, etc., refer to specific arguments (e.g., $1 for the first argument).</li>
 									<li><code>$@</code>  refers to all command-line arguments. </li>
