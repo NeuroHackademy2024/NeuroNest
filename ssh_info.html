@@ -52,62 +52,61 @@
 						<div class="inner">
 							<h1 id="introduction-to-ssh-secure-shell-">Introduction to SSH (Secure Shell)</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-              <h2 id="secure-remote-login">Secure Remote Login</h2>
-                <p>When you type commands in your local terminal, the characters you input are sent from your keyboard to the shell, which displays them on the screen. If you type a command, the shell executes it and shows the output. To execute commands on another machine, such as a server managing a database, you need to log in to that remote machine. This process is known as a remote login. For a successful remote login, the remote computer must be running a remote login server, while you will use a client program to connect to this server. The client sends your login credentials to the server, which, if authenticated, launches a shell on the remote computer for you. The SSH protocol (Secure Shell) was designed to secure remote logins by encrypting the network traffic, thus protecting against eavesdropping, connection hijacking, and other attacks. SSH uses sophisticated encryption to ensure that communications between the client and server are secure.</p>
-              <h3 id="key-concepts">Key Concepts</h2>
-                <ul>
-                <li><strong>SSH Daemon (sshd)</strong>: The server-side program that accepts connections from SSH clients.</li>
-                <li><strong>SSH Client</strong>: The program used to connect to the remote SSH server. The command for connecting is <code>ssh yourUsername@remoteComputerAddress</code>.</li>
-                </ul>
-              <h2 id="using-ssh">Using SSH</h2>
-                <p>To connect to a remote computer, use the following syntax:</p>
-<pre><code class="lang-bash"><span class="hljs-attribute">ssh</span> username<span class="hljs-variable">@remoteComputerAddress</span></code></pre>
-                <p>After logging in, you can use the remote shell as if it were your local shell. To exit the remote session, type <code>exit</code> or press <code>Control-D</code>.</p>
-              <h2 id="secure-copy-protocol-scp-">Secure Copy Protocol (SCP)</h2>
-                <p>SCP (Secure Copy Protocol) is used to copy files to or from a remote machine over the SSH connection. It ensures that file transfers are secure.</p>
-                <h3 id="copying-files">Copying Files</h3>
-                  <p>To copy a file to a remote server, use:</p>
-                  <p><code>scp localFile.txt username@remoteComputerAddress:/path/to/remote/directory/</code></p>
-                  <p>To copy a file from a remote server, use:</p>
-                  <p><code>scp username@remoteComputerAddress:/path/to/remoteFile.txt /local/directory/</code></p>
-                <h3 id="copying-directories">Copying Directories</h3>
-                  <p>To copy a directory recursively, use:</p>
-                  <p><code>scp -r username@remoteComputerAddress:/path/to/remoteDirectory/ /local/directory/</code></p>
-                <h3 id="important-note">Important Note</h3>
-                <p>The colon <code>:</code> is used to differentiate between local and remote paths. For example:</p>
-                <p><code>scp file.txt user@remotehost:/remote/path/</code></p>
-                <p>Here, <code>file.txt</code> is copied to <code>/remote/path/</code> on <code>remotehost</code>. Without the colon, SCP will attempt to create a file named <code>user@remotehost</code> on your local machine.</p>
-              <h3 id="key-points">Key Points</h2>
-                <ul>
-                <li><strong>SSH</strong>: A secure alternative to remote login and file transfer.</li>
-                <li><strong>SSH Keys</strong>: Generated in pairs (public and private). The public key can be shared, while the private key remains on your machine.</li>
-                <li><strong>SCP</strong>: Used for secure file copying between machines.</li>
-                </ul>
-              <h3 id="checking-the-system">Checking the System</h2>
-                <p>To verify which system your terminal is connected to, use:</p>
-                <p><code>hostname</code></p>
-              <h2 id="high-performance-computing-hpc-">High Performance Computing (HPC)</h2>
-                <p>HPC systems are used for computationally intensive tasks and often involve connecting to large computing systems remotely. Interacting with these systems is typically done via a command-line interface.</p>
-                <h3 id="modules-in-hpc">Modules in HPC</h3>
-                  <p>Modules are used to manage software environments in HPC systems. They allow users to switch between different software versions and manage dependencies.</p>
-                  <h4 id="module-commands">Module Commands</h3>
-                    <ul>
-                    <li><strong>List Available Modules</strong>: <code>module avail</code></li>
-                    <li><strong>Retrieve Specific Module</strong>: <code>module spider &lt;software-name&gt;</code></li>
-                    <li><strong>Load a Module</strong>: <code>module load &lt;software-name&gt;</code></li>
-                    <li><strong>List Loaded Modules</strong>: <code>module list</code></li>
-                    <li><strong>Swap Modules</strong>: <code>module swap &lt;old-module&gt; &lt;new-module&gt;</code></li>
-                    <li><strong>Unload a Module</strong>: <code>module unload &lt;software-name&gt;</code></li>
-                    <li><strong>Purge All Modules</strong>: <code>module purge</code></li>
-                    <li><strong>Reset Modules</strong>: <code>module reset</code></li>
-                    <li><strong>Help with Modules</strong>: <code>module help</code></li>
-                    </ul>
-                <p>For more information on module commands, refer to <a href="https://hpc.nmsu.edu/onboarding/supercomputing/modules/commands/">this documentation</a>.</p>
-              <h2 id="additional-resources">Additional Resources</h2>
-                <ul>
-                <li><strong>High Performance Computing (HPC) Resources</strong>: <a href="https://epcced.github.io/hpc-shell/aio.html">HPC Shell Guide</a></li>
-                <li><strong>Curated HPC Resources</strong>: <a href="https://github.com/trevor-vincent/awesome-high-performance-computing">Awesome HPC</a></li>
-                </ul>
+							      <h2 id="secure-remote-login">Secure Remote Login</h2>
+								<p>When you type commands in your local terminal, the characters you input are sent from your keyboard to the shell, which displays them on the screen. If you type a command, the shell executes it and shows the output. To execute commands on another machine, such as a server managing a database, you need to log in to that remote machine. This process is known as a remote login. For a successful remote login, the remote computer must be running a remote login server, while you will use a client program to connect to this server. The client sends your login credentials to the server, which, if authenticated, launches a shell on the remote computer for you. The SSH protocol (Secure Shell) was designed to secure remote logins by encrypting the network traffic, thus protecting against eavesdropping, connection hijacking, and other attacks. SSH uses sophisticated encryption to ensure that communications between the client and server are secure.</p>
+							      <h3 id="key-concepts">Key Concepts</h2>
+								<ul>
+								<li><strong>SSH Daemon (sshd)</strong>: The server-side program that accepts connections from SSH clients.</li>
+								<li><strong>SSH Client</strong>: The program used to connect to the remote SSH server. The command for connecting is <code>ssh yourUsername@remoteComputerAddress</code>.</li>
+								</ul>
+							      <h2 id="using-ssh">Using SSH</h2>
+								<p>To connect to a remote computer, use the following syntax:</p>
+						<pre><code class="lang-bash"><span class="hljs-attribute">ssh</span> username<span class="hljs-variable">@remoteComputerAddress</span></code></pre>
+								<p>After logging in, you can use the remote shell as if it were your local shell. To exit the remote session, type <code>exit</code> or press <code>Control-D</code>.</p>
+								<h2 id="secure-copy-protocol-scp-">Secure Copy Protocol (SCP)</h2>
+								<p>SCP (Secure Copy Protocol) is used to copy files to or from a remote machine over the SSH connection. It ensures that file transfers are secure.</p>
+								<h3 id="copying-files">Copying Files</h3>
+								  <p>To copy a file to a remote server, use:</p>
+								  <pre><code>scp localFile.txt username@remoteComputerAddress:/path/to/remote/directory/</code></pre>
+								  <p>To copy a file from a remote server, use:</p>
+								  <pre><code>scp username@remoteComputerAddress:/path/to/remoteFile.txt /local/directory/</code></pre>
+								<h3 id="copying-directories">Copying Directories</h3>
+								  <p>To copy a directory recursively, use:</p>
+								  <pre><code>scp -r username@remoteComputerAddress:/path/to/remoteDirectory/ /local/directory/</code></pre>
+								<h3 id="important-note">Important Note</h3>
+								<p>The colon <code>:</code> is used to differentiate between local and remote paths. For example:</p>
+								<pre><code>scp file.txt user@remotehost:/remote/path/</code></pre>
+								<p>Here, <code>file.txt</code> is copied to <code>/remote/path/</code> on <code>remotehost</code>. Without the colon, SCP will attempt to create a file named <code>user@remotehost</code> on your local machine.</p>
+							      <h3 id="key-points">Key Points</h2>
+								<ul>
+								<li><strong>SSH</strong>: A secure alternative to remote login and file transfer.</li>
+								<li><strong>SSH Keys</strong>: Generated in pairs (public and private). The public key can be shared, while the private key remains on your machine.</li>
+								<li><strong>SCP</strong>: Used for secure file copying between machines.</li>
+								</ul>
+							      <h3 id="checking-the-system">Checking the System</h2>
+								<p>To verify which system your terminal is connected to, use: <code>hostname</code></p>
+								<h2 id="high-performance-computing-hpc-">High Performance Computing (HPC)</h2>
+								<p>HPC systems are used for computationally intensive tasks and often involve connecting to large computing systems remotely. Interacting with these systems is typically done via a command-line interface.</p>
+								<h3 id="modules-in-hpc">Modules in HPC</h3>
+								  <p>Modules are used to manage software environments in HPC systems. They allow users to switch between different software versions and manage dependencies.</p>
+								  <h4 id="module-commands">Module Commands</h3>
+								    <ul>
+								    <li><strong>List Available Modules</strong>: <code>module avail</code></li>
+								    <li><strong>Retrieve Specific Module</strong>: <code>module spider &lt;software-name&gt;</code></li>
+								    <li><strong>Load a Module</strong>: <code>module load &lt;software-name&gt;</code></li>
+								    <li><strong>List Loaded Modules</strong>: <code>module list</code></li>
+								    <li><strong>Swap Modules</strong>: <code>module swap &lt;old-module&gt; &lt;new-module&gt;</code></li>
+								    <li><strong>Unload a Module</strong>: <code>module unload &lt;software-name&gt;</code></li>
+								    <li><strong>Purge All Modules</strong>: <code>module purge</code></li>
+								    <li><strong>Reset Modules</strong>: <code>module reset</code></li>
+								    <li><strong>Help with Modules</strong>: <code>module help</code></li>
+								    </ul>
+								<p>For more information on module commands, refer to <a href="https://hpc.nmsu.edu/onboarding/supercomputing/modules/commands/">this documentation</a>.</p>
+							      <h2 id="additional-resources">Additional Resources</h2>
+								<ul>
+								<li><strong>High Performance Computing (HPC) Resources</strong>: <a href="https://epcced.github.io/hpc-shell/aio.html">HPC Shell Guide</a></li>
+								<li><strong>Curated HPC Resources</strong>: <a href="https://github.com/trevor-vincent/awesome-high-performance-computing">Awesome HPC</a></li>
+								</ul>
 						</div>
 					</div>
 
