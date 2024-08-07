@@ -1,3 +1,6 @@
+Here is the modified HTML code that replaces the generic content with the new tutorial content for data preprocessing in neuroimaging:
+
+```html
 <!DOCTYPE HTML>
 <!--
 	Phantom by HTML5 UP
@@ -50,11 +53,95 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Generic Page</h1>
+							<h1>Data Preprocessing</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>Welcome to the NeuroNest tutorial on Data Preprocessing for Neuroimaging Data!</p>
+
+							<h2>Tutorial Time: 40 min</h2>
+							<p>In this tutorial, we'll cover several fundamental concepts essential for cleaning and preparing neuroimaging data for analysis. We will focus on MRI data, highlighting techniques, tools, and steps necessary to ensure high-quality data ready for in-depth analysis.</p>
+
+							<h2>Steps in Data Preprocessing:</h2>
+
+							<h3>1. Introduction to Data Preprocessing</h3>
+							<p><strong>Importance:</strong> Understanding the need for cleaning and preparing neuroimaging data to ensure accurate and reliable analysis.</p>
+							<p><strong>General Steps:</strong> Overview of typical preprocessing steps, including data cleaning, normalization, and transformation.</p>
+
+							<h3>2. Techniques for Cleaning and Preparing Neuroimaging Data:</h3>
+							<p><strong>Motion Correction:</strong> Techniques to correct for subject movement during scanning. Minimizes artifacts and improves data quality.</p>
+							<p><strong>Spatial Normalization:</strong> Aligning images to a standard brain template. Enables comparison across subjects and studies.</p>
+							<p><strong>Segmentation:</strong> Separating different tissue types (e.g., gray matter, white matter, cerebrospinal fluid). Facilitates region-specific analysis.</p>
+							<p><strong>Smoothing:</strong> Applying a Gaussian filter to reduce noise and enhance signal. Improves the signal-to-noise ratio.</p>
+							<p><strong>Artifact Removal:</strong> Techniques to identify and remove artifacts such as scanner noise or physiological noise. Ensures cleaner data for more accurate analysis.</p>
+
+							<h3>3. Interactive Tutorials and Resources:</h3>
+							<p><strong>Google Colab for Interactive Tutorials:</strong> Creating hands-on tutorials that users can interact with. Incorporating executable code snippets and visualization tools directly into the webpage.</p>
+							<p><strong>Links to Documentation and Resources:</strong> Compilation of valuable external resources for further learning.</p>
+
+							<h3>4. Using FMRIPREP:</h3>
+							<p><strong>Overview:</strong> FMRIPREP is a robust and reproducible preprocessing pipeline for functional MRI data.</p>
+							<p><strong>Key Features:</strong> Automated preprocessing, standardized outputs, extensive reporting.</p>
+							<p><strong>Steps in FMRIPREP Pipeline:</strong> Motion Correction, Spatial Normalization, Segmentation, Smoothing, Artifact Removal.</p>
+							<p><strong>Advantages and Disadvantages:</strong> Reproducibility, automation, comprehensive reporting. Resource-intensive, complexity.</p>
+
+							<h3>5. Quality Assessment with MRIQC:</h3>
+							<p><strong>Overview:</strong> MRIQC is a tool designed to assess the quality of MRI data through various metrics and visual reports.</p>
+							<p><strong>Key Features:</strong> Quality assessment, comprehensive metrics, easy-to-interpret reports.</p>
+							<p><strong>Steps in MRIQC Pipeline:</strong> Image Assessment, Quality Metrics Calculation, Reporting.</p>
+
+							<h3>6. Comparison of FMRIPREP and MRIQC:</h3>
+							<p><strong>Purpose:</strong> FMRIPREP focuses on preprocessing functional MRI data to prepare it for analysis. MRIQC focuses on assessing the quality of MRI data to ensure high standards.</p>
+							<p><strong>Functionality:</strong> FMRIPREP includes steps like motion correction, spatial normalization, segmentation, and artifact removal. MRIQC computes quality metrics and generates reports but does not preprocess the data.</p>
+							<p><strong>Use Case:</strong> FMRIPREP is ideal for researchers needing a comprehensive and automated preprocessing solution. MRIQC is ideal for researchers needing to assess and ensure data quality before analysis.</p>
+							<p><strong>Integration:</strong> MRIQC can be used before FMRIPREP to assess data quality and after FMRIPREP to evaluate preprocessing effectiveness.</p>
+
+							<h3>7. FAQ and Practical Tips:</h3>
+							<p><strong>Frequently Asked Questions:</strong> Addressing common queries about preprocessing techniques and tools.</p>
+							<p><strong>Practical Tips for New Users:</strong> Tips for clinicians and researchers new to data preprocessing, including best practices and common pitfalls.</p>
+							<p><strong>Troubleshooting Tips:</strong> Solutions to common issues encountered in data preprocessing and analysis.</p>
+
+							<h2>Interactive Tutorial Example:</h2>
+
+							<h3>Step 1: Install Libraries</h3>
+							<pre><code>!pip install nilearn
+!pip install mne
+!pip install nipype</code></pre>
+
+							<h3>Step 2: Download Dataset</h3>
+							<pre><code>import os
+os.system('aws s3 sync --no-sign-request s3://openneuro.org/ds000102 ds000102-download/')</code></pre>
+
+							<h3>Step 3: Load Data</h3>
+							<pre><code>import nibabel as nib
+data_path = 'ds000102-download/sub-01/ses-01/func/sub-01_ses-01_task-rest_bold.nii.gz'
+img = nib.load(data_path)</code></pre>
+
+							<h3>Step 4: Preprocess Data</h3>
+							<pre><code>from nilearn.image import resample_to_img
+template = 'MNI152_T1_1mm_brain.nii.gz'
+resampled_img = resample_to_img(img, template)</code></pre>
+
+							<h3>Step 5: Artifact Removal</h3>
+							<pre><code>from mne.preprocessing import ICA
+ica = ICA(n_components=20, random_state=97)
+ica.fit(raw)
+raw_clean = ica.apply(raw)</code></pre>
+
+							<h2>Resources:</h2>
+							<ul>
+								<li><a href="https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/fMRIPrep_Demo.html">Andy's Brain Book on fMRIPrep</a></li>
+								<li><a href="https://rpubs.com/sarenseeley/bids-fmriprep-mriqc">BIDS fMRIPrep and MRIQC</a></li>
+							</ul>
+
+							<h2>References:</h2>
+							<ul>
+								<li>Provins, C., MacNicol, E., Seeley, S. H., Hagmann, P., & Esteban, O. (2023). Quality control in functional MRI studies with MRIQC and fMRIPrep. Frontiers in neuroimaging, 1, 1073734. <a href="https://doi.org/10.3389/fnimg.2022.1073734">Link</a></li>
+								<li>Nárai, Á., Hermann, P., Auer, T., Kemenczky, P., Szalma, J., Homolya
+
+, I., Somogyi, E., Vakli, P., Weiss, B., & Vidnyánszky, Z. (2022). Movement-related artefacts (MR-ART) dataset of matched motion-corrupted and clean structural MRI brain scans. Scientific data, 9(1), 630. <a href="https://doi.org/10.1038/s41597-022-01694-8">Link</a></li>
+								<li>Esteban, O., Birman, D., Schaer, M., Koyejo, O. O., Poldrack, R. A., & Gorgolewski, K. J. (2017). MRIQC: Advancing the automatic prediction of image quality in MRI from unseen sites. PloS one, 12(9), e0184661. <a href="https://doi.org/10.1371/journal.pone.0184661">Link</a></li>
+							</ul>
+
+							<p>By following this tutorial, you will gain essential skills and knowledge to preprocess neuroimaging data effectively, ensuring high-quality and reliable results for your research. Happy learning!</p>
 						</div>
 					</div>
 
@@ -110,3 +197,4 @@
 
 	</body>
 </html>
+```
