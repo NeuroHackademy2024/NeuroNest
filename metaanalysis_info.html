@@ -6,11 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <style>
-        body {
-            font-size: 14px;
-        }
-    </style>
 </head>
 <body class="is-preload">
     <!-- Wrapper -->
@@ -50,27 +45,27 @@
         <!-- Main -->
         <div id="main">
             <div class="inner">
-                <h1 id="meta-analysis-neuroimaging">Meta-Analysis in Neuroimaging</h1>
+                <h1>Meta-Analysis in Neuroimaging</h1>
 
-                <h2 id="introduction-to-meta-analysis">Introduction to Meta-Analysis</h2>
-                <h3 id="what-is-meta-analysis">What is Meta-Analysis?</h3>
+                <h2>Introduction to Meta-Analysis</h2>
+                <h3>What is Meta-Analysis?</h3>
                 <p>Meta-analysis is a statistical method that combines results from multiple scientific studies to provide a more comprehensive and reliable conclusion and characterize the degree of agreement across studies. In neuroimaging, it aggregates data from various studies to identify consistent patterns of brain activity.</p>
 
-                <h3 id="importance-of-meta-analysis-in-neuroimaging">Importance of Meta-Analysis in Neuroimaging</h3>
+                <h3>Importance of Meta-Analysis in Neuroimaging</h3>
                 <ul>
                     <li>Enhanced Statistical Power: By pooling data, meta-analysis increases the ability to detect significant effects that may not be evident in individual studies.</li>
                     <li>Generalization of Findings: Helps determine if results are consistent across different populations and settings.</li>
                     <li>Identification of Consistent Patterns: Highlights brain regions that are consistently activated across different studies, providing a clearer understanding of brain functions.</li>
                 </ul>
 
-                <h3 id="limitations">Limitations</h3>
+                <h3>Limitations</h3>
                 <ul>
                     <li>Publication Bias (File Drawer Effect): Studies with significant results are more likely to be published, skewing the overall findings.</li>
                     <li>Selection Bias: Incorrect inclusion criteria or design flaws in individual studies can affect the validity of the meta-analysis.</li>
                 </ul>
 
-                <h2 id="types-of-meta-analyses">Types of Meta-Analyses</h2>
-                <h3 id="image-based-ibma">Image-Based (IBMA)</h3>
+                <h2>Types of Meta-Analyses</h2>
+                <h3>Image-Based (IBMA)</h3>
                 <p>“Where do the images converge in space?”</p>
                 <h4>Standards</h4>
                 <p>Uses the full statistic images, and allow the use of hierarchical mixed effects models that account for differing intra-study variance and modeling of random inter-study variation [1]. Provides more complete and detailed information from each study.</p>
@@ -87,7 +82,7 @@
                 </ul>
                 <p>For more information: <a href="https://sphinx-doc-brant.readthedocs.io/en/latest/STAT_IBMA.html">IBMA Documentation</a></p>
 
-                <h3 id="coordinated-based-cbma">Coordinated-Based Meta-analysis (CBMA)</h3>
+                <h3>Coordinated-Based Meta-analysis (CBMA)</h3>
                 <p>“Where do the coordinates converge in space?”</p>
                 <h4>Standards</h4>
                 <p>Spatial Normalization: Transforming data from its original space to a standardized template (e.g., Talairach or Montreal Neurological Institute (MNI) space). This preprocessing step ensures that coordinates from different studies can be directly compared and combined.</p>
@@ -141,17 +136,17 @@
                     <li>MKDA Chi2 Extension</li>
                 </ul>
 
-                <h2 id="conducting-a-meta-analysis">Conducting a Meta-Analysis</h2>
-                <h3 id="data-collection">Data Collection</h3>
+                <h2>Conducting a Meta-Analysis</h2>
+                <h3>Data Collection</h3>
                 <p>Literature Search: Comprehensive search strategies using databases like PubMed, Google Scholar, and neuroimaging-specific repositories.</p>
                 <p>Inclusion and Exclusion Criteria: Defining clear criteria for study selection to ensure consistency and quality.</p>
 
-                <h3 id="data-extraction">Data Extraction</h3>
+                <h3>Data Extraction</h3>
                 <p>Extracting Coordinates: Collecting peak activation coordinates from selected studies.</p>
                 <p>Standardization: Converting coordinates to a common brain template space (e.g., MNI or Talairach).</p>
                 <p>* Alternative option (for ALE meta-analysis): SLEUTH <a href="https://brainmap.org/sleuth/">SLEUTH Tool</a> (a Java Runtime Environment 1.8.0 if needed; <a href="https://www.java.com/it/download/">Java Download</a>). Here for a video tutorial: <a href="https://www.youtube.com/watch?v=vqUOzwV5OQA">SLEUTH Tutorial</a>.</p>
 
-                <h3 id="statistical-analysis">Statistical Analysis</h3>
+                <h3>Statistical Analysis</h3>
                 <h4>Software Tools:</h4>
                 <ul>
                     <li><a href="https://www.brainmap.org/ale/">GingerALE</a>: For ALE meta-analyses. <a href="https://www.youtube.com/watch?v=Zt0qrrI4EVI">GingerALE Tutorial</a></li>
@@ -166,7 +161,7 @@
                 <p><a href="#pssdm-tutorial">Tutorial for performing CBMA with PSI-SDM</a></p>
                 <p>CBMAT [5]: a MATLAB toolbox for data-preparation and post- hoc analyses in neuroimaging meta-analyses. The code can be downloaded from <a href="https://github.com/Jordi-Manuello/CBMAT.git">CBMAT GitHub</a></p>
 
-                <h3 id="interpretation-and-reporting">Interpretation and Reporting</h3>
+                <h3>Interpretation and Reporting</h3>
                 <h4>Result Interpretation</h4>
                 <p>Understanding Clusters: Identifying significant clusters and their implications.</p>
                 <p>Brain Regions Involved: Discussing the relevance of activated regions in the context of the studies included.</p>
@@ -181,7 +176,7 @@
                     <li><a href="https://www.nitrc.org/projects/mricrogl">MCRIcroGL</a>. <a href="https://www.youtube.com/watch?v=Htid2mbyav8">MCRIcroGL Tutorial 1</a> and <a href="https://www.youtube.com/watch?v=8-pTS1Cc0RI">MCRIcroGL Tutorial 2</a></li>
                 </ul>
 
-                <h2 id="applications-of-meta-analysis">Applications of Meta-Analysis</h2>
+                <h2>Applications of Meta-Analysis</h2>
                 <h3>Clinical Research</h3>
                 <p>Neuropsychiatric Disorders: Identifying consistent brain abnormalities in disorders like depression, schizophrenia, and anxiety.</p>
                 <p><em>Example: "Do patients with OCD (obsessive-compulsive disorder) have gray matter volume regional abnormalities?"</em></p>
@@ -199,7 +194,7 @@
                 <p><em>Example: "How do brain activation patterns differ between tasks involving visual versus auditory attention?"</em></p>
                 <p>A meta-analysis could compare studies on visual and auditory attention, showing distinct activation in the occipital cortex for visual tasks and the superior temporal gyrus for auditory tasks, along with overlapping regions in the prefrontal cortex involved in general attentional control.</p>
 
-                <h2 id="faq-and-practical-tips">FAQ and Practical Tips</h2>
+                <h2>FAQ and Practical Tips</h2>
                 <h3>Frequently Asked Questions</h3>
                 <h4>How to select studies for a meta-analysis?</h4>
                 <p>When selecting studies for a meta-analysis, ensure they meet predefined inclusion criteria such as whole-brain analyses, voxel-wise statistical testing, and the availability of stereotactic coordinates [2]. Additionally, a minimum number of studies (typically at least 17 for activation likelihood estimation) is required to ensure statistical power and reliability of the results [2,3].</p>
@@ -218,9 +213,9 @@
                 <h4>Data Management</h4>
                 <p>Organize and manage meta-analysis data systematically. Use tools like BrainMap and Neurosynth to standardize data collection and ensure reproducibility. Follow best practices for documenting the data collection and analysis processes [2].</p>
 
-                <h2 id="practical-guide-and-tutorials">Practical Guide and Tutorials</h2>
+                <h2>Practical Guide and Tutorials</h2>
 
-                <h2 id="resources-for-further-learning">Resources for Further Learning</h2>
+                <h2>Resources for Further Learning</h2>
                 <h3>Recommended Papers</h3>
                 <ul>
                     <li>Eickhoff, S. B., Bzdok, D., Laird, A. R., Kurth, F., & Fox, P. T. (2012). Activation likelihood estimation meta-analysis revisited. NeuroImage, 59(3), 2349–2361. https://doi.org/10.1016/j.neuroimage.2011.09.017</li>
@@ -253,7 +248,7 @@
                     <li><a href="https://youtu.be/zZE4d_qqdCs?si=zAzheCNzmL3J5x0n">YouTube Lecture</a></li>
                 </ul>
 
-                <h2 id="references">References</h2>
+                <h2>References</h2>
                 <ol>
                     <li>Salimi-Khorshidi, G., Smith, S. M., Keltner, J. R., Wager, T. D., & Nichols, T. E. (2009). Meta-analysis of neuroimaging data: A comparison of image-based and coordinate-based pooling of studies. NeuroImage, 45(3), 810–823. https://doi.org/10.1016/j.neuroimage.2008.12.039</li>
                     <li>Müller, V. I., Cieslik, E. C., Laird, A. R., Fox, P. T., Radua, J., Mataix-Cols, D., Tench, C. R., Yarkoni, T., Nichols, T. E., Turkeltaub, P. E., Wager, T. D., & Eickhoff, S. B. (2018). Ten simple rules for neuroimaging meta-analysis. Neuroscience and Biobehavioral Reviews, 84, 151–161. https://doi.org/10.1016/j.neubiorev.2017.11.012</li>
