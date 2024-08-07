@@ -63,29 +63,32 @@
 								<ol>
 									<li>To create a shell script, create a text file with the desired name but use a <code>.sh</code> extention instead of <code>.txt</code>. The <code>.sh</code> is the standard file extension for shell scripts. This extension indicates that the file is a bash script. For example, to create a script named "practice.sh", we would run:</li>
 <pre><code>$ nano practice.sh</code></pre>
-									<li>After opening the .sh file in a text editor (like nano), we need to add <code>#!/bin/bash to the first line. The <code>#!</code> is known as a shebang or a hashbang. The <code>#!</code> tells our computer what system to run the script with (in this case, Bash). The first line in your script should be:</li>
+									<li>After opening the .sh file in a text editor (like nano), we need to add <code>#!/bin/bash</code> to the first line. The <code>#!</code> is known as a shebang or a hashbang. The <code>#!</code> tells our computer what system to run the script with (in this case, Bash). The first line in your script should be:</li>
 <pre><code>#!/bin/bash</code></pre>
 									<li>Now, we can add our first command anywhere below the first line. For example, add <code>echo "This is a bash script!"</code>. When the script runs, <code>echo</code> will print <code>This is a bash script!</code>. For example, your script should now look like this:</li>
-<pre><code>
-#!/bin/bash
+<pre><code>#!/bin/bash
 	
 echo "This is a bash script!"
 </code></pre>	
 									<li>Within a script, we can write "comments". Comments are notes in a script that do not get run. A comment is indicated by the <code>#</code> character. For example, we can write a comment adding some information about the purpose of our script:</li>
-<pre><code>
-#!/bin/bash
+<pre><code>#!/bin/bash
 
 # This script was made for practice 
 echo "This is a bash script!"
 </code></pre>		
-									<li>In order to run the script, we need to specify where our script lives. To do this, we can either specify the absolute path, for example: <code>Users/username/[path]/practice.sh</code>, or the relative path, <code>./practice.sh</code> (remember that <code>.</code> indicates the current working directory):</li>
-<pre><code>./practice.sh</code></pre>
+									<li>Now save the script with <code>Ctrl + O</code> and exit with <code>Ctrl + X</code>.</li>
+									<li>In order to run the script, we need to specify where our script lives. To do this, we can either specify the absolute path, for example: <code>Users/username/[path]/practice.sh</code>, or the relative path, <code>./practice.sh</code> (remember that <code>.</code> indicates the current working directory) in the command line:</li>
+<pre><code>$ ./practice.sh</code></pre>
 <pre><code>bash: demo.sh: command not found...</code></pre>
 
 									<li>However, you will not be able to run the command above until we give it the correct permissions. To see the file's permissions, run <code>ls -l</code>, which prints detailed information about the contents of the current working directory.</li>
 <pre><code>ls -l</code></pre>
+									<li>The first column of the output shows file permissions. The permissions for practice.sh may look like <code>-rw-r--r--</code>. To change the permissions so the script can be run by all users, run the following code in the command line:</li>
+<pre><code>$ chmod +x practice.sh</code></pre>
+									<li>Re-run <code>ls -l</code>. The permissions for practice.sh should now look like <code>-rwxr-xr-x</code>. Now that we have executable permissions for that file, we can run it:</li>
+<pre><code>$ ./practice.sh</code></pre>
 									<ul>
-										For more information about permissions, please visit the Permissions page.
+										For more information about permissions, please visit the <a href="permissions.html">Permissions</a> page.
 									</ul>
 <pre><code>ls -l</code></pre>
 									
