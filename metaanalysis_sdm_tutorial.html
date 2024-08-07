@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Conducting an SDM Meta-Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+                </a>
+
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource_menu.html">Resources</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1>Conducting an SDM Meta-Analysis</h1>
+
+                <h2>1. Installation of SDM-PSI</h2>
+                <p>Go to <a href="https://www.sdmproject.com/software/">SDM Project</a> to download the version of SDM-PSI for the operating system of the computer as a ZIP file.</p>
+                <p>Decompress the ZIP file. To avoid problems, decompress it within a local folder without blank spaces in its path.</p>
+                <p>Click the file SdmPsiGui to execute the graphical interface of SDM-PSI, and close the About splash window that will automatically open.</p>
+                <p>If SdmPsiGui does not find all required paths, it will automatically offer to display the preferences window. Press Yes.</p>
+                <p>In case that SdmPsiGui has not automatically displayed the preferences window, go to the Tools menu and click Preferences.</p>
+                <p>In the Multithreading tab, specify the number of concurrent threads to use in the calculations. Some SDM-PSI calculations take a very long time (from hours to days) and consume a large amount of RAM memory (from hundreds of megabytes to gigabytes). The use of multiple threads (parallel processing) substantially decreases the time but increases the memory used.</p>
+                <p>Close the preferences window and SdmPsiGui.</p>
+
+                <h2>2. Introduction of Data into SDM-PSI</h2>
+                <p>Open SdmPsiGui and close the About splash window (avoid having any key pressed while closing it).</p>
+                <p>Click the Change meta-analysis button at the upper-left part of the graphical interface to select a directory for the meta-analysis (any new empty directory of choice will do).</p>
+                <p>Click the button SDM table editor to input general information from the studies, including their identification (column "study"), their sample sizes (columns "n1" and "n2"), the t-value that they used as statistical thresholds (column "t_thr"), and other potential variables to conduct subgroup analyses or meta-regressions.</p>
+                <p>Within the selected directory, create a text file for each study with the coordinates and t-value of each peak:</p>
+                <ul>
+                    <li>Open a text editor to create a text file named as [the identification of study] + "." + [the software] + "_" + [the stereotactic space] + ".txt". For instance, for the study "Carmona" that was conducted with SPM and reports the coordinates in MNI space, the name of the text file must be "Carmona.spm_mni.txt". If the study has no peaks, the software and stereotactic space can be replaced by "no_peaks".</li>
+                    <li>Write the coordinates and t-value of each peak in a different row. For instance, the first rows of the text file "Carmona.spm_mni.txt" should be: 40,39,21,-5.14</li>
+                </ul>
+
+                <h2>3. Pre-processing</h2>
+                <p>Click in the Preprocessing button at the left menu bar, select the modality of the studies at the list box labeled "Modality" and press OK. In the example meta-analysis, the modality is "VBM – gray matter".</p>
+                <p>Wait (some minutes) while SDM-PSI calculates the maps of the lower and upper bounds of potential effect sizes. SdmPsiGui will show four progress bars that display the status of the execution and the expected remaining time for the current process. During the calculations, the color of the circle next to "Processing status" will be yellow, and will change to green if the execution ends successfully, or to red if it fails.</p>
+
+                <h2>4. Main Analysis</h2>
+                <p>Click the Mean button at the left menu bar and press OK.</p>
+                <p>Click the Threshold button in the left menu toolbox, select the uncorrected p-values of the main analysis ("MyTest_uncorrp" by default) and press OK. SDM-PSI will automatically open both MRICron to visualize the results and a webpage with a detailed report of them.</p>
+                <p>Press the FWE correction button at the left menu toolbox, select the main analysis in the list box ("MyTest" by default) and press OK.</p>
+                <p>Click the Threshold button in the left menu toolbox, select the TFCE-correction of the main analysis ("MyTest_corrp_tfce" by default) and press OK.</p>
+                <p>VIDEO tutorial: <a href="https://www.jove.com/v/59841/meta-analysis-voxel-based-neuroimaging-studies-using-seed-based-d">SDM Video Tutorial</a></p>
+                <p>For detailed instructions, refer to the SDM user manual available in <a href="https://www.sdmproject.com/manual/">SDM Manual</a></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Get in touch</h2>
+                    <form method="post" action="#">
+                        <div class="fields">
+                            <div class="field half">
+                                <input type="text" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div class="field half">
+                                <input type="email" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send" class="primary" /></li>
+                        </ul>
+                    </form>
+                </section>
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
