@@ -379,8 +379,25 @@
 								<li><code>$ ls -l &gt; filename.list</code>: Redirect output to a file:</li>
 								<li><code>$ cat filename.list | grep keyword &gt; filefound.list</code>: Pipe output to another command</li>
 								<li><code>$ cut -d , -f 2 [file].csv | sort | uniq</code>: Remove duplicates</li>
-								</lu>
-							<h2 id="working-with-files-and-directories">Working With Files and Directories</h2>
+								</lu></p>
+							<h2 id="variables">Variables</h2>
+								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number. </p>
+								<p><strong>Declaring Variables</strong>: to create a variable, use the following syntax:</p>
+<pre><code>$ [variable_name]=value</code><p>Note: no spaces are allowed betwen the variable name, the equals sign, and the value.</p></pre>
+								<p><strong>Accessing Values</strong>: to retrieve the value of a variable, prefix its name with a dollar sign <code>$</code>, as seen below </p>
+<pre><code>$ echo $variable_name</code></pre>								
+							<h2 id="for loops">For Loops</h2>
+								<p>Loops allow us to execute a series of commands repeatedly for each item in a list. For loops are often used in scripts. Here is a for loop syntax template:</p>
+<pre><code>$ for variable in list</code><p>
+	do </p><p>
+		commands
+	</p><p>
+	done
+	</p>
+</p></pre>								
+									
+
+								
 
 									
 									
