@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Conducting an ALE Meta-Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+                </a>
+
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource_menu.html">Resources</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1>Conducting an ALE Meta-Analysis</h1>
+
+                <h2>1. Installation of GingerALE</h2>
+                <p>Go to <a href="http://brainmap.org">BrainMap</a> to download the version of GingerALE for the operating system of the computer as a ZIP file.</p>
+                <p>Decompress the ZIP file. To avoid problems, decompress it within a local folder without blank spaces in its path.</p>
+                <p>Click the file GingerALE to execute the graphical interface of GingerALE.</p>
+                <p>If GingerALE does not find all required paths, it will automatically offer to display the preferences window. Press Yes.</p>
+                <p>In case that GingerALE has not automatically displayed the preferences window, go to the File menu and click Preferences.</p>
+                <p>In the Preferences window, you can set the coordinate space to either Talairach or MNI. You can also adjust the mask size and select the ALE method.</p>
+                <p>Close the preferences window and GingerALE is ready to use.</p>
+
+                <h2>2. Preparing Data for Meta-Analysis</h2>
+                <h3>Foci Formatting:</h3>
+                <ul>
+                    <li>Create a text file with three columns for x, y, and z coordinates, separated by tabs or spaces.</li>
+                    <li>Optionally, start the file with a line indicating the standard brain space (Talairach or MNI).</li>
+                    <li>Separate foci groups with a line break, including identifying information such as the first author’s name, year, experiment name, or subject group name.</li>
+                    <li>Include the number of subjects for each group and the coordinate data. Comments should start with "//".</li>
+                </ul>
+
+                <h2>3. Single Dataset Analysis</h2>
+                <h3>Loading Foci Data:</h3>
+                <ul>
+                    <li>Open GingerALE and load your foci data using File > Open Foci.</li>
+                    <li>GingerALE will read and verify the dataset, checking for mismatched reference spaces, missing subject sizes, and duplicated foci groups.</li>
+                    <li>Review any errors or warnings displayed.</li>
+                </ul>
+
+                <h3>Performing ALE Analysis:</h3>
+                <ul>
+                    <li>Once the data is loaded, choose threshold settings and begin the calculations.</li>
+                    <li>The ALE meta-analysis follows four main steps: ALE scores, null distribution, thresholding, and cluster statistics.</li>
+                </ul>
+
+                <h2>4. Contrast Analyses</h2>
+                <h3>Running Separate ALE Analyses:</h3>
+                <ul>
+                    <li>Perform separate ALE analyses on the two sets of foci.</li>
+                    <li>Create a combined text file with foci from both files and run a pooled analysis. Ensure experiments appearing in both sets are only reported once.</li>
+                </ul>
+
+                <h3>Subtraction Analysis:</h3>
+                <ul>
+                    <li>Select the “Contrast Studies” radio button in the main GingerALE window.</li>
+                    <li>Open the three thresholded ALE images using the file menu items.</li>
+                    <li>Verify settings for threshold method, number of permutations, and output file names, then click Compute.</li>
+                </ul>
+
+                <h2>5. Output Files</h2>
+                <h3>Types of Output Files:</h3>
+                <ul>
+                    <li><strong>ALE Image:</strong> Contains unthresholded ALE values for every voxel in the brain.</li>
+                    <li><strong>P Value Image:</strong> Contains unthresholded P values for each voxel.</li>
+                    <li><strong>Thresholded Image:</strong> ALE map thresholded at a given value, used as input for contrast analyses.</li>
+                    <li><strong>Cluster Image:</strong> Identifies contiguous non-zero regions in the thresholded image.</li>
+                    <li><strong>Cluster Spreadsheet:</strong> Provides detailed information about the resultant clusters, including volume, coordinates, and anatomical labels.</li>
+                    <li><strong>Data History:</strong> Contains parameters and output file names used in the analysis, along with additional information about different stages of the analysis.</li>
+                </ul>
+
+                <h2>6. Viewing Results</h2>
+                <h3>Using Mango for Visualization:</h3>
+                <ul>
+                    <li>Download and install Mango from <a href="http://rii.uthscsa.edu/mango">Mango</a>.</li>
+                    <li>Open the anatomical template file (Talairach or MNI) in Mango.</li>
+                    <li>Add the thresholded results image as an overlay.</li>
+                    <li>Update the image range to ensure all results are shown.</li>
+                    <li>Enable anatomical labels and coordinates display for better interpretation.</li>
+                    <li>Adjust the color map for better visualization of the results.</li>
+                </ul>
+
+                <h2>7. Additional Analysis Options</h2>
+                <h3>Connectivity Analyses:</h3>
+                <p>Use meta-analytic connectivity modeling (MACM) to examine the functional connectivity of a specific brain region.</p>
+                <ul>
+                    <li>Identify patterns of co-activation across the BrainMap database and perform a meta-analysis to find areas of convergence.</li>
+                </ul>
+                <p>For more information: <a href="https://www.brainmap.org/pubs/RobinsonHBM10.pdf">Robinson HBM 2010</a></p>
+
+                <h3>Thresholding Methods:</h3>
+                <ul>
+                    <li>Choose from uncorrected P value, false discovery rate (FDR), family-wise error (FWE), and cluster-level inference methods for thresholding ALE scores.</li>
+                </ul>
+                <p>For detailed instructions, refer to the full GingerALE user manual available in the BrainMap website: <a href="https://www.brainmap.org/ale/manual.pdf">GingerALE Manual</a></p>
+                <p>VIDEO TUTORIAL: <a href="https://www.youtube.com/watch?v=Zt0qrrI4EVI">GingerALE Tutorial</a></p>
+
+                <h2>Image</h2>
+                <p>Workflow stages of the activation likelihood estimation (ALE) method [4]</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Get in touch</h2>
+                    <form method="post" action="#">
+                        <div class="fields">
+                            <div class="field half">
+                                <input type="text" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div class="field half">
+                                <input type="email" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send" class="primary" /></li>
+                        </ul>
+                    </form>
+                </section>
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
