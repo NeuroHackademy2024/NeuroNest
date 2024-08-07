@@ -361,7 +361,7 @@
 									<ul>Use -n [#] to specify the number of lines.</ul></li>
 							<h2>Pipes and Filters</h2>
 								<ul>
-								<li>Pipe Operator: <code>$ [command] | [command]</code>: Redirects the output of one command into another. 
+								<li>Pipe Operator: <code>$ [command] | [command]</code>: Redirect the output of one command into another. 
 									<ul><li>Example: <code>ls | wc</code></li></ul>
 								<ul>Counts lines, words, and characters in the output of ls.</ul>
 								</li>		
@@ -381,20 +381,29 @@
 								<li><code>$ cut -d , -f 2 [file].csv | sort | uniq</code>: Remove duplicates</li>
 								</lu></p>
 							<h2 id="variables">Variables</h2>
-								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number. </p>
+								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number.</p>
 								<p><strong>Declaring Variables</strong>: to create a variable, use the following syntax:</p>
-<pre><code>$ [variable_name]=value</code><p>Note: no spaces are allowed betwen the variable name, the equals sign, and the value.</p></pre>
+<pre><code>$ [variable_name]=value</code><p>Note: No spaces are allowed betwen the variable name, the equals sign, and the value. Use consistent and simple filenames to facilitate looping.</p></pre>
 								<p><strong>Accessing Values</strong>: to retrieve the value of a variable, prefix its name with a dollar sign <code>$</code>, as seen below </p>
 <pre><code>$ echo $variable_name</code></pre>								
 							<h2 id="for loops">For Loops</h2>
-								<p>Loops allow us to execute a series of commands repeatedly for each item in a list. For loops are often used in scripts. Here is a for loop syntax template:</p>
+								<p>For Loops allow us to execute a series of commands repeatedly for each item in a list. For loops are often used in scripts. Below is a for loop syntax template. In this example, <code>'variable'</code> represents each item in the <code>'list'</code> during each iteration</p>
 <pre><code>for variable in list
-	do
-		commands
-	done
+do
+    [commands]
+done
 </code></pre>								
-									
-
+								<p><strong>Variable Expansion</strong>: Use <code>$variable</code> or <code>${variable}</code> to access the value of a variable. For example:</p>																
+<pre><code>for filename in file1 file2 file3
+do
+    echo $filename
+    head -n 2 $filename | tail -n 1 >> $filename.txt
+done
+</code></pre>	
+								<ul>
+									<li>For each file ('file 1', 'file 2', 'file 3'), this loop prints the file name. Then, it extracts the second line of the file (by getting the first 2 lines and then taking the last line) and appends it to a new file, <code>$filename.txt</code>.</li>
+									<li>Avoid using spaces, quotes, or wildcard characters, <code>*, ?</code>, in filenames to simplify variable expansion.</li>
+								</ul>
 								
 
 									
