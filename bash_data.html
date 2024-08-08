@@ -54,11 +54,11 @@
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
 							<h2>Introduction to Bash<h2>
 							<h3>What is Bash?</h3>
-								<p>Bash is a command-line interface (CLI) shell program. The name Bash stands for “Bourne Again SHell,” a reference to its predecessor, the Bourne shell (sh), written by Stephen Bourne. Bash is often the default shell in many Unix-like, including Linux and MacOS, and is available on Windows through tools like Git for Windows (see below).</p>
+								<p>Bash is a command-line interface (CLI) shell program that allows you to efficiently perform many tasks. The name Bash stands for “Bourne Again SHell,” a reference to its predecessor, the Bourne shell (sh), written by Stephen Bourne. The command line or terminal is where you provide <code>Bash</code> commands that the computer then executes.</p>
 							<h3>What is a shell?</h3>
 								<p>A “shell”  is a computer program that provides a way for users to interact with the computer's operating system. It can be a command-line interface (CLI) or a graphical user interface (GUI). The CLI allows users to type commands to run processes and manage the system, while the GUI provides a more visual approach.</p>
 							<h3>What is Unix?</h3>
-								<p>Unix is a powerful operating system known for its multitasking and multiuser capabilities. It provides a command-line interface and a scripting language, which allows users to automate tasks and manage complex workflows efficiently. Unix has influenced many modern operating systems, including Linux and macOS.</p>
+								<p>Unix is a powerful operating system known for its multitasking and multiuser capabilities. It provides a command-line interface and a scripting language, which allows users to automate tasks and manage complex workflows efficiently. Bash is often the default shell in many Unix-like, including Linux and MacOS, and is available on Windows through tools like Git for Windows.</p>
 							<h3>How do I install a Shell program?</h3>
 								<p><ul>
 									<li><p><strong>macOS:</strong> The shell application is called “Terminal,” located in Applications > Utilities, or you can search for "Terminal" using Spotlight.</p></li>
@@ -72,7 +72,7 @@
 								</ul>
 							<h3>How do I use the command shell?</h3>
 								<p>Upon opening the shell application, you will see a prompt, which indicates that the shell is ready for input. This prompt is also called the “command line”. The prompt typically ends in a $, but can also end with #, &gt;, %, or >>>.</p>								
-<pre><code>$</code></pre>
+<pre><code>$ `test`</code></pre>
 								<p>Your prompt might look different. Most  shell environments  put your user name and the host name before the $. For example, your prompt might look like:									
 <pre><code>amordy@localhost $</code></pre>									
 								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs. In some of the example code, you will see file and directory names in brackets (e.g., [username]). Text in brackets should be replaced with your own names.</p>   
@@ -184,7 +184,7 @@
 								<p>At the top of the file system/directory tree is the root directory, which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).
 								<p>While we are using the shell, we can only be in one directory at a time (unless multiple windows are open). This is called our <i>current working directory</i>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
 								<p>Most home directories follow this path format: <code>/Users/[name]</code>. In this example, we know that /Users/amordy is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
-								<p>To see your current working directory, we will execute the command that <i>prints our working directory</i>, <code>pwd</code>.</p>								
+								<p>To see your current working directory, we will execute the command that will <i>print the working directory</i>, <code>pwd</code>.</p>								
 <pre><code>$ pwd </code></pre>								
 								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
 								<p>Next, to see the files within our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code>. Your output is a list of the files and directories within your current working directory.</p>								
@@ -413,26 +413,15 @@ done
 							<h3 id="version-control-with-git-and-github">Version Control with Git and GitHub</h3>
 								<p>Bash can be used to access and interact with Git (version control). To get started with Git, GitHub, and version control, explore this <a href="https://neuroimaging-data-science.org/content/002-datasci-toolbox/002-git.html?highlight=unix">resource on Git and GitHub</a>.</p>
 							<h3 id="working-with-virtual-environments-and-containers">Working with Virtual Environments and Containers</h3>
-							<h4 id="introduction-to-docker">Introduction to Docker</h4>
-								<p>For more insights into Docker and containerization techniques, visit our <a href="docker_data.html">Docker page</a> or this <a href="https://neuroimaging-data-science.org/content/002-datasci-toolbox/003-docker.html?highlight=unix">Docker guide</a>.</p>
-							<h4 id="setting-up-virtual-environments-with-conda">Set Up Virtual Environments with Conda</h4>
-								<p>On Linux or Mac systems, you can access <code>conda</code> through your existing shell as covered in the Unix section. On Windows, installing <code>conda</code> will add a new shell specifically for conda operations. For guidance on integrating <code>conda</code> with Git Bash or other shells, check out these resources:</p>
+								<p>Here are some resources for working with virtual enviornments and containerization:
 								<ul>
-									<li><a href="https://www.codecademy.com/learn/learn-python-3/modules/learn-python3-advanced-topics/projects">Codecademy tutorial</a>.</li>
-									<li><a href="https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Earth Lab's setup instructions</a>.</li>
-								</ul> 
-							<h3 id="running-external-programs">Running External Programs</h3>
-								<p>To execute third-party programs like Python scripts, use the appropriate shell commands.</p>
+									<li><a href="docker_data.html">NeuroNest's Docker tutorial</a></li>
+									<li><a href="https://neuroimaging-data-science.org/content/002-datasci-toolbox/003-docker.html?highlight=unix">Neuroimaging and Data Science's tutorial</a> on computational environments and computational containers.</li>
+									<li><a href="https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Earth Lab's git, bash, and conda setup instructions</a>.</li>
+								</ul>
 							<h2 id="additional-resources">Additional Resources</h3>
 								<p>For an in-depth tutorial on how to use the command shell, visit <a href="https://swcarpentry.github.io/shell-novice/index.html">Software Carpentry's "The Unix Shell"</a>.</p>
 								<p>Another great resource is <a href="https://andysbrainbook.readthedocs.io/en/latest/unix/Unix_Intro.html">Andy's Brain Book Unix for Neuroimagers</a>.</p>
-<p class-"notice--success">
-<i class="fa fa-star">
-::before
-</i>
-<strong>Data Tip:</strong>
-"Directory vs Folder"
-</p>
 
 						</div>
 					</div>
