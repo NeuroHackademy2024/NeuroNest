@@ -228,7 +228,7 @@ image_labels = selected_images['hemorrhage'].tolist()
 display_images_grid(image_paths, image_labels)
 </code></pre>
 							<img src="images/ct_python_1.png" alt="images output" style="width: 25%;"> 
-							<p>Did you notice that images dont have the same size? We will get into that shortly.</p>
+							<p>Did you notice that the images dont have the same size? We will get into that shortly.</p>
 							<h2>5. Exploratory Data Analysis (EDA)</h2>
 							<p>Before performing any kind of experimentation or analysis, it's crucial to understand the dataset. Exploratory Data Analysis (EDA) helps us get insights into the data, detect any anomalies, and understand its structure. In this step, we'll perform basic statistics, visualize the distribution of labels, and display some sample images to gain a better understanding of our dataset.</p>
 							<p><strong>Basic Statistics:</strong> Let's start by examining some basic statistics of our dataset, such as the number of samples and the distribution of labels.</p>
@@ -287,6 +287,121 @@ if corrupt_images:
     print('Corrupt images found:', corrupt_images)
 </code></pre>
 							<p>Fantastic! We have no corrupt images, let now proceed forward with resizing and other preprocessing steps</p>
+							<h2>6. Data Preprocessing</h2>
+							<p>Before feeding our images into a neural network, we need to preprocess them to ensure they are in the right format and size. Preprocessing helps improve model performance and training efficiency. Common preprocessing steps include resizing, normalization, and data augmentation.</p>
+							<p><strong>6.1 Resize Images:</strong>Previously, we observed that the sizes of images in our dataset vary widely. To ensure consistency, we resize all images to a standard size of 224x224 pixels. This size is commonly used in image processing and deep learning. We also chose 224x224 size because it offers a good balance between maintaining enough image detail and managing computational resources. Larger images would provide more detail but require more memory and processing power. On the other hand, smaller images would be easier to handle but might lose important details. By resizing our images to a uniform size, we make it easier for the neural network to process them consistently and effectively.</p>
+<pre><code>
+# Define the target size
+target_size = (224, 224)  # Example size
+
+def resize_images(image_folder, target_size):
+    resized_folder = '/kaggle/input/head-ct-hemorrhage/resized_images/'
+    os.makedirs(resized_folder, exist_ok=True)
+
+    for filename in os.listdir(image_folder):
+        if filename.endswith(".png"):
+            img_path = os.path.join(image_folder, filename)
+            with Image.open(img_path) as img:
+                # Calculate the new size while preserving the aspect ratio
+                img.thumbnail(target_size, Image.ANTIALIAS)
+
+                # Create a new image with the target size and paste the resized image
+                img_resized = Image.new("RGB", target_size, (255, 255, 255))
+                img_resized.paste(img, ((target_size[0] - img.width) // 2, (target_size[1] - img.height) // 2))
+
+                # Save the resized image
+                img_resized.save(os.path.join(resized_folder, filename))
+
+# Resize images
+resize_images('/kaggle/input/head-ct-hemorrhage/head_ct/head_ct/', target_size)
+</code></pre>
+							<p>Now that we resized all images to 224x224 pixels, and saved them into a folder named "resized_images". Let's normalize our images.</p>
+							<p><strong>6.2 Normalization:</strong> <p>You may wonder, Why do we need to normalize images? Well, Normalization scales pixel values to a standard range (typically 0 to 1). it is a crucial preprocessing step in image processing and deep learning. This process has several important benefits:</p>
+							<ul>
+								<li>mproves Model Training Efficiency:</li>
+								<ul>
+									<li>Convergence Speed: Neural networks learn more effectively when inputs are on a similar scale. Normalization helps the network converge faster during training by ensuring that all input features contribute equally to the learning process.</li>
+									<li>Stable Training: Scaling inputs to a consistent range helps in stabilizing the training process, reducing the risk of gradients becoming too large or too small.</li>
+								</ul>
+								<li>Enhances Model Performance:</li>
+								<ul>
+									<li>Consistent Input Values: Normalized images provide a consistent range of values, which helps the model generalize better and improves overall performance.</li>
+									<li>Prevents Bias: Without normalization, the network might learn biases based on the scale of input data, which can negatively impact the performance.</li>
+								</ul>
+								<li>Facilitates Use of Pretrained Models:</li>
+								<ul>
+									<li>Standard Practice: Many pretrained models (e.g., VGG16, ResNet) are trained with images normalized to specific mean and standard deviation values. Normalizing your images in the same way allows you to leverage these pretrained models effectively for transfer learning.</li>
+								</ul>
+							</ul>	
+							<p>So, Does This Apply to Our Dataset?</p>
+							<p>Yes, normalization is particularly relevant for our dataset of CT brain images:</p>
+							<ul>
+								<li>Pixel Range Consistency: The pixel values of our CT images vary widely as we saw in section 5.2. Normalizing ensures that all images are on a similar scale, which is crucial for training a neural network.</li>
+								<li>Improved Training: By normalizing our images to the same scale, we help the neural network learn more effectively and make the training process more stable.</li>
+							</ul>
+
+<pre><code>
+# Define normalization transform
+normalize_transform = transforms.Compose([
+    transforms.Resize(target_size),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+
+# Define the paths
+image_folder = '/kaggle/input/head-ct-hemorrhage/resized_images/'
+normalized_folder = '/kaggle/input/head-ct-hemorrhage/normalized_images/'
+os.makedirs(normalized_folder, exist_ok=True)
+
+def normalize_images(image_folder, normalized_folder):
+    for filename in os.listdir(image_folder):
+        if filename.endswith(".png"):
+            img_path = os.path.join(image_folder, filename)
+            img = Image.open(img_path)
+            img_normalized = normalize_transform(img)
+
+            # Save the normalized image
+            img_normalized_pil = transforms.ToPILImage()(img_normalized)
+            img_normalized_pil.save(os.path.join(normalized_folder, filename))
+
+# Normalize all images
+normalize_images(image_folder, normalized_folder)
+
+# Display a sample normalized image and its non-normalized version side by side
+def display_comparison(image_path, normalized_path):
+    img = Image.open(image_path)
+    img_normalized = Image.open(normalized_path)
+
+    # Convert normalized image to tensor for display
+    img_normalized_tensor = transforms.ToTensor()(img_normalized)
+
+    # Plot the images side by side
+    plt.figure(figsize=(12, 6))
+
+    # Display non-normalized image
+    plt.subplot(1, 2, 1)
+    plt.imshow(img)
+    plt.title('Non-Normalized Image')
+    plt.axis('off')
+
+    # Display normalized image
+    plt.subplot(1, 2, 2)
+    plt.imshow(img_normalized_tensor.permute(1, 2, 0))  # Convert tensor to image for visualization
+    plt.title('Normalized Image')
+    plt.axis('off')
+
+    plt.show()
+
+# Example paths for a sample image
+sample_image_filename = '001.png'
+display_comparison(
+    os.path.join(image_folder, sample_image_filename),
+    os.path.join(normalized_folder, sample_image_filename)
+)
+</code></pre>
+							<img src="images/ct_python_2.png" alt="images output" style="width: 25%;"> 
+							<p>Now, one last step remains, which is Data Augmentation.</p>
+
 						</div>
 					</div>
 
