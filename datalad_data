@@ -1,0 +1,17 @@
+<h3 id="features-of-datalad">Features of DataLad</h3>
+<p>DataLad offers a variety of features aimed at improving data management practices:</p>
+<ul>
+<li><strong>Version Control</strong>: DataLad tracks changes to datasets over time, allowing researchers to revert to previous versions and maintain a complete history of their data.</li>
+<li><strong>Data Distribution</strong>: Facilitates the sharing and distribution of datasets, ensuring that data can be easily accessed and used by collaborators.</li>
+<li><strong>Integration with Existing Tools</strong>: DataLad works seamlessly with other data management and analysis tools, enhancing existing workflows.</li>
+</ul>
+<h3 id="philosophy-and-principles">Philosophy and Principles</h3>
+<p>The philosophy behind DataLad emphasizes reproducibility, transparency, and efficiency in scientific research. DataLad aims to provide a robust framework that ensures data integrity and fosters collaborative research practices. More details on the philosophy and principles can be found in the <a href="https://handbook.datalad.org/en/latest/intro/philosophy.html">DataLad Handbook</a>.</p>
+<h3 id="getting-started-with-datalad">Getting Started with DataLad</h3>
+<p>To start using DataLad, the <a href="https://handbook.datalad.org/en/latest/index.html">DataLad Handbook</a> is an invaluable resource. It provides comprehensive guides on installation, basic usage, and advanced features. The handbook covers various use cases, including managing neuroimaging data from OpenNeuro, as detailed in this <a href="https://handbook.datalad.org/en/latest/usecases/openneuro.html">use case</a>.</p>
+<h3 id="executive-summary">Executive Summary</h3>
+<p>For a brief overview of DataLad’s capabilities and benefits, the <a href="https://handbook.datalad.org/en/latest/intro/executive_summary.html#executive-summary">executive summary</a> provides a concise introduction. It highlights how DataLad can streamline data management and enhance research reproducibility.</p>
+<h3 id="quick-reference">Quick Reference</h3>
+<p>For a quick reference to common commands and usage patterns, the <a href="https://handbook.datalad.org/en/latest/basics/101-136-cheatsheet.html#cheat">DataLad cheatsheet</a> is a handy tool. It offers a summary of essential commands and their applications, making it easier for users to get up to speed with DataLad.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>DataLad is a powerful tool for managing and versioning neuroimaging data, providing researchers with the tools they need to maintain data integrity, facilitate collaboration, and enhance reproducibility. By incorporating DataLad into your research workflow, you can improve data management practices and support more robust scientific findings.</p>
