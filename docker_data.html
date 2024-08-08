@@ -50,41 +50,103 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Docker Tutorial and Resources</h1>
+							<h1>Introduction to Docker: A Beginner's Tutorial with the Docker Whale Say Container</h1>
 							<body>
+								<body>
+    <h1>Introduction to Docker: A Beginner's Tutorial with the Docker Whale Say Container</h1>
+    <p>Docker is a powerful platform for developing, shipping, and running applications in isolated environments called containers. This tutorial will guide you through the basics of Docker, from installation to running your first container using the Docker Whale Say image.</p>
 
-    <h1>Runnable Code Block Example</h1>
-    
-    <div class="code-block">
+    <h2>Prerequisites</h2>
+    <ul>
+        <li>Basic understanding of the command line.</li>
+        <li>A computer with a modern operating system (Windows, macOS, or Linux).</li>
+    </ul>
+
+    <h2>Step 1: Install Docker</h2>
+    <h3>Windows:</h3>
+    <ol>
+        <li>Download Docker Desktop from the Docker Hub.</li>
+        <li>Run the installer and follow the instructions.</li>
+        <li>Ensure you have the Windows Subsystem for Linux (WSL) 2 installed and set up.</li>
+    </ol>
+
+    <h3>macOS:</h3>
+    <ol>
+        <li>Download Docker Desktop from the Docker Hub.</li>
+        <li>Open the .dmg file and drag Docker to the Applications folder.</li>
+        <li>Launch Docker from the Applications folder.</li>
+    </ol>
+
+    <h3>Linux:</h3>
+    <p>Follow the instructions on the official Docker documentation.</p>
+
+    <p>After installation, you can verify Docker is installed correctly by opening a terminal and running:</p>
+    <pre><code>docker --version</code></pre>
+
+    <h2>Step 2: Running Your First Docker Container</h2>
+    <ol>
+        <li>Open your terminal.</li>
+        <li>Run the following command to pull the Docker Whale Say image from Docker Hub:</li>
+        <pre><code>docker pull docker/whalesay</code></pre>
+        <p>This command downloads the Docker Whale Say image from Docker Hub to your local machine.</p>
+        <li>Once the image is downloaded, you can create and run a container using this image:</li>
+        <pre><code>docker run docker/whalesay cowsay "Hello, Docker!"</code></pre>
+        <p>This command starts a new container from the Docker Whale Say image and displays a fun message.</p>
         <pre>
-<code id="code-snippet">
-// JavaScript code example
-function greet() {
-    return "Hello, World!";
-}
-console.log(greet());
-</code>
+ ___________________
+< Hello, Docker! >
+ -------------------
+    \
+     \
+      \
+                    ##        .
+              ## ## ##       ==
+           ## ## ## ##      ===
+       /""""""""""""""""___/ ===
+  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+       \______ o          __/
+        \    \        __/
+         \____\______/
         </pre>
-        <button onclick="runCode()">Run Code</button>
-    </div>
+    </ol>
 
-    <div class="output" id="output"></div>
+    <h2>Step 3: Understanding Docker Basics</h2>
+    <ul>
+        <li><strong>Images:</strong> Read-only templates that contain a set of instructions for creating a container. For example, the Docker Whale Say image contains a simple application that displays a fun message.</li>
+        <li><strong>Containers:</strong> Runnable instances of images. Containers are lightweight and can be started, stopped, and moved around easily.</li>
+        <li><strong>Dockerfile:</strong> A text file that contains instructions for building a Docker image. (Not used in this simple example, but essential for more complex applications.)</li>
+    </ul>
 
-    <script>
-        function runCode() {
-            const codeSnippet = document.getElementById('code-snippet').textContent;
-            const outputElement = document.getElementById('output');
-            outputElement.innerHTML = '';
+    <h2>Step 4: Managing Docker Containers and Images</h2>
+    <h3>List running containers:</h3>
+    <pre><code>docker ps</code></pre>
+    <p>Since the Docker Whale Say container exits after displaying the message, it won't show up in the list of running containers.</p>
 
-            try {
-                const result = eval(codeSnippet);
-                outputElement.innerHTML = '<pre>' + result + '</pre>';
-            } catch (error) {
-                outputElement.innerHTML = '<pre style="color: red;">' + error + '</pre>';
-            }
-        }
-    </script>
+    <h3>List all containers (including stopped ones):</h3>
+    <pre><code>docker ps -a</code></pre>
 
+    <h3>Remove a stopped container:</h3>
+    <pre><code>docker rm &lt;container_id&gt;</code></pre>
+    <p>Replace <code>&lt;container_id&gt;</code> with the ID of the container you want to remove, which you can find from the <code>docker ps -a</code> command.</p>
+
+    <h3>List all images:</h3>
+    <pre><code>docker images</code></pre>
+
+    <h3>Remove an image:</h3>
+    <pre><code>docker rmi docker/whalesay</code></pre>
+
+    <h2>Conclusion</h2>
+    <p>This tutorial covered the basics of Docker, including installation, running a simple Docker Whale Say container, and basic container management commands. Docker is a versatile tool that can greatly streamline the development and deployment process. With these basics, you can start exploring more advanced features and use cases for Docker.</p>
+
+    <p>Happy Dockering!</p>
+
+    <h2>Reference and Additional Resources</h2>
+    <ul>
+        <li><a href="https://neuroimaging-data-science.org/content/002-datasci-toolbox/003-docker.html#creating-virtual-environments-with-conda">Neuroimaging and Data Science Chapter on Containers</a></li>
+        <li><a href="https://docker-curriculum.com/">Docker Curriculum</a></li>
+        <li><a href="https://container.training/intro-selfpaced.yml.html#1">Introduction to Containers</a></li>
+        <li><a href="https://www.simplilearn.com/tutorials/docker-tutorial">Docker Tutorial for Beginners</a></li>
+    </ul>
 </body>
 						</div>
 					</div>
