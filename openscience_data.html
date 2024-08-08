@@ -51,7 +51,18 @@
 					<div id="main">
 						<div class="inner">
 							<h1>Open Science & Data Sharing</h1>
-							<h1 id="understanding-bids-for-neuroimaging-data">Understanding BIDS for Neuroimaging Data</h1>
+<h1 id="fair-principles">FAIR Principles</h1>
+<p>The FAIR principles (Findable, Accessible, Interoperable, Reusable) are a set of guidelines to improve the management and sharing of research data. These principles ensure that data is prepared in a way that optimizes its reuse and reproducibility.</p>
+<h3 id="findable">Findable</h3>
+<p>Data should be easy to find by both humans and computers. This involves assigning a globally unique and persistent identifier to data, describing data with rich metadata, and indexing metadata in searchable resources. Clear and explicit identifiers should be included in metadata to facilitate search and discovery.</p>
+<h3 id="accessible">Accessible</h3>
+<p>Once data is found, it should be easy to access. This requires that data and metadata be retrievable via standardized communication protocols, which are open, free, and universally implementable. Where necessary, these protocols should support authentication and authorization. Additionally, metadata should remain accessible even if the data itself is no longer available.</p>
+<h3 id="interoperable">Interoperable</h3>
+<p>Data should be integrated with other data. This is achieved by using formal, accessible, shared, and widely applicable languages for knowledge representation. Data and metadata should use vocabularies that adhere to FAIR principles, and include qualified references to other data and metadata to ensure consistency and interoperability.</p>
+<h3 id="reusable">Reusable</h3>
+<p>Data should be reusable for future research. This means data and metadata should be richly described with accurate and relevant attributes. Data should be released with clear and accessible usage licenses, associated with detailed provenance information, and conform to community standards relevant to the domain.</p>
+<p>Adopting the FAIR principles in your research ensures that your data is well-managed, easily shared, and readily available for future research. More information about the FAIR principles can be found on the <a href="https://www.go-fair.org/fair-principles/">GO FAIR website</a>.</p>
+<h1 id="understanding-bids-for-neuroimaging-data">Understanding BIDS for Neuroimaging Data</h1>
 <h2 id="introduction-to-bids">Introduction to BIDS</h2>
 <p><strong>BIDS (Brain Imaging Data Structure)</strong> is a standardized way to organize and describe neuroimaging and behavioral data. It simplifies the process of data sharing, analysis, and collaboration in the neuroscience community. BIDS is designed to make data easier to use and to facilitate reproducible research.</p>
 <h2 id="why-use-bids-">Why Use BIDS?</h2>
@@ -72,30 +83,45 @@
 </ol>
 <h2 id="getting-started-with-bids">Getting Started with BIDS</h2>
 <p>To start using BIDS, you can refer to the <a href="https://bids-standard.github.io/bids-starter-kit/">BIDS Starter Kit</a>. This resource provides templates, examples, and guidelines for converting your data to BIDS format.</p>
+<h2 id="converting-data-to-bids-format">Converting Data to BIDS Format</h2>
+<p>To simplify the process of converting neuroimaging data to BIDS format, various software tools known as BIDS converters have been developed. A non-exhaustive list of available BIDS converters can be found <a href="https://bids.neuroimaging.io/benefits">here</a>.</p>
+<p>Many of the original and most popular BIDS converters, such as <strong>HeuDiConv</strong> and <strong>Dcm2Bids</strong>, require users to create custom code to specify the mapping between their imaging data and resulting BIDS output. However, newer tools have been developed to minimize or eliminate the need for coding by making educated guesses about the data&#39;s identity and suggesting the appropriate BIDS information and structure. For example, <strong>BIDScoin</strong> offers a graphical user interface (GUI), making it user-friendly, while <strong>ezBIDS</strong> takes a web-based approach. These newer tools are particularly useful for researchers who are less familiar with BIDS or not well-versed in the syntax and structure of the older converters. While the older BIDS converters provide more flexibility, the newer tools are designed to be more accessible and easier to use.</p>
 <h2 id="tools-for-working-with-bids-data">Tools for Working with BIDS Data</h2>
 <ul>
-<li><strong>pyBIDS</strong>: A Python library to query and manipulate BIDS datasets. Learn more in the <a href="https://bids-standard.github.io/pybids/introduction.html#what-is-bids-and-why-should-you-use-it">pyBIDS documentation</a>.</li>
-<li><strong>BIDS Apps</strong>: A collection of neuroimaging data analysis pipelines that accept BIDS-formatted data as input.</li>
-<li><strong>BIDS Validator</strong>: A tool to ensure your dataset conforms to BIDS specifications.</li>
+<li><strong>nipopy:</strong> Lightweight neuroimaging workflow manager to help with DICOM to BIDS conversion and running BIDS apps</li>
+<li><strong>BIDS Validator</strong>: A tool to ensure your dataset conforms to BIDS specifications. To acce</li>
+<li><strong>pyBIDS</strong>: A Python library to query and manipulate BIDS datasets. Learn more in the <a href="https://bids-standard.github.io/pybids/introduction.html#what-is-bids-and-why-should-you-use-it">pyBIDS documentation</a>.
+ss this tool, go to the <a href="https://bids-standard.github.io/bids-validator/">BIDS Validator webpage</a></li>
+<li><strong>BIDS Apps</strong>: Once you have converted data BIDS, you are ready to begin using BIDS apps, which are a collection of neuroimaging data analysis pipelines that accept BIDS-formatted data as input, such as MRIQC and fMRIPrep. Learn more in the <a href="https://bids-apps.neuroimaging.io/">BIDS App page</a></li>
 </ul>
 <h2 id="detailed-guides-and-tutorials">Detailed Guides and Tutorials</h2>
 <ul>
-<li><strong>BIDS Overview</strong>: An introductory guide to BIDS, available on <a href="https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html">Andy&#39;s Brain Book</a>.</li>
-<li><strong>RPubs Tutorial</strong>: A comprehensive guide on BIDS, fMRIPrep, and MRIQC, available on <a href="https://rpubs.com/sarenseeley/bids-fmriprep-mriqc">RPubs</a>.</li>
+<li><strong>Andy&#39;s Brain Book BIDS Overview</strong>: An introductory guide to BIDS, available on <a href="https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html">Andy&#39;s Brain Book</a>.</li>
+<li><strong>RPubs Tutorial</strong>: A comprehensive guide on BIDS with subsequent tutorials on using fMRIPrep and MRIQC, available on <a href="https://rpubs.com/sarenseeley/bids-fmriprep-mriqc">RPubs</a>.</li>
 <li><strong>OSF Guide</strong>: A step-by-step guide to creating BIDS datasets, available on the <a href="https://osf.io/dcbfj">Open Science Framework</a>.</li>
 </ul>
-<h2 id="bids-specification-and-documentation">BIDS Specification and Documentation</h2>
+<h2 id="literature-and-documentation">Literature and Documentation</h2>
+<p>A detailed description of the development of BIDS and benefits, can be found in the foundational BIDS <a href="https://www.nature.com/articles/sdata201644">paper published in Nature</a>.</p>
+<p>A description of how to build containerized apps supporting BIDS inputs can be found in the <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005209">paper published in PLOS Computational Biology</a>.</p>
 <p>For the official specification and in-depth documentation, refer to the <a href="https://bids-specification.readthedocs.io/en/stable/">BIDS Specification</a>.</p>
-<h2 id="reference-literature">Reference Literature</h2>
-<ul>
-<li><strong>Nature Scientific Data</strong>: The foundational paper on BIDS, detailing its development and benefits, can be accessed <a href="https://www.nature.com/articles/sdata201644">here</a>.</li>
-</ul>
 <h2 id="conclusion">Conclusion</h2>
 <p>BIDS is a powerful standard that enhances the organization, sharing, and analysis of neuroimaging data. By adopting BIDS, researchers can improve the reproducibility of their studies and facilitate broader collaboration within the neuroscience community.</p>
-<p>For further reading and resources, explore the links provided in each section.</p>
-
-
-
+<h1 id="nipoppy">NiPoppy</h1>
+<h3 id="introduction-to-nipoppy">Introduction to NiPoppy</h3>
+<p><strong>NiPoppy</strong> is a robust, automated pipeline designed for the quality assessment of neuroimaging data. It is particularly useful for researchers working with large datasets, ensuring that data quality is consistently evaluated and maintained.</p>
+<h3 id="features-of-nipoppy">Features of NiPoppy</h3>
+<p>NiPoppy offers a variety of features aimed at streamlining the quality assessment process:</p>
+<ul>
+<li><strong>Automated Quality Checks</strong>: NiPoppy performs comprehensive quality checks on neuroimaging data, identifying potential issues and ensuring data integrity.</li>
+<li><strong>Compatibility</strong>: It supports various neuroimaging data formats and integrates seamlessly with existing neuroimaging workflows.</li>
+<li><strong>Scalability</strong>: NiPoppy is designed to handle large datasets, making it ideal for projects involving substantial amounts of neuroimaging data.</li>
+</ul>
+<p>You can refer here for an <a href="https://neurobagel.org/nipoppy/overview/">Overview of NiPoppy</a>.</p>
+<h3 id="getting-started-with-nipoppy">Getting Started with NiPoppy</h3>
+<p>To begin using NiPoppy, you can refer to the <a href="https://nipoppy.readthedocs.io/en/latest/#">NiPoppy Documentation</a>. The documentation provides detailed instructions on installation, configuration, and usage, ensuring that researchers can quickly integrate NiPoppy into their workflows.</p>
+<p>The <a href="https://github.com/nipoppy/nipoppy?tab=readme-ov-file">NiPoppy GitHub repository</a> offers access to the source code, installation instructions, and additional resources. This is also a resource for developers and users looking to customize or contribute to the NiPoppy project.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>NiPoppy is a powerful tool for the automated quality assessment of neuroimaging data, offering significant advantages in terms of efficiency, scalability, and integration. By incorporating NiPoppy into your research, you can ensure the reliability and quality of your neuroimaging datasets, ultimately enhancing the robustness of your scientific findings.</p>
 
 							
 						</div>		
