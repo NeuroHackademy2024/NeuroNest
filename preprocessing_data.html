@@ -64,11 +64,33 @@
 							<p><strong>General Steps:</strong> Overview of typical preprocessing steps, including data cleaning, normalization, and transformation.</p>
 
 							<h3>2. Techniques for Cleaning and Preparing Neuroimaging Data:</h3>
-							<p><strong>Motion Correction:</strong> Techniques to correct for subject movement during scanning. Minimizes artifacts and improves data quality.</p>
-							<p><strong>Spatial Normalization:</strong> Aligning images to a standard brain template. Enables comparison across subjects and studies.</p>
-							<p><strong>Segmentation:</strong> Separating different tissue types (e.g., gray matter, white matter, cerebrospinal fluid). Facilitates region-specific analysis.</p>
-							<p><strong>Smoothing:</strong> Applying a Gaussian filter to reduce noise and enhance signal. Improves the signal-to-noise ratio.</p>
-							<p><strong>Artifact Removal:</strong> Techniques to identify and remove artifacts such as scanner noise or physiological noise. Ensures cleaner data for more accurate analysis.</p>
+<img src="images/preprocessing_flow.png" alt="Preprocessing Flow" style="width:100%; max-width:800px; margin-bottom:20px;">
+
+<p>Neuroimaging data preprocessing involves several critical steps to ensure that the data is clean, accurate, and ready for analysis. Below are the key techniques involved in this process:</p>
+
+<ul>
+    <li><strong>Distortion Correction:</strong>
+        <p>This step corrects distortions in the images caused by inhomogeneities in the magnetic field. These distortions can lead to geometric inaccuracies in the images, which are corrected to ensure that the brain structures are accurately represented.</p>
+    </li>
+    <li><strong>Motion Correction:</strong>
+        <p>Motion correction addresses the issue of subject movement during scanning. This step realigns the images to minimize artifacts caused by head motion, ensuring that the data reflects true neural activity rather than movement artifacts.</p>
+    </li>
+    <li><strong>Slice Timing Correction:</strong>
+        <p>During an fMRI scan, different slices of the brain are captured at slightly different times. Slice timing correction adjusts the data to account for these differences, aligning the temporal information across slices.</p>
+    </li>
+    <li><strong>Coregistration:</strong>
+        <p>Coregistration involves aligning the functional images to the anatomical (structural) images. This step ensures that the functional data is accurately mapped onto the anatomical structure of the brain, allowing for precise localization of brain activity.</p>
+    </li>
+    <li><strong>Spatial Normalization:</strong>
+        <p>Spatial normalization aligns the brain images of different subjects to a common brain template, such as the MNI template. This process allows for group analyses and comparisons across subjects by ensuring that the brain structures are in the same spatial coordinates.</p>
+    </li>
+    <li><strong>Smoothing:</strong>
+        <p>Smoothing is the process of applying a Gaussian filter to the images to enhance the signal-to-noise ratio. This step reduces the impact of random noise and helps in detecting consistent patterns of brain activity across different subjects.</p>
+    </li>
+    <li><strong>Artifact Removal:</strong>
+        <p>In addition to the above steps, artifact removal techniques are applied to identify and eliminate noise sources such as scanner noise or physiological artifacts (e.g., heartbeats, eye movements) to ensure that the data is as clean as possible for accurate analysis.</p>
+    </li>
+</ul>
 
 							<h3>3. Interactive Tutorials and Resources:</h3>
 							<p><strong>Google Colab for Interactive Tutorials:</strong> Creating hands-on tutorials that users can interact with. Incorporating executable code snippets and visualization tools directly into the webpage.</p>
