@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRI Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p, ul {
+            margin-bottom: 20px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 1.1em;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+        .nav a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="advanced.html">Go to Advanced Topics</a>
+    </div>
+    <h1>MRI Basics</h1>
+    <h2>Overview</h2>
+    <p>
+        Atoms are made up of a nucleus and a shell of electrons. Inside the nucleus, there are protons, which have a positive electrical charge. These protons are constantly spinning around an axis, which creates a spin (see figure).
+    </p>
+    <p>
+        Because protons are moving electrical charges, they generate an electrical current. This current creates a magnetic field, making each proton act like a tiny bar magnet with its own magnetic field.
+    </p>
+    <p>
+        When protons are placed in an MRI scanner, they align with the external magnetic field. There are two ways they can align:
+    </p>
+    <ul>
+        <li>Parallel to the magnetic field (lower energy state)</li>
+        <li>Anti-parallel to the magnetic field (higher energy state)</li>
+    </ul>
+    <p>
+        The protons also precess (spin) along the magnetic field lines, similar to how a spinning top behaves under Earth's gravity.
+    </p>
+    <p>
+        When a person is inside the MRI machine, a strong magnetic field aligns the protons in their body. If we send a radio-frequency (RF) pulse at the same frequency as the protons' precessing frequency, two things happen:
+    </p>
+    <ul>
+        <li>Longitudinal Magnetization Decreases: More protons align anti-parallel, canceling out some of the parallel protons.</li>
+        <li>Transversal Magnetization Forms: The RF pulse synchronizes the protons, causing them to precess together.</li>
+    </ul>
+    <h2>Key Terms in MRI</h2>
+    <ul>
+        <li><strong>Gradients:</strong> Gradient magnets are used to spatially encode the signals received from the protons, allowing for the construction of an image.</li>
+        <li><strong>Proton Resonance:</strong> Hydrogen protons in the body align with a magnetic field and then resonate when exposed to radiofrequency pulses (RF).</li>
+        <li><strong>Resonance:</strong> This phenomenon occurs when the RF pulse matches the protons' frequency, allowing them to absorb energy from the radio waves. This is where the term "resonance" in "magnetic resonance" comes from.</li>
+        <li><strong>T1 (Longitudinal Relaxation Rate):</strong> Influenced by the tissue's composition and structure, T1 varies with magnetic field strength and is longer in stronger fields. T1 relaxation is slower than T2 relaxation.</li>
+        <li><strong>T2 (Transversal Relaxation Rate):</strong> Occurs when protons get out of sync due to irregularities in the magnetic field or the tissue's local magnetic fields.</li>
+    </ul>
+    <h2>Types of MRI Sequences</h2>
+    <ul>
+        <li><strong>T1-Weighted Imaging:</strong> Highlights fat and provides clear images of the brain's anatomy.</li>
+        <li><strong>T2-Weighted Imaging:</strong> Highlights fluid and is useful for detecting edema and inflammation.</li>
+        <li><strong>FLAIR (Fluid Attenuated Inversion Recovery):</strong> Suppresses fluids, enhancing the visibility of lesions.</li>
+    </ul>
+    <p>For more information and images about the MRI sequences, visit <a href="https://radiopaedia.org" target="_blank">Radiopaedia</a> and <a href="https://mriquestions.com" target="_blank">MRI Questions</a>.</p>
+    <p>For more information about the physics of MRI, visit <a href="https://mriquestions.com/nmr-phenomenon.html" target="_blank">MRI Questions - NMR Phenomenon</a>.</p>
+    <p>For nice illustrations of concepts, check the <a href="https://apps.apple.com/us/app/mri-made-easy/id123456789" target="_blank">MRI Made Easy app</a> (for iOS).</p>
+    <h2>MRI Equipment and Technologies</h2>
+    <h3>Main Components of an MRI Scanner:</h3>
+    <ul>
+        <li><strong>Magnet:</strong> The core component of the MRI scanner generating a powerful magnetic field to align the protons in the body. The strength of the magnet is typically measured in tesla (T) with common strengths ranging from 1.5T to 3T in clinical settings and up to 7T or more in research settings.</li>
+        <li><strong>Gradient Coils:</strong> These coils create variable magnetic fields that allow for spatial encoding of the MRI signal. They are essential for slice selection, spatial resolution, and imaging speed.</li>
+        <li><strong>Radiofrequency Coils:</strong> These coils transmit and receive radiofrequency pulses that perturb and detect the protons' magnetic alignment. They come in various shapes and sizes tailored for specific body parts or imaging purposes.</li>
+        <li><strong>Computer System:</strong> The MRI scanner’s computer system controls the hardware, processes the signals received from the radiofrequency coils, and reconstructs the images for display and analysis. It includes powerful processors and advanced software algorithms for image reconstruction and enhancement.</li>
+    </ul>
+    <h3>Technological Innovations:</h3>
+    <ul>
+        <li><strong>High-Field MRI:</strong> Higher magnetic field strengths (e.g., 7T) provide better signal-to-noise ratio and spatial resolution, allowing for more detailed and precise imaging of the brain and other organs.</li>
+        <li><strong>Functional MRI (fMRI):</strong> fMRI measures brain activity by detecting changes in blood flow (BOLD signal) and is widely used in cognitive and clinical neuroscience to study brain function and connectivity.</li>
+    </ul>
+    <h2>Safety and Precautions in MRI</h2>
+    <p>MRI is a safe and non-invasive imaging modality, but certain precautions are necessary to ensure patient safety:</p>
+    <ul>
+        <li><strong>Compatibility with Metal Implants:</strong> Patients with metal implants, such as pacemakers, cochlear implants, or certain types of aneurysm clips, may be contraindicated for MRI. Thorough screening is essential to identify any potential risks.</li>
+        <li><strong>Claustrophobia:</strong> Some patients may experience anxiety or claustrophobia during an MRI scan. Providing detailed explanations, using open MRI scanners, or administering mild sedation can help alleviate these issues.</li>
+        <li><strong>Patient Preparation:</strong> Proper patient preparation, including fasting guidelines, hydration instructions, and positioning tips, is crucial for optimal imaging outcomes and patient comfort.</li>
+    </ul>
+    <p>For more detailed information on safety considerations and patient preparation, please refer to the following resources:</p>
+    <ul>
+        <li><a href="https://example.com/safety-considerations" target="_blank">Safety Considerations</a></li>
+        <li><a href="https://example.com/patient-preparation" target="_blank">Patient Preparation</a></li>
+        <li><a href="https://mriquestions.com/safety-and-screening.html" target="_blank">MRI Questions - Safety and Screening</a></li>
+    </ul>
+</body>
+</html>
