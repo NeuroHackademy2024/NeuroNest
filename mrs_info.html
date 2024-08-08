@@ -77,6 +77,50 @@
 						                <p>There are several SVS techniques to acquire spectra during imaging. STEAM (Stimulated Echo Acquisition Mode) and PRESS (Point-Resolved Spectroscopy) are both pulse sequence techniques used in magnetic resonance spectroscopy (MRS) to acquire signals from different molecules to generate a spectrum. PRESS and STEAM sequences use different methods for the acquisition of a stimulated echo. Both STEAM and PRESS have advantages and limitations, which can vary based on the study design, but it seems that PRESS is currently the most utilized SVS sequences for 1H MRS. For MRSI, spectra are acquired simultaneously from MRSI voxels inside the volume of interest. While single-voxel MRS (i.e., SVS) can provide more accurate quantification of the neurometabolite spectra from a specific location, multi-voxel MRS (i.e., MRSI) can obtain spatial distributions of metabolites within a single experiment. See In vivo magnetic resonance spectroscopy: basic methodology and clinical applications for an in-depth review of MRS data acquisition, including physics principles, pulse sequences, and spectra analysis</p>
 						                <p>The specificity of the information gathered is dependent on the MRI field strength (link to MRI page). For example, low field MRI strengths can result in “resonance frequency overcrowding”, such that some neurometabolites cannot be distinguished from those of similar resonant frequencies. For example, at 1.5T and 3T strengths, glutamate (Glu) and glutamine (Gln) resonant frequencies can be too close to separate, so some researchers may instead use a composite measure called Glx (Glu + Gln; link here). Another example is N-acetyl resonance (NA), which  is derived from N-acetylaspartate (NAA) and N-acetylaspartylglutamate (NAAG) at lower field strengths. On the other hand, this is minimal metabolite spectra overlap when MRS is acquired on a higher field strength MRI.
 						                <p>See <a href="https://link.springer.com/article/10.1007/s11064-013-1199-5">A Guide to the Metabolic Pathways and Function of Metabolites Observed in Human Brain 1H Magnetic Resonance Spectra</a> for an in-depth review of neurometabolites.</p>
+							<h2>MRS in Neuroscience: Applications</h2>
+							    <p>
+								MRS can be used to study diverse research questions in various healthy and clinical populations. In the domain of (cognitive) neuroscience, the neurotransmitter levels of interest are often GABA and glutamate (+ its precursor glutamine). The following examples are mostly in the domain of visual learning; however, given the evidence linking the two neurotransmitters with several psychiatric disorders and cognitive aging, impaired plasticity in glutamatergic and GABAergic systems can be studied with MRS to shed more light on these domains as well (Stanley & Raz, 2018).
+							    </p>
+							    <p>
+								GABA and glutamate are usually analyzed in relation to each other: the “balanced” excitatory and inhibitory (E/I) synaptic drive serves as the functional basis of networks in the brain (Stanley & Raz, 2018). Both GABA and glutamate have been shown to correlate with plasticity measures (Kim et al., 2014; Nikolova et al., 2017; Stagg et al., 2011). Moreover, task-specific alterations in GABA levels in association with learning paradigms have been demonstrated (Frangou et al., 2018, 2019).
+							    </p>
+							<h2>Examples for MRS:</h2>
+							    <p>
+								Shibata et al. (2017) and Bang et al. (2018) associated consolidation processes with the excitation/inhibition (E/I) ratio in the human early visual cortex. The authors refer to the E/I ratio as a measure of plasticity (Bang et al., 2018). The change in E/I ratio from baseline after performing a task is calculated as
+							    </p>
+							    <code>
+								E/I change (t) = ((Glu(t)/GABA(t)) / (Glu(t=0)/GABA(t=0)) - 1) * 100
+							    </code>
+							    <p>
+								with <code>t</code> corresponding to the time point of the respective MRS measurement (<code>t=0</code>: MRS baseline measurement before performing the task and <code>t=1</code>: MRS measurement immediately after performing the task).
+							    </p>
+							    <p>
+								For more detailed information and interpretation of how E/I ratio changes are linked to learning processes, see Bang et al. (2018).
+							    </p>
+							    <p>Further information about MRS studies analyzing GABA and glutamate: Duncan et al. (2014) (sadly not open access)</p>
+							    
+							    <h2>Examples for functional MRS (fMRS):</h2>
+							    <p>
+								Usually, MRS is acquired during rest without a particular task (except maybe a fixation task to keep attention constant over several sessions). fMRS, however, tracks the neurotransmitter concentrations during performance on a task and allows for more dynamic tracking of neurotransmitter concentrations. Further information and studies utilizing fMRS can be found in these reviews:
+							    </p>
+							    <ul>
+								<li>Stanley & Raz (2018)</li>
+								<li>Kiemes et al. (2021)</li>
+								<li>Pasanta et al. (2023)</li>
+							    </ul>
+							    
+							    <h2>FAQ and Practical Tips:</h2>
+							    <ul>
+								<li>Practical tips for new users of MRS</li>
+								<li>In case of repeated-measures design: save your individual voxel placement for the next session of each participant</li>
+								<li>During MRS without a task: think about whether a simple fixation task would help your design to keep attention stable</li>
+							    </ul>
+							    
+							    <h2>Resources for Further Learning</h2>
+							    <p>Recommended papers:</p>
+							    <ul>
+								<li>Frank, S. M., Becker, M., Malloni, W. M., Sasaki, Y., Greenlee, M. W., & Watanabe, T. (2023). Protocol to conduct functional magnetic resonance spectroscopy in different age groups of human participants. <i>STAR protocols, 4</i>(3), 102493.</li>
+							    </ul>
 						</div>
 					</div>
 
