@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>NAME THAT SHOWS IN THE TAB ABOVE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Handling MATLAB Files</h1>
+							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+							<h3 id="5a-matlab-file-types-">5a. MATLAB File Types:</h3>
+<ul>
+<li><p><strong>.m files</strong>: MATLAB script and function files.</p>
+</li>
+<li><p><strong>.mlx files</strong>: MATLAB live script files that combine code execution with narrative, formatted text, equations, images, and hyperlinks in a single, interactive document. Ideal for instructional purposes, interactive applications, and sharing results.</p>
+</li>
+<li><p><strong>.mat files</strong>: Binary files that store workspace variables. Useful for saving your session data and transferring variables between sessions without losing integrity.</p>
+</li>
+<li><p><strong>.fig files</strong>: Figure files that save MATLAB graphical outputs. They enable you to reopen and modify figures later, preserving the graphical data and properties exactly as saved.</p>
+</li>
+</ul>
+<h3 id="5b-importing-and-exporting-files">5b. Importing and Exporting Files</h3>
+<p>MATLAB supports importing and exporting various data formats such as TXT, CSV, XLS, XLSX, JPG, PNG, etc. You can find additional documentation including functions and examples <a href="https://www.mathworks.com/help/matlab/import_export/supported-file-formats-for-import-and-export.html">here</a>.</p>
+<h3 id="5c-commands-for-handling-files">5c. Commands for Handling Files</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>save &#39;filename&#39;</code></td>
+<td>Saves workspace variables to a file.</td>
+</tr>
+<tr>
+<td><code>load &#39;filename&#39;</code></td>
+<td>Loads variables from a file into the workspace.</td>
+</tr>
+<tr>
+<td><code>readtable(&#39;filename&#39;)</code></td>
+<td>Imports data from a file into a table, supporting CSV, TXT, and Excel formats.</td>
+</tr>
+<tr>
+<td><code>readmatrix(&#39;filename&#39;)</code></td>
+<td>Reads numerical data from a file into a matrix, ideal for straightforward data formats.</td>
+</tr>
+<tr>
+<td><code>xlsread(&#39;filename&#39;)</code></td>
+<td>Imports data from Excel files, useful for datasets in spreadsheets.</td>
+</tr>
+<tr>
+<td><code>csvread(&#39;filename&#39;)</code></td>
+<td>Reads numerical data from CSV files directly into an array.</td>
+</tr>
+<tr>
+<td><code>fopen(&#39;filename&#39;)</code></td>
+<td>Opens a file for reading or writing, necessary for file manipulation.</td>
+</tr>
+<tr>
+<td><code>fwrite(fid, data)</code></td>
+<td>Writes binary data to the file specified by <code>fid</code>.</td>
+</tr>
+<tr>
+<td><code>fprintf(fid, format, data)</code></td>
+<td>Writes formatted data to the file, allowing for customizable text outputs.</td>
+</tr>
+<tr>
+<td><code>fclose(fid)</code></td>
+<td>Closes an open file to free up resources.</td>
+</tr>
+<tr>
+<td><code>importdata(&#39;filename&#39;)</code></td>
+<td>Loads mixed data from files, handling various formats automatically.</td>
+</tr>
+<tr>
+<td><code>exportdata(&#39;data&#39;, &#39;filename&#39;)</code></td>
+<td>Exports data to a file in chosen formats, useful for sharing or external use.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5d-suggested-tutorials">5d. Suggested Tutorials</h3>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=2">Lesson: Gettting Data Into MATLAB</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab_m_files/index.htm">Tutorial: M Files</a></p>
+<h3 id="5e-supplemental-materials">5e. Supplemental Materials</h3>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_data_import.htm">Live Demo: Data Import</a></p>
+<p>[Live Demo: Data Output] (<a href="https://www.tutorialspoint.com/matlab/matlab_data_import.htm">https://www.tutorialspoint.com/matlab/matlab_data_import.htm</a>)</p>
+<p><a href="https://tutorialspoint.com/matlab_m_files/matlab_m_files_quick_guide.htm">Quick Guide: M Files</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/import_export/supported-file-formats-for-import-and-export.html">Documentation: Supported File Formats</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/spreadsheets.html?">Documentation: Spreadsheets</a>s_tid=CRUX_lftnav</p>
+<p><a href="https://www.mathworks.com/help/matlab/data-import-and-export.html">Documentation: Data Import and Export</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/file-operations.html">Documentation: File Operations</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/cloud-file-storage.html">Documentation: Cloud File Storage</a></p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
