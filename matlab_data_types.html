@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>NAME THAT SHOWS IN THE TAB ABOVE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1 id="3-matlab-elements-and-syntax">MATLAB Data Types</h1>
+							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+							<h3 id="4a-data-types">4a. Data Types</h3>
+<p>Data types (also referred to as classes) define the kind of data a variable can hold and the operations that can be performed on it. </p>
+<ul>
+<li><p><strong>Numeric Types</strong></p>
+<ul>
+<li><strong>double</strong>: This is the default numeric data type in MATLAB. Suitable for general-purpose numerical computations where precision and range are important.</li>
+<li><strong>Integer Types</strong>: Whole numbers only, which require less memory but have less precision and limitations on certain mathematical operations compared to double.</li>
+</ul>
+</li>
+<li><p><strong>Character and String Types</strong></p>
+<ul>
+<li><strong>char</strong>: Character arrays for storing text created using single quotes.</li>
+<li><strong>string</strong>: String arrays, which are more flexible than character arrays and can be created using double quotes.</li>
+</ul>
+</li>
+<li><p><strong>Logical Type</strong></p>
+<ul>
+<li><strong>logical</strong>: Represents true or false values.</li>
+</ul>
+</li>
+</ul>
+<h3 id="4b-sets-and-operators">4b. Sets and Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Arithmetic</strong></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>Addition</td>
+<td><code>a + b</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Subtraction</td>
+<td><code>a - b</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Matrix multiplication</td>
+<td><code>a * b</code></td>
+</tr>
+<tr>
+<td><code>.*</code></td>
+<td>Element-wise multiplication</td>
+<td><code>a .* b</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Matrix right division</td>
+<td><code>a / b</code></td>
+</tr>
+<tr>
+<td><code>./</code></td>
+<td>Element-wise right division</td>
+<td><code>a ./ b</code></td>
+</tr>
+<tr>
+<td><code>\</code></td>
+<td>Matrix left division</td>
+<td><code>a \ b</code></td>
+</tr>
+<tr>
+<td><code>.\</code></td>
+<td>Element-wise left division</td>
+<td><code>a .\ b</code></td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>Matrix power</td>
+<td><code>a ^ b</code></td>
+</tr>
+<tr>
+<td><code>.^</code></td>
+<td>Element-wise power</td>
+<td><code>a .^ b</code></td>
+</tr>
+<tr>
+<td><code>.&#39;</code></td>
+<td>Transpose</td>
+<td><code>a.&#39;</code></td>
+</tr>
+<tr>
+<td><strong>Relational</strong></td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td>Equal to</td>
+<td><code>a == b</code></td>
+</tr>
+<tr>
+<td><code>~=</code></td>
+<td>Not equal to</td>
+<td><code>a ~= b</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+<td><code>a &gt; b</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>a &lt; b</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater than or equal to</td>
+<td><code>a &gt;= b</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less than or equal to</td>
+<td><code>a &lt;= b</code></td>
+</tr>
+<tr>
+<td><strong>Logical</strong></td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>Logical AND</td>
+<td><code>a &amp; b</code></td>
+</tr>
+<tr>
+<td>`</td>
+<td>`</td>
+<td>Logical OR</td>
+<td>`a</td>
+<td>b`</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>Logical NOT</td>
+<td><code>~a</code></td>
+</tr>
+<tr>
+<td><code>xor</code></td>
+<td>Logical EXCLUSIVE OR</td>
+<td><code>xor(a, b)</code></td>
+</tr>
+<tr>
+<td><strong>Sets</strong></td>
+</tr>
+<tr>
+<td><code>union</code></td>
+<td>Union of two sets</td>
+<td><code>union(a, b)</code></td>
+</tr>
+<tr>
+<td><code>intersect</code></td>
+<td>Intersection of two sets</td>
+<td><code>intersect(a, b)</code></td>
+</tr>
+<tr>
+<td><code>setdiff</code></td>
+<td>Difference of two sets</td>
+<td><code>setdiff(a, b)</code></td>
+</tr>
+<tr>
+<td><code>setxor</code></td>
+<td>Symmetric difference of two sets</td>
+<td><code>setxor(a, b)</code></td>
+</tr>
+<tr>
+<td><code>ismember</code></td>
+<td>Determine if elements are members of a set</td>
+<td><code>ismember(a, b)</code></td>
+</tr>
+<tr>
+<td><code>unique</code></td>
+<td>Unique elements in an array</td>
+<td><code>unique(a)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="4c-suggested-tutorials">4c. Suggested Tutorials</h3>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=5">Tutorial: Mathematical and Statistical Operations with Arrays</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=7">Tutorial: Conditional Data Selection</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=9">Tutorial: Tables of Data</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=10">Tutorial: Organizing Tabular Data</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/a-tour-of-matlab-data-types/otmlmdt">Course: A tour of MATLAB Data Types</a> </p>
+<p><a href="https://matlabacademy.mathworks.com/details/calculations-with-vectors-and-matrices/otmlcvm">Course: Calculations with Vectors and Matrices</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/tables/otmltab">Course: Tables</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/find-and-extract-subsets-of-data/otmlesd">Course: Find and Extract Subsets of Data</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/clean-and-prepare-data-for-analysis/otmlpda">Course: Clean and Prepare Data for Analyses</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/calculations-on-grouped-data/otmlcgd">Course: Calculations on Grouped Data</a></p>
+<h3 id="4d-supplemental-materials">4d. Supplemental Materials</h3>
+<p><a href="https://www.mathworks.com/videos/introducing-matlab-fundamental-classes-data-types-101503.html">Video: Introducing MATLAB Fundamental Classes</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_data_types.htm">Live Demo: Data Types</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_numbers.htm">Live Demo: Numbers</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_strings.htm">Live Demo: Strings</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/matlab_prog/fundamental-matlab-classes.html">Documentation: Fundamental MATLAB Classes</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/data-types.html">Documentation: Data Types</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/operators-and-elementary-operations.html">Documentation: Operators and Elementary Operations</a></p>
+<p><a href="https://andysbrainbook.readthedocs.io/en/latest/Matlab/Matlab_02_VariablesStructures.html">Andy&#39;s Brain Book: Variables and Structures</a></p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
