@@ -74,14 +74,9 @@
 								<p>CT imaging, or Computed Tomography imaging, uses X-rays to create detailed pictures of the inside of the body. It is crucial in medical diagnostics for detecting conditions such as tumors, fractures, and hemorrhages. <a href="ct_info.html">Read more about CT neuroimaging here.</a></p>
 								<p>In this tutorial, we will cover several fundamental concepts that are essential for processing and visualizing CT brain images in Python, as well as building a neural network. We will walk through each step to classify CT brain images as either normal (labeled 0) or having a hemorrhage (labeled 1). By the end of this tutorial, you should have a solid understanding of how to preprocess the data, build, and evaluate a neural network model using PyTorch.</p>
 								<p>For more information about how to install, access, or code in Python, visit <a href="python_data.html">NeuroNest's Python Tutorial</a>.</p>
-							<h3 id="dataset-">Dataset:</h3>
-								<p>We will use a dataset from Kaggle. It can be found at:
-								<a href="https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage">https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage</a></p>
-								<p></p>
 							<h2 id="2-importing-required-libraries">2. Importing Required Libraries</h3>
 								<p>To build our neural network, we&#39;ll need several Python and PyTorch libraries. These libraries will help with data manipulation, model building, and visualization.</p>
-<pre><code>
-<strong># Import essential libraries for building a Neural Network using Pytorch</strong>
+<pre><code><strong># Import essential libraries for building a Neural Network using Pytorch</strong>
 <p>import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -103,10 +98,9 @@ import matplotlib.pyplot as plt
 from PIL import Image</p>
 </code></pre>
 							<h2>3. Downloading the Data</h2>
-							<p>We now download our CT Brain Imaging dataset. Either download from Kaggle at <a href="https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage">https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage</a></p>or run the code below to use the Kaggle API to automatically download and extract the dataset.</p>
-<pre><code>
-<p>IMPORTANT: RUN THIS CELL IN ORDER TO IMPORT YOUR KAGGLE DATA SOURCES TO THE CORRECT LOCATION (/kaggle/input) IN YOUR NOTEBOOK.</p>
-NOTE: THIS NOTEBOOK ENVIRONMENT DIFFERS FROM KAGGLE&#39;S PYTHON ENVIRONMENT SO THERE MAY BE MISSING LIBRARIES USED BY YOUR NOTEBOOK.</p>
+							<p>We will use a CT Brain Imaging dataset from Kaggle. Either download directly from Kaggle at <a href="https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage">https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage</a> or run the code below to use the Kaggle API to automatically download and extract the dataset.</p>
+<pre><code><p>IMPORTANT: RUN THIS CELL IN ORDER TO IMPORT YOUR KAGGLE DATA SOURCES TO THE CORRECT LOCATION (/kaggle/input) IN YOUR NOTEBOOK.
+	NOTE: THIS NOTEBOOK ENVIRONMENT DIFFERS FROM KAGGLE&#39;S PYTHON ENVIRONMENT SO THERE MAY BE MISSING LIBRARIES USED BY YOUR NOTEBOOK.</p>
 <p>import os
 import sys
 from tempfile import NamedTemporaryFile
@@ -121,20 +115,23 @@ CHUNK_SIZE = 40960
 DATA_SOURCE_MAPPING = &#39;head-ct-hemorrhage:https%3A%2F%2Fstorage.googleapis.com%2Fkaggle-data-sets%2F71215%2F152137%2Fbundle%2Farchive.zip%3FX-Goog-Algorithm%3DGOOG4-RSA-SHA256%26X-Goog-Credential%3Dgcp-kaggle-com%2540kaggle-161607.iam.gserviceaccount.com%252F20240807%252Fauto%252Fstorage%252Fgoog4_request%26X-Goog-Date%3D20240807T171722Z%26X-Goog-Expires%3D259200%26X-Goog-SignedHeaders%3Dhost%26X-Goog-Signature%3D4cfcf43a51e3ca0216a816401c6a9ead19272a4e62a33ee3ae3d4315eb4f6eb1822cba8fc13ac00113bbc390a84a3cda5ce0b6faddb2740af90e5cb916dfc6fe81f546e55803c4f74b75d95db4b64a2e0cc77f6820c062c5ccfca7a8404cd851eb66a7c89fa26a97ebf23b82ce8c1141d9ee2b2f1e48f297d299efd306776e3fb6bb49381126c0f7c5a9c26f26c2020efcea9f05b4a5625d2bcbf1f2c54c542692184d2140118c7e988c0e18734f5a128891c2845aa2814067cb6253c95309bcfcc255dc0add78794f789ff063f7f46b291c48f3161789aea3de080cf09e2f54631cbc58d788711f19cb76dab1b9424d58b31825e7f4becac5ed4ed8e2ff389a&#39;</p>
 <p>KAGGLE_INPUT_PATH=&#39;/kaggle/input&#39;
 KAGGLE_WORKING_PATH=&#39;/kaggle/working&#39;
-KAGGLE_SYMLINK=&#39;kaggle&#39;</p>
-<p>!umount /kaggle/input/ 2&gt; /dev/null
+KAGGLE_SYMLINK=&#39;kaggle&#39;
+
+!umount /kaggle/input/ 2&gt; /dev/null
 shutil.rmtree(&#39;/kaggle/input&#39;, ignore_errors=True)
 os.makedirs(KAGGLE_INPUT_PATH, 0o777, exist_ok=True)
-os.makedirs(KAGGLE_WORKING_PATH, 0o777, exist_ok=True)</p>
-<p>try:
+os.makedirs(KAGGLE_WORKING_PATH, 0o777, exist_ok=True)
+	
+try:
   os.symlink(KAGGLE_INPUT_PATH, os.path.join(&quot;..&quot;, &#39;input&#39;), target_is_directory=True)
 except FileExistsError:
   pass
 try:
   os.symlink(KAGGLE_WORKING_PATH, os.path.join(&quot;..&quot;, &#39;working&#39;), target_is_directory=True)
 except FileExistsError:
-  pass</p>
-<p>for data_source_mapping in DATA_SOURCE_MAPPING.split(&#39;,&#39;):
+  pass
+	
+for data_source_mapping in DATA_SOURCE_MAPPING.split(&#39;,&#39;):
     directory, download_url_encoded = data_source_mapping.split(&#39;:&#39;)
     download_url = unquote(download_url_encoded)
     filename = urlparse(download_url).path
@@ -164,15 +161,15 @@ except FileExistsError:
 	continue
     except OSError as e:
 	print(f&#39;Failed to load {download_url} to path {destination_path}&#39;)
-	continue</p>
-<p>print(&#39;Data source import complete.&#39;)</p>
+	continue
+	
+print(&#39;Data source import complete.&#39;)
 </code></pre>						
 							<p><h2>4. Loading the Dataset</h2>
 							To begin analyzing our dataset, we need to load the images and their corresponding labels into Python. We can achieve this using libraries like Pandas for handling the labels and PIL (Python Imaging Library) for loading the images.</p>
-							<p><strong>4.1. Loading the Labels</strong>
+							<p><strong>4.1. Loading the Labels.</strong>
 								First, we’ll load the labels from a CSV file and apply necessary corrections.</p>
-<pre><code>
-# Load the labels
+<pre><code># Load the labels
 labels = pd.read_csv('/kaggle/input/head-ct-hemorrhage/labels.csv')
 
 # Rename column if necessary (remove extra spaces)
@@ -194,10 +191,9 @@ print("Classes:", classes)
 							<p>This DataFrame has two columns:
 								id: A unique identifier for each image.
 								hemorrhage: The label indicating whether the image shows a hemorrhage (1) or is normal (0).</p>
-							<p><strong>4.2 Loading and Displaying Sample Images</strong>
+							<p><strong>4.2 Loading and Displaying Sample Images.</strong>
 								Next, we'll load some sample images using PIL and display them along with their labels.</p>
-<pre><code>
-from PIL import Image
+<pre><code>from PIL import Image
 import matplotlib.pyplot as plt
 
 # Function to display images in a grid
@@ -231,10 +227,66 @@ image_labels = selected_images['hemorrhage'].tolist()
 # Display the images side by side
 display_images_grid(image_paths, image_labels)
 </code></pre>
-							<img src="images/cy_python_1.png" alt="images output" style="width: 25%;"> 
+							<img src="images/ct_python_1.png" alt="images output" style="width: 25%;"> 
 							<p>Did you notice that images dont have the same size? We will get into that shortly.</p>
-							
-							
+							<h2>5. Exploratory Data Analysis (EDA)</h2>
+							<p>Before performing any kind of experimentation or analysis, it's crucial to understand the dataset. Exploratory Data Analysis (EDA) helps us get insights into the data, detect any anomalies, and understand its structure. In this step, we'll perform basic statistics, visualize the distribution of labels, and display some sample images to gain a better understanding of our dataset.</p>
+							<p><strong>Basic Statistics:</strong> Let's start by examining some basic statistics of our dataset, such as the number of samples and the distribution of labels.</p>
+<pre><code>
+# Basic statistics
+num_samples = len(labels)
+label_distribution = labels['hemorrhage'].value_counts()
+
+print(f'Total number of samples: {num_samples}')
+print('Distribution of labels:')
+print(label_distribution)
+</code></pre>
+							<p>Here we observe that our dataset is perfectly balanced, with an equal number of images for both classes: hemorrhage and normal. This balance is important for training our neural network, as it ensures that the model has an equal opportunity to learn from both types of images, which can help improve its performance and reduce bias.</p>
+							<p><strong>Checking Image Size:</strong>Since we will be dealing with image data, It's important to verify that all images in our dataset have the same dimensions. Inconsistent image sizes can cause issues when training a model. Let's check the sizes of all images.
+								The code below checks the width and height of each image and gives us a summary of these sizes. If the images vary too much, we may need to resize them to ensure consistency before training our model.</p>
+<pre><code>
+# Function to get image sizes
+def get_image_sizes(image_folder):
+    sizes = []
+    for filename in os.listdir(image_folder):
+        if filename.endswith(".png"):
+            with Image.open(os.path.join(image_folder, filename)) as img:
+                sizes.append(img.size)
+    return sizes
+
+# Get image sizes
+image_folder = '/kaggle/input/head-ct-hemorrhage/head_ct/head_ct/'
+sizes = get_image_sizes(image_folder)
+size_df = pd.DataFrame(sizes, columns=['Width', 'Height'])
+print(size_df.describe())
+</code></pre>
+							<p>From the table, we observe the following about our image dimensions:</p>
+							<ul>
+							<li><strong>Width:</strong> The width of the images ranges from 134 pixels to 821 pixels, with an average width of approximately 355 pixels.</li>
+							<li><strong>Height:</strong> The height of the images ranges from 135 pixels to 957 pixels, with an average height of about 434 pixels.</li>
+							</ul>
+							<p>This indicates that our images vary significantly in size. Most images are around 345x435 pixels, but there is a wide range in dimensions. To ensure consistency and avoid problems during model training, we should resize all images to a standard size. This will help the neural network process the images more effectively and uniformly.</p>
+							<p>Before we move forward with resizing, let’s perform one last check to see if there are any corrupt images in our dataset.</p>
+							<p><strong>Checking for Corrupt or Empty Images:</strong></p>
+<pre><code>
+def check_image_integrity(image_folder):
+    corrupt_images = []
+    for filename in os.listdir(image_folder):
+        if filename.endswith(".png"):
+            try:
+                with Image.open(os.path.join(image_folder, filename)) as img:
+                    img.verify()  # Verify image integrity
+            except (IOError, SyntaxError) as e:
+                corrupt_images.append(filename)
+    return corrupt_images
+
+# Check for corrupt images
+corrupt_images = check_image_integrity(image_folder)
+print(f'Number of corrupt images: {len(corrupt_images)}')
+if corrupt_images:
+    print('Corrupt images found:', corrupt_images)
+</code></pre>
+							<p>Fantastic! We have no corrupt images, let now proceed forward with resizing and other preprocessing steps</p>
 						</div>
 					</div>
 
