@@ -55,10 +55,9 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-						<h1 id="matlab-resource-draft">MATLAB Resource Draft</h1>
-<h2 id="1-what-is-matlab-">1. What is MATLAB?</h2>
-<p>MATLAB is both a programming language and an interactive environment well utilized by researchers for versatile reasons like running programs and analyzing data. While MATLAB has a graphical interface with point and click on icons to run commands (&quot;MATLAB Desktop&quot;), MATLAB primarily operates through a command line interface. </p>
-<h3 id="applications-in-research-">Applications in Research:</h3>
+<h1 id="1-what-is-matlab-">1. What is MATLAB?</h1>
+<p>MATLAB is a programming language and an interactive environment utilized by researchers for versatile reasons. While MATLAB has a graphical interface with point and click on icons to run commands (&quot;MATLAB Desktop&quot;), MATLAB primarily operates through a command line interface. </p>
+<h3 id="1a-applications-in-research-">1a. Applications in Research:</h3>
 <ul>
 <li>Advanced statistical testing and data fitting</li>
 <li>Automate routine data processing tasks</li>
@@ -67,8 +66,13 @@
 <li>Processing and analyzing neuroimaging data</li>
 </ul>
 <p>This resource will focus on the basics of MATLAB to develop the skills necessary for using MATLAB in neuroimaging data analysis. </p>
-<h2 id="2-workspace-basics">2. Workspace Basics</h2>
-<h3 id="matlab-desktop-interface-">MATLAB Desktop Interface:</h3>
+<h3 id="1b-supplemental-resources">1b. Supplemental Resources</h3>
+<p><a href="https://www.youtube.com/watch?v=0cft-tyRj4o">MATLAB in Neuroimaging Oveview</a></p>
+<h1 id="2-workspace-basics">2. Workspace Basics</h1>
+<p>You can access MATLAB directly from your local computer (suggested) or from a standard web browser with MATLAB Online. To access MATLAB you must have a MathWorks Account and a MATLAB license (usually obtained through your university).</p>
+<p><a href="https://www.mathworks.com/help/install/ug/install-products-with-internet-connection.html">Instructions on installing MATLAB:</a></p>
+<p><a href="https://www.mathworks.com/help/matlab-online-server/ug/matlab-online.html">Instructions on accessing MATLAB Online:</a></p>
+<h3 id="2a-matlab-interface-">2a. MATLAB Interface:</h3>
 <p>When you first open MATLAB, you will notice that it has several windows and a ribbon of buttons at the top. The window on the left is the <strong>Current Folder</strong>, the central window is the <strong>Command Window</strong>, and the upper-right window is the <strong>Workspace</strong>.</p>
 <ul>
 <li><p><strong>Current Folder:</strong> Shows a list of all the folders located within the folder you are currently in. (This is essentially your window.)</p>
@@ -81,7 +85,7 @@
 </li>
 </ul>
 <p><img src="https://github.com/user-attachments/assets/27b88c90-33be-4848-a7ee-04495f7446e0" alt="image"></p>
-<h3 id="custimization-and-setting-preferences">Custimization and Setting Preferences</h3>
+<h3 id="2b-customization-and-setting-preferences">2b. Customization and Setting Preferences</h3>
 <p>MATLAB offers flexible customization options to optimize your workflow. Some ways to tailor the interface include...</p>
 <ul>
 <li><strong>Resize and Reposition Windows:</strong> Adjust the size and position of MATLAB windows by clicking and dragging the window dividers or title bars to suit your preferences.</li>
@@ -90,23 +94,27 @@
 </ul>
 <p>For more advanced customizations, navigate to <strong>Preferences</strong> under the Home tab.
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/cdc7c230-c22d-41e6-917a-ec8468bc5eeb"></p>
-<h3 id="directories-">Directories:</h3>
-<p>MATLAB organizes folders and files using a directory tree, starting with the root directory (/). </p>
+<h3 id="2c-search-path-and-directories-">2c. Search Path and Directories:</h3>
+<p>A <strong>directory</strong> is a location in the file system that can contain files and other directories (subdirectories). It&#39;s essentially a folder where files and other folders are organized.</p>
+<p>MATLAB organizes folders and files using a directory tree, starting with the root directory (<code>/</code>).</p>
+<p>A <strong>path</strong> is a string that specifies the location of a file or directory in the file system. It can be an absolute path (starting from the root of the file system) or a relative path (relative to the current directory)</p>
 <ul>
-<li><p><strong>Absolute Path:</strong> Specifies the entire path from the root directory. E.g., <code>ls /Users/your-username</code></p>
-</li>
-<li><p><strong>Relative Path:</strong> Specifies the path relative to the current directory. E.g., <code>cd Desktop</code></p>
-</li>
+<li><strong>Absolute Path:</strong> Specifies the entire path from the root directory. E.g., <code>/home/user/Documents/file.txt</code></li>
+<li><strong>Relative Path:</strong> Specifies the path relative to the current directory. E.g., <code>Documents/file.txt</code> if the current directory is /home/user.</li>
 </ul>
-<h3 id="commands-for-navigating-workspace">Commands for Navigating Workspace</h3>
+<p>The <strong>search path</strong> is a subset of all the folders in the file system that MATLAB uses to locate files efficiently. The order of folders on the search path is significant: MATLAB uses the file in the folder nearest to the top when multiple files with the same name exist. For more information, see <a href="https://www.mathworks.com/help/matlab/matlab_env/what-is-the-matlab-search-path.html">What Is the MATLAB Search Path?</a>.</p>
+<h3 id="2d-command-cheat-sheet">2d. Command Cheat Sheet</h3>
 <table>
 <thead>
 <tr>
-<th>Command</th>
+<th>Commands</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><strong>Directories and Paths</strong></td>
+</tr>
 <tr>
 <td><code>pwd</code></td>
 <td>Prints the current working directory path.</td>
@@ -136,8 +144,8 @@
 <td>Lists directory contents, similar to <code>ls</code>.</td>
 </tr>
 <tr>
-<td><code>exist &#39;name&#39;</code></td>
-<td>Checks if a variable, file, or folder &#39;name&#39; exists.</td>
+<td><code>what</code></td>
+<td>Lists all MATLAB specific files in the current directory.</td>
 </tr>
 <tr>
 <td><code>mkdir &#39;dirname&#39;</code></td>
@@ -148,12 +156,50 @@
 <td>Removes the directory named &#39;dirname&#39;, if it is empty.</td>
 </tr>
 <tr>
+<td><code>path</code></td>
+<td>Displays the current MATLAB search path.</td>
+</tr>
+<tr>
+<td><code>addpath &#39;folder&#39;</code></td>
+<td>Adds the specified folder to the MATLAB search path.</td>
+</tr>
+<tr>
+<td><code>rmpath &#39;folder&#39;</code></td>
+<td>Removes the specified folder from the MATLAB search path.</td>
+</tr>
+<tr>
+<td><code>savepath</code></td>
+<td>Saves the current MATLAB search path for future sessions.</td>
+</tr>
+<tr>
+<td><strong>Files</strong></td>
+</tr>
+<tr>
+<td><code>exist &#39;name&#39;</code></td>
+<td>Checks if a variable, file, or folder &#39;name&#39; exists.</td>
+</tr>
+<tr>
+<td><code>load &#39;filename&#39;</code></td>
+<td>Loads variables from a file into the workspace.</td>
+</tr>
+<tr>
+<td><code>save &#39;filename&#39;</code></td>
+<td>Saves workspace variables to a file.</td>
+</tr>
+<tr>
+<td><code>type &#39;filename&#39;</code></td>
+<td>Displays the contents of the specified file.</td>
+</tr>
+<tr>
+<td><code>which &#39;filename&#39;</code></td>
+<td>Returns the full path if the file is on the search path.</td>
+</tr>
+<tr>
 <td><code>edit &#39;filename&#39;</code></td>
 <td>Opens the specified file in MATLAB&#39;s editor.</td>
 </tr>
 <tr>
-<td><code>edit functionName</code></td>
-<td>Opens the function in MATLAB&#39;s editor</td>
+<td><strong>Command Help</strong></td>
 </tr>
 <tr>
 <td><code>doc command</code></td>
@@ -171,10 +217,26 @@
 <td><code>quit</code> or  <code>exit</code></td>
 <td>Closes MATLAB.</td>
 </tr>
+<tr>
+<td><strong>Managing Workspace</strong></td>
+</tr>
+<tr>
+<td><code>clc</code></td>
+<td>Clears all input and output from the Command Window, keeping history.</td>
+</tr>
+<tr>
+<td><code>clear</code></td>
+<td>Clears all input and output from the Command Window, keeping history.</td>
+</tr>
+<tr>
+<td><code>quit</code> or  <code>exit</code></td>
+<td>Closes MATLAB.</td>
+</tr>
 </tbody>
 </table>
-<h3 id="keyboard-shortcuts-for-matlab-command-window">Keyboard Shortcuts for MATLAB Command Window</h3>
-<p>This cheat sheet includes common keyboard shortcuts that are handy when coding in MATLAB&#39;s Command Window, mirroring the functionality often used in terminal environments.</p>
+<h3 id="2e-keyboard-shortcuts-for-matlab-command-window">2e. Keyboard Shortcuts for MATLAB Command Window</h3>
+<p>Keyboard shortcuts in MATLAB&#39;s Command Window mirror the functionality often used in terminal environments. </p>
+<p>Note - These shortcuts will only work if you have MATLAB installed in your system. MATLAB Online provides access to MATLAB from a standard web browser. Because MATLAB Online runs in a browser, navigation using the keyboard is slightly different.</p>
 <h4 id="for-windows-users">For Windows Users</h4>
 <table>
 <thead>
@@ -185,14 +247,6 @@
 </thead>
 <tbody>
 <tr>
-<td><code>Tab</code></td>
-<td>Auto-completes commands and variable names based on partially typed text.</td>
-</tr>
-<tr>
-<td><code>Esc</code></td>
-<td>Cancels the current command line input without executing it.</td>
-</tr>
-<tr>
 <td><code>Up Arrow</code></td>
 <td>Scrolls through the history to recall previous commands, useful for repetition or modification.</td>
 </tr>
@@ -201,36 +255,16 @@
 <td>Scrolls forward in the command history after using the Up Arrow.</td>
 </tr>
 <tr>
-<td><code>Ctrl + C</code></td>
-<td>Interrupts the execution of the current command or script.</td>
-</tr>
-<tr>
-<td><code>Ctrl + A</code></td>
-<td>Moves the cursor to the beginning of the line.</td>
-</tr>
-<tr>
-<td><code>Ctrl + E</code></td>
-<td>Moves the cursor to the end of the line.</td>
-</tr>
-<tr>
-<td><code>Ctrl + L</code></td>
-<td>Clears the screen, keeping the history intact.</td>
-</tr>
-<tr>
-<td><code>Ctrl + Up Arrow</code></td>
-<td>Scrolls up through the output to view earlier outputs and messages.</td>
-</tr>
-<tr>
-<td><code>Ctrl + Down Arrow</code></td>
-<td>Scrolls down through the output to return to more recent outputs.</td>
-</tr>
-<tr>
-<td><code>Home</code></td>
+<td><code>Home</code> or <code>Ctrl + A</code></td>
 <td>Jumps to the beginning of the current line.</td>
 </tr>
 <tr>
-<td><code>End</code></td>
+<td><code>End</code> or <code>Ctrl + E</code></td>
 <td>Jumps to the end of the current line.</td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td>Auto-completes commands and variable names based on partially typed text.</td>
 </tr>
 <tr>
 <td><code>Backspace</code></td>
@@ -248,6 +282,18 @@
 <td><code>Shift + Enter</code></td>
 <td>Continues command entry onto the next line for multi-line commands.</td>
 </tr>
+<tr>
+<td><code>Ctrl + L</code></td>
+<td>Clears the screen, keeping the history intact.</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Cancels the current command line input without executing it.</td>
+</tr>
+<tr>
+<td><code>Ctrl + C</code></td>
+<td>Interrupts the execution of the current command or script.</td>
+</tr>
 </tbody>
 </table>
 <h4 id="for-mac-users">For Mac Users</h4>
@@ -260,14 +306,6 @@
 </thead>
 <tbody>
 <tr>
-<td><code>Tab</code></td>
-<td>Auto-completes commands and variable names based on partially typed text.</td>
-</tr>
-<tr>
-<td><code>Esc</code></td>
-<td>Cancels the current command line input without executing it.</td>
-</tr>
-<tr>
 <td><code>Up Arrow</code></td>
 <td>Scrolls through the history to recall previous commands.</td>
 </tr>
@@ -276,36 +314,16 @@
 <td>Scrolls forward in the command history after using the Up Arrow.</td>
 </tr>
 <tr>
-<td><code>Cmd + C</code></td>
-<td>Interrupts the execution of the current command or script.</td>
-</tr>
-<tr>
-<td><code>Cmd + A</code></td>
-<td>Moves the cursor to the beginning of the line.</td>
-</tr>
-<tr>
-<td><code>Cmd + E</code></td>
-<td>Moves the cursor to the end of the line.</td>
-</tr>
-<tr>
-<td><code>Cmd + L</code></td>
-<td>Clears the screen, keeping the history intact.</td>
-</tr>
-<tr>
-<td><code>Cmd + Up Arrow</code></td>
-<td>Scrolls up through the output to view earlier outputs and messages.</td>
-</tr>
-<tr>
-<td><code>Cmd + Down Arrow</code></td>
-<td>Scrolls down through the output to return to more recent outputs.</td>
-</tr>
-<tr>
-<td><code>Fn + Left Arrow</code></td>
+<td><code>Cmd + Left Arrow</code> or <code>Ctrl + A</code></td>
 <td>Mimics the Home key, jumping to the beginning of the line.</td>
 </tr>
 <tr>
-<td><code>Fn + Right Arrow</code></td>
+<td><code>Cmd + Right Arrow</code> or <code>Ctrl + E</code></td>
 <td>Mimics the End key, jumping to the end of the line.</td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td>Auto-completes commands and variable names based on partially typed text.</td>
 </tr>
 <tr>
 <td><code>Delete</code></td>
@@ -323,15 +341,541 @@
 <td><code>Shift + Return</code></td>
 <td>Continues command entry onto the next line for multi-line commands.</td>
 </tr>
+<tr>
+<td><code>Cmd + K</code></td>
+<td>Clears the screen, keeping the history intact.</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Cancels the current command line input without executing it.</td>
+</tr>
+<tr>
+<td><code>Ctrl + C</code></td>
+<td>Interrupts the execution of the current command or script.</td>
+</tr>
 </tbody>
 </table>
-<h3 id="matlab-file-types-">MATLAB File Types:</h3>
+<h3 id="2f-suggested-tutorials">2f. Suggested Tutorials</h3>
+<p><strong>[15 MIN] &quot;The MATLAB Desktop&quot; Module from MATLAB Desktop Tools and Troubleshooting Scripts Course (MathWorks Self-Paced Online Courses)</strong>
+This tutorial briefly reviews how to import data, customize your workspace, and set preferences.</p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-desktop-tools-and-troubleshooting-scripts/otmldts#module=2">Tutorial Link</a></p>
+<h3 id="2g-supplemental-resources">2g. Supplemental Resources</h3>
+<p><a href="https://www.mathworks.com/help/matlab/matlab_env/command-window-preferences.html">Documentation: Set Command Window Preferences</a></p>
+<p><a href="https://www.youtube.com/watch?v=LEaT9Jp7MdQ&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=3">Video: Using and Customizing the MATLAB Environment</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/search-path.html?s_tid=CRUX_lftnav">Documentation: Search Path</a></p>
+<h1 id="3-matlab-elements-and-syntax">3. MATLAB Elements and Syntax</h1>
+<h3 id="3a-basic-elements">3a. Basic Elements</h3>
+<p><strong>Comment:</strong> A comment in MATLAB is a piece of text in a script or function that is not executed. Comments are used to explain code and are created using the percent sign. For example, <code>x = 10 % This is a comment</code> assigns 10 to x and includes a comment. You can also write a block of comments using the block comment operators % { and % }.</p>
+<p><strong>Variable:</strong> A variable in MATLAB is a storage location identified by a name that can hold different types of data such as numbers, arrays, or strings. Variables are created by assignment statements, for example, <code>x = 5</code> creates a variable x with a value of 5. </p>
+<p><strong>String:</strong> A string is a series of characters, sometimes called a character vector or character array. Strings are created using single quotes, e.g., <code>str = &#39;hello&#39;</code> creates a string variable <code>str</code> with the text <code>hello</code>.</p>
+<p><strong>Array:</strong> An array is a data structure in that can store values of the same type. Arrays are created using square brackets and can be one-dimensional (e.g., vectors) or multi-dimensional (e.g., matrices). </p>
 <ul>
-<li><p><strong>.m files</strong>: MATLAB script and function files, each serving different purposes:</p>
-<ul>
-<li><strong>Script Files</strong>: Scripts are collections of MATLAB commands executed exactly as if they were typed into the Command Window. They operate within the current workspace, which means they can modify any existing variables or create new ones. Scripts do not accept inputs directly (though they can work with data already in the workspace) and do not return outputs. They are useful for straightforward tasks like data manipulation and plotting when you do not need to isolate code.</li>
-<li><strong>Function Files</strong>: Functions, on the other hand, are more versatile and encapsulate their code within a separate workspace. They can accept inputs and return outputs, making them essential for modular programming. Functions prevent potential conflicts with the main workspace by keeping variables local, except those explicitly returned. They are ideal for reusing code, enhancing code readability, and managing larger projects where data encapsulation is necessary.</li>
+<li><strong>Vector:</strong> A vector is a one-dimensional array that can hold a sequence of variables Vectors can be either row vectors or column vectors.<ul>
+<li>A row vector is created by enclosing the elements in square brackets, separated by spaces or commas, e.g., &#39;rowVec = [1, 2, 3]&#39; creates a 1x3 row vector.</li>
+<li>A column vector is created by enclosing the elements in square brackets, separated by semicolons, e.g., &#39;colVec = [1; 2; 3]&#39; creates a 3x1 column vector.</li>
 </ul>
+</li>
+<li><strong>Matrix:</strong> A matrix is a two-dimensional array of numbers arranged in rows and columns. Matrices are created using square brackets with rows separated by semicolons, e.g., <code>A = [1, 2, 3; 4, 5, 6]</code> creates a 2x3 matrix. </li>
+<li><strong>String Array:</strong>: A string array is a one-dimensional or multidimensional array that holds strings. For example, <code>strArray = [&quot;Hello&quot;, &quot;World&quot;]</code> creates a 1x2 string array.</li>
+</ul>
+<p><strong>Cell:</strong> A cell (sometimes referred to as cell array) is a data structure in MATLAB that can hold different types of data in an array format. Each element of a cell array is called a cell, and can contain different types or sizes of data. Cell arrays are created using curly braces, e.g., <code>C = {1, &#39;text&#39;, [1, 2, 3]}</code> creates a </p>
+<p><strong>Structures:</strong>
+<strong>Function:</strong></p>
+<p><strong>Tables:</strong></p>
+<p>To help you identify elements, some entries appear in different colors in the Command Window and Editor. By default:</p>
+<ul>
+<li>Keywords are blue.</li>
+<li>Character vectors and strings are purple.</li>
+<li>Unterminated character vectors are maroon.</li>
+<li>Comments are green.</li>
+</ul>
+<p><img width="295" alt="image" src="https://github.com/user-attachments/assets/be066590-ca88-4ac0-8d40-7ee8c90022ee"></p>
+<h3 id="3b-special-characters">3b. Special Characters</h3>
+<p>Below are some of the key special characters you should be familiar with, including delimiters which are what the lists of variables are enclosed by when creating arrays and cells. For detailed information about other special characters, see <a href="https://www.mathworks.com/help/matlab/matlab_prog/matlab-operators-and-special-characters.html">MATLAB Operators and Special Characters</a>. </p>
+<p><strong>Square Brackets <code>[]</code>:</strong> </p>
+<ul>
+<li>A delimiter used to create arrays and matrices<ul>
+<li>Example: <code>A = [1, 2, 3])</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Curly Braces <code>{}</code>:</strong></p>
+<ul>
+<li>A delimiter used to create cells<ul>
+<li>Example: <code>C = {1, &#39;text&#39;, [1, 2, 3]})</code>.</li>
+</ul>
+</li>
+<li>Indexing cells<ul>
+<li>Example: <code>cellArray{index} = newValue</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Parentheses <code>()</code>:</strong></p>
+<ul>
+<li>Group expressions<ul>
+<li>Examples: <code>a = (b + c) * d)</code>.</li>
+</ul>
+</li>
+<li>Function arguments<ul>
+<li>Example: <code>result = myFunction(arg1, arg2)</code>.</li>
+</ul>
+</li>
+<li>Indexing arrays<ul>
+<li>Example: <code>element = A(row, column)</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Comma <code>,</code></strong></p>
+<ul>
+<li>Separates elements in arrays and function arguments.<ul>
+<li>Example: <code>[1, 2, 3]</code> or <code>plot(x, y)</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Colon <code>:</code></strong></p>
+<ul>
+<li>Creates vectors and specify ranges, and index arrays.<ul>
+<li>Example: <code>1:5</code> generates a vector <code>[1, 2, 3, 4, 5]</code>.</li>
+</ul>
+</li>
+<li>The colon alone, without start or end values, specifies all of the elements in that dimension. <ul>
+<li>Example: <code>A(:, 2)</code> selects all rows from the second column of matrix <code>A</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Semicolon <code>;</code></strong></p>
+<ul>
+<li>Suppresses the output of a command.<ul>
+<li>Example: <code>a = 5;</code> assigns 5 to <code>a</code> without displaying the output.</li>
+</ul>
+</li>
+<li>Separates rows in matrix definitions.<ul>
+<li>Example: <code>A = [1, 2; 3, 4]</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Ellipsis <code>...</code></strong></p>
+<ul>
+<li>Indicates that a statement continues on the next line.<ul>
+<li>Example:<pre><code class="lang-matlab">a = <span class="hljs-number">1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">3</span> + ...
+    <span class="hljs-number">4</span> + <span class="hljs-number">5</span> + <span class="hljs-number">6</span>;
+</code></pre>
+<strong>Double Percent Signs <code>%%</code></strong></li>
+</ul>
+</li>
+<li>Starts a code section and is typically followed by the section title<ul>
+<li>Example: <code>%% first code section</code> starts a section titled <code>first code section</code> without displaying the output.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3c-accessing-and-manipulating-elements">3c. Accessing and Manipulating Elements</h3>
+<p><strong>Indicies</strong>: Indices are used to specify the position of the element(s) so that you can retrieve them without processing the entire dataset. This capability enables you to easily update or modify specific elements within data structures or extract relevant portions of data for analysis or visualization.</p>
+<p>For one-dimensional arrays or cells, you specify the element&#39;s position using a single index, which corresponds to the element&#39;s position in that dimension. For example:</p>
+<pre><code class="lang-matlab">rowVector = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>];
+thirdElement = rowVector(<span class="hljs-number">3</span>);  % The <span class="hljs-number">3</span> is an index for third element in the row, which is <span class="hljs-number">30</span>
+
+colVector = [<span class="hljs-number">10</span>; <span class="hljs-number">20</span>; <span class="hljs-number">30</span>; <span class="hljs-number">40</span>; <span class="hljs-number">50</span>];
+fourthElement =colVector(<span class="hljs-number">4</span>);  %  The <span class="hljs-number">4</span> is an index for fourth element in the column, which is <span class="hljs-number">40</span>
+</code></pre>
+<p>For multi-dimensional arrays or cells, you specify the element&#39;s position using a pair of indices (or more for higher dimensions), which correspond to the element&#39;s row and column positions. For example:</p>
+<pre><code class="lang-matlab">matrix = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>; <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>; <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>];
+element = matrix(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>);  % These indicies are specifying the element in the second row and third column, which is <span class="hljs-number">6</span>
+</code></pre>
+<p><strong>Accessing Elements</strong>: Access element(s) with the appropriate indicies and delimiter (e.g., parantheses or cell braces).To access a subset of elements, you must specify the range using the colon <code>:</code> operator. For example:</p>
+<pre><code class="lang-matlab">
+% Vectors
+v = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>];
+v(<span class="hljs-number">2</span>);          % Accesses <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> element, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> <span class="hljs-number">20</span>
+v(<span class="hljs-number">2</span>:<span class="hljs-number">4</span>);               % Accesses elements <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">fourth</span>, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>]
+
+% Matrices
+A = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>; <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>; <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>];
+A(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);              % Accesses <span class="hljs-keyword">the</span> element <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> row, <span class="hljs-keyword">first</span> column, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> <span class="hljs-number">4</span>
+A(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, <span class="hljs-number">2</span>:<span class="hljs-number">3</span>);          % Accesses a submatrix <span class="hljs-keyword">from</span> rows <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> columns <span class="hljs-number">2</span> <span class="hljs-keyword">to</span> <span class="hljs-number">3</span>, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>; <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+
+% One-dimensional String Arrays
+strArray = [<span class="hljs-string">"Hello"</span>, <span class="hljs-string">"World"</span>, <span class="hljs-string">"MATLAB"</span>];
+strArray(<span class="hljs-number">1</span>);    % Accesses <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> element, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> <span class="hljs-string">"Hello"</span>
+strArray(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>);        % Accesses <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> two elements, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-string">"Hello"</span>, <span class="hljs-string">"World"</span>]
+
+% Multi-dimensional String Arrays
+multiStrArray = [<span class="hljs-string">"Hello"</span>, <span class="hljs-string">"World"</span>; <span class="hljs-string">"MATLAB"</span>, <span class="hljs-string">"Programming"</span>];
+multiStrArray(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>); % Accesses <span class="hljs-keyword">the</span> element <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> row, <span class="hljs-keyword">second</span> column, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> <span class="hljs-string">"World"</span>
+multiStrArray(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, <span class="hljs-number">1</span>); % Accesses <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> column, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-string">"Hello"</span>; <span class="hljs-string">"MATLAB"</span>]
+
+% One-dimensional Cell Arrays
+cellArray = {<span class="hljs-number">1</span>, 'MATLAB', [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]};
+cellArray{<span class="hljs-number">1</span>};   % Accesses <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> element, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+cellArray{<span class="hljs-number">2</span>:<span class="hljs-number">3</span>};       % Accesses elements <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">third</span>, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> {'MATLAB', [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]}
+
+% Multi-dimensional Cell Arrays
+multiCellArray = {<span class="hljs-number">1</span>, '<span class="hljs-built_in">text</span>'; <span class="hljs-number">2</span>, 'more <span class="hljs-built_in">text</span>'; <span class="hljs-number">3</span>, 'even more <span class="hljs-built_in">text</span>'};
+cellArray{<span class="hljs-number">2</span>, <span class="hljs-number">1</span>};   % Accesses <span class="hljs-keyword">the</span> element <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> row, <span class="hljs-keyword">first</span> column, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> <span class="hljs-number">2</span>
+multiCellArray{<span class="hljs-number">2</span>:<span class="hljs-number">3</span>, <span class="hljs-number">2</span>}; % Accesses elements <span class="hljs-keyword">from</span> rows <span class="hljs-number">2</span> <span class="hljs-keyword">to</span> <span class="hljs-number">3</span> <span class="hljs-keyword">in</span> column <span class="hljs-number">2</span>, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> {'more <span class="hljs-built_in">text</span>', 'even more <span class="hljs-built_in">text</span>'}
+</code></pre>
+<p><strong>Modifying Elements</strong>: Change element(s) by using the <code>=</code> to assign a new value to the corresponding index. </p>
+<pre><code class="lang-matlab">% Vectors
+v = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>];
+v(<span class="hljs-number">2</span>) = <span class="hljs-number">25</span>;                % Modifies <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> element, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-number">10</span>, <span class="hljs-number">25</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>]
+v(<span class="hljs-number">2</span>:<span class="hljs-number">4</span>) = [<span class="hljs-number">21</span>, <span class="hljs-number">31</span>, <span class="hljs-number">41</span>];    % Modifies elements <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">fourth</span>, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-number">10</span>, <span class="hljs-number">21</span>, <span class="hljs-number">31</span>, <span class="hljs-number">41</span>, <span class="hljs-number">50</span>]
+
+% Matrices
+A = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>; <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>; <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>];
+A(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>) = <span class="hljs-number">40</span>;              % Modifies <span class="hljs-keyword">the</span> element <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> row, <span class="hljs-keyword">first</span> column, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>; <span class="hljs-number">40</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>; <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>]
+A(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, <span class="hljs-number">2</span>:<span class="hljs-number">3</span>) = [<span class="hljs-number">20</span>, <span class="hljs-number">30</span>; <span class="hljs-number">50</span>, <span class="hljs-number">60</span>];  % Modifies a submatrix <span class="hljs-keyword">from</span> rows <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">2</span> <span class="hljs-keyword">and</span> columns <span class="hljs-number">2</span> <span class="hljs-keyword">to</span> <span class="hljs-number">3</span>, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>; <span class="hljs-number">40</span>, <span class="hljs-number">50</span>, <span class="hljs-number">60</span>; <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>]
+
+% One-dimensional String Arrays
+strArray = [<span class="hljs-string">"Hello"</span>, <span class="hljs-string">"World"</span>, <span class="hljs-string">"MATLAB"</span>];
+strArray(<span class="hljs-number">1</span>) = <span class="hljs-string">"Hi"</span>;       % Modifies <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> element, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-string">"Hi"</span>, <span class="hljs-string">"World"</span>, <span class="hljs-string">"MATLAB"</span>]
+strArray(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>) = [<span class="hljs-string">"Hey"</span>, <span class="hljs-string">"There"</span>];  % Modifies <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> two elements, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-string">"Hey"</span>, <span class="hljs-string">"There"</span>, <span class="hljs-string">"MATLAB"</span>]
+
+% Multi-dimensional String Arrays
+multiStrArray = [<span class="hljs-string">"Hello"</span>, <span class="hljs-string">"World"</span>; <span class="hljs-string">"MATLAB"</span>, <span class="hljs-string">"Programming"</span>];
+multiStrArray(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">"Everyone"</span>;  % Modifies <span class="hljs-keyword">the</span> element <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> row, <span class="hljs-keyword">second</span> column, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-string">"Hello"</span>, <span class="hljs-string">"Everyone"</span>; <span class="hljs-string">"MATLAB"</span>, <span class="hljs-string">"Programming"</span>]
+multiStrArray(<span class="hljs-number">1</span>:<span class="hljs-number">2</span>, <span class="hljs-number">1</span>) = [<span class="hljs-string">"Hi"</span>; <span class="hljs-string">"Hello"</span>];  % Modifies <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> column, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> [<span class="hljs-string">"Hi"</span>, <span class="hljs-string">"Everyone"</span>; <span class="hljs-string">"Hello"</span>, <span class="hljs-string">"Programming"</span>]
+
+% One-dimensional Cell Arrays
+cellArray = {<span class="hljs-number">1</span>, 'MATLAB', [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]};
+cellArray{<span class="hljs-number">1</span>} = <span class="hljs-number">10</span>;       % Modifies <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> element, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> {<span class="hljs-number">10</span>, 'MATLAB', [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]}
+cellArray{<span class="hljs-number">2</span>:<span class="hljs-number">3</span>} = {'Hi', [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>]}; % Modifies elements <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">third</span>, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> {<span class="hljs-number">10</span>, 'Hi', [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>]}
+
+% Multi-dimensional Cell Arrays
+multiCellArray = {<span class="hljs-number">1</span>, '<span class="hljs-built_in">text</span>'; <span class="hljs-number">2</span>, 'more <span class="hljs-built_in">text</span>'; <span class="hljs-number">3</span>, 'even more <span class="hljs-built_in">text</span>'};
+multiCellArray{<span class="hljs-number">2</span>, <span class="hljs-number">1</span>} = <span class="hljs-number">20</span>;   % Modifies <span class="hljs-keyword">the</span> element <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> row, <span class="hljs-keyword">first</span> column, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> {<span class="hljs-number">1</span>, '<span class="hljs-built_in">text</span>'; <span class="hljs-number">20</span>, 'more <span class="hljs-built_in">text</span>'; <span class="hljs-number">3</span>, 'even more <span class="hljs-built_in">text</span>'}
+multiCellArray{<span class="hljs-number">2</span>:<span class="hljs-number">3</span>, <span class="hljs-number">2</span>} = {'new <span class="hljs-built_in">text</span>', 'latest <span class="hljs-built_in">text</span>'}; % Modifies elements <span class="hljs-keyword">from</span> rows <span class="hljs-number">2</span> <span class="hljs-keyword">to</span> <span class="hljs-number">3</span> <span class="hljs-keyword">in</span> column <span class="hljs-number">2</span>, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> {<span class="hljs-number">1</span>, '<span class="hljs-built_in">text</span>'; <span class="hljs-number">20</span>, 'new <span class="hljs-built_in">text</span>'; <span class="hljs-number">3</span>, 'latest <span class="hljs-built_in">text</span>'}
+</code></pre>
+<h3 id="3d-case-and-space-sensitivity">3d. Case and Space Sensitivity</h3>
+<p>MATLAB is <strong>case-sensitive</strong>, meaning that variable and function names like <code>VariableName</code> and <code>variablename</code> are considered different.</p>
+<p>Additionally, MATLAB is <em>somewhat</em> <strong>space-sensitive</strong>, meaning spaces around operators, assignments, and in-function calls are mostly optional and do not affect code execution. While spaces are generally not significant in MATLAB syntax, improper placement can sometimes cause errors or affect readability. For Example:</p>
+<pre><code class="lang-matlab">     % These are all equivalent
+     y = sin(x)<span class="hljs-comment">;</span>
+     y=sin(x)<span class="hljs-comment">;</span>
+     y = sin( x )<span class="hljs-comment">;</span>
+
+     % <span class="hljs-keyword">Both </span>create the same vector    
+     A = [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>]<span class="hljs-comment">;</span>
+     A = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<span class="hljs-comment">;</span>
+
+
+     % These are also equivalent
+     result = max( a, <span class="hljs-keyword">b </span>)<span class="hljs-comment">;</span>
+     result=max(a,<span class="hljs-keyword">b);
+</span>
+
+     % Each would work with <span class="hljs-keyword">or </span>without spaces    
+     a=<span class="hljs-number">1</span><span class="hljs-comment">; % No spaces</span>
+     <span class="hljs-keyword">b </span>= <span class="hljs-number">2</span><span class="hljs-comment">; % With spaces</span>
+     c = <span class="hljs-number">3</span> + <span class="hljs-number">4</span><span class="hljs-comment">; % With spaces around the operator</span>
+     d=<span class="hljs-number">3</span>+<span class="hljs-number">4</span><span class="hljs-comment">; % No spaces around the operator</span>
+</code></pre>
+<p>However, spaces within strings and in the definition of matrices and arrays must be used correctly. For example:</p>
+<pre><code class="lang-matlab">     str1 = 'Hello';
+     str2 = 'Hello ';
+     isEqual = strcmp(str1, str2); % This will be false because of the trailing space in str2
+
+
+     rowVec = [<span class="hljs-number">1</span> <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span> <span class="hljs-number">5</span>];  % MATLAB might not interpret this correctly due to mixed delimiters
+     rowVec = [<span class="hljs-number">1</span> <span class="hljs-number">2</span>   <span class="hljs-number">3</span>,<span class="hljs-number">4</span>, <span class="hljs-number">5</span>];  % Might still run but is hard to read and maintain
+
+     A = [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>];  % Consistent use of spaces
+     B = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];  % Consistent use of commas
+</code></pre>
+<p>For more information, see <a href="https://www.mathworks.com/help/matlab/matlab_prog/case-and-space-sensitivity.html">Case and Space Sensitivity</a></p>
+<p><strong>Code Style</strong>: </p>
+<p>Note that while MATLAB allows for flexible spacing, consistent use of spaces enhances code readability and maintainability. This is especially important in collaborative environments or when sharing code with others. </p>
+<p>Adopting a consistent coding style, including the use of spaces, helps in maintaining clean and understandable code. MATLAB&#39;s <a href="https://www.mathworks.com/help/matlab/matlab_prog/use-the-matlab-code-analyzer.html">code analyzer</a> provides guidelines and warnings to improve code quality, including spacing issues. </p>
+<h3 id="3e-code-suggestions-and-completions">3e. Code Suggestions and Completions</h3>
+<p>MATLAB offers real-time syntax checking and code suggestions. As you type in the Command Window or Editor, MATLAB will suggest function names, variable names, and other elements. MATLAB also indicates matched and mismatched delimiters (e.g., parentheses and brackets) and paired language keywords (e.g., for, if, while, else, and end statements). For more information, see <a href="https://www.mathworks.com/help/matlab/matlab_env/check-syntax-as-you-type.html">Check Syntax as You Type</a>.</p>
+<h3 id="3f-scripts-vs-functions">3f. Scripts vs Functions</h3>
+<p><strong>Scripts</strong>: Scripts are collections of MATLAB commands executed exactly as if they were typed into the Command Window. They operate within the current workspace, which means they can modify any existing variables or create new ones. Scripts do not accept inputs directly (though they can work with data already in the workspace) and do not return outputs. Scripts are useful for automating a series of MATLAB commands and for writing code that does not need to be modular or reusable, like data manipulation and plotting. </p>
+<p><strong>Functions</strong>: Functions, on the other hand, are more versatile and encapsulate their code within a separate workspace. They can accept inputs and return outputs, making them essential for modular programming. Functions prevent potential conflicts with the main workspace by keeping variables local, except those explicitly returned. They are ideal for reusing code, enhancing code readability, and managing larger projects where data encapsulation is necessary.</p>
+<h3 id="3g-command-cheat-sheet">3g. Command Cheat Sheet</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Viewing Elements</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>who</code></td>
+<td>Lists the names of all elements currently in the workspace. Does not display values.</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td><code>whos</code></td>
+<td>Lists all elements in the workspace along with detailed information about each variable, such as size, bytes, class (data type), and attributes. Does not display values.</td>
+</tr>
+<tr>
+<td><code>disp(element)</code></td>
+<td>Displays the value of the specified element.</td>
+</tr>
+<tr>
+<td><strong>Deleting Elements</strong></td>
+</tr>
+<tr>
+<td><code>clear element</code></td>
+<td>Deletes the specified element from the workspace.</td>
+</tr>
+<tr>
+<td><code>clear all</code></td>
+<td>Deletes all elements from the workspace.</td>
+</tr>
+<tr>
+<td><code>clearvars varName1 varName2</code></td>
+<td>Deletes specific element from the workspace.</td>
+</tr>
+<tr>
+<td><code>clearvars -except varName1 var2</code></td>
+<td>Deletes all elements from the workspace except the specified ones.</td>
+</tr>
+<tr>
+<td><strong>Inspecting Elements</strong></td>
+</tr>
+<tr>
+<td><code>size(element)</code></td>
+<td>Returns the dimensions of an array.</td>
+</tr>
+<tr>
+<td><code>length(element)</code></td>
+<td>Returns the length of the largest array dimension.</td>
+</tr>
+<tr>
+<td><code>class(element)</code></td>
+<td>Returns the class of the element.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3h-suggested-tutorials">3h. Suggested Tutorials</h3>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=3">Tutorial: Creating and Manipulating Arrays</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=4">Tutorial: Accessing Data in Arrays</a></p>
+<h3 id="supplemental-materials">Supplemental Materials</h3>
+<p><a href="https://learnxinyminutes.com/docs/matlab/">Cheat Sheet: Example of Code Syntax and Formatting</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_syntax.htm">Live Demo: Basic Syntax</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_variables.htm">Live Demo: Variables Overview</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_colon_notation.htm">Live Demo: Colon Notation</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_matrics.htm">Live Demo: Matrices</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_m_files.htm">Live Demo: Scripts</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/matrices-and-arrays.html?s_tid=CRUX_lftnav">Documentation: Matrices and Arrays</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/matlab_prog/create-and-run-sections.html">Documentation: Create and Run Sections in Code</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/matlab_prog/create-scripts.html">Documentation: Creating Scripts</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/scripts.html?s_tid=CRUX_lftnav">Documentation: Scripts</a></p>
+<p><a href="https://www.youtube.com/watch?v=sGb_xNsVELw&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=5">Video: Variables for Numbers, Indexing</a></p>
+<p><a href="https://andysbrainbook.readthedocs.io/en/latest/Matlab/Matlab_01_Navigation.html">Andy&#39;s Brain Book: Navigation and Matrices</a></p>
+<h1 id="4-data">4. Data</h1>
+<h3 id="4a-data-types">4a. Data Types</h3>
+<p>Data types (also referred to as classes) define the kind of data a variable can hold and the operations that can be performed on it. </p>
+<ul>
+<li><p><strong>Numeric Types</strong></p>
+<ul>
+<li><strong>double</strong>: This is the default numeric data type in MATLAB. Suitable for general-purpose numerical computations where precision and range are important.</li>
+<li><strong>Integer Types</strong>: Whole numbers only, which require less memory but have less precision and limitations on certain mathematical operations compared to double.</li>
+</ul>
+</li>
+<li><p><strong>Character and String Types</strong></p>
+<ul>
+<li><strong>char</strong>: Character arrays for storing text created using single quotes.</li>
+<li><strong>string</strong>: String arrays, which are more flexible than character arrays and can be created using double quotes.</li>
+</ul>
+</li>
+<li><p><strong>Logical Type</strong></p>
+<ul>
+<li><strong>logical</strong>: Represents true or false values.</li>
+</ul>
+</li>
+</ul>
+<h3 id="4b-sets-and-operators">4b. Sets and Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Arithmetic</strong></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>Addition</td>
+<td><code>a + b</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Subtraction</td>
+<td><code>a - b</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Matrix multiplication</td>
+<td><code>a * b</code></td>
+</tr>
+<tr>
+<td><code>.*</code></td>
+<td>Element-wise multiplication</td>
+<td><code>a .* b</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Matrix right division</td>
+<td><code>a / b</code></td>
+</tr>
+<tr>
+<td><code>./</code></td>
+<td>Element-wise right division</td>
+<td><code>a ./ b</code></td>
+</tr>
+<tr>
+<td><code>\</code></td>
+<td>Matrix left division</td>
+<td><code>a \ b</code></td>
+</tr>
+<tr>
+<td><code>.\</code></td>
+<td>Element-wise left division</td>
+<td><code>a .\ b</code></td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>Matrix power</td>
+<td><code>a ^ b</code></td>
+</tr>
+<tr>
+<td><code>.^</code></td>
+<td>Element-wise power</td>
+<td><code>a .^ b</code></td>
+</tr>
+<tr>
+<td><code>.&#39;</code></td>
+<td>Transpose</td>
+<td><code>a.&#39;</code></td>
+</tr>
+<tr>
+<td><strong>Relational</strong></td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td>Equal to</td>
+<td><code>a == b</code></td>
+</tr>
+<tr>
+<td><code>~=</code></td>
+<td>Not equal to</td>
+<td><code>a ~= b</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+<td><code>a &gt; b</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>a &lt; b</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater than or equal to</td>
+<td><code>a &gt;= b</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less than or equal to</td>
+<td><code>a &lt;= b</code></td>
+</tr>
+<tr>
+<td><strong>Logical</strong></td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>Logical AND</td>
+<td><code>a &amp; b</code></td>
+</tr>
+<tr>
+<td>`</td>
+<td>`</td>
+<td>Logical OR</td>
+<td>`a</td>
+<td>b`</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>Logical NOT</td>
+<td><code>~a</code></td>
+</tr>
+<tr>
+<td><code>xor</code></td>
+<td>Logical EXCLUSIVE OR</td>
+<td><code>xor(a, b)</code></td>
+</tr>
+<tr>
+<td><strong>Sets</strong></td>
+</tr>
+<tr>
+<td><code>union</code></td>
+<td>Union of two sets</td>
+<td><code>union(a, b)</code></td>
+</tr>
+<tr>
+<td><code>intersect</code></td>
+<td>Intersection of two sets</td>
+<td><code>intersect(a, b)</code></td>
+</tr>
+<tr>
+<td><code>setdiff</code></td>
+<td>Difference of two sets</td>
+<td><code>setdiff(a, b)</code></td>
+</tr>
+<tr>
+<td><code>setxor</code></td>
+<td>Symmetric difference of two sets</td>
+<td><code>setxor(a, b)</code></td>
+</tr>
+<tr>
+<td><code>ismember</code></td>
+<td>Determine if elements are members of a set</td>
+<td><code>ismember(a, b)</code></td>
+</tr>
+<tr>
+<td><code>unique</code></td>
+<td>Unique elements in an array</td>
+<td><code>unique(a)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="4c-suggested-tutorials">4c. Suggested Tutorials</h3>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=5">Tutorial: Mathematical and Statistical Operations with Arrays</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=7">Tutorial: Conditional Data Selection</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=9">Tutorial: Tables of Data</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=10">Tutorial: Organizing Tabular Data</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/a-tour-of-matlab-data-types/otmlmdt">Course: A tour of MATLAB Data Types</a> </p>
+<p><a href="https://matlabacademy.mathworks.com/details/calculations-with-vectors-and-matrices/otmlcvm">Course: Calculations with Vectors and Matrices</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/tables/otmltab">Course: Tables</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/find-and-extract-subsets-of-data/otmlesd">Course: Find and Extract Subsets of Data</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/clean-and-prepare-data-for-analysis/otmlpda">Course: Clean and Prepare Data for Analyses</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/calculations-on-grouped-data/otmlcgd">Course: Calculations on Grouped Data</a></p>
+<h3 id="4d-supplemental-materials">4d. Supplemental Materials</h3>
+<p><a href="https://www.mathworks.com/videos/introducing-matlab-fundamental-classes-data-types-101503.html">Video: Introducing MATLAB Fundamental Classes</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_data_types.htm">Live Demo: Data Types</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_numbers.htm">Live Demo: Numbers</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_strings.htm">Live Demo: Strings</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/matlab_prog/fundamental-matlab-classes.html">Documentation: Fundamental MATLAB Classes</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/data-types.html">Documentation: Data Types</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/operators-and-elementary-operations.html">Documentation: Operators and Elementary Operations</a></p>
+<p><a href="https://andysbrainbook.readthedocs.io/en/latest/Matlab/Matlab_02_VariablesStructures.html">Andy&#39;s Brain Book: Variables and Structures</a></p>
+<h1 id="5-handling-files">5. Handling Files</h1>
+<h3 id="5a-matlab-file-types-">5a. MATLAB File Types:</h3>
+<ul>
+<li><p><strong>.m files</strong>: MATLAB script and function files.</p>
 </li>
 <li><p><strong>.mlx files</strong>: MATLAB live script files that combine code execution with narrative, formatted text, equations, images, and hyperlinks in a single, interactive document. Ideal for instructional purposes, interactive applications, and sharing results.</p>
 </li>
@@ -340,9 +884,9 @@
 <li><p><strong>.fig files</strong>: Figure files that save MATLAB graphical outputs. They enable you to reopen and modify figures later, preserving the graphical data and properties exactly as saved.</p>
 </li>
 </ul>
-<h3 id="file-formats-for-import-and-export">File Formats for Import and Export</h3>
-<p>MATLAB supports importing various data formats such as TXT, CSV, XLS, XLSX, JPG, PNG, etc. You can find additional documentation including functions and examples <a href="https://www.mathworks.com/help/matlab/import_export/supported-file-formats-for-import-and-export.html">here</a>.</p>
-<h3 id="commands-for-file-handling">Commands for File Handling</h3>
+<h3 id="5b-importing-and-exporting-files">5b. Importing and Exporting Files</h3>
+<p>MATLAB supports importing and exporting various data formats such as TXT, CSV, XLS, XLSX, JPG, PNG, etc. You can find additional documentation including functions and examples <a href="https://www.mathworks.com/help/matlab/import_export/supported-file-formats-for-import-and-export.html">here</a>.</p>
+<h3 id="5c-commands-for-handling-files">5c. Commands for Handling Files</h3>
 <table>
 <thead>
 <tr>
@@ -401,349 +945,283 @@
 </tr>
 </tbody>
 </table>
-<h3 id="external-tutorial">External Tutorial</h3>
-<p>MATLAB Desktop – Importing Data, Customizing the MATLAB Desktop, and Setting Preferences from MathWorks Self-Paced Online Courses: MATLAB Desktop Tools and Troubleshooting Scripts Course</p>
-<p><a href="https://matlabacademy.mathworks.com/details/matlab-desktop-tools-and-troubleshooting-scripts/otmldts">Tutorial Link</a></p>
-<p><a href="https://matlabacademy.mathworks.com/artifacts/quick-reference.html?course=otmldts&amp;language=en&amp;release=R2024a">Quick Reference</a></p>
-<h2 id="basics-of-matlab-syntax">Basics of MATLAB Syntax</h2>
-<p>This section provides an overview of fundamental MATLAB syntax.</p>
-<ul>
-<li><p><strong>Colon <code>:</code></strong></p>
-<ul>
-<li>Used to create vectors, specify ranges, and index arrays.</li>
-<li>Example: <code>1:5</code> generates a vector <code>[1, 2, 3, 4, 5]</code>.</li>
-<li>Used in array slicing: <code>A(:, 2)</code> selects all rows from the second column of matrix <code>A</code>.</li>
-</ul>
+<h3 id="5d-suggested-tutorials">5d. Suggested Tutorials</h3>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=2">Lesson: Gettting Data Into MATLAB</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab_m_files/index.htm">Tutorial: M Files</a></p>
+<h3 id="5e-supplemental-materials">5e. Supplemental Materials</h3>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_data_import.htm">Live Demo: Data Import</a></p>
+<p>[Live Demo: Data Output] (<a href="https://www.tutorialspoint.com/matlab/matlab_data_import.htm">https://www.tutorialspoint.com/matlab/matlab_data_import.htm</a>)</p>
+<p><a href="https://tutorialspoint.com/matlab_m_files/matlab_m_files_quick_guide.htm">Quick Guide: M Files</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/import_export/supported-file-formats-for-import-and-export.html">Documentation: Supported File Formats</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/spreadsheets.html?">Documentation: Spreadsheets</a>s_tid=CRUX_lftnav</p>
+<p><a href="https://www.mathworks.com/help/matlab/data-import-and-export.html">Documentation: Data Import and Export</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/file-operations.html">Documentation: File Operations</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/cloud-file-storage.html">Documentation: Cloud File Storage</a></p>
+<h1 id="6-functions">6. Functions</h1>
+<h3 id="6a-structuring-code">6a. Structuring Code</h3>
+<p>Structuring your MATLAB code efficiently is crucial for readability, maintainability, and scalability. Here are some best practices:</p>
+<ol>
+<li><p><strong>Clear Organization</strong>: Break your code into sections using comments and the <code>%%</code> operator. This allows you to run sections independently in the MATLAB editor.</p>
 </li>
-<li><p><strong>Semicolon <code>;</code></strong></p>
-<ul>
-<li>Suppresses the output of a command.</li>
-<li>Example: <code>a = 5;</code> assigns 5 to <code>a</code> without displaying the output.</li>
-<li>Used to separate rows in matrix definitions: <code>A = [1, 2; 3, 4]</code>.</li>
-</ul>
+<li><p><strong>Modular Design</strong>: Write modular code by separating different functionalities into functions. This makes your code reusable and easier to debug.</p>
 </li>
-<li><p><strong>Percent <code>%</code></strong></p>
-<ul>
-<li>Used for comments. Everything after <code>%</code> on that line is ignored by MATLAB.</li>
-<li>Example: <code>x = 10; % This is a comment</code>.</li>
-</ul>
+<li><p><strong>Consistent Naming Conventions</strong>: Use meaningful and consistent naming conventions for variables, functions, and scripts. This improves code readability and helps others understand your code.</p>
 </li>
-<li><p><strong>Assignment Operator <code>=</code></strong></p>
-<ul>
-<li>Assigns a value to a variable.</li>
-<li>Example: <code>a = 5</code>.</li>
-</ul>
+<li><p><strong>Documentation</strong>: Comment your code generously. Explain the purpose of complex sections, and use comments to describe inputs, outputs, and important variables.</p>
 </li>
-<li><p><strong>Decimal Point <code>.</code></strong></p>
-<ul>
-<li>Indicates decimal numbers.</li>
-<li>Example: <code>3.14</code>.</li>
-</ul>
+<li><p><strong>Avoid Magic Numbers</strong>: Use named constants instead of hard-coding numbers in your code. This improves readability and makes your code easier to update.</p>
 </li>
-<li><p><strong>Comma <code>,</code></strong></p>
+</ol>
+<h3 id="6b-functions">6b. Functions</h3>
+<p>Functions allow you to encapsulate code into reusable blocks, improving code organization and reducing redundancy. In MATLAB, functions can be defined within a script or in a separate function file.</p>
 <ul>
-<li>Separates elements in arrays and function arguments.</li>
-<li>Example: <code>[1, 2, 3]</code> or <code>plot(x, y)</code>.</li>
+<li><strong>Defining a Function</strong>: A function starts with the <code>function</code> keyword, followed by the output variables, the function name, and the input variables. When defining functions at the within a script file, each function must be terminated with &#39;end&#39;. The use of &#39;end&#39; is optional if the function is the only function in that file.</li>
 </ul>
-</li>
-<li><p><strong>Parentheses <code>()</code></strong></p>
+<pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span></span> output = myFunction(input1, input2)
+    % <span class="hljs-function"><span class="hljs-keyword">Function</span></span> code goes here
+    output = input1 + input2;
+<span class="hljs-keyword">end</span>
+</code></pre>
 <ul>
-<li>Used for grouping expressions, function arguments, and array indexing.</li>
-<li>Example: <code>a = (b + c) * d</code> or <code>y = myFunction(x)</code>.</li>
+<li><strong>Calling a Function</strong>: You can call a function by using its name and passing the required arguments.</li>
 </ul>
-</li>
-<li><p><strong>Square Brackets <code>[]</code></strong></p>
+<pre><code class="lang-matlab"><span class="hljs-attribute">result</span> = myFunction(5, 3);
+</code></pre>
 <ul>
-<li>Used to create arrays and matrices.</li>
-<li>Example: <code>A = [1, 2, 3]</code> or <code>B = [1, 2; 3, 4]</code>.</li>
+<li><strong>Multiple Outputs</strong>: Functions can return multiple outputs.</li>
 </ul>
-</li>
-<li><p><strong>Curly Braces <code>{}</code></strong></p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">function</span> [<span class="hljs-keyword">out</span><span class="hljs-number">1</span>, <span class="hljs-keyword">out</span><span class="hljs-number">2</span>] = myFunction(input<span class="hljs-number">1</span>, input<span class="hljs-number">2</span>)
+    <span class="hljs-keyword">out</span><span class="hljs-number">1</span> = input<span class="hljs-number">1</span> + input<span class="hljs-number">2</span>;
+    <span class="hljs-keyword">out</span><span class="hljs-number">2</span> = input<span class="hljs-number">1</span> * input<span class="hljs-number">2</span>;
+end
+</code></pre>
+<h3 id="6c-loops-and-conditional-statements">6c. Loops and Conditional Statements</h3>
+<p>Loops and conditional statements are fundamental constructs in programming that control the flow of execution based on conditions. You can use loops and conditional statements in scripts, command windows, or within functions. The the &#39;end&#39; keyword to mark the conclusion of the loop or conditional statement.</p>
 <ul>
-<li>Used for cell arrays, which can hold different types of data.</li>
-<li>Example: <code>C = {1, &#39;text&#39;, [1, 2, 3]}</code>.</li>
+<li><p><strong>For Loop</strong>: Repeats a group of statements a fixed, predetermined number of times.</p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:<span class="hljs-number">10</span>
+  <span class="hljs-built_in">disp</span>(<span class="hljs-built_in">i</span>);
+<span class="hljs-keyword">end</span>
+</code></pre>
+</li>
+<li><p><strong>While Loop</strong>: Repeats a group of statements an indefinite number of times under control of a logical condition.</p>
+</li>
 </ul>
-</li>
-<li><p><strong>Single Quote <code>&#39;&#39;&#39;</code></strong></p>
+<pre><code class="lang-matlab"><span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">i</span> &lt;= <span class="hljs-number">10</span>
+    <span class="hljs-built_in">disp</span>(<span class="hljs-built_in">i</span>);
+    <span class="hljs-built_in">i</span> = <span class="hljs-built_in">i</span> + <span class="hljs-number">1</span>;
+<span class="hljs-keyword">end</span>
+</code></pre>
 <ul>
-<li>Defines a string.</li>
-<li>Example: <code>str = &#39;Hello, World!&#39;</code>.</li>
-</ul>
+<li><p><strong>If-Else Statement</strong>: Executes statements conditionally.</p>
+<pre><code class="lang-matlab">x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">0</span>
+  <span class="hljs-built_in">disp</span>(<span class="hljs-string">'x is positive'</span>);
+<span class="hljs-keyword">elseif</span> x &lt; <span class="hljs-number">0</span>
+  <span class="hljs-built_in">disp</span>(<span class="hljs-string">'x is negative'</span>);
+<span class="hljs-keyword">else</span>
+  <span class="hljs-built_in">disp</span>(<span class="hljs-string">'x is zero'</span>);
+<span class="hljs-keyword">end</span>
+</code></pre>
 </li>
-<li><p><strong>Ellipsis <code>...</code></strong></p>
-<ul>
-<li>Indicates that a statement continues on the next line.</li>
-<li>Example:<pre><code class="lang-matlab">a = <span class="hljs-number">1</span> + <span class="hljs-number">2</span> + <span class="hljs-number">3</span> + ...
-    <span class="hljs-number">4</span> + <span class="hljs-number">5</span> + <span class="hljs-number">6</span>;
+<li><p><strong>Switch-Case Statement</strong>: Executes one set of statements from several choices.</p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">switch</span> variable
+  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>
+      <span class="hljs-built_in">disp</span>(<span class="hljs-string">'First case'</span>);
+  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>
+      <span class="hljs-built_in">disp</span>(<span class="hljs-string">'Second case'</span>);
+  <span class="hljs-keyword">otherwise</span>
+      <span class="hljs-built_in">disp</span>(<span class="hljs-string">'Otherwise case'</span>);
+<span class="hljs-keyword">end</span>
 </code></pre>
 </li>
 </ul>
+<h3 id="6d-troubleshooting-and-debugging">6d. Troubleshooting and Debugging</h3>
+<p>Identifying and resolving errors quickly can save a significant amount of time and ensure your code runs smoothly. Here are some tips and tools for troubleshooting and debugging in MATLAB:</p>
+<h4 id="common-errors">Common Errors</h4>
+<ol>
+<li><p><strong>Syntax Errors</strong>: These occur when the MATLAB interpreter encounters code that does not conform to the syntax rules of the language. These are often caught immediately when the code is run.</p>
+<ul>
+<li>Example: Missing end statement in loops or conditional blocks.</li>
+</ul>
+</li>
+<li><p><strong>Runtime Errors</strong>: These occur during the execution of the program and are typically due to invalid operations or data.</p>
+<ul>
+<li>Example: Division by zero, accessing an element out of array bounds.</li>
+</ul>
+</li>
+<li><p><strong>Logical Errors</strong>: These occur when the code runs without any syntax or runtime errors, but the output is not as expected. These require careful inspection of the code logic.</p>
+<ul>
+<li>Example: Incorrect implementation of an algorithm.</li>
+</ul>
+</li>
+</ol>
+<h4 id="debugging-tools-and-techniques">Debugging Tools and Techniques</h4>
+<p><strong>MATLAB Debugger</strong></p>
+<p>MATLAB provides a built-in debugger to help you find and fix errors in your code. You can use the debugger to set breakpoints, step through code, inspect variables, and evaluate expressions.</p>
+<ul>
+<li><p><strong>Setting Breakpoints</strong>: Set breakpoints at lines where you want execution to pause so you can inspect the state of your program.</p>
+</li>
+<li><p><strong>Stepping Through Code</strong>: Use the step commands to execute your code one line at a time.</p>
+</li>
+<li><p><strong>Inspecting Variables</strong>: Check the values of variables at different points in your code to ensure they contain the expected values.</p>
+</li>
+<li><p><strong>Continuing Execution</strong>: Continue running your code until the next breakpoint or end of the script.</p>
+</li>
+<li><p><strong>Quitting Debug Mode</strong>: Exit debug mode when you are finished debugging.</p>
 </li>
 </ul>
-<h3 id="relational-operators">Relational Operators</h3>
-<table>
-<thead>
-<tr>
-<th>Operator</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>==</code></td>
-<td>Equal to</td>
-<td><code>a == b</code></td>
-</tr>
-<tr>
-<td><code>~=</code></td>
-<td>Not equal to</td>
-<td><code>a ~= b</code></td>
-</tr>
-<tr>
-<td><code>&gt;</code></td>
-<td>Greater than</td>
-<td><code>a &gt; b</code></td>
-</tr>
-<tr>
-<td><code>&lt;</code></td>
-<td>Less than</td>
-<td><code>a &lt; b</code></td>
-</tr>
-<tr>
-<td><code>&gt;=</code></td>
-<td>Greater than or equal to</td>
-<td><code>a &gt;= b</code></td>
-</tr>
-<tr>
-<td><code>&lt;=</code></td>
-<td>Less than or equal to</td>
-<td><code>a &lt;= b</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="logical-operators">Logical Operators</h3>
-<table>
-<thead>
-<tr>
-<th>Operator</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&amp;</code></td>
-<td>Logical AND</td>
-<td><code>a &amp; b</code></td>
-</tr>
-<tr>
-<td>`</td>
-<td>`</td>
-<td>Logical OR</td>
-<td>`a</td>
-<td>b`</td>
-</tr>
-<tr>
-<td><code>~</code></td>
-<td>Logical NOT</td>
-<td><code>~a</code></td>
-</tr>
-<tr>
-<td><code>xor</code></td>
-<td>Logical EXCLUSIVE OR</td>
-<td><code>xor(a, b)</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-working-with-variables-in-matlab">4. Working with Variables in MATLAB</h2>
-<p>This section provides an overview of how to handle variables in MATLAB, including how to create, manipulate, and delete them, as well as working with vectors and matrices.</p>
-<h4 id="creating-variables">Creating Variables</h4>
-<p>Variables in MATLAB are created simply by assigning values to them. MATLAB does not require explicit declaration of variable types.</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x = 5;</code></td>
-<td>Creates a variable <code>x</code> and assigns it the value <code>5</code>.</td>
-</tr>
-<tr>
-<td><code>name = &#39;MATLAB&#39;;</code></td>
-<td>Creates a string variable <code>name</code> with the text <code>MATLAB</code>.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="working-with-vectors">Working with Vectors</h4>
-<p>Vectors are a fundamental data structure in MATLAB used to store lists of numbers.</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>v = [1, 2, 3];</code></td>
-<td>Creates a row vector <code>v</code> with elements 1, 2, and 3.</td>
-</tr>
-<tr>
-<td><code>w = [1; 2; 3];</code></td>
-<td>Creates a column vector <code>w</code> with elements 1, 2, and 3.</td>
-</tr>
-<tr>
-<td><code>length(v);</code></td>
-<td>Returns the number of elements in vector <code>v</code>.</td>
-</tr>
-<tr>
-<td><code>v(2);</code></td>
-<td>Accesses the second element of vector <code>v</code>.</td>
-</tr>
-<tr>
-<td><code>v(1:2);</code></td>
-<td>Accesses the first and second elements of vector <code>v</code>.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="working-with-matrices">Working with Matrices</h4>
-<p>Matrices are two-dimensional arrays of numbers. MATLAB is specifically designed to work efficiently with matrices.</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>A = [1, 2; 3, 4];</code></td>
-<td>Creates a 2x2 matrix <code>A</code>.</td>
-</tr>
-<tr>
-<td><code>B = zeros(3,3);</code></td>
-<td>Creates a 3x3 matrix <code>B</code> filled with zeros.</td>
-</tr>
-<tr>
-<td><code>C = ones(2,4);</code></td>
-<td>Creates a 2x4 matrix <code>C</code> filled with ones.</td>
-</tr>
-<tr>
-<td><code>D = eye(3);</code></td>
-<td>Creates a 3x3 identity matrix <code>D</code>.</td>
-</tr>
-<tr>
-<td><code>size(A);</code></td>
-<td>Returns the size of matrix <code>A</code>.</td>
-</tr>
-<tr>
-<td><code>A(2,1);</code></td>
-<td>Accesses the element in the second row, first column of <code>A</code>.</td>
-</tr>
-<tr>
-<td><code>A(:,2);</code></td>
-<td>Accesses all elements in the second column of <code>A</code>.</td>
-</tr>
-<tr>
-<td><code>A(1,:);</code></td>
-<td>Accesses all elements in the first row of <code>A</code>.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="manipulating-variables">Manipulating Variables</h4>
-<p>Once variables are created, they can be manipulated using MATLAB&#39;s built-in functions and operators.</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>v = [1, 2, 3];</code></td>
-<td>Creates a row vector <code>v</code> with elements 1, 2, and 3.</td>
-</tr>
-<tr>
-<td><code>w = v + 1;</code></td>
-<td>Adds <code>1</code> to each element of vector <code>v</code>.</td>
-</tr>
-<tr>
-<td><code>u = sum(v);</code></td>
-<td>Sums the elements of <code>v</code> and stores the result in <code>u</code>.</td>
-</tr>
-<tr>
-<td><code>mean(v);</code></td>
-<td>Calculates the mean of vector <code>v</code>.</td>
-</tr>
-<tr>
-<td><code>A = A + 2;</code></td>
-<td>Adds <code>2</code> to each element of matrix <code>A</code>.</td>
-</tr>
-<tr>
-<td><code>A * 2;</code></td>
-<td>Multiplies each element of matrix <code>A</code> by <code>2</code>.</td>
-</tr>
-<tr>
-<td><code>A * B;</code></td>
-<td>Performs matrix multiplication of <code>A</code> and <code>B</code>.</td>
-</tr>
-<tr>
-<td><code>A .* B;</code></td>
-<td>Performs element-wise multiplication of <code>A</code> and <code>B</code>.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="deleting-variables">Deleting Variables</h4>
-<p>To free up resources or clear workspace, you can delete variables that are no longer needed.</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>clear x;</code></td>
-<td>Deletes the variable <code>x</code> from the workspace.</td>
-</tr>
-<tr>
-<td><code>clear x y z;</code></td>
-<td>Deletes multiple variables <code>x</code>, <code>y</code>, and <code>z</code>.</td>
-</tr>
-<tr>
-<td><code>clear all;</code></td>
-<td>Clears all variables from the workspace.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="viewing-variables">Viewing Variables</h4>
-<p>To view the variables currently stored in your workspace, you can use the Workspace window or specific commands.</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>who;</code></td>
-<td>Lists all variables in the workspace.</td>
-</tr>
-<tr>
-<td><code>whos;</code></td>
-<td>Lists all variables with detailed information including size, bytes, and class.</td>
-</tr>
-</tbody>
-</table>
-<p>These basic commands and techniques provide a foundation for working with variables, vectors, and matrices in MATLAB, essential for any type of data manipulation and analysis.</p>
+<pre><code class="lang-matlab">% Example: MATLAB Debugger Usage
 
+% Set <span class="hljs-keyword">a</span> <span class="hljs-built_in">breakpoint</span> <span class="hljs-keyword">at</span> <span class="hljs-built_in">line</span> <span class="hljs-number">10</span> <span class="hljs-keyword">in</span> myFunction
+dbstop <span class="hljs-keyword">in</span> myFunction <span class="hljs-keyword">at</span> <span class="hljs-number">10</span>
+
+% Step <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> next <span class="hljs-built_in">line</span> <span class="hljs-keyword">of</span> code
+dbstep
+
+% Display <span class="hljs-keyword">the</span> <span class="hljs-built_in">value</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">variable</span>
+disp(myVar)
+
+% Continue execution <span class="hljs-keyword">until</span> <span class="hljs-keyword">the</span> next <span class="hljs-built_in">breakpoint</span>
+dbcont
+
+% Exit debug mode
+dbquit
+</code></pre>
+<p><strong>Error Handling</strong></p>
+<p><strong>Try-Catch Blocks</strong>: Use <code>try-catch</code> blocks to catch and handle errors.</p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">try</span>
+    <span class="hljs-comment">% Code that might cause an error</span>
+<span class="hljs-keyword">catch</span> ME
+    <span class="hljs-comment">% Code to handle the error</span>
+    <span class="hljs-built_in">disp</span>(ME.message);
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p><strong>Diagnostic Functions</strong></p>
+<ul>
+<li><p><strong>disp() and fprintf()</strong>: Use these functions to print variable values and messages to the Command Window for tracking the flow of your program.</p>
+</li>
+<li><p><strong>assert()</strong>: Use assertions to check for conditions that must be true at certain points in your program.</p>
+</li>
+</ul>
+<pre><code class="lang-matlab">disp('Debugging message')<span class="hljs-comment">;</span>
+fprintf('The value of x is: %d\n', x)<span class="hljs-comment">;</span>
+assert(<span class="hljs-name">x</span> &gt; <span class="hljs-number">0</span>, 'x must be positive')<span class="hljs-comment">;</span>
+</code></pre>
+<h4 id="best-practices">Best Practices</h4>
+<ol>
+<li><strong>Incremental Development</strong>: Develop your code in small, testable increments. Test each increment thoroughly before adding more functionality.</li>
+<li><strong>Unit Testing</strong>: Write unit tests for your functions to automatically verify their correctness.</li>
+<li><strong>Code Review</strong>: Have your code reviewed by peers to catch errors you might have missed.</li>
+</ol>
+<h3 id="6e-command-cheat-sheeet">6e. Command Cheat Sheeet</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Loops and Conditionals</strong></td>
+</tr>
+<tr>
+<td><code>for</code></td>
+<td>Starts a for loop</td>
+</tr>
+<tr>
+<td><code>while</code></td>
+<td>Starts a while loop</td>
+</tr>
+<tr>
+<td><code>if</code></td>
+<td>Starts an if statement</td>
+</tr>
+<tr>
+<td><code>elseif</code></td>
+<td>Adds an else-if branch to an if statement</td>
+</tr>
+<tr>
+<td><code>else</code></td>
+<td>Adds an else branch to an if statement</td>
+</tr>
+<tr>
+<td><code>switch</code></td>
+<td>Starts a switch statement</td>
+</tr>
+<tr>
+<td><code>case</code></td>
+<td>Defines a case within a switch statement</td>
+</tr>
+<tr>
+<td><code>otherwise</code></td>
+<td>Defines the default case within a switch statement</td>
+</tr>
+<tr>
+<td><code>break</code></td>
+<td>Exits a for or while loop prematurely</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>Skips the remaining code in a loop iteration</td>
+</tr>
+<tr>
+<td><strong>Functions</strong></td>
+</tr>
+</tbody>
+</table>
+<p>| <code>function</code>     | Defines a new function                                  |
+| <code>end</code>          | Ends a function or control flow statement               |
+| <code>nargin</code>       | Returns the number of function input arguments          |
+| <code>nargout</code>      | Returns the number of function output arguments         |
+| <code>varargin</code>     | Allows a variable number of input arguments             |
+| <code>varargout</code>    | Allows a variable number of output arguments            |
+| <code>inputname</code>    | Returns the name of an input argument as a string       |
+| <code>return</code>       | Exits a function                                        |
+| <strong>Troubleshooting</strong>      |
+| <code>dbstop</code>       | Sets a breakpoint                                       |
+| <code>dbclear</code>      | Clears breakpoints                                      |
+| <code>dbstep</code>       | Executes the next line or steps into a function         |
+| <code>dbcont</code>       | Continues execution until the next breakpoint           |
+| <code>dbquit</code>       | Exits debug mode                                        |
+| <code>disp</code>         | Displays the value of a variable                        |
+| <code>fprintf</code>      | Prints formatted data to the Command Window             |
+| <code>assert</code>       | Throws an error if a condition is not met               |
+| <code>try...catch</code>  | Executes code and catches errors                        |
+| <code>error</code>        | Throws an error and displays a message                  |
+| <code>warning</code>      | Displays a warning message                              |
+| <code>lastwarn</code>     | Retrieves the last warning message                      |
+| <code>lasterr</code>      | Retrieves the last error message                        |
+| <code>which</code>        | Identifies the path of a function or file               |</p>
+<h3 id="6f-suggested-tutorials">6f. Suggested Tutorials</h3>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=2">Lesson: Creating Informative Scripts</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-desktop-tools-and-troubleshooting-scripts/otmldts#module=3">Tutorial: Storytelling with Scripts</a></p>
+<p><a href="https://www.mathworks.com/matlabcentral/fileexchange/115905-programming-structuring-code">Tutorial: Structuring Code</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=14">Tutorial: Programming Constructs</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=15">Tutorial: Increasing Automation with Functions</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=16">Tutorial: Troubleshooting Code A</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-desktop-tools-and-troubleshooting-scripts/otmldts#module=4">Tutorial: Troubleshooting Code B</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/debugging-and-error-handling/otmldeh">Course: Debugging and Error Handling</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/the-how-and-why-of-writing-functions/otmlhwf">Course: The Why and How of Writing Functions</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/make-your-functions-user-friendly/otmlfuf">Course: Make Your Functions User Friendly</a></p>
+<h3 id="6g-supplemental-materials">6g. Supplemental Materials</h3>
+<p><a href="https://www.mathworks.com/support/search.html/videos/managing-code-in-matlab-functions-97215.html?fq%5B%5D=asset_type_name:video&amp;fq%5B%5D=category:matlab/programming-and-data-types&amp;page=1">Video: What are Functions in Matlab</a></p>
+<p><a href="https://www.youtube.com/watch?v=YTQI5hIl_r4&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=6">Video: Creating Functions in MATLAB</a></p>
+<p><a href="https://www.youtube.com/watch?v=Abgbu32XOh4&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=7">Video: Creating For Loops</a> </p>
+<p><a href="https://www.youtube.com/watch?v=aYfB4bI-9i8&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=9">Video: Stepping Into Functions</a></p>
+<p><a href="https://www.youtube.com/watch?v=_AnsdD5QNPE&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=10">Video: Common Programming Errors and their Solution</a></p>
+<p><a href="https://tutorialspoint.com/matlab/matlab_loops.htm">Live Demo: Loops</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_decisions.htm">Live Demo: Decision Making</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/scripts.html">Documentation: Scripts</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/functions.html?s_tid=CRUX_lftnav">Documentation: Functions</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/control-flow.html">Documentation: Loops and Conditional Statements</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/exception-handling.html">Documentation: Exception Handling</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/live-scripts-and-functions.html">Documentation: Live Scripts and Functions</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/error-handling.html?s_tid=CRUX_lftnav">Documentation: Error Handling</a></p>
+<p><a href="https://andysbrainbook.readthedocs.io/en/latest/Matlab/Matlab_03_FunctionsPaths.html#functions">Andy&#39;s Brain Book: Paths and Functions</a></p>
+<p><a href="https://andysbrainbook.readthedocs.io/en/latest/Matlab/Matlab_04_ControlStructures.html">Andy&#39;s Brain Book: Control Structures</a></p>
 					</div>
 
 				<!-- Footer -->
