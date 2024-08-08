@@ -106,7 +106,7 @@ from PIL import Image</p>
 							<p>We now download our CT Brain Imaging dataset. Either download from Kaggle at <a href="https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage">https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage</a></p>or run the code below to use the Kaggle API to automatically download and extract the dataset.</p>
 <pre><code>
 <p>IMPORTANT: RUN THIS CELL IN ORDER TO IMPORT YOUR KAGGLE DATA SOURCES TO THE CORRECT LOCATION (/kaggle/input) IN YOUR NOTEBOOK.</p>
-<p>NOTE: THIS NOTEBOOK ENVIRONMENT DIFFERS FROM KAGGLE&#39;S PYTHON ENVIRONMENT SO THERE MAY BE MISSING LIBRARIES USED BY YOUR NOTEBOOK.</p>
+NOTE: THIS NOTEBOOK ENVIRONMENT DIFFERS FROM KAGGLE&#39;S PYTHON ENVIRONMENT SO THERE MAY BE MISSING LIBRARIES USED BY YOUR NOTEBOOK.</p>
 <p>import os
 import sys
 from tempfile import NamedTemporaryFile
@@ -115,8 +115,9 @@ from urllib.parse import unquote, urlparse
 from urllib.error import HTTPError
 from zipfile import ZipFile
 import tarfile
-import shutil</p>
-<p>CHUNK_SIZE = 40960
+import shutil
+	
+CHUNK_SIZE = 40960
 DATA_SOURCE_MAPPING = &#39;head-ct-hemorrhage:https%3A%2F%2Fstorage.googleapis.com%2Fkaggle-data-sets%2F71215%2F152137%2Fbundle%2Farchive.zip%3FX-Goog-Algorithm%3DGOOG4-RSA-SHA256%26X-Goog-Credential%3Dgcp-kaggle-com%2540kaggle-161607.iam.gserviceaccount.com%252F20240807%252Fauto%252Fstorage%252Fgoog4_request%26X-Goog-Date%3D20240807T171722Z%26X-Goog-Expires%3D259200%26X-Goog-SignedHeaders%3Dhost%26X-Goog-Signature%3D4cfcf43a51e3ca0216a816401c6a9ead19272a4e62a33ee3ae3d4315eb4f6eb1822cba8fc13ac00113bbc390a84a3cda5ce0b6faddb2740af90e5cb916dfc6fe81f546e55803c4f74b75d95db4b64a2e0cc77f6820c062c5ccfca7a8404cd851eb66a7c89fa26a97ebf23b82ce8c1141d9ee2b2f1e48f297d299efd306776e3fb6bb49381126c0f7c5a9c26f26c2020efcea9f05b4a5625d2bcbf1f2c54c542692184d2140118c7e988c0e18734f5a128891c2845aa2814067cb6253c95309bcfcc255dc0add78794f789ff063f7f46b291c48f3161789aea3de080cf09e2f54631cbc58d788711f19cb76dab1b9424d58b31825e7f4becac5ed4ed8e2ff389a&#39;</p>
 <p>KAGGLE_INPUT_PATH=&#39;/kaggle/input&#39;
 KAGGLE_WORKING_PATH=&#39;/kaggle/working&#39;
@@ -165,7 +166,75 @@ except FileExistsError:
 	print(f&#39;Failed to load {download_url} to path {destination_path}&#39;)
 	continue</p>
 <p>print(&#39;Data source import complete.&#39;)</p>
-</code></pre>							
+</code></pre>						
+							<p><h2>4. Loading the Dataset</h2>
+							To begin analyzing our dataset, we need to load the images and their corresponding labels into Python. We can achieve this using libraries like Pandas for handling the labels and PIL (Python Imaging Library) for loading the images.</p>
+							<p><strong>4.1. Loading the Labels</strong>
+								First, we’ll load the labels from a CSV file and apply necessary corrections.</p>
+<pre><code>
+# Load the labels
+labels = pd.read_csv('/kaggle/input/head-ct-hemorrhage/labels.csv')
+
+# Rename column if necessary (remove extra spaces)
+labels.rename(columns={' hemorrhage': 'hemorrhage'}, inplace=True)
+
+# Convert 'id' column to integer, then format as string with .png extension
+labels['id'] = labels['id'].astype(int)
+labels['id'] = labels['id'].apply(lambda x: str('%03d' % x) + ".png")
+</code></pre>
+							<p>The <code>labels.head()</code>` function outputs the first few rows of the labels DataFrame, which looks like this:</p>
+<pre><code>
+# Display the first few rows to verify
+print(labels.head())
+
+# List unique classes in the 'hemorrhage' column
+classes = list(labels['hemorrhage'].unique())
+print("Classes:", classes)
+</code></pre>
+							<p>This DataFrame has two columns:
+								id: A unique identifier for each image.
+								hemorrhage: The label indicating whether the image shows a hemorrhage (1) or is normal (0).</p>
+							<p><strong>4.2 Loading and Displaying Sample Images</strong>
+								Next, we'll load some sample images using PIL and display them along with their labels.</p>
+<pre><code>
+from PIL import Image
+import matplotlib.pyplot as plt
+
+# Function to display images in a grid
+def display_images_grid(image_paths, labels):
+    num_images = len(image_paths)
+    fig, axes = plt.subplots(1, num_images, figsize=(15, 5))
+
+    if num_images == 1:
+        axes = [axes]  # Ensure axes is iterable if there's only one image
+
+    for ax, image_path, label in zip(axes, image_paths, labels):
+        img = Image.open(image_path)
+        ax.imshow(img, cmap='gray')
+        ax.set_title(f'Label: {label}')
+        ax.axis('off')
+
+    plt.show()
+
+# Ensure we include at least one image from each class
+class_0_image = labels[labels['hemorrhage'] == 0].sample(1)
+class_1_image = labels[labels['hemorrhage'] == 1].sample(1)
+
+# Combine samples from both classes and a few additional random samples
+additional_images = labels.sample(3)  # Add more samples for variety
+selected_images = pd.concat([class_0_image, class_1_image, additional_images])
+
+# Construct image paths and labels
+image_paths = [f'/kaggle/input/head-ct-hemorrhage/head_ct/head_ct/{row["id"]}' for _, row in selected_images.iterrows()]
+image_labels = selected_images['hemorrhage'].tolist()
+
+# Display the images side by side
+display_images_grid(image_paths, image_labels)
+</code></pre>
+							<img src="images/cy_python_1.png" alt="images output" style="width: 25%;"> 
+							<p>Did you notice that images dont have the same size? We will get into that shortly.</p>
+							
+							
 						</div>
 					</div>
 
