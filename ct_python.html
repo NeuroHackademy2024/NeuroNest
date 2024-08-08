@@ -52,10 +52,12 @@
 						<div class="inner">
 							<h1>Welcome to the NeuroNest Tutorial on CT Imaging Classification using Artificial Neural Networks!</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p><em>Tutorial time</em>: approximately 70 min</p>
-							<p>In this notebook, we will cover several fundamental concepts that are essential for processing and visualizing CT brain images as well as building a neural network.</p>
-							<h2 id="objectives-">Objectives:</h2>
-							<ol>
+							<h2 id="tutorial-overview-">Tutorial Overview:</h2>
+								<p><em>Tutorial time</em>: approximately 70 min</p>
+								<p>In this tutorial, our objective is to build a neural network using PyTorch to classify CT brain images as either normal or having a hemorrhage. We will cover the entire process from data preprocessing to model evaluation.</p>
+								<p>If you prefer an interactive tutorial, please see our <a href="https://colab.research.google.com/drive/1YQe8rqhup-_ihQJeAmzNhdOqP6ZTHiya?usp=sharing#scrollTo=-fYsSG8v71NH">Google Collab version</a>.</p>
+							<h3 id="objectives-">Objectives:</h3>
+								<ol>
 								<li><strong>Introduction and Setup</strong></li>
 								<li><strong>Importing Required Libraries</strong></li>
 								<li><strong>Downloading the Data</strong></li>
@@ -66,14 +68,38 @@
 								<li><strong>Building the Neural Network Model</strong></li>
 								<li><strong>Training and Evaluating the Model</strong></li>
 								<li><strong>Visualizing Model Performance</strong></li>
-							</ol>
-							<h2 id="tutorial-overview-">Tutorial Overview:</h2>
-							<p>In this tutorial, we will walk through each step of building a neural network to classify CT brain images as either normal (labeled 0) or having a hemorrhage (labeled 1). By the end of this tutorial, you should have a solid understanding of how to preprocess the data, build, and evaluate a neural network model using PyTorch.</p>
-							<h2 id="dataset-">Dataset:</h2>
-							<p>For this tutorial, we will use a dataset from Kaggle. It can be found at:
-							[ <a href="https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage">https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage</a> ]</p>
-							<h3 id="let-s-get-started-">Let&#39;s get started!</h3>
-
+								</ol>			
+								<p><strong>Let's get started!</strong></p>
+							<h2 id="1-introduction-and-setup">1. Introduction and Setup</h2>
+								<p>CT imaging, or Computed Tomography imaging, uses X-rays to create detailed pictures of the inside of the body. It is crucial in medical diagnostics for detecting conditions such as tumors, fractures, and hemorrhages. <a href="ct_info.html">Read more about CT neuroimaging here.</a></p>
+								<p>In this tutorial, we will cover several fundamental concepts that are essential for processing and visualizing CT brain images as well as building a neural network. we will walk through each step of building a neural network to classify CT brain images as either normal (labeled 0) or having a hemorrhage (labeled 1). By the end of this tutorial, you should have a solid understanding of how to preprocess the data, build, and evaluate a neural network model using PyTorch.</p>
+							<h3 id="dataset-">Dataset:</h3>
+								<p>We will use a dataset from Kaggle. It can be found at:
+								<a href="https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage">https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage</a></p>
+							<h2 id="2-importing-required-libraries">2. Importing Required Libraries</h3>
+								<p>To build our neural network, we&#39;ll need several Python and PyTorch libraries. These libraries will help with data manipulation, model building, and visualization.</p>
+<pre><code>
+<strong>Import essential libraries for building a Neural Network using Pytorch</strong>
+<p>import torch
+import torch.nn as nn
+import torch.optim as optim
+import torch.nn.functional as F
+import torchvision
+from torchvision import datasets, transforms
+from torch.utils.data import DataLoader
+import shutil
+import random
+from sklearn.utils import shuffle
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix</p>
+<p><strong>Additional libraries for data handling and visualization</strong></p>
+<p>import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+from PIL import Image</p>
+</code></pre>
 						</div>
 					</div>
 
