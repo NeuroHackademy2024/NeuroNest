@@ -51,126 +51,147 @@
 					<div id="main">
 						<div class="inner">
 							<h1>Docker Command Cheat Sheet</h1>
-              <h3>List all Docker commands:</h3>
-    <pre><code>docker --help</code></pre>
-    <p>To get help from Docker CLI.</p>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>docker --help</code></td>
+            <td>To get help from Docker CLI.</td>
+        </tr>
+        <tr>
+            <td><code>docker -d</code></td>
+            <td>To start the Docker daemon.</td>
+        </tr>
+        <tr>
+            <td><code>docker info</code></td>
+            <td>To display Docker system-wide information.</td>
+        </tr>
+        <tr>
+            <td><code>docker version</code></td>
+            <td>To display the current installed Docker version.</td>
+        </tr>
+        <tr>
+            <td colspan="2"><h2>Docker Hub Commands</h2></td>
+        </tr>
+        <tr>
+            <td colspan="2">Docker Hub is a service provided by Docker that hosts container images. You can download and even push your own images in Docker Hub, making it accessible to everyone connected to the service.</td>
+        </tr>
+        <tr>
+            <td><code>docker login -u &lt;username&gt;</code></td>
+            <td>To login into Docker.</td>
+        </tr>
+        <tr>
+            <td><code>docker push &lt;username&gt;/&lt;image_name&gt;</code></td>
+            <td>To publish an image to Docker Hub.</td>
+        </tr>
+        <tr>
+            <td><code>docker search &lt;image_name&gt;</code></td>
+            <td>To search for an image in Docker Hub.</td>
+        </tr>
+        <tr>
+            <td><code>docker pull &lt;image_name&gt;</code></td>
+            <td>To pull an image from the Docker Hub.</td>
+        </tr>
+        <tr>
+            <td colspan="2"><h2>Docker Images Commands</h2></td>
+        </tr>
+        <tr>
+            <td colspan="2">The following commands allow you to work with Docker images.</td>
+        </tr>
+        <tr>
+            <td><code>docker build</code></td>
+            <td>To build an image from a Dockerfile.</td>
+        </tr>
+        <tr>
+            <td><code>docker commit &lt;container_name&gt;</code></td>
+            <td>To create a new image from a container’s changes.</td>
+        </tr>
+        <tr>
+            <td><code>docker history &lt;container_name&gt;</code></td>
+            <td>To show the history of an image.</td>
+        </tr>
+        <tr>
+            <td><code>docker images</code></td>
+            <td>To list images.</td>
+        </tr>
+        <tr>
+            <td><code>docker import</code></td>
+            <td>To import the contents from a tarball to create a filesystem image.</td>
+        </tr>
+        <tr>
+            <td><code>docker load</code></td>
+            <td>To load an image from a tar archive or STDIN.</td>
+        </tr>
+        <tr>
+            <td><code>docker rmi &lt;container_name&gt;</code></td>
+            <td>To remove one or more images.</td>
+        </tr>
+        <tr>
+            <td><code>docker save &lt;container_name&gt;</code></td>
+            <td>To save images to a tar archive or STDOUT.</td>
+        </tr>
+        <tr>
+            <td><code>docker tag</code></td>
+            <td>To tag an image into a repository.</td>
+        </tr>
+        <tr>
+            <td colspan="2"><h2>Docker Container Commands</h2></td>
+        </tr>
+        <tr>
+            <td colspan="2">Managing containers is a day-to-day activity of DevOps teams. Here is a list of Docker commands to manage containers.</td>
+        </tr>
+        <tr>
+            <td><code>docker run --name &lt;container_name&gt; &lt;image_name&gt;</code></td>
+            <td>To create and run a container from an image.</td>
+        </tr>
+        <tr>
+            <td><code>docker run -p &lt;host_port&gt;:&lt;container_port&gt; &lt;image_name&gt;</code></td>
+            <td>To run a container with port mapping.</td>
+        </tr>
+        <tr>
+            <td><code>docker run -d &lt;image_name&gt;</code></td>
+            <td>To run a container in the background.</td>
+        </tr>
+        <tr>
+            <td><code>docker start|stop &lt;container_name&gt;</code></td>
+            <td>To start or stop an existing container.</td>
+        </tr>
+        <tr>
+            <td><code>docker rm &lt;container_name&gt;</code></td>
+            <td>To remove a stopped container.</td>
+        </tr>
+        <tr>
+            <td><code>docker exec -it &lt;container_name&gt; sh</code></td>
+            <td>To open a shell inside a running container.</td>
+        </tr>
+        <tr>
+            <td><code>docker logs -f &lt;container_name&gt;</code></td>
+            <td>To fetch and follow the logs of a container.</td>
+        </tr>
+        <tr>
+            <td><code>docker inspect &lt;container_name&gt;</code></td>
+            <td>To inspect a running container.</td>
+        </tr>
+        <tr>
+            <td><code>docker ps</code></td>
+            <td>To list currently running containers.</td>
+        </tr>
+        <tr>
+            <td><code>docker ps -a</code></td>
+            <td>To list all Docker containers.</td>
+        </tr>
+        <tr>
+            <td><code>docker container stats</code></td>
+            <td>To view resource usage stats.</td>
+        </tr>
+    </tbody>
+</table>
 
-    <h3>Start the Docker daemon:</h3>
-    <pre><code>docker -d</code></pre>
-    <p>To start the Docker daemon.</p>
-
-    <h3>Display Docker system-wide information:</h3>
-    <pre><code>docker info</code></pre>
-    <p>To display Docker system-wide information.</p>
-
-    <h3>Display the current installed Docker version:</h3>
-    <pre><code>docker version</code></pre>
-    <p>To display the current installed Docker version.</p>
-
-    <h2>Docker Hub Commands</h2>
-    <p>Docker Hub is a service provided by Docker that hosts container images. You can download and even push your own images in Docker Hub, making it accessible to everyone connected to the service.</p>
-
-    <h3>Login to Docker Hub:</h3>
-    <pre><code>docker login -u &lt;username&gt;</code></pre>
-    <p>To login into Docker.</p>
-
-    <h3>Publish an image to Docker Hub:</h3>
-    <pre><code>docker push &lt;username&gt;/&lt;image_name&gt;</code></pre>
-    <p>To publish an image to Docker Hub.</p>
-
-    <h3>Search for an image in Docker Hub:</h3>
-    <pre><code>docker search &lt;image_name&gt;</code></pre>
-    <p>To search for an image in Docker Hub.</p>
-
-    <h3>Pull an image from Docker Hub:</h3>
-    <pre><code>docker pull &lt;image_name&gt;</code></pre>
-    <p>To pull an image from the Docker Hub.</p>
-
-    <h2>Docker Images Commands</h2>
-    <p>The following commands allow you to work with Docker images.</p>
-
-    <h3>Build an image from a Dockerfile:</h3>
-    <pre><code>docker build</code></pre>
-    <p>To build an image from a Dockerfile.</p>
-
-    <h3>Create a new image from a container's changes:</h3>
-    <pre><code>docker commit &lt;container_name&gt;</code></pre>
-    <p>To create a new image from a container’s changes.</p>
-
-    <h3>Show the history of an image:</h3>
-    <pre><code>docker history &lt;container_name&gt;</code></pre>
-    <p>To show the history of an image.</p>
-
-    <h3>List images:</h3>
-    <pre><code>docker images</code></pre>
-    <p>To list images.</p>
-
-    <h3>Import the contents from a tarball to create a filesystem image:</h3>
-    <pre><code>docker import</code></pre>
-    <p>To import the contents from a tarball to create a filesystem image.</p>
-
-    <h3>Load an image from a tar archive or STDIN:</h3>
-    <pre><code>docker load</code></pre>
-    <p>To load an image from a tar archive or STDIN.</p>
-
-    <h3>Remove one or more images:</h3>
-    <pre><code>docker rmi &lt;container_name&gt;</code></pre>
-    <p>To remove one or more images.</p>
-
-    <h3>Save images to a tar archive or STDOUT:</h3>
-    <pre><code>docker save &lt;container_name&gt;</code></pre>
-    <p>To save images to a tar archive or STDOUT.</p>
-
-    <h3>Tag an image into a repository:</h3>
-    <pre><code>docker tag</code></pre>
-    <p>To tag an image into a repository.</p>
-
-    <h2>Docker Container Commands</h2>
-    <p>Managing containers is a day-to-day activity of DevOps teams. Here is a list of Docker commands to manage containers.</p>
-
-    <h3>Create and run a container from an image:</h3>
-    <pre><code>docker run --name &lt;container_name&gt; &lt;image_name&gt;</code></pre>
-    <p>To create and run a container from an image.</p>
-
-    <h3>Run a container with port mapping:</h3>
-    <pre><code>docker run -p &lt;host_port&gt;:&lt;container_port&gt; &lt;image_name&gt;</code></pre>
-    <p>To run a container with port mapping.</p>
-
-    <h3>Run a container in the background:</h3>
-    <pre><code>docker run -d &lt;image_name&gt;</code></pre>
-    <p>To run a container in the background.</p>
-
-    <h3>Start or stop an existing container:</h3>
-    <pre><code>docker start|stop &lt;container_name&gt;</code></pre>
-    <p>To start or stop an existing container.</p>
-
-    <h3>Remove a stopped container:</h3>
-    <pre><code>docker rm &lt;container_name&gt;</code></pre>
-    <p>To remove a stopped container.</p>
-
-    <h3>Open a shell inside a running container:</h3>
-    <pre><code>docker exec -it &lt;container_name&gt; sh</code></pre>
-    <p>To open a shell inside a running container.</p>
-
-    <h3>Fetch and follow the logs of a container:</h3>
-    <pre><code>docker logs -f &lt;container_name&gt;</code></pre>
-    <p>To fetch and follow the logs of a container.</p>
-
-    <h3>Inspect a running container:</h3>
-    <pre><code>docker inspect &lt;container_name&gt;</code></pre>
-    <p>To inspect a running container.</p>
-
-    <h3>List currently running containers:</h3>
-    <pre><code>docker ps</code></pre>
-    <p>To list currently running containers.</p>
-
-    <h3>List all Docker containers:</h3>
-    <pre><code>docker ps -a</code></pre>
-    <p>To list all Docker containers.</p>
-
-    <h3>View resource usage stats:</h3>
-    <pre><code>docker container stats</code></pre>
-    <p>To view resource usage stats.</p>
 						</div>
 					</div>
 
