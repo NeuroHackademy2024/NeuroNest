@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>NAME THAT SHOWS IN THE TAB ABOVE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Generic Page</h1>
+							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+              <h1 id="6-functions">6. Functions</h1>
+							<h3 id="6a-structuring-code">6a. Structuring Code</h3>
+<p>Structuring your MATLAB code efficiently is crucial for readability, maintainability, and scalability. Here are some best practices:</p>
+<ol>
+<li><p><strong>Clear Organization</strong>: Break your code into sections using comments and the <code>%%</code> operator. This allows you to run sections independently in the MATLAB editor.</p>
+</li>
+<li><p><strong>Modular Design</strong>: Write modular code by separating different functionalities into functions. This makes your code reusable and easier to debug.</p>
+</li>
+<li><p><strong>Consistent Naming Conventions</strong>: Use meaningful and consistent naming conventions for variables, functions, and scripts. This improves code readability and helps others understand your code.</p>
+</li>
+<li><p><strong>Documentation</strong>: Comment your code generously. Explain the purpose of complex sections, and use comments to describe inputs, outputs, and important variables.</p>
+</li>
+<li><p><strong>Avoid Magic Numbers</strong>: Use named constants instead of hard-coding numbers in your code. This improves readability and makes your code easier to update.</p>
+</li>
+</ol>
+<h3 id="6b-functions">6b. Functions</h3>
+<p>Functions allow you to encapsulate code into reusable blocks, improving code organization and reducing redundancy. In MATLAB, functions can be defined within a script or in a separate function file.</p>
+<ul>
+<li><strong>Defining a Function</strong>: A function starts with the <code>function</code> keyword, followed by the output variables, the function name, and the input variables. When defining functions at the within a script file, each function must be terminated with &#39;end&#39;. The use of &#39;end&#39; is optional if the function is the only function in that file.</li>
+</ul>
+<pre><code class="lang-matlab"><span class="hljs-function"><span class="hljs-keyword">function</span></span> output = myFunction(input1, input2)
+    % <span class="hljs-function"><span class="hljs-keyword">Function</span></span> code goes here
+    output = input1 + input2;
+<span class="hljs-keyword">end</span>
+</code></pre>
+<ul>
+<li><strong>Calling a Function</strong>: You can call a function by using its name and passing the required arguments.</li>
+</ul>
+<pre><code class="lang-matlab"><span class="hljs-attribute">result</span> = myFunction(5, 3);
+</code></pre>
+<ul>
+<li><strong>Multiple Outputs</strong>: Functions can return multiple outputs.</li>
+</ul>
+<pre><code class="lang-matlab"><span class="hljs-keyword">function</span> [<span class="hljs-keyword">out</span><span class="hljs-number">1</span>, <span class="hljs-keyword">out</span><span class="hljs-number">2</span>] = myFunction(input<span class="hljs-number">1</span>, input<span class="hljs-number">2</span>)
+    <span class="hljs-keyword">out</span><span class="hljs-number">1</span> = input<span class="hljs-number">1</span> + input<span class="hljs-number">2</span>;
+    <span class="hljs-keyword">out</span><span class="hljs-number">2</span> = input<span class="hljs-number">1</span> * input<span class="hljs-number">2</span>;
+end
+</code></pre>
+<h3 id="6c-loops-and-conditional-statements">6c. Loops and Conditional Statements</h3>
+<p>Loops and conditional statements are fundamental constructs in programming that control the flow of execution based on conditions. You can use loops and conditional statements in scripts, command windows, or within functions. The the &#39;end&#39; keyword to mark the conclusion of the loop or conditional statement.</p>
+<ul>
+<li><p><strong>For Loop</strong>: Repeats a group of statements a fixed, predetermined number of times.</p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:<span class="hljs-number">10</span>
+  <span class="hljs-built_in">disp</span>(<span class="hljs-built_in">i</span>);
+<span class="hljs-keyword">end</span>
+</code></pre>
+</li>
+<li><p><strong>While Loop</strong>: Repeats a group of statements an indefinite number of times under control of a logical condition.</p>
+</li>
+</ul>
+<pre><code class="lang-matlab"><span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">i</span> &lt;= <span class="hljs-number">10</span>
+    <span class="hljs-built_in">disp</span>(<span class="hljs-built_in">i</span>);
+    <span class="hljs-built_in">i</span> = <span class="hljs-built_in">i</span> + <span class="hljs-number">1</span>;
+<span class="hljs-keyword">end</span>
+</code></pre>
+<ul>
+<li><p><strong>If-Else Statement</strong>: Executes statements conditionally.</p>
+<pre><code class="lang-matlab">x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">0</span>
+  <span class="hljs-built_in">disp</span>(<span class="hljs-string">'x is positive'</span>);
+<span class="hljs-keyword">elseif</span> x &lt; <span class="hljs-number">0</span>
+  <span class="hljs-built_in">disp</span>(<span class="hljs-string">'x is negative'</span>);
+<span class="hljs-keyword">else</span>
+  <span class="hljs-built_in">disp</span>(<span class="hljs-string">'x is zero'</span>);
+<span class="hljs-keyword">end</span>
+</code></pre>
+</li>
+<li><p><strong>Switch-Case Statement</strong>: Executes one set of statements from several choices.</p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">switch</span> variable
+  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>
+      <span class="hljs-built_in">disp</span>(<span class="hljs-string">'First case'</span>);
+  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>
+      <span class="hljs-built_in">disp</span>(<span class="hljs-string">'Second case'</span>);
+  <span class="hljs-keyword">otherwise</span>
+      <span class="hljs-built_in">disp</span>(<span class="hljs-string">'Otherwise case'</span>);
+<span class="hljs-keyword">end</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="6d-troubleshooting-and-debugging">6d. Troubleshooting and Debugging</h3>
+<p>Identifying and resolving errors quickly can save a significant amount of time and ensure your code runs smoothly. Here are some tips and tools for troubleshooting and debugging in MATLAB:</p>
+<h4 id="common-errors">Common Errors</h4>
+<ol>
+<li><p><strong>Syntax Errors</strong>: These occur when the MATLAB interpreter encounters code that does not conform to the syntax rules of the language. These are often caught immediately when the code is run.</p>
+<ul>
+<li>Example: Missing end statement in loops or conditional blocks.</li>
+</ul>
+</li>
+<li><p><strong>Runtime Errors</strong>: These occur during the execution of the program and are typically due to invalid operations or data.</p>
+<ul>
+<li>Example: Division by zero, accessing an element out of array bounds.</li>
+</ul>
+</li>
+<li><p><strong>Logical Errors</strong>: These occur when the code runs without any syntax or runtime errors, but the output is not as expected. These require careful inspection of the code logic.</p>
+<ul>
+<li>Example: Incorrect implementation of an algorithm.</li>
+</ul>
+</li>
+</ol>
+<h4 id="debugging-tools-and-techniques">Debugging Tools and Techniques</h4>
+<p><strong>MATLAB Debugger</strong></p>
+<p>MATLAB provides a built-in debugger to help you find and fix errors in your code. You can use the debugger to set breakpoints, step through code, inspect variables, and evaluate expressions.</p>
+<ul>
+<li><p><strong>Setting Breakpoints</strong>: Set breakpoints at lines where you want execution to pause so you can inspect the state of your program.</p>
+</li>
+<li><p><strong>Stepping Through Code</strong>: Use the step commands to execute your code one line at a time.</p>
+</li>
+<li><p><strong>Inspecting Variables</strong>: Check the values of variables at different points in your code to ensure they contain the expected values.</p>
+</li>
+<li><p><strong>Continuing Execution</strong>: Continue running your code until the next breakpoint or end of the script.</p>
+</li>
+<li><p><strong>Quitting Debug Mode</strong>: Exit debug mode when you are finished debugging.</p>
+</li>
+</ul>
+<pre><code class="lang-matlab">% Example: MATLAB Debugger Usage
+
+% Set <span class="hljs-keyword">a</span> <span class="hljs-built_in">breakpoint</span> <span class="hljs-keyword">at</span> <span class="hljs-built_in">line</span> <span class="hljs-number">10</span> <span class="hljs-keyword">in</span> myFunction
+dbstop <span class="hljs-keyword">in</span> myFunction <span class="hljs-keyword">at</span> <span class="hljs-number">10</span>
+
+% Step <span class="hljs-built_in">to</span> <span class="hljs-keyword">the</span> next <span class="hljs-built_in">line</span> <span class="hljs-keyword">of</span> code
+dbstep
+
+% Display <span class="hljs-keyword">the</span> <span class="hljs-built_in">value</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">a</span> <span class="hljs-built_in">variable</span>
+disp(myVar)
+
+% Continue execution <span class="hljs-keyword">until</span> <span class="hljs-keyword">the</span> next <span class="hljs-built_in">breakpoint</span>
+dbcont
+
+% Exit debug mode
+dbquit
+</code></pre>
+<p><strong>Error Handling</strong></p>
+<p><strong>Try-Catch Blocks</strong>: Use <code>try-catch</code> blocks to catch and handle errors.</p>
+<pre><code class="lang-matlab"><span class="hljs-keyword">try</span>
+    <span class="hljs-comment">% Code that might cause an error</span>
+<span class="hljs-keyword">catch</span> ME
+    <span class="hljs-comment">% Code to handle the error</span>
+    <span class="hljs-built_in">disp</span>(ME.message);
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p><strong>Diagnostic Functions</strong></p>
+<ul>
+<li><p><strong>disp() and fprintf()</strong>: Use these functions to print variable values and messages to the Command Window for tracking the flow of your program.</p>
+</li>
+<li><p><strong>assert()</strong>: Use assertions to check for conditions that must be true at certain points in your program.</p>
+</li>
+</ul>
+<pre><code class="lang-matlab">disp('Debugging message')<span class="hljs-comment">;</span>
+fprintf('The value of x is: %d\n', x)<span class="hljs-comment">;</span>
+assert(<span class="hljs-name">x</span> &gt; <span class="hljs-number">0</span>, 'x must be positive')<span class="hljs-comment">;</span>
+</code></pre>
+<h4 id="best-practices">Best Practices</h4>
+<ol>
+<li><strong>Incremental Development</strong>: Develop your code in small, testable increments. Test each increment thoroughly before adding more functionality.</li>
+<li><strong>Unit Testing</strong>: Write unit tests for your functions to automatically verify their correctness.</li>
+<li><strong>Code Review</strong>: Have your code reviewed by peers to catch errors you might have missed.</li>
+</ol>						
+<h3 id="6e-command-cheat-sheeet">6e. Command Cheat Sheeet</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Loops and Conditionals</strong></td>
+</tr>
+<tr>
+<td><code>for</code></td>
+<td>Starts a for loop</td>
+</tr>
+<tr>
+<td><code>while</code></td>
+<td>Starts a while loop</td>
+</tr>
+<tr>
+<td><code>if</code></td>
+<td>Starts an if statement</td>
+</tr>
+<tr>
+<td><code>elseif</code></td>
+<td>Adds an else-if branch to an if statement</td>
+</tr>
+<tr>
+<td><code>else</code></td>
+<td>Adds an else branch to an if statement</td>
+</tr>
+<tr>
+<td><code>switch</code></td>
+<td>Starts a switch statement</td>
+</tr>
+<tr>
+<td><code>case</code></td>
+<td>Defines a case within a switch statement</td>
+</tr>
+<tr>
+<td><code>otherwise</code></td>
+<td>Defines the default case within a switch statement</td>
+</tr>
+<tr>
+<td><code>break</code></td>
+<td>Exits a for or while loop prematurely</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>Skips the remaining code in a loop iteration</td>
+</tr>
+<tr>
+<td><strong>Functions</strong></td>
+</tr>
+<tr>
+<td><code>function</code></td>
+<td>Defines a new function</td>
+</tr>
+<tr>
+<td><code>end</code></td>
+<td>Ends a function or control flow statement</td>
+</tr>
+<tr>
+<td><code>nargin</code></td>
+<td>Returns the number of function input arguments</td>
+</tr>
+<tr>
+<td><code>nargout</code></td>
+<td>Returns the number of function output arguments</td>
+</tr>
+<tr>
+<td><code>varargin</code></td>
+<td>Allows a variable number of input arguments</td>
+</tr>
+<tr>
+<td><code>varargout</code></td>
+<td>Allows a variable number of output arguments</td>
+</tr>
+<tr>
+<td><code>inputname</code></td>
+<td>Returns the name of an input argument as a string</td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>Exits a function</td>
+</tr>
+<tr>
+<td><strong>Troubleshooting</strong></td>
+</tr>
+<tr>
+<td><code>dbstop</code></td>
+<td>Sets a breakpoint</td>
+</tr>
+<tr>
+<td><code>dbclear</code></td>
+<td>Clears breakpoints</td>
+</tr>
+<tr>
+<td><code>dbstep</code></td>
+<td>Executes the next line or steps into a function</td>
+</tr>
+<tr>
+<td><code>dbcont</code></td>
+<td>Continues execution until the next breakpoint</td>
+</tr>
+<tr>
+<td><code>dbquit</code></td>
+<td>Exits debug mode</td>
+</tr>
+<tr>
+<td><code>disp</code></td>
+<td>Displays the value of a variable</td>
+</tr>
+<tr>
+<td><code>fprintf</code></td>
+<td>Prints formatted data to the Command Window</td>
+</tr>
+<tr>
+<td><code>assert</code></td>
+<td>Throws an error if a condition is not met</td>
+</tr>
+<tr>
+<td><code>try...catch</code></td>
+<td>Executes code and catches errors</td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td>Throws an error and displays a message</td>
+</tr>
+<tr>
+<td><code>warning</code></td>
+<td>Displays a warning message</td>
+</tr>
+<tr>
+<td><code>lastwarn</code></td>
+<td>Retrieves the last warning message</td>
+</tr>
+<tr>
+<td><code>lasterr</code></td>
+<td>Retrieves the last error message</td>
+</tr>
+<tr>
+<td><code>which</code></td>
+<td>Identifies the path of a function or file</td>
+</tr>
+</tbody>
+</table>						
+<h3 id="6f-suggested-tutorials">6f. Suggested Tutorials</h3>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=2">Lesson: Creating Informative Scripts</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-desktop-tools-and-troubleshooting-scripts/otmldts#module=3">Tutorial: Storytelling with Scripts</a></p>
+<p><a href="https://www.mathworks.com/matlabcentral/fileexchange/115905-programming-structuring-code">Tutorial: Structuring Code</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=14">Tutorial: Programming Constructs</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=15">Tutorial: Increasing Automation with Functions</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=16">Tutorial: Troubleshooting Code A</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/matlab-desktop-tools-and-troubleshooting-scripts/otmldts#module=4">Tutorial: Troubleshooting Code B</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/debugging-and-error-handling/otmldeh">Course: Debugging and Error Handling</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/the-how-and-why-of-writing-functions/otmlhwf">Course: The Why and How of Writing Functions</a></p>
+<p><a href="https://matlabacademy.mathworks.com/details/make-your-functions-user-friendly/otmlfuf">Course: Make Your Functions User Friendly</a></p>
+<h3 id="6g-supplemental-materials">6g. Supplemental Materials</h3>
+<p><a href="https://www.mathworks.com/support/search.html/videos/managing-code-in-matlab-functions-97215.html?fq%5B%5D=asset_type_name:video&amp;fq%5B%5D=category:matlab/programming-and-data-types&amp;page=1">Video: What are Functions in Matlab</a></p>
+<p><a href="https://www.youtube.com/watch?v=YTQI5hIl_r4&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=6">Video: Creating Functions in MATLAB</a></p>
+<p><a href="https://www.youtube.com/watch?v=Abgbu32XOh4&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=7">Video: Creating For Loops</a> </p>
+<p><a href="https://www.youtube.com/watch?v=aYfB4bI-9i8&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=9">Video: Stepping Into Functions</a></p>
+<p><a href="https://www.youtube.com/watch?v=_AnsdD5QNPE&amp;list=PLn0OLiymPak2HkkG-NToKdP7ye7NlpC8D&amp;index=10">Video: Common Programming Errors and their Solution</a></p>
+<p><a href="https://tutorialspoint.com/matlab/matlab_loops.htm">Live Demo: Loops</a></p>
+<p><a href="https://www.tutorialspoint.com/matlab/matlab_decisions.htm">Live Demo: Decision Making</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/scripts.html">Documentation: Scripts</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/functions.html?s_tid=CRUX_lftnav">Documentation: Functions</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/control-flow.html">Documentation: Loops and Conditional Statements</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/exception-handling.html">Documentation: Exception Handling</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/live-scripts-and-functions.html">Documentation: Live Scripts and Functions</a></p>
+<p><a href="https://www.mathworks.com/help/matlab/error-handling.html?s_tid=CRUX_lftnav">Documentation: Error Handling</a></p>
+<p><a href="https://andysbrainbook.readthedocs.io/en/latest/Matlab/Matlab_03_FunctionsPaths.html#functions">Andy&#39;s Brain Book: Paths and Functions</a></p>
+<p><a href="https://andysbrainbook.readthedocs.io/en/latest/Matlab/Matlab_04_ControlStructures.html">Andy&#39;s Brain Book: Control Structures</a></p>
+					</div>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
