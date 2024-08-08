@@ -401,7 +401,432 @@ display_comparison(
 </code></pre>
 							<img src="images/ct_python_2.png" alt="images output" style="width: 25%;"> 
 							<p>Now, one last step remains, which is Data Augmentation.</p>
+							<p><strong>6.3 Data Augmentation:</strong> In general, data augmentation artificially increases the size of the training dataset by applying random transformations. Image augmentation involves creating additional random transformations to existing images. This technique helps to artificially increase the size of the training dataset and introduces variety, which is particularly useful when working with smaller datasets. This helps the model generalize better by exposing it to a variety of modified images especially in small dataset like ours and reduces the risk of the model overfitting to the training data. Image Augmentation techniques include flipping, rotation, and color adjustments, which we will apply to our images in our training set only, because we need real-world images to test our model and we need to avoid that the neural network creates preferences to flipped or transformed images. So let's split our data first </p>
+							<h2>7. Splitting the Dataset</h2>
+							<p>We split our data into Training, Validation and Test portions.
+							Note: In our training process, we'll use both types of images:
+							
+							Non-Augmented Resized-Normalized Images: These provide the standard data our model needs to learn the core features of our images.
+							Augmented Resized-Normalized Images: These are modified versions with random transformations to increase data diversity, helping the model generalize better and avoid overfitting.</p>
+							<p><strong>7.1. Splitting into Training, Val and Test Sets:</strong>  The dataset is strictly class 1 until index 100 and then strictly class 0 afterwards, this indicates that dataset is likely not shuffled and is sorted by class labels in a specific order. This ordering can lead to biased splits if not handled correctly. Therefore we must shuffle the data before splitting.</p>
+<pre><code>
+# Define paths
+normalized_folder = '/kaggle/input/head-ct-hemorrhage/normalized_images/'
+train_folder = '/kaggle/input/head-ct-hemorrhage/train_images/'
+val_folder = '/kaggle/input/head-ct-hemorrhage/val_images/'
+test_folder = '/kaggle/input/head-ct-hemorrhage/test_images/'
 
+# Create directories
+os.makedirs(train_folder, exist_ok=True)
+os.makedirs(val_folder, exist_ok=True)
+os.makedirs(test_folder, exist_ok=True)
+
+# Shuffle the dataset
+shuffled_labels = shuffle(labels, random_state=42)   # The
+
+# Split the dataset
+train_df, temp_df = train_test_split(shuffled_labels, test_size=0.2, stratify=shuffled_labels['hemorrhage'])
+val_df, test_df = train_test_split(temp_df, test_size=0.5, stratify=temp_df['hemorrhage'])
+
+# Function to copy images to the new folders
+def copy_images(df, src_folder, dest_folder):
+    for _, row in df.iterrows():
+        src_path = os.path.join(src_folder, row['id'])
+        dest_path = os.path.join(dest_folder, row['id'])
+        shutil.copy(src_path, dest_path)
+
+# Copy images to their respective folders
+copy_images(train_df, normalized_folder, train_folder)
+copy_images(val_df, normalized_folder, val_folder)
+copy_images(test_df, normalized_folder, test_folder)
+
+# Print dataset split details
+total_samples = len(labels)
+train_samples = len(train_df)
+val_samples = len(val_df)
+test_samples = len(test_df)
+
+print(f'Total images: {total_samples}')
+print(f'Training set: {train_samples} images ({train_samples / total_samples * 100:.2f}%)')
+print(f'Validation set: {val_samples} images ({val_samples / total_samples * 100:.2f}%)')
+print(f'Test set: {test_samples} images ({test_samples / total_samples * 100:.2f}%)')
+</code></pre>
+<pre><code>
+# Verify class distribution
+print("Class distribution in train set:")
+print(train_df['hemorrhage'].value_counts())
+print("Class distribution in validation set:")
+print(val_df['hemorrhage'].value_counts())
+print("Class distribution in test set:")
+print(test_df['hemorrhage'].value_counts())
+</code></pre>
+							<p><strong>7.2. Organizing Images by Class</strong></p>
+<pre><code>
+def create_class_folders(src_folder, dest_folder, labels):
+    """
+    Create class subdirectories in the destination folder and copy images.
+    """
+    classes = labels['hemorrhage'].unique()
+    for cls in classes:
+        class_folder = os.path.join(dest_folder, str(cls))
+        os.makedirs(class_folder, exist_ok=True)
+
+    for _, row in labels.iterrows():
+        src_path = os.path.join(src_folder, row['id'])
+        dest_path = os.path.join(dest_folder, str(row['hemorrhage']), row['id'])
+        shutil.copy(src_path, dest_path)
+
+# Create class folders for training images
+create_class_folders('/kaggle/input/head-ct-hemorrhage/normalized_images/', train_folder, train_df)
+create_class_folders('/kaggle/input/head-ct-hemorrhage/normalized_images/', val_folder, val_df)
+create_class_folders('/kaggle/input/head-ct-hemorrhage/normalized_images/', test_folder, test_df)
+</code></pre>
+						<p><strong>7.3.Apply Augmentation to Training and validation sets</strong></p>
+<pre><code>
+# Define augmentation transformations
+augmentation_transform = transforms.Compose([
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomVerticalFlip(),
+    transforms.RandomRotation(30),
+    transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2),
+    transforms.ToTensor()
+])
+
+# Define the augmented images folder paths
+augmented_train_folder = '/kaggle/input/head-ct-hemorrhage/augmented_train_images/'
+augmented_val_folder = '/kaggle/input/head-ct-hemorrhage/augmented_val_images/'
+
+# Ensure the augmented folders exist
+os.makedirs(augmented_train_folder, exist_ok=True)
+os.makedirs(augmented_val_folder, exist_ok=True)
+
+# Function to augment images and save them in class-specific folders
+def augment_images(image_folder, augmented_folder, labels):
+    for _, row in labels.iterrows():
+        img_name = row['id']
+        class_label = row['hemorrhage']
+        img_path = os.path.join(image_folder, img_name)
+
+        img = Image.open(img_path)
+        img_augmented = augmentation_transform(img)
+
+        # Create class-specific folder if it doesn't exist
+        class_folder = os.path.join(augmented_folder, str(class_label))
+        os.makedirs(class_folder, exist_ok=True)
+
+        # Convert tensor to PIL image and save
+        img_augmented_pil = transforms.ToPILImage()(img_augmented)
+        img_augmented_pil.save(os.path.join(class_folder, img_name))
+
+# Apply augmentation to the training and validation sets
+augment_images(train_folder, augmented_train_folder, train_df)
+augment_images(val_folder, augmented_val_folder, val_df)
+</code></pre>
+							<p>Now, lets's visualize a sample image and its augmented version.</p>
+<pre><code>
+def display_random_comparison(normalized_folder, augmented_folder, class_label):
+    """
+    Display a random sample image from the normalized set and its augmented version side by side.
+
+    Args:
+        normalized_folder (str): Path to the folder with normalized images.
+        augmented_folder (str): Path to the folder with augmented images.
+        class_label (int): The class label (subfolder) for the augmented images.
+    """
+    # Get a list of files in the normalized folder
+    image_filenames = [f for f in os.listdir(normalized_folder) if f.endswith('.png')]
+
+    # Filter to include only images that have an augmented version
+    valid_filenames = [
+        f for f in image_filenames
+        if os.path.exists(os.path.join(augmented_folder, str(class_label), f))
+    ]
+
+    if not valid_filenames:
+        print(f"No images with augmented versions found in class {class_label}.")
+        return
+
+    # Choose a random valid image
+    sample_image_filename = random.choice(valid_filenames)
+
+    # Define paths to the sample images
+    normalized_image_path = os.path.join(normalized_folder, sample_image_filename)
+    augmented_image_path = os.path.join(augmented_folder, str(class_label), sample_image_filename)
+
+    # Load the images
+    img_normalized = Image.open(normalized_image_path)
+    img_augmented = Image.open(augmented_image_path)
+
+    # Convert the augmented image to a tensor for display
+    img_augmented_tensor = transforms.ToTensor()(img_augmented)
+
+    # Display the images side by side
+    plt.figure(figsize=(12, 6))
+
+    # Display the normalized image
+    plt.subplot(1, 2, 1)
+    plt.imshow(img_normalized)
+    plt.title('Normalized Image')
+    plt.axis('off')
+
+    # Display the augmented image
+    plt.subplot(1, 2, 2)
+    plt.imshow(img_augmented_tensor.permute(1, 2, 0))  # Convert tensor to image for visualization
+    plt.title('Augmented Image')
+    plt.axis('off')
+
+    plt.show()
+
+# Example usage
+display_random_comparison(
+    normalized_folder='/kaggle/input/head-ct-hemorrhage/normalized_images/',  # Path to normalized images
+    augmented_folder='/kaggle/input/head-ct-hemorrhage/augmented_train_images/',  # Path to augmented images (training set)
+    class_label=0  # Adjust based on the class label in the augmented folder
+)
+</code></pre>
+							<img src="images/ct_python_3.png" alt="images output" style="width: 25%;">
+							<p>Finally, we define the path to the Image Folders for later feed into the neural network.</p>
+<pre><code>
+# Define the paths to the datasets
+test_folder = '/kaggle/input/head-ct-hemorrhage/test_images/'  # Test data remains the same
+
+# List contents of the directories
+print("Augmented Training folder contents:", os.listdir(augmented_train_folder))
+print("Augmented Validation folder contents:", os.listdir(augmented_val_folder))
+print("Test folder contents:", os.listdir(test_folder))
+</code></pre>
+<pre><code>
+# Confirm strucutre of our folders and data split
+
+def print_folder_structure(folder_path):
+    for root, dirs, files in os.walk(folder_path):
+        print(f'Root: {root}')
+        print(f'Dirs: {dirs}')
+        print(f'Files: {files}')
+
+print_folder_structure(augmented_train_folder)
+print_folder_structure(augmented_val_folder)
+</code></pre>							
+							<h2>8. Building the Neural Network Model</h2>
+							<p>A CNN typically consists of:
+								Convolutional Layers: These layers apply convolutions to the input image to extract features.
+								Activation Functions: Functions like ReLU introduce non-linearity.
+								Pooling Layers: These layers down-sample the feature maps.
+								Fully Connected Layers: These layers classify the features extracted by the convolutional layers.</p>
+							<p><strong>8.2. Model Definition</strong></p>
+<pre><code>
+from torchsummary import summary
+
+class SimpleCNN(nn.Module):
+    def __init__(self):
+        super(SimpleCNN, self).__init__()
+        # Convolutional Layer 1
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=1, padding=1)
+        # Convolutional Layer 2
+        self.conv2 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, stride=1, padding=1)
+        # Fully Connected Layer 1
+        self.fc1 = nn.Linear(64 * 56 * 56, 128)  # Ensure this matches the flattened size after convolutions
+        # Fully Connected Layer 2
+        self.fc2 = nn.Linear(128, 2)  # Output layer for binary classification (e.g., hemorrhage vs. no hemorrhage)
+
+    def forward(self, x):
+        # Apply convolutional layers with ReLU activation and max pooling
+        x = torch.relu(self.conv1(x))
+        x = torch.max_pool2d(x, kernel_size=2, stride=2)
+        x = torch.relu(self.conv2(x))
+        x = torch.max_pool2d(x, kernel_size=2, stride=2)
+        # Flatten the tensor for the fully connected layer
+        x = x.view(-1, 64 * 56 * 56)  # Flattening the tensor, ensure input size is consistent with conv output
+        x = torch.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+
+# Define device
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(f"Device detected: {device}")
+
+# Instantiate your model and move it to the device
+model = SimpleCNN().to(device)
+
+# Print the model summary
+summary(model, input_size=(3, 224, 224))  # Check that input size is correct
+</code></pre>
+							<p><strong>8.2. Loaders:</strong>After we have built our CNN architecture, we’ll prepare the dataset by creating data loaders. Data loaders are essential for efficiently loading and processing batches of data during training, validation, and testing. They handle the details of batching, shuffling, and parallel data loading.</p>
+<pre><code>
+# Define transformations for preprocessing
+transform = transforms.Compose([
+    transforms.ToTensor()  # Only convert to tensor, as resizing, normalization, and augmentation are already done
+])
+
+# Load datasets from the augmented folders
+train_dataset = datasets.ImageFolder(root=augmented_train_folder, transform=transform)
+val_dataset = datasets.ImageFolder(root=augmented_val_folder, transform=transform)
+test_dataset = datasets.ImageFolder(root=test_folder, transform=transform)
+
+# Create DataLoader for batching
+train_loader = DataLoader(dataset=train_dataset, batch_size=64, shuffle=True)
+val_loader = DataLoader(dataset=val_dataset, batch_size=64, shuffle=False)
+test_loader = DataLoader(dataset=test_dataset, batch_size=64, shuffle=False)
+</code></pre>
+							<p><strong>8.3. Set Up the Training Process</strong>:</p>
+<pre><code>
+# Initialize the network
+model = SimpleCNN()
+
+# Define loss function
+criterion = nn.CrossEntropyLoss()
+
+# Define optimizer
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+</code></pre>			
+							<h2>9. Train and Validate the Model</h2>
+							<p>We now Write the training loop to train the model with the training data.</p>
+<pre><code>
+# Lists to store loss values for plotting
+train_losses = []
+val_losses = []
+all_preds = []
+all_labels = []
+all_images = []  # Assuming you have images for visualization
+
+num_epochs = 50
+
+for epoch in range(num_epochs):
+    model.train()  # Set the model to training mode
+    running_loss = 0.0
+    correct_train = 0
+    total_train = 0
+
+    for images, labels in train_loader:
+        # Move data to device
+        images, labels = images.to(device), labels.to(device)
+
+        # Forward pass
+        outputs = model(images)
+        loss = criterion(outputs, labels)
+
+        # Backward pass and optimization
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        running_loss += loss.item()
+
+        # Calculate training accuracy
+        _, predicted = torch.max(outputs.data, 1)
+        total_train += labels.size(0)
+        correct_train += (predicted == labels).sum().item()
+
+    # Calculate average training loss and accuracy for this epoch
+    avg_train_loss = running_loss / len(train_loader)
+    train_accuracy = 100 * correct_train / total_train
+
+    # Validation loop
+    model.eval()  # Set the model to evaluation mode
+    running_val_loss = 0.0
+    correct_val = 0
+    total_val = 0
+
+    with torch.no_grad():  # No need to calculate gradients during validation
+        for images, labels in val_loader:
+            # Move data to device
+            images, labels = images.to(device), labels.to(device)
+
+            outputs = model(images)
+            loss = criterion(outputs, labels)
+
+            running_val_loss += loss.item()
+
+            # Calculate validation accuracy
+            _, predicted = torch.max(outputs.data, 1)
+            total_val += labels.size(0)
+            correct_val += (predicted == labels).sum().item()
+
+            # Collect predictions and labels for confusion matrix
+            all_preds.extend(predicted.cpu().numpy())
+            all_labels.extend(labels.cpu().numpy())
+            all_images.extend(images.cpu().numpy())  # Collect images for visualization
+
+    # Calculate average validation loss and accuracy
+    avg_val_loss = running_val_loss / len(val_loader)
+    val_accuracy = 100 * correct_val / total_val
+
+    # Append losses for plotting
+    train_losses.append(avg_train_loss)
+    val_losses.append(avg_val_loss)
+
+    # Print epoch results in one line
+    print(f'Epoch [{epoch+1}/{num_epochs}] | '
+          f'Training Loss: {avg_train_loss:.4f} | '
+          f'Training Accuracy: {train_accuracy:.2f}% | '
+          f'Validation Loss: {avg_val_loss:.4f} | '
+          f'Validation Accuracy: {val_accuracy:.2f}%')
+</code></pre>						
+							<h2>10. Visualize Model Performance</h2>
+							<p>Now let's see how well or bad our NN model is performing.</p>
+							<p><strong>10.1. Loss Plot:</strong> Plotting the Training and validation loss. Examining this plot will help us detect over- or underfitting.</p>
+<pre><code>
+# Plot training loss and validation loss
+plt.figure(figsize=(12, 6))
+plt.plot(range(1, num_epochs + 1), train_losses, label='Training Loss')
+plt.plot(range(1, num_epochs + 1), val_losses, label='Validation Loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.title('Training and Validation Loss')
+plt.legend()
+plt.grid(True)
+plt.show()
+</code></pre>						
+							<img src="images/ct_python_4.png" alt="images output" style="width: 25%;">
+							<p>Here we notice that the model is overfitting. The model's overfitting, indicated by significantly higher validation loss compared to training loss, could stem from several factors: a small or imbalanced dataset that leads to memorization rather than generalization, an overly complex model architecture, inadequate regularization techniques, or insufficient data augmentation. Additionally, training for too many epochs or having noisy training data can exacerbate overfitting. To address this, we shall consider increasing the dataset size, applying regularization, simplifying the model, using early stopping, and enhancing data augmentation to improve the model's generalization capabilities. These would be subjects of a complementary tutorial.</p>
+							<p><strong>10.2.Sample Ground Truth Images and their Predicted Classes:</strong> Also let's visualize sample CT images and their predicted class as well as the confusion Martix.</p>
+<pre><code>
+# Determine the number of correct and incorrect images to display
+num_images = 10  # Number of images to display
+num_correct_images = num_images // 2
+num_incorrect_images = num_images - num_correct_images
+
+# Collecting correct and incorrect images
+correct_images = [(img, pred, actual) for img, pred, actual in zip(all_images, all_preds, all_labels) if pred == actual]
+incorrect_images = [(img, pred, actual) for img, pred, actual in zip(all_images, all_preds, all_labels) if pred != actual]
+
+# Ensure there are enough images to display
+correct_images = correct_images[:num_correct_images]
+incorrect_images = incorrect_images[:num_incorrect_images]
+
+# Combine and shuffle images
+selected_images = correct_images + incorrect_images
+np.random.shuffle(selected_images)
+
+# Plot images
+plt.figure(figsize=(20, 10))
+for i, (img, pred, actual) in enumerate(selected_images):
+    plt.subplot(2, num_images // 2, i + 1)
+    img = img.transpose(1, 2, 0)  # Convert from (C, H, W) to (H, W, C)
+    plt.imshow(img)
+    plt.axis('off')
+    title_color = 'red' if pred != actual else 'black'
+    plt.title(f"Actual: {actual}\nPred: {pred}", color=title_color)
+plt.show()
+</code></pre>						
+							<img src="images/ct_python_5.png" alt="images output" style="width: 25%;">
+<pre><code>
+# Compute confusion matrix
+conf_matrix = confusion_matrix(all_labels, all_preds)
+
+# Plot confusion matrix
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues',
+            xticklabels=['Class 0', 'Class 1'], yticklabels=['Class 0', 'Class 1'])
+plt.xlabel('Predicted Label')
+plt.ylabel('True Label')
+plt.title('Confusion Matrix')
+plt.show()
+</code></pre>
+							<img src="images/ct_python_6.png" alt="images output" style="width: 25%;">
+						
+
+							
 						</div>
 					</div>
 
