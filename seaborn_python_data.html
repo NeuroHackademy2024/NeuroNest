@@ -51,10 +51,163 @@
 					<div id="main">
 						<div class="inner">
 							<h1>Generic Page</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<body>
+
+    <h1>Welcome to the NeuroNest tutorial on the Seaborn library for data visualization!</h1>
+    <p><strong>Tutorial time</strong>: 40 min</p>
+    <p>In this notebook, we will cover the Seaborn library for data visualization in Python. If you are a complete beginner in Python, we recommend looking at the tutorials for Pandas and Matplotlib first. We will cover some examples for frequently used plots in neuroscience. If you do not find the plot example that you're looking for, you can find links to more resources at the end of this tutorial.</p>
+    <p>For this tutorial, we will use parts of a dataset from OpenNeuro. The file we will be working with as well as variable descriptions can be found here: <a href="https://github.com/OpenNeuroDatasets/ds000201/blob/master">OpenNeuro Dataset</a>.</p>
+    <p><em>(Gustav Nilsonne and Sandra Tamm and Paolo d’Onofrio and Hanna Å Thuné and Johanna Schwarz and Catharina Lavebratt and Jia Jia Liu and Kristoffer NT Månsson and Tina Sundelin and John Axelsson and Peter Fransson and Göran Kecklund and Håkan Fischer and Mats Lekander and Torbjörn Åkerstedt (2020). The Stockholm Sleepy Brain Study: Effects of Sleep Deprivation on Cognitive and Emotional Processing in Young and Old. OpenNeuro. [Dataset] doi: 10.18112/openneuro.ds000201.v1.0.3)</em></p>
+
+    <h2>Tutorial structure:</h2>
+    <ol>
+        <li>What is Seaborn?</li>
+        <li>Download data</li>
+        <li>Check and adjust data</li>
+        <li>Plotting examples
+            <ul>
+                <li>Barplots</li>
+                <li>Violin Plots</li>
+                <li>Boxplots</li>
+                <li>Correlational Heatmaps</li>
+                <li>Regression Plots (here: logistic regression model)</li>
+            </ul>
+        </li>
+        <li>Further resources</li>
+    </ol>
+
+    <h2>1. What is Seaborn?</h2>
+    <p>Seaborn is used for creating graphs and plots in Python. It builds on top of matplotlib and integrates closely with pandas data structures. It follows the same principles as matplotlib, but it comes with pre-built functions that let you create visually pleasing graphs in a single call.</p>
+    <p>Let's start!</p>
+    <pre><code>%matplotlib inline</code></pre>
+
+    <h2>2. Download data</h2>
+    <p>Run this code section to download the data we are using.</p>
+    <pre><code># Install necessary library for accessing the data
+!pip install awscli &gt; /dev/null 2&gt;&1
+
+# Download file
+!aws s3 cp --no-sign-request s3://openneuro.org/ds000201/participants.tsv participants.tsv</code></pre>
+
+    <h2>3. Check and adjust data</h2>
+    <p>Let's import seaborn, pandas, and numpy, and see if we can access our data:</p>
+    <pre><code>import seaborn as sns
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# If you use google colab or jupyter notebooks, this makes plotting more stable
+plt.ioff() # If you do not use jupyter or collab, leave this out
+
+# Read the data
+file_path = 'participants.tsv'
+subjects = pd.read_csv(file_path, sep='\t')
+
+# We can look at the first few rows of our data to make sure it was loaded correctly:
+subjects.head()</code></pre>
+    <p>That looks good, however, there is one problem: If you have a closer look at the data, you will see that commas are used for the notation of decimal numbers. Python will not understand these as floats, but as strings. To be able to create proper figures, we need to change the commas to dots in the dataset, and then convert these columns to numeric.</p>
+    <p><strong>Note:</strong> You do not need to understand this part, just know that the outcome of the first line gives us a list of the columns that contain commas in their notations.<br>
+    First, we find which columns contain commas in their values: we use lambda functions to create a boolean mask which tells us which columns contain a comma, and then use this mask to select them.</p>
+    <pre><code># Identify columns with commas
+# Look for columns that contain any comma
+columns_with_commas = subjects.columns[subjects.apply(lambda col: col.astype(str).str.contains(',').any())]
+
+# Replace commas with dots in those columns
+subjects[columns_with_commas] = subjects[columns_with_commas].replace(',', '.', regex=True)
+
+# Convert columns to numeric
+subjects[columns_with_commas] = subjects[columns_with_commas].apply(pd.to_numeric, errors='coerce')
+
+# Display the DataFrame to verify changes
+subjects.head()</code></pre>
+    <p>Great! Now let's start with our first plot.</p>
+
+    <h2>4. Plotting examples</h2>
+    <p>Seaborn provides different plotting functions that are named after the plot you want to create, and are usually self-explanatory.</p>
+    <p>How about we draw a simple bar plot to compare the baseline BMI of people between sex:</p>
+    <pre><code># Create the figure
+fig, ax = plt.subplots(figsize=(5, 6)) #You can play around with the figsize numbers to adjust your figure size
+
+# Fill the axes with the barplot
+sns.barplot(data = subjects, x='Sex', y='BMI1', errorbar='se', hue = 'Sex', ax=ax, palette = 'pastel')
+
+# Add figure details
+ax.set_title('Baseline Body Mass Index') # set a title
+ax.set_xlabel('Gender') # change the x axis label to Gender
+ax.set_ylabel('BMI') # change the y axis label to BMI
+
+# Display the figure
+plt.show(fig)</code></pre>
+    <p>In this example, we used standard errors as error bars (<code>errorbar='se'</code>). You can change the error bars to 'ci' (confidence interval), 'pi' (percentile interval), or 'sd' (standard deviation) in the sns.barplot function. <a href="https://seaborn.pydata.org/tutorial/error_bars.html">More information about error bars in the seaborn plots can be found here.</a></p>
+    <p>You can also change the color palette (we chose 'pastel'). <a href="https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette">Here</a> you will find examples of seaborn color palettes.</p>
+
+    <p>Instead of a bar plot, we could have used ...</p>
+    <pre><code># a violin plot ...
+fig2, ax2 = plt.subplots(figsize=(5, 6))
+sns.violinplot(data = subjects, x='Sex', y='BMI1', hue = 'Sex', ax=ax2, palette = 'pastel')
+ax2.set_title('Baseline Body Mass Index')
+ax2.set_xlabel('Gender')
+ax2.set_ylabel('BMI')
+plt.show(fig2)
+
+# ... or a boxplot.
+fig3, ax3 = plt.subplots(figsize=(5, 6))
+sns.boxplot(data = subjects, x='Sex', y='BMI1', hue = 'Sex', ax=ax3, palette = 'pastel')
+ax3.set_title('Baseline Body Mass Index')
+ax3.set_xlabel('Gender')
+ax3.set_ylabel('BMI')
+plt.show(fig3)</code></pre>
+    <p>Beyond purely descriptive statistical data visualization of your sample, seaborn can also help you visualize e.g. correlations. Let's say you want to visualize the relationship between the Big 5 Inventory personality traits in the sample:</p>
+    <pre><code># Choose the columns you need
+correlation_matrix = subjects.loc[:, ['BFI_Extraversion', 'BFI_Agreeableness', 'BFI_Conscientiousness', 'BFI_Neuroticism', 'BFI_Openness']]
+
+# Create a heatmap of the correlations across all those indices
+fig4, ax4 = plt.subplots(figsize=(6, 5))
+sns.heatmap(data = correlation_matrix.corr(), ax=ax4)
+ax4.set_title('Correlation Matrix')
+plt.show(fig4)</code></pre>
+    <p>For a diagonal heatmap (that doesn't show the rather redundant upper part of the correlational matrix), we can create a mask to hide the upper part, and include it into the heatmap figure. Also, we want to change the color palette of the heatmap to coolwarm, and add the individual correlation annotations into the figure. Further documentation on how to create and alter correlational matrices can be found <a href="https://seaborn.pydata.org/examples/many_pairwise_correlations.html#">here</a>.</p>
+    <pre><code># Create a mask (upper triangle)
+mask = np.triu(np.ones_like(correlation_matrix.corr(), dtype=bool))
+
+# Create the figure
+fig5, ax5 = plt.subplots(figsize=(6, 5))
+sns.heatmap(data = correlation_matrix.corr(), ax=ax5, mask=mask, annot = True, cmap='coolwarm') # we added the annotation and the new color palette here
+ax5.set_title('Diagonal Correlation Matrix')
+plt.show(fig5)</code></pre>
+    <p>Seaborn can furthermore visualize e.g. regression models. Here, we will try and predict the baseline BMI with the age group of the participants. In our dataset, age is coded categorically in 'Young' and 'Old', hence we will fit a logistic regression model. Before we can do that, we need to first turn the categorical 'AgeGroup' string values ('Young' and 'Old') into categorical numeric values (we'll take 0 and 1).</p>
+    <pre><code># Map the categorical 'AgeGroup' values to numeric
+subjects['Age_numeric'] = subjects['AgeGroup'].map({'Young': 0, 'Old': 1})
+
+# Now plot the logistic regression with the numeric age column
+g = sns.lmplot(data=subjects, x='BMI1', y='Age_numeric', logistic=True, height=6, aspect=1)
+
+plt.title('Logistic Regression: Age Group as predictor for BMI')
+plt.xlabel('BMI')
+plt.ylabel('Age Group')
+
+# We don't want our y-axis to show the numeric values that we had to put into the regression function, but the original 'young' and 'old' categories.
+ax6 = g.ax  # Get the underlying axes object
+# Set the y-ticks and y-tick labels
+ax6.set_yticks([0, 1])  # Specify where the ticks should appear
+ax6.set_yticklabels(['Young', 'Old'])  # Set the labels for these ticks
+
+# Show the plot
+plt.show()</code></pre>
+    <p>The shaded area in the final plot represents the 95% confidence interval derived from the regression model.</p>
+    <p><strong>There are many more types of plots that you can use the seaborn library for.</strong></p>
+    <p><em>Here you can find useful resources for some of them:</em></p>
+    <ul>
+        <li><a href="https://seaborn.pydata.org/examples/multiple_regression.html#multiple-linear-regression">Multiple linear regression</a> and <a href="https://seaborn.pydata.org/tutorial/regression.html">estimating regression fits</a></li>
+        <li><a href="https://seaborn.pydata.org/examples/scatterplot_categorical.html">Swarmplots (scatterplots with categorical variables)</a></li>
+        <li><a href="https://seaborn.pydata.org/examples/pointplot_anova.html">ANOVA plotting</a></li>
+        <li><a href="https://seaborn.pydata.org/examples/">And many more</a></li>
+    </ul>
+    <p><em>Resources used to create this tutorial:</em></p>
+    <p>Seaborn documentation: <a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></p>
+    <p>Parts of this tutorial were based on the data visualization tutorial of Kelly Chang: <a href="https://github.com/NeuroHackademy2024/curriculum/tree/main/chang-visualization">Kelly Chang Data Visualization Tutorial</a></p>
+
+</body>
 						</div>
 					</div>
 
