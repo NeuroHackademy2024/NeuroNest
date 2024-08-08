@@ -55,7 +55,7 @@
 							<h2 id="tutorial-overview-">Tutorial Overview:</h2>
 								<p><em>Tutorial time</em>: approximately 70 min</p>
 								<p>In this tutorial, our objective is to build a neural network using PyTorch to classify CT brain images as either normal or having a hemorrhage. We will cover the entire process from data preprocessing to model evaluation.</p>
-								<p>If you prefer an interactive tutorial, please see our <a href="https://colab.research.google.com/drive/1YQe8rqhup-_ihQJeAmzNhdOqP6ZTHiya?usp=sharing#scrollTo=-fYsSG8v71NH">Google Collab version</a>.</p>
+								<p>If you prefer an interactive tutorial, please see our <a href="https://colab.research.google.com/drive/1YQe8rqhup-_ihQJeAmzNhdOqP6ZTHiya?usp=sharing#scrollTo=-fYsSG8v71NH">Google Colab version</a>.</p>
 							<h3 id="objectives-">Objectives:</h3>
 								<ol>
 								<li><strong>Introduction and Setup</strong></li>
@@ -72,14 +72,16 @@
 								<p><strong>Let's get started!</strong></p>
 							<h2 id="1-introduction-and-setup">1. Introduction and Setup</h2>
 								<p>CT imaging, or Computed Tomography imaging, uses X-rays to create detailed pictures of the inside of the body. It is crucial in medical diagnostics for detecting conditions such as tumors, fractures, and hemorrhages. <a href="ct_info.html">Read more about CT neuroimaging here.</a></p>
-								<p>In this tutorial, we will cover several fundamental concepts that are essential for processing and visualizing CT brain images as well as building a neural network. we will walk through each step of building a neural network to classify CT brain images as either normal (labeled 0) or having a hemorrhage (labeled 1). By the end of this tutorial, you should have a solid understanding of how to preprocess the data, build, and evaluate a neural network model using PyTorch.</p>
+								<p>In this tutorial, we will cover several fundamental concepts that are essential for processing and visualizing CT brain images in Python, as well as building a neural network. We will walk through each step to classify CT brain images as either normal (labeled 0) or having a hemorrhage (labeled 1). By the end of this tutorial, you should have a solid understanding of how to preprocess the data, build, and evaluate a neural network model using PyTorch.</p>
+								<p>For more information about how to install, access, or code in Python, visit <a href="python_data.html">NeuroNest's Python Tutorial</a>.</p>
 							<h3 id="dataset-">Dataset:</h3>
 								<p>We will use a dataset from Kaggle. It can be found at:
 								<a href="https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage">https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage</a></p>
+								<p></p>
 							<h2 id="2-importing-required-libraries">2. Importing Required Libraries</h3>
 								<p>To build our neural network, we&#39;ll need several Python and PyTorch libraries. These libraries will help with data manipulation, model building, and visualization.</p>
 <pre><code>
-<strong>Import essential libraries for building a Neural Network using Pytorch</strong>
+<strong># Import essential libraries for building a Neural Network using Pytorch</strong>
 <p>import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -92,14 +94,78 @@ import random
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix</p>
-<p><strong>Additional libraries for data handling and visualization</strong></p>
-<p>import numpy as np
+<p><strong># Additional libraries for data handling and visualization</strong>
+import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 %matplotlib inline
 from PIL import Image</p>
 </code></pre>
+							<h2>3. Downloading the Data</h2>
+							<p>We now download our CT Brain Imaging dataset. Either download from Kaggle at <a href="https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage">https://www.kaggle.com/datasets/felipekitamura/head-ct-hemorrhage</a></p>or run the code below to use the Kaggle API to automatically download and extract the dataset.</p>
+<pre><code>
+<p>IMPORTANT: RUN THIS CELL IN ORDER TO IMPORT YOUR KAGGLE DATA SOURCES TO THE CORRECT LOCATION (/kaggle/input) IN YOUR NOTEBOOK.</p>
+<p>NOTE: THIS NOTEBOOK ENVIRONMENT DIFFERS FROM KAGGLE&#39;S PYTHON ENVIRONMENT SO THERE MAY BE MISSING LIBRARIES USED BY YOUR NOTEBOOK.</p>
+<p>import os
+import sys
+from tempfile import NamedTemporaryFile
+from urllib.request import urlopen
+from urllib.parse import unquote, urlparse
+from urllib.error import HTTPError
+from zipfile import ZipFile
+import tarfile
+import shutil</p>
+<p>CHUNK_SIZE = 40960
+DATA_SOURCE_MAPPING = &#39;head-ct-hemorrhage:https%3A%2F%2Fstorage.googleapis.com%2Fkaggle-data-sets%2F71215%2F152137%2Fbundle%2Farchive.zip%3FX-Goog-Algorithm%3DGOOG4-RSA-SHA256%26X-Goog-Credential%3Dgcp-kaggle-com%2540kaggle-161607.iam.gserviceaccount.com%252F20240807%252Fauto%252Fstorage%252Fgoog4_request%26X-Goog-Date%3D20240807T171722Z%26X-Goog-Expires%3D259200%26X-Goog-SignedHeaders%3Dhost%26X-Goog-Signature%3D4cfcf43a51e3ca0216a816401c6a9ead19272a4e62a33ee3ae3d4315eb4f6eb1822cba8fc13ac00113bbc390a84a3cda5ce0b6faddb2740af90e5cb916dfc6fe81f546e55803c4f74b75d95db4b64a2e0cc77f6820c062c5ccfca7a8404cd851eb66a7c89fa26a97ebf23b82ce8c1141d9ee2b2f1e48f297d299efd306776e3fb6bb49381126c0f7c5a9c26f26c2020efcea9f05b4a5625d2bcbf1f2c54c542692184d2140118c7e988c0e18734f5a128891c2845aa2814067cb6253c95309bcfcc255dc0add78794f789ff063f7f46b291c48f3161789aea3de080cf09e2f54631cbc58d788711f19cb76dab1b9424d58b31825e7f4becac5ed4ed8e2ff389a&#39;</p>
+<p>KAGGLE_INPUT_PATH=&#39;/kaggle/input&#39;
+KAGGLE_WORKING_PATH=&#39;/kaggle/working&#39;
+KAGGLE_SYMLINK=&#39;kaggle&#39;</p>
+<p>!umount /kaggle/input/ 2&gt; /dev/null
+shutil.rmtree(&#39;/kaggle/input&#39;, ignore_errors=True)
+os.makedirs(KAGGLE_INPUT_PATH, 0o777, exist_ok=True)
+os.makedirs(KAGGLE_WORKING_PATH, 0o777, exist_ok=True)</p>
+<p>try:
+  os.symlink(KAGGLE_INPUT_PATH, os.path.join(&quot;..&quot;, &#39;input&#39;), target_is_directory=True)
+except FileExistsError:
+  pass
+try:
+  os.symlink(KAGGLE_WORKING_PATH, os.path.join(&quot;..&quot;, &#39;working&#39;), target_is_directory=True)
+except FileExistsError:
+  pass</p>
+<p>for data_source_mapping in DATA_SOURCE_MAPPING.split(&#39;,&#39;):
+    directory, download_url_encoded = data_source_mapping.split(&#39;:&#39;)
+    download_url = unquote(download_url_encoded)
+    filename = urlparse(download_url).path
+    destination_path = os.path.join(KAGGLE_INPUT_PATH, directory)
+    try:
+	with urlopen(download_url) as fileres, NamedTemporaryFile() as tfile:
+	    total_length = fileres.headers[&#39;content-length&#39;]
+	    print(f&#39;Downloading {directory}, {total_length} bytes compressed&#39;)
+	    dl = 0
+	    data = fileres.read(CHUNK_SIZE)
+	    while len(data) &gt; 0:
+		dl += len(data)
+		tfile.write(data)
+		done = int(50 <em> dl / int(total_length))
+		sys.stdout.write(f&quot;\r[{&#39;=&#39; </em> done}{&#39; &#39; * (50-done)}] {dl} bytes downloaded&quot;)
+		sys.stdout.flush()
+		data = fileres.read(CHUNK_SIZE)
+	    if filename.endswith(&#39;.zip&#39;):
+	      with ZipFile(tfile) as zfile:
+		zfile.extractall(destination_path)
+	    else:
+	      with tarfile.open(tfile.name) as tarfile:
+		tarfile.extractall(destination_path)
+	    print(f&#39;\nDownloaded and uncompressed: {directory}&#39;)
+    except HTTPError as e:
+	print(f&#39;Failed to load (likely expired) {download_url} to path {destination_path}&#39;)
+	continue
+    except OSError as e:
+	print(f&#39;Failed to load {download_url} to path {destination_path}&#39;)
+	continue</p>
+<p>print(&#39;Data source import complete.&#39;)</p>
+</code></pre>							
 						</div>
 					</div>
 
