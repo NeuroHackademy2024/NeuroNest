@@ -1,1 +1,141 @@
 
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Python Neuroimaging</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+		<h1 id="python-for-neuroimaging">Neuroimaging Analysis in Python</h1>
+<p>Python is a powerful tool for neuroimaging research, offering a variety of libraries and frameworks that facilitate the handling, processing, analysis, and visualization of neuroimaging data. This section provides an overview of key tools and workflows in Python for neuroimaging, with a focus on fMRI preprocessing and quality control.</p>
+<h2 id="reading-and-writing-neuroimaging-data">Reading and Writing Neuroimaging Data</h2>
+<p>Neuroimaging data, often stored in formats such as NIfTI, can be read and manipulated using Python libraries. <a href="https://nipy.org/nibabel/"><strong>NiBabel</strong></a> is a core library for reading, writing, and manipulating neuroimaging data files. It provides access to various neuroimaging data formats, making it easier to integrate neuroimaging data into your Python workflows.</p>
+<h2 id="brain-imaging-data-structure-bids-">Brain Imaging Data Structure (BIDS)</h2>
+<p>The Brain Imaging Data Structure (BIDS) is a standard for organizing and sharing neuroimaging data. Python’s <a href="https://bids-standard.github.io/pybids/"><strong>PyBIDS</strong></a> library offers tools to handle and query datasets structured according to BIDS. This standardization allows researchers to streamline data analysis workflows and ensure that data is organized consistently across studies.</p>
+<ul>
+<li><a href="https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html">BIDS Overview - Andy’s Brain Book</a></li>
+<li><a href="https://bids-standard.github.io/pybids/introduction.html">PyBIDS Introduction</a></li>
+</ul>
+<h2 id="image-preprocessing-with-fmriprep">Image Preprocessing with fMRIPrep</h2>
+<p><a href="https://fmriprep.org/en/stable/"><strong>fMRIPrep</strong></a> is an essential tool in the neuroimaging community for preprocessing fMRI data. Built using Python, fMRIPrep automates the preprocessing pipeline, ensuring consistency and reproducibility across studies. It includes steps like skull-stripping, spatial normalization, and motion correction, producing results that are ready for statistical analysis.</p>
+<p>fMRIPrep is designed to be robust and user-friendly, handling a wide range of fMRI datasets with minimal manual intervention. Its outputs are standardized, making them easily integrable with other analysis tools in Python or neuroimaging software like FSL, SPM, or AFNI.</p>
+<h3 id="key-resources-for-fmriprep-">Key Resources for fMRIPrep:</h3>
+<ul>
+<li><a href="https://fmriprep.org/en/stable/">fMRIPrep Documentation</a></li>
+<li><a href="https://fmriprep.org/en/stable/usage.html">fMRIPrep Usage Guide</a></li>
+<li><a href="https://www.nipreps.org/niworkflows/master/installation.html">NiWorkflows - Installation</a></li>
+</ul>
+<h2 id="quality-control-with-mriqc">Quality Control with MRIQC</h2>
+<p><a href="https://mriqc.readthedocs.io/en/stable/"><strong>MRIQC</strong></a> is another Python-based tool that focuses on the quality control (QC) of MRI data. MRIQC provides a set of metrics to assess the quality of MRI images, helping researchers identify and exclude poor-quality data before analysis. This tool is crucial for ensuring that the data used in neuroimaging studies meets certain quality standards, reducing the risk of biased or erroneous results.</p>
+<p>MRIQC outputs can be used to create visual reports, making it easier to interpret the QC metrics and make informed decisions about data inclusion.</p>
+<h3 id="key-resources-for-mriqc-">Key Resources for MRIQC:</h3>
+<ul>
+<li><a href="https://mriqc.readthedocs.io/en/stable/">MRIQC Documentation</a></li>
+<li><a href="https://mriqc.readthedocs.io/en/stable/workflows.html">MRIQC Tutorial</a></li>
+</ul>
+<h2 id="integration-with-other-neuroimaging-tools">Integration with Other Neuroimaging Tools</h2>
+<p>Python can be seamlessly integrated with other specialized neuroimaging software, such as FSL, SPM, or AFNI, through libraries like <a href="https://nipype.readthedocs.io/en/latest/"><strong>Nipype</strong></a>. Nipype provides a uniform interface for running pipelines that involve multiple software packages, enabling complex workflows to be automated and easily replicated.</p>
+<h2 id="machine-learning-and-predictive-modeling">Machine Learning and Predictive Modeling</h2>
+<p>Python’s extensive libraries for machine learning and predictive modeling, such as <a href="https://scikit-learn.org/stable/"><strong>Scikit-learn</strong></a>, <a href="https://www.tensorflow.org/"><strong>TensorFlow</strong></a>, and <a href="https://pytorch.org/"><strong>PyTorch</strong></a>, are particularly valuable for neuroimaging research. These tools enable the application of machine learning algorithms to classify or predict cognitive states based on neuroimaging data.</p>
+<ul>
+<li><a href="https://neuroimaging-data-science.org/content/007-ml/002-sklearn.html">Machine Learning with Scikit-learn - Neuroimaging Data Science</a></li>
+</ul>
+<h2 id="visualization-of-brain-imaging-data">Visualization of Brain Imaging Data</h2>
+<p>Visualizing neuroimaging data is critical for understanding and presenting results. Python libraries like <a href="https://matplotlib.org/"><strong>Matplotlib</strong></a>, <a href="https://seaborn.pydata.org/"><strong>Seaborn</strong></a>, and <a href="https://plotly.com/python/"><strong>Plotly</strong></a> allow for creating detailed and interactive visualizations. For neuroimaging-specific visualization, <a href="https://nilearn.github.io/"><strong>Nilearn</strong></a> offers tools for visualizing statistical maps and connectomes.</p>
+<h2 id="resources-and-references">Resources and References</h2>
+<p>Explore the following resources to deepen your understanding of Python’s application in neuroimaging:</p>
+<ul>
+<li><a href="https://rpubs.com/sarenseeley/bids-fmriprep-mriqc">BIDS, fMRIPrep, MRIQC Overview</a></li>
+<li><a href="https://neuroimaging-data-science.org/content/005-nipy/002-nibabel.html">NiBabel Documentation</a></li>
+<li><a href="https://neuroimaging-data-science.org/content/006-image/002-segmentation.html">Image Segmentation - Neuroimaging Data Science</a></li>
+<li><a href="https://neuroimaging-data-science.org/content/006-image/003-registration.html">Neuroimaging Data Registration</a></li>
+<li><a href="https://www.nipreps.org/niworkflows/master/api.html">NiWorkflows API</a></li>
+</ul>
+<p>This page serves as an entry point to the powerful tools and libraries Python offers for neuroimaging research, guiding you through the essential steps of data handling, preprocessing, analysis, and visualization, with a particular emphasis on fMRIPrep and MRIQC.</p>
+
+						</div>
+					</div>
+				
+<!-- Place the bird image and text anywhere on the page -->
+    <div style="text-align: right; padding-right: 40px;">
+        <a href="python_data.html">
+            <img src="images/small_bird_arrow.png" alt="Next Page" style="width: 100px; height: 100px;">
+            <div style="font-size: 18px; margin-top: 10px;">Next Page</div>
+        </a>
+    </div>
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Funding</h2>
+								<p> We would like to express our heartfelt gratitude to <strong>Neurohackademy</strong> at the <strong>University of Washington eScience Institute</strong> for providing invaluable training and support. This experience has significantly enriched our understanding of neuroimaging and data science. We also acknowledge the support of the National Institute of Mental Health (NIMH) grant number <strong>5R25MH112480-08</strong>, which made this opportunity possible.</p>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://x.com/Neuro_Nest" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://github.com/NeuroHackademy2024/NeuroNest" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="mailto:sopkoc@umich.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
