@@ -1,1 +1,177 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Python Environment</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+<h1 id="python-environment-and-setup">Python Environment and Setup</h1>
+<p>Python can be accessed directly from your local computer or through cloud-based environments like Google Colab or Jupyter Notebook. To get started, you must install Python and set up an integrated development environment (IDE) or text editor.</p>
+<h2 id="python-installation">Python Installation</h2>
+<p>This section will guide you through the process of installing Python on your system. Python can be installed via several methods:</p>
+<ul>
+<li><strong>Anaconda</strong>: A popular distribution that includes Python and a variety of packages tailored for data science. Anaconda also provides a user-friendly interface for managing environments and packages.</li>
+<li><strong>Miniconda</strong>: A lightweight alternative to Anaconda that installs Python and the conda package manager, allowing you to install only the packages you need.</li>
+<li><strong>Python.org</strong>: You can directly download the official Python installer from <a href="https://www.python.org/downloads/">Python.org</a>. This method provides a more minimal setup but requires manual package management via pip.</li>
+</ul>
+<h2 id="python-file-types">Python File Types</h2>
+<p>Python uses various file types to handle different types of tasks:</p>
+<ul>
+<li><strong>.py</strong>: The standard Python script file containing executable code.</li>
+<li><strong>.ipynb</strong>: Jupyter Notebook files, which contain both code and rich text elements such as images and equations. These files are especially useful for data analysis and scientific research.</li>
+<li><strong>.json</strong>: A format commonly used for storing and exchanging data. JSON files are easy to read and write in Python, making them ideal for configuration files, data storage, and API responses.</li>
+</ul>
+<h2 id="importing-and-exporting-files">Importing and Exporting Files</h2>
+<p>Python provides powerful tools for importing and exporting data in various formats:</p>
+<ul>
+<li><strong>CSV Files</strong>: Python&#39;s <code>csv</code> module or <code>pandas</code> library makes it easy to read from and write to CSV files.</li>
+<li><strong>Excel Files</strong>: The <code>pandas</code> library allows for seamless import and export of Excel files using its <code>read_excel</code> and <code>to_excel</code> functions.</li>
+<li><strong>JSON Files</strong>: Python’s <code>json</code> module enables reading and writing JSON files, a common format for structured data interchange.</li>
+</ul>
+<h2 id="working-with-python-environments">Working with Python Environments</h2>
+<h3 id="virtual-environments">Virtual Environments</h3>
+<p>Using virtual environments allows you to manage dependencies for your projects without affecting other projects.</p>
+<h3 id="package-management">Package Management</h3>
+<p>To install and manage packages, you can use pip, which is the standard package installer for Python.</p>
+<h2 id="interacting-with-python">Interacting with Python</h2>
+<ul>
+<li><p><strong>IDEs and Editors</strong>: There are various integrated development environments (IDEs) and text editors for writing Python code. Popular choices include:</p>
+<ul>
+<li><strong>Jupyter Notebook</strong>: Ideal for interactive data analysis and sharing.</li>
+<li><strong>Spyder</strong>: A scientific IDE with advanced editing, debugging, and introspection features.</li>
+<li><strong>VS Code</strong>: A lightweight yet powerful editor with extensive extensions for Python development.</li>
+</ul>
+</li>
+<li><p><strong>Command Line Interface</strong>: Basic Python commands can be executed directly in the terminal or command prompt, allowing for quick script execution and environment management.</p>
+</li>
+<li><p><strong>Version Control</strong>: Version control is crucial for managing changes in your code over time. Git, combined with GitHub, is a widely-used system for tracking changes, collaborating on code, and sharing projects.</p>
+</li>
+</ul>
+<h2 id="command-cheat-sheet">Command Cheat Sheet</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python --version</code></td>
+<td>Check Python version</td>
+</tr>
+<tr>
+<td><code>pip install package_name</code></td>
+<td>Install a package</td>
+</tr>
+<tr>
+<td><code>pip list</code></td>
+<td>List installed packages</td>
+</tr>
+<tr>
+<td><code>virtualenv env_name</code></td>
+<td>Create a virtual environment</td>
+</tr>
+<tr>
+<td><code>source env_name/bin/activate</code></td>
+<td>Activate virtual environment</td>
+</tr>
+<tr>
+<td><code>deactivate</code></td>
+<td>Deactivate virtual environment</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://neuroimaging-data-science.org/content/003-programming/001-python-language.html">Neuroimaging Data Science - Python Language Overview</a></li>
+<li><a href="https://github.com/rthorst/Introduction-to-Python-for-Scientific-Programming/blob/master/Programming%20Basics%201%20Installing%20Python/Programming%20Basics%201%20Introduction%20to%20Python.ipynb">Introduction to Python for Scientific Programming - Installing Python</a></li>
+</ul>
+						</div>
+					</div>
+				
+<!-- Place the bird image and text anywhere on the page -->
+    <div style="text-align: right; padding-right: 40px;">
+        <a href="python_elements.html">
+            <img src="images/small_bird_arrow.png" alt="Next Page" style="width: 100px; height: 100px;">
+            <div style="font-size: 18px; margin-top: 10px;">Next Page</div>
+        </a>
+    </div>
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Funding</h2>
+								<p> We would like to express our heartfelt gratitude to <strong>Neurohackademy</strong> at the <strong>University of Washington eScience Institute</strong> for providing invaluable training and support. This experience has significantly enriched our understanding of neuroimaging and data science. We also acknowledge the support of the National Institute of Mental Health (NIMH) grant number <strong>5R25MH112480-08</strong>, which made this opportunity possible.</p>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://x.com/Neuro_Nest" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://github.com/NeuroHackademy2024/NeuroNest" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="mailto:sopkoc@umich.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
 
