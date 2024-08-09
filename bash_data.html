@@ -61,7 +61,7 @@
 								<p>A “shell” is a program that provides a way for users to interact with the computer's operating system. Specifically, a shell's primary purpose is to read commands and run other programs. Shells can be a command-line interface (CLI) or a graphical user interface (GUI). The CLI allows users to type commands to run processes and manage the system, while the GUI provides a more visual approach. Bash is one of the most commonly used Unix/Linux shells.</p>
 							<h3>What is Unix?</h3>
 								<p>Unix is a powerful operating system known for its multitasking and multiuser capabilities. It provides a command-line interface and a scripting language, which allows users to automate tasks and manage complex workflows efficiently. Bash is often the default shell in many Unix-like systems, including Linux and MacOS, and is also available on Windows through tools like Git for Windows.</p>
-							<h2>2. Getting Started</h2>
+							<h2>2. Accessing the Command Line</h2>
 								<p>This tutorial will guide you through basic and advanced commands to help you get comfortable using the command line.</p>
 								To follow along with this tutorial, you will need a running version of Linux with access to the command line. If you do not already have the shell software installed, you will need to download and install it.
 								<ul>
@@ -74,111 +74,17 @@
 									<li><a href="https://swcarpentry.github.io/shell-novice/#install-software">Software Carpentry Installation Tutorial</a></li>
 									<li><a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">Carpentries Workshop Installation Instructions</a></li>
 								</ul>
+							<h2>Getting Started</h2>
 								<p>To get started, open the command line. You should see a prompt, which typically ends in a <code>$</code>, but can also end with <code>#</code>, <code>&gt;</code>, <code>%</code>, or <code>>>></code>. The prompt indicates that the shell is ready for input. This prompt is also called the “command line”. It should look something like this: </p>								
 <pre><code>$</code></pre>
 								<p>Your prompt might look different. Most shell environments put your user name and the host name before the prompt symbol. For example, your prompt might look like:									
 <pre><code>amordy@localhost $</code></pre>									
 								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. 
 									You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs. In some of the example code, you will see file and directory names in brackets (e.g., [username]). Text in brackets should be replaced with your own names.</p>   
+
 								<p>Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
-							<h2 id="keyboard-shortcuts-for-the-command-window">3. Keyboard Shortcuts for the Command Window</h2>
-							<p>Before we get started, here are some helpful tips for navigating the command window:</p>
-							<h3 id="for-windows-users">For Windows Users</h3>
-								<table>
-								<thead>
-								<tr>
-								<th>Shortcut</th>
-								<th>Description</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-								<td><code>Enter</code></td>
-								<td>Executes the command typed in the command line.</td>
-								</tr>
-								<tr>
-								<td><code>Backspace</code></td>
-								<td>Deletes the character to the left of the cursor.</td>
-								</tr>
-								<tr>
-								<td><code>Delete</code></td>
-								<td>Deletes the character at the cursor position.</td>
-								</tr>
-								<tr>
-								<td><code>Up Arrow</code></td>
-								<td>Scrolls up through command history.</td>
-								</tr>
-								<tr>
-								<td><code>Down Arrow</code></td>
-								<td>Scrolls down through command history.</td>
-								</tr>
-								<tr>
-								<td><code>Ctrl + L</code></td>
-								<td>Clears the screen, keeping command history. </td>
-								</tr>
-								<tr>
-								<td><code>Ctrl + C</code></td>
-								<td>Interrupts the current command or script.</td>
-								</tr>
-								<tr>
-								<td><code>Single Tab</code></td>
-								<td>Auto-completes commands and variable names based on partially typed text if there is a unique match.</td>
-								</tr>
-								<td><code>Double Tab</code></td>
-								<td>Lists all possible completions if there are multiple matches.</td>
-								</tr>
-								</tbody>
-								</table>
-							<h3 id="for-mac-users">For Mac Users</h3>
-								<table>
-								<thead>
-								<tr>
-								<th>Shortcut</th>
-								<th>Description</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr>
-								<td><code>Return</code></td>
-								<td>Executes the command typed in the command line.</td>
-								</tr>
-								<tr>
-								<td><code>Delete</code></td>
-								<td>Deletes the character to the left of the cursor.</td>
-								</tr>
-								<tr>
-								<td><code>Fn + Delete</code></td>
-								<td>Deletes the character to the right of the cursor.</td>
-								</tr>
-								<tr>
-								<td><code>Up Arrow</code></td>
-								<td>Scrolls up through command history.</td>
-								</tr>
-								<tr>
-								<td><code>Down Arrow</code></td>
-								<td>Scrolls down through command history.</td>
-								</tr>
-								<tr>
-								<td><code>Cmd + L</code></td>
-								<td>Clears the last executed command from the screen, keeping command history</td>
-								</tr>
-								<tr>
-								<td><code>Cmd + C</code></td>
-								<td>Interrupts the current command or script.</td>
-								</tr>
-								<tr>
-								<td><code>Shift + Return</code></td>
-								<td>Continues command entry onto the next line.</td>
-								</tr>
-								<tr>
-								<td><code>Single Tab</code></td>
-								<td>Auto-completes commands and variable names based on partially typed text if there is a unique match.</td>
-								</tr>
-								<td><code>Double Tab</code></td>
-								<td>Lists all possible completions if there are multiple matches.</td>
-								</tr>
-								</tbody>
-								</table>
+								<p>Here are some helpful tips for navigating the command window: <a href="bash_shortcuts.html">keyboard shortcuts</a></p>
+								
 							<h2 id="file-structure">2. File Structure</h2>
 								<p>Your computer organizes data in files and folders. Files can be placed in folders, which we call <strong>directories</strong>. Basically, a directory is a location in the file system that can contain files and other directories (subdirectories), creating a 'directory tree'. It's essentially a folder where files and other folders are organized.</p>
 								<p>At the top of the directory tree is the <strong>root directory"</strong>, which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).</p>
@@ -189,8 +95,6 @@
 									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory. Example: <code>$ /Users/name/Desktop/subdirectory</code></p></li>
 									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory. Example: <code>$ Desktop/subdirectory</code></p></li>
 									<li><p><strong>Home Directory:</strong> The tilde ~ represents the home directory. 
-										Example: <code>$ cd ~ </code> 
-										<code>$ cd ~/Documents</code></p></li>
 									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory.
 									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory.
 								</ul>
