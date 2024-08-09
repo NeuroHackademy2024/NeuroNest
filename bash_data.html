@@ -92,21 +92,10 @@
 								</tr>
 								</thead>
 								<tbody>
+								
 								<tr>
-								<td><code>Up Arrow</code></td>
-								<td>Scrolls up through command history.</td>
-								</tr>
-								<tr>
-								<td><code>Down Arrow</code></td>
-								<td>Scrolls down through command history.</td>
-								</tr>
-								<tr>
-								<td><code>Ctrl + C</code></td>
-								<td>Interrupts the current command or script.</td>
-								</tr>
-								<tr>
-								<td><code>Ctrl + L</code></td>
-								<td>Clears the screen, keeping command history. </td>
+								<td><code>Enter</code></td>
+								<td>Executes the command typed in the command line</td>
 								</tr>
 								<tr>
 								<td><code>Backspace</code></td>
@@ -117,12 +106,20 @@
 								<td>Deletes the character at the cursor position.</td>
 								</tr>
 								<tr>
-								<td><code>Enter</code></td>
-								<td>Executes the command typed in the command line</td>
+								<td><code>Ctrl + C</code></td>
+								<td>Interrupts the current command or script.</td>
 								</tr>
 								<tr>
-								<td><code>Shift + Enter</code></td>
-								<td>Continues command entry onto the next line.</td>
+								<td><code>Up Arrow</code></td>
+								<td>Scrolls up through command history.</td>
+								</tr>
+								<tr>
+								<td><code>Down Arrow</code></td>
+								<td>Scrolls down through command history.</td>
+								</tr>
+								<tr>
+								<td><code>Ctrl + L</code></td>
+								<td>Clears the screen, keeping command history. </td>
 								</tr>
 								<tr>
 								<td><code>Single Tab</code></td>
@@ -143,6 +140,18 @@
 								</thead>
 								<tbody>
 								<tr>
+								<td><code>Return</code></td>
+								<td>Executes the command typed in the command line.</td>
+								</tr>
+								<tr>
+								<td><code>Delete</code></td>
+								<td>Deletes the character to the left of the cursor.</td>
+								</tr>
+								<tr>
+								<td><code>Fn + Delete</code></td>
+								<td>Deletes the character to the right of the cursor.</td>
+								</tr>
+								<tr>
 								<td><code>Up Arrow</code></td>
 								<td>Scrolls up through command history.</td>
 								</tr>
@@ -157,18 +166,6 @@
 								<tr>
 								<td><code>Cmd + L</code></td>
 								<td>Clears the last executed command from the screen, keeping command history</td>
-								</tr>
-								<tr>
-								<td><code>Delete</code></td>
-								<td>Deletes the character to the left of the cursor.</td>
-								</tr>
-								<tr>
-								<td><code>Fn + Delete</code></td>
-								<td>Deletes the character to the right of the cursor.</td>
-								</tr>
-								<tr>
-								<td><code>Return</code></td>
-								<td>Executes the command typed in the command line.</td>
 								</tr>
 								<tr>
 								<td><code>Shift + Return</code></td>
@@ -187,38 +184,25 @@
 								<p>Commands are executed through the command line. To execute a command, type it into the command line after the prompt and press <code>return</code> or <code>enter</code>.</p>
 								<p>Your computer organizes data in files and folders. Files can be placed in folders, which we call <i>directories</i>. Basically, a directory is a location in the file system that can contain files and other directories (subdirectories), creating a 'directory tree'. It's essentially a folder where files and other folders are organized.</p>
 								<p>At the top of the directory tree is the "root directory", which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).</p>
-								<img src="images/file-tree-1.jpg style="width: 35%;" alt="folders" /> <img src="images/file-tree-4.png" alt="tree" style="width: 35%;"/>
+								<!---<img src="images/file-tree-1.jpg" alt="tree" style="width: 35%;" alt="folders" />---> <img src="images/file-tree-4.png" alt="tree" style="width: 35%;"/>
 								<p>While we are using the shell, we can only be in one directory at a time (unless multiple windows are open). This is called our <strong>current working directory</strong>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
 								<p>A <strong>path</strong> is a string that specifies the location of a file or directory in the file system (e.g., <code>~/Users/[name]/Downloads</code>)</p>
+								<h3>Path Types</h2>	
+								<ul>
+									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory. Example: <code>$ ls /Users/name</code></p></li>
+									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory.Example: <code>$ cd Desktop</code></p></li>
+									<li><p><strong>Home Directory:</strong> The tilde ~ represents the home directory. 
+										Example: <code>$ cd ~ </code> 
+										<code>$ cd ~/Documents</code></p></li>
+									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory. Example: <code>$ ls . </code></p></li>
+									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory. Example: <code>$ cd .. </code></p></li>
+								</ul>
 								<p>Most home directories follow this path format: <code>/Users/[name]</code>. In this example, we know that the directory [name] is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
 								<p>To see your current working directory, we will execute the command that will <i>print the working directory</i>, <code>pwd</code>.</p>								
 <pre><code>$ pwd </code></pre>								
 								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
 								<p>Next, to see the files <i>within</i> our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code>. Your output is a list of the files and directories within your current working directory.</p>								
-<pre><code>$ ls</code></pre>							
-							<h2 id="using-flags-and-arguments-in-commands">5. Using Flags and Arguments in Commands</h2>
-								<p>Most commands follow the same format: command, then flags/options, then arguments.</p>
-<pre><code>$ command [flags/options] [arguments]</code></pre>
-								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
-<pre><code>$ ls</code></pre>									
-								<p><strong>With Arguments </strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
-<pre><code>$ cd /path/to/directory </code></pre>
-								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
-<pre><code>$ ls -l </code></pre>
-								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
-								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to list all files, including hidden ones, in the Desktop directory:<p>
-<pre><code>$ ls -a Desktop </code></pre>
-								<p><strong>Combing Flags</strong>: You can combine multiple flags with a single -, with no spaces between flags. For example:</p>
-<pre><code>$ ls -Fa </code></pre>
-								<p><strong>Examples</strong>: Here are some examples of using commands with flags and arguments:</p>
-
-								<p>To list contents of the 'Desktop' directory:</p>
-<pre><code>$ ls -F Desktop</code></pre>
-								<p>To make a new directory:</p>
-<pre><code>$ mkdir -p Desktop/practice/example</code></pre>
-								<p>To move into the 'Desktop' directory:</p>
-<pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
-								<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
+<pre><code>$ ls</code></pre>				<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
 								<table>
 								<thead>
 								<tr>
@@ -284,17 +268,31 @@
 								<td>Clears the terminal screen, keeping command history</td>
 								</tr>
 								</tbody>
-								</table>
-								<h2>6. Path Types</h2>	
-								<ul>
-									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory. Example: <code>$ ls /Users/name</code></p></li>
-									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory.Example: <code>$ cd Desktop</code></p></li>
-									<li><p><strong>Home Directory:</strong> The tilde ~ represents the home directory. 
-										Example: <code>$ cd ~ </code> 
-										<code>$ cd ~/Documents</code></p></li>
-									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory. Example: <code>$ ls . </code></p></li>
-									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory. Example: <code>$ cd .. </code></p></li>
-								</ul>
+								</table>			
+							<h2 id="using-flags-and-arguments-in-commands">
+							5. Using Flags and Arguments in Commands</h2>
+								<p>Most commands follow the same format: command, then flags/options, then arguments.</p>
+<pre><code>$ command [flags/options] [arguments]</code></pre>
+								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
+<pre><code>$ ls</code></pre>									
+								<p><strong>With Arguments </strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
+<pre><code>$ cd /path/to/directory </code></pre>
+								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
+<pre><code>$ ls -l </code></pre>
+								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
+								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to list all files, including hidden ones, in the Desktop directory:<p>
+<pre><code>$ ls -a Desktop </code></pre>
+								<p><strong>Combing Flags</strong>: You can combine multiple flags with a single -, with no spaces between flags. For example:</p>
+<pre><code>$ ls -Fa </code></pre>
+								<p><strong>Examples</strong>: Here are some examples of using commands with flags and arguments:</p>
+
+								<p>To list contents of the 'Desktop' directory:</p>
+<pre><code>$ ls -F Desktop</code></pre>
+								<p>To make a new directory:</p>
+<pre><code>$ mkdir -p Desktop/practice/example</code></pre>
+								<p>To move into the 'Desktop' directory:</p>
+<pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
+								
 							<h2 id="working-with-files-and-directories">7. Working With Files and Directories</h2>
 								<ul>
 								<li><code>$ mkdir [dirname]</code>: Make (create) a new directory.Avoid using spaces; underscores are not recommended.
