@@ -60,48 +60,42 @@
 								<p><strong>With Arguments</strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
 <pre><code>$ ls ~/path/to/directory </code></pre>
 								<p>By including the file path in the argument, we are specifying what directory we would like to see. This code will print the contents of "directory", even though it is not our current working directory.</p>
-								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
+								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code>--</code> followed by a word. For example:<p>
 <pre><code>$ ls -l </code></pre>
 								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
-								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to <i>list all files</i>, including hidden ones, in the <i>Desktop</i> directory:<p>
+								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to <i>list all files</i>, including hidden ones (<code>-a flag</code>), in the <i>Desktop</i> directory:<p>
 <pre><code>$ ls -a Desktop </code></pre>
 								<p><strong>Combing Flags</strong>: We can combine multiple flags with a single - (dash), with no spaces between flags. For example:</p>
 <pre><code>$ ls -Fa </code></pre>
+						
 								<p>In this example, <code>ls -F</code> prints each type of file, where directories are indicated with a <code>/</code> before the name. In addition, <code>ls -a</code> prints all files, including the hidden ones.</p>
+								<h2 id="command-examples">2. Command Examples</h2>
+
 								<p><strong>Examples</strong>: Here are some more examples of using commands with flags and arguments:</p>
 
-								<p>To move into the 'Desktop' directory:</p>
+								<p>Move into the 'Desktop' directory:</p>
 <pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
-								<p>To make a new directory:</p>
+								<p>Make a new directory. Note: avoid using spaces; underscores are not recommended.</p>
 <pre><code>$ mkdir -p ~/Desktop/practice/example</code></pre>
-								<p>In this example, we are attempting to create a directory named "example". By adding the -p flag, we are able to create a path of directories. Instead of only making one directory, "example", we are able to create a parent directory "practice" <i>and</i> the subdirectory "example" in one line of code. Otherwise, our could would look like this (which is also an acceptable way to make directories):
+								<p>In this example, we are attempting to create a directory named "example". By adding the <code>-p</code> flag, we are able to create a path of directories. Instead of only making one directory, "example", we are able to create a parent directory "practice" <i>and</i> the subdirectory "example" in one line of code. Otherwise, our could would look like this (which is also an acceptable way to make directories):
 <pre><code>$ cd ~/Desktop
 mkdir practice
 cd practice
 mkdir example	
-code></pre>									
+</code></pre>									
+								<p> Copy a file. In the first argument, put the original name of the file. In the second argument, put the name of the new duplicate file (and new file path if desired).</p>
+<pre><code>$ cp [original] [new]</code></pre>
+								<p>Copy a directory and all its contents.</p>
+								<code>$ cp -r [source] [destination]</code>
+								<p>Rename or copy a file or directory to a new location. In the first argument, put the original file location and name. In the second argument, put the new location (and new name, if you want).</p>
+								<code>mv [old].txt ../[new].txt</code>
+								<p>Remove a file permanently</p>
+								<code>$ rm [path]</code>
+								<p>Remove a file or directory permanently. The <code>-r</code> flag signals "recursive", resulting in permanently deleting the directory and its contents.</p>
+								<code>$ rm -rf [path]</code>
+									Important Note: Deleted files are gone forever! There is no trash or recycle bin. The <code>-i</code> flag initiates <i>interactive mode</i>, which forces confirmation before permanent deletion. 
+									<code>$ rm -i [path]</code>
 								
-								
-							<h2 id="working-with-files-and-directories">2. Working With Files and Directories</h2>
-								<ul>
-								<li><code>$ mkdir [dirname]</code>: Make (create) a new directory.Avoid using spaces; underscores are not recommended.
-									<ul>Example: <code>mkdir results</code></ul></li>
-								<li><code>$ cp [old] [new]</code>: make a copy of the file
-									<ul>
-										<li>Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></li>
-									</ul></li>
-								<li><code>$ cp -r [source] [destination]</code>: copy a directory
-									<ul>
-										<li>Copies a directory and all its contents.</li>
-									</ul></li>
-								<li><code>$ mv [old] [new]</code>: move or rename a file or directory:</li>
-								<li><code>$ rmdir [directory]</code>: remove an empty directory</li>
-								<li><code>$ rm [path]</code>: remove a file permanently</li>
-								<ul>
-									Important Note: Deleted files are gone forever! There is no trash or recycle bin.
-									<ul><code>$ rm -i [path]</code>: interactive mode - prompts for confirmation before deletion</ul>
-									<ul><code>$ rm -r [directory]</code>: permanently delete a directory and all its contents</ul>
-								</ul>
 							<h2 id="variables">10. Variables</h2>
 								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number.</p>
 								<p><strong>Declaring Variables</strong>: to create a variable, use the following syntax:</p>
