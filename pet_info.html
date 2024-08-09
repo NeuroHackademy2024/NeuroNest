@@ -216,102 +216,10 @@
                         <li><strong>PET/CT:</strong> Combines metabolic and anatomical information, improving diagnostic accuracy.</li>
                         <li><strong>PET/MRI:</strong> Integrates functional and structural data with superior soft-tissue contrast, beneficial for neurological and oncological applications.</li>
                     </ul>
+                 <h2>Interactive Tutorial</h2>
+                <p>For an in-depth, step-by-step guide on processing PET imaging data, check out our <a href="pet_tutorial.html">Interactive Tutorial</a>.</p>
 
-                    <h2>INTERACTIVE TUTORIAL</h2>
-                    <h3>Steps in PET Data Preprocessing and Analysis:</h3>
-                    <h4>Step 1: Install Necessary Libraries</h4>
-                    <p>To process PET data, we need several Python libraries. Here, we will use the NiftyPET package for image reconstruction and analysis.</p>
-                    <pre><code class="language-python"># Install necessary libraries
-!pip install niftypet > /dev/null 2>&1
-!pip install matplotlib numpy scipy nibabel > /dev/null 2>&1</code></pre>
-
-                    <h4>Step 2: Download and Load Dataset</h4>
-                    <p>We will use a dataset from a public repository. This dataset will include raw PET data and necessary files for preprocessing.</p>
-                    <pre><code class="language-python">import os
-
-# Define the data path
-data_path = 'path_to_your_dataset'
-
-# Check if the data files exist
-if os.path.exists(data_path):
-    print("Data files are available.")
-else:
-    print("Data files are not available. Please check the path.")</code></pre>
-
-                    <h4>Step 3: Preprocessing PET Data</h4>
-                    <h5>3.1 Import Libraries</h5>
-                    <pre><code class="language-python">import numpy as np
-import nibabel as nib
-from niftypet import nipet, nimpa
-import matplotlib.pyplot as plt
-%matplotlib inline</code></pre>
-
-                    <h5>3.2 Load the Dataset</h5>
-                    <pre><code class="language-python"># Load the raw data
-raw_data = nib.load(os.path.join(data_path, 'raw_pet_data.nii'))
-# Load the attenuation map
-attn_map = nib.load(os.path.join(data_path, 'attn_map.nii'))</code></pre>
-
-                    <h5>3.3 Visualization of Raw Data</h5>
-                    <pre><code class="language-python"># Visualize raw PET data
-plt.imshow(raw_data.get_fdata()[:, :, raw_data.shape[2] // 2], cmap='hot')
-plt.title('Raw PET Data')
-plt.colorbar()
-plt.show()</code></pre>
-
-                    <h4>Step 4: PET Data Reconstruction</h4>
-                    <p>Using NiftyPET, we will reconstruct the PET images from the raw data.</p>
-                    <pre><code class="language-python"># Define the parameters for reconstruction
-params = nipet.get_mmrparams()
-lmdata = nipet.mmrhist(params)
-
-# Perform image reconstruction
-recon = nipet.mmrchain(
-    raw_data,
-    params,
-    histo=lmdata,
-    mu_h=attn_map,
-    itr=5,
-    fwhm=4.0,
-    recmod=3
-)
-
-# Get the reconstructed image
-recon_img = recon['im']</code></pre>
-
-                    <h4>Step 5: Visualization of Reconstructed Data</h4>
-                    <pre><code class="language-python"># Visualize the reconstructed PET image
-plt.imshow(recon_img[:, :, recon_img.shape[2] // 2], cmap='hot')
-plt.title('Reconstructed PET Image')
-plt.colorbar()
-plt.show()</code></pre>
-
-                    <h4>Step 6: Quantitative Analysis</h4>
-                    <p>We will perform quantitative analysis such as calculating Standardized Uptake Value (SUV).</p>
-                    <pre><code class="language-python"># Calculate SUV
-suv_img = nimpa.suv(
-    recon_img,
-    injected_dose=370,  # in MBq
-    body_weight=70,  # in kg
-    scan_duration=3600  # in seconds
-)
-
-# Visualize SUV map
-plt.imshow(suv_img[:, :, suv_img.shape[2] // 2], cmap='hot')
-plt.title('SUV Map')
-plt.colorbar()
-plt.show()</code></pre>
-
-                    <h4>Step 7: Advanced Analysis and Partial Volume Correction</h4>
-                    <p>We will demonstrate advanced analysis techniques such as Partial Volume Correction (PVC).</p>
-                    <pre><code class="language-python"># Apply partial volume correction
-pvc_img = nimpa.pvc(recon_img, attn_map)
-
-# Visualize PVC image
-plt.imshow(pvc_img[:, :, pvc_img.shape[2] // 2], cmap='hot')
-plt.title('Partial Volume Corrected Image')
-plt.colorbar()
-plt.show()</code></pre>
+                    
 
                     <h2>Additional Resources</h2>
                     <ul>
