@@ -321,9 +321,17 @@ plt.show()</code></pre>
                     </ul>
 
                     <h2>FAQ and Practical Tips</h2>
-                    <p><strong>Q:</strong> How do I handle missing data files?<br><strong>A:</strong> Ensure all paths are correct and data files are available. Re-download the dataset if necessary.</p>
-                    <p><strong>Q:</strong> What should I do if the reconstructed image looks distorted?<br><strong>A:</strong> Check the reconstruction parameters and ensure the attenuation map is correctly applied.</p>
-                    <p><strong>Q:</strong> How can I improve the quality of the reconstructed image?<br><strong>A:</strong> Adjust the reconstruction parameters such as iteration number and FWHM to achieve better results.</p>
+<p><strong>Q:</strong> What should I consider when performing Partial Volume Correction (PVC) on PET images?<br><strong>A:</strong> PVC is crucial for improving the accuracy of quantitative measurements in PET. It's important to select the appropriate PVC method based on the type of study and analysis objectives. Ensure you use high-resolution MR images for precise tissue segmentation, which will enhance the accuracy of the correction.</p>
+
+<p><strong>Q:</strong> What are the common challenges when using kinetic models in PET?<br><strong>A:</strong> Kinetic models are powerful but complex. Common challenges include the need for high-quality dynamic data, proper model selection, and accurate estimation of input parameters such as the arterial input function. To minimize errors, use robust model fitting methods and ensure cross-validation.</p>
+
+<p><strong>Q:</strong> How do I handle PET data obtained from hybrid PET/MR scanners?<br><strong>A:</strong> Hybrid PET/MR scanners require careful integration of PET and MR data. Ensure accurate attenuation correction, which may involve generating a μ-map from MR images. Temporal synchronization between PET and MR data is also critical for consistent analysis.</p>
+
+<p><strong>Q:</strong> What should I do if I encounter significant noise in my PET images?<br><strong>A:</strong> Noise in PET images can affect the quality of analysis. First, verify that attenuation correction and reconstruction are accurate. You can apply spatial or temporal filtering techniques to reduce noise. Be cautious not to over-smooth, as this might remove important details.</p>
+
+<p><strong>Q:</strong> What software tools are recommended for motion correction in PET?<br><strong>A:</strong> Motion correction is essential, especially in studies involving dynamic data or subjects who may move during the scan. Tools like SPM and NiftyPET include functions for motion correction. Always review and manually adjust automatic corrections when necessary.</p>
+
+<p><strong>Q:</strong> How can I optimize PET data analysis for longitudinal studies?<br><strong>A:</strong> In longitudinal studies, consistency in image acquisition, reconstruction, and analysis is crucial. Use the same scanning and processing settings across all sessions. Additionally, consider applying registration techniques between different time points to accurately align the images.</p>
 
                     <h2>References</h2>
                     <ul>
