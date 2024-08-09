@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>NAME THAT SHOWS IN THE TAB ABOVE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>MNE Python Tutorial</h1>
+							<body>
+    <h1>Welcome to the NeuroNest tutorial on the MNE-Python tutorial for MEG/EEG analysis!</h1>
+
+    <p><strong>Tutorial time:</strong> 45 min</p>
+    <p><a href="https://colab.research.google.com/drive/1CFvKzYxgvPKXlkQCaTcgLTX7cc6Bqau9?usp=sharing">Follow Along with Google CoLab</a></p>
+
+    <p>In this notebook, we will cover the MNE library in Python. If you are a complete beginner in Python, we recommend looking at the tutorials for Pandas and Matplotlib first. We will cover some examples for EEG/MEG datasets.</p>
+
+    <h2>Tutorial structure:</h2>
+    <ul>
+        <li><strong>What is MNE?</strong></li>
+        <li><strong>MEG/EEG analysis using MNE:</strong></li>
+        <ul>
+            <li>Download and plot data</li>
+            <li>Data pre-processing</li>
+            <li>Define and read epochs</li>
+            <li>Time-frequency analysis</li>
+        </ul>
+        <li><strong>Other Resources</strong></li>
+    </ul>
+
+    <h2>MNE Introduction</h2>
+    <p>The MNE (Magnetoencephalography and Electroencephalography) library is a powerful and comprehensive open-source Python library used for processing, analyzing, and visualizing electrophysiological data, such as EEG (Electroencephalography) and MEG (Magnetoencephalography). MNE is widely used in neuroscience research for analyzing brain activity and is particularly popular for its ability to handle large datasets and complex workflows in the field of neuroimaging.</p>
+
+    <p>We begin by importing the necessary Python modules:</p>
+
+    <pre><code>
+!pip install mne
+import mne
+import matplotlib.pyplot as plt
+    </code></pre>
+
+    <p>Now let's load one of the example datasets:</p>
+
+    <pre><code>
+sample_data_folder = mne.datasets.sample.data_path()
+sample_data_raw_file = (
+    sample_data_folder / "MEG" / "sample" / "sample_audvis_filt-0-40_raw.fif"
+)
+raw = mne.io.read_raw_fif(sample_data_raw_file)
+print(raw)
+print(raw.info)
+    </code></pre>
+
+    <p>As you can see, the Info object keeps track of a lot of information about the recording system, the experiment, and the data. For example:</p>
+
+    <pre><code>
+<Info | 14 non-empty values
+ bads: 2 items (MEG 2443, EEG 053)
+ ch_names: MEG 0113, MEG 0112, MEG 0111, MEG 0122, MEG 0123, MEG 0121, MEG ...
+ chs: 204 Gradiometers, 102 Magnetometers, 9 Stimulus, 60 EEG, 1 EOG
+ custom_ref_applied: False
+ dev_head_t: MEG device -> head transform
+ dig: 146 items (3 Cardinal, 4 HPI, 61 EEG, 78 Extra)
+ highpass: 0.1 Hz
+ hpi_meas: 1 item (list)
+ hpi_results: 1 item (list)
+ lowpass: 40.0 Hz
+ meas_date: 2002-12-03 19:01:10 UTC
+ meas_id: 4 items (dict)
+ nchan: 376
+ projs: PCA-v1: off, PCA-v2: off, PCA-v3: off, Average EEG reference: off
+ sfreq: 150.2 Hz
+>
+    </code></pre>
+
+    <h3>Plotting the data</h3>
+    <p>In order to understand how this data could be analyzed, let's first plot it:</p>
+
+    <pre><code>
+raw.compute_psd(fmax=50).plot(picks="data", exclude="bads", amplitude=False)
+raw.plot(duration=5, n_channels=30)
+    </code></pre>
+
+    <h3>Data pre-processing</h3>
+    <p>MNE-Python supports a variety of preprocessing approaches and techniques, such as independent components analysis (ICA). Here’s how to perform ICA:</p>
+
+    <pre><code>
+ica = mne.preprocessing.ICA(n_components=20, random_state=97, max_iter=800)
+ica.fit(raw)
+ica.exclude = [1, 2]  
+ica.plot_properties(raw, picks=ica.exclude)
+raw.load_data()
+ica.apply(raw)
+    </code></pre>
+
+    <h3>Define and read epochs</h3>
+    <p>Epoch reading or definition refers to segmenting continuous EEG/MEG data into smaller, time-locked segments related to specific events or stimuli:</p>
+
+    <pre><code>
+events = mne.find_events(raw, stim_channel='STI 014')
+event_id = dict(aud_l=1, aud_r=2)
+tmin = -0.2 
+tmax = 0.5  
+epochs = mne.Epochs(raw, events, event_id, tmin, tmax, proj=True)
+    </code></pre>
+
+    <h3>Time-frequency analysis</h3>
+    <p>Time-frequency analysis is crucial in analyzing EEG/MEG data. For example, let’s create and visualize frequency-domain representations:</p>
+
+    <pre><code>
+epochs.compute_psd().plot(picks="data", exclude="bads", amplitude=False)
+    </code></pre>
+
+    <h3>Resources used to create this tutorial:</h3>
+    <ul>
+        <li>MNE documentation: <a href="https://mne.tools/dev/documentation/index.html">https://mne.tools/dev/documentation/index.html</a></li>
+        <li>Parts of this tutorial were based on the tutorial of Alexandre Gramfort: <a href="https://github.com/mne-tools/mne-python-notebooks/tree/master">https://github.com/mne-tools/mne-python-notebooks/tree/master</a></li>
+    </ul>
+</body>
+
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
