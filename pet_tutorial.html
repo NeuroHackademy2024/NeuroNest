@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PET Data analyzing Tutorial</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="index.html" class="logo">
+                    <span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource_menu.html">Resources</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1>PET Data Preprocessing Tutorial</h1>
+
+                <h3>Step 1: Install Necessary Libraries</h3>
+                <p>Para procesar datos PET, necesitaremos varias bibliotecas de Python. Utilizaremos el paquete NiftyPET para la reconstrucción y análisis de imágenes.</p>
+                <pre><code class="language-python"># Instalar las bibliotecas necesarias
+!pip install niftypet > /dev/null 2>&1
+!pip install matplotlib numpy scipy nibabel > /dev/null 2>&1</code></pre>
+
+                <h3>Step 2: Access and Download Dataset</h3>
+                <p>Puedes acceder a datasets públicos para PET en repositorios como <a href="https://openneuro.org" target="_blank">OpenNeuro</a>. Por ejemplo, el dataset "Rates of cerebral protein synthesis (rCPS) in stages of sleep" puede ser descargado y analizado. Asegúrate de descargar los archivos de imagen PET y otros archivos necesarios para el preprocesamiento.</p>
+                <pre><code class="language-python">import os
+
+# Definir el ID del dataset de OpenNeuro
+dataset_id = "ds004733"
+
+# Definir la ruta donde se descargará el dataset
+download_path = f"{dataset_id}-download/"
+
+# Descargar el dataset usando AWS S3 sync
+os.system(f'aws s3 sync --no-sign-request s3://openneuro.org/{dataset_id} {download_path}')
+</code></pre>
+
+                <h3>Step 3: Preprocessing PET Data</h3>
+
+                <h4>3.1 Import Libraries</h4>
+                <pre><code class="language-python">import numpy as np
+import nibabel as nib
+from niftypet import nipet, nimpa
+import matplotlib.pyplot as plt
+%matplotlib inline</code></pre>
+
+                <h4>3.2 Load the Dataset</h4>
+                <pre><code class="language-python"># Cargar los datos brutos
+raw_data = nib.load(os.path.join(download_path, 'sub-SP03/ses-Asleep/pet/sub-SP03_ses-Asleep_pet.nii.gz'))
+# Cargar el mapa de atenuación
+attn_map = nib.load(os.path.join(download_path, 'sub-SP03/ses-Asleep/pet/attn_map.nii.gz'))</code></pre>
+
+                <h4>3.3 Visualization of Raw Data</h4>
+                <pre><code class="language-python"># Visualizar los datos PET brutos
+plt.imshow(raw_data.get_fdata()[:, :, raw_data.shape[2] // 2], cmap='hot')
+plt.title('Raw PET Data')
+plt.colorbar()
+plt.show()</code></pre>
+
+                <h3>Step 4: PET Data Reconstruction</h3>
+                <p>Usaremos NiftyPET para reconstruir las imágenes PET a partir de los datos brutos.</p>
+                <pre><code class="language-python"># Definir los parámetros para la reconstrucción
+params = nipet.get_mmrparams()
+lmdata = nipet.mmrhist(params)
+
+# Realizar la reconstrucción de la imagen
+recon = nipet.mmrchain(
+    raw_data,
+    params,
+    histo=lmdata,
+    mu_h=attn_map,
+    itr=5,
+    fwhm=4.0,
+    recmod=3
+)
+
+# Obtener la imagen reconstruida
+recon_img = recon['im']
+</code></pre>
+
+                <h3>Step 5: Visualization of Reconstructed Data</h3>
+                <pre><code class="language-python"># Visualizar la imagen PET reconstruida
+plt.imshow(recon_img[:, :, recon_img.shape[2] // 2], cmap='hot')
+plt.title('Reconstructed PET Image')
+plt.colorbar()
+plt.show()</code></pre>
+
+                <h3>Step 6: Quantitative Analysis</h3>
+                <p>Realizaremos un análisis cuantitativo, como el cálculo del Valor Estándar de Captación (SUV).</p>
+                <pre><code class="language-python"># Calcular el SUV
+suv_img = nimpa.suv(
+    recon_img,
+    injected_dose=370,  # en MBq
+    body_weight=70,  # en kg
+    scan_duration=3600  # en segundos
+)
+
+# Visualizar el mapa de SUV
+plt.imshow(suv_img[:, :, suv_img.shape[2] // 2], cmap='hot')
+plt.title('SUV Map')
+plt.colorbar()
+plt.show()</code></pre>
+
+                <h3>Step 7: Advanced Analysis and Partial Volume Correction</h3>
+                <p>Demostraremos técnicas de análisis avanzado como la Corrección de Volumen Parcial (PVC).</p>
+                <pre><code class="language-python"># Aplicar corrección de volumen parcial
+pvc_img = nimpa.pvc(recon_img, attn_map)
+
+# Visualizar la imagen corregida
+plt.imshow(pvc_img[:, :, pvc_img.shape[2] // 2], cmap='hot')
+plt.title('Partial Volume Corrected Image')
+plt.colorbar()
+plt.show()</code></pre>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Get in touch</h2>
+                    <form method="post" action="#">
+                        <div class="fields">
+                            <div class="field half">
+                                <input type="text" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div class="field half">
+                                <input type="email" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send" class="primary" /></li>
+                        </ul>
+                    </form>
+                </section>
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter"></span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook"></span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram"></span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble"></span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub"></span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px"></span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone"></span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email"></span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; NeuroNest. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
