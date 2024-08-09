@@ -76,10 +76,10 @@
 <pre><code>$ mkdir -p ~/Desktop/practice/example</code></pre>
 								<p>In this example, we are attempting to create a directory named "example". By adding the <code>-p</code> flag, we are able to create a path of directories. Instead of only making one directory, "example", we are able to create a parent directory "practice" <i>and</i> the subdirectory "example" in one line of code. Otherwise, our could would look like this (which is also an acceptable way to make directories):
 <pre><code>$ cd ~/Desktop
-mkdir practice
-cd practice
-mkdir example	
-</code></pre>									
+$ mkdir practice
+$ cd practice
+$ mkdir example	
+$ </code></pre>									
 								<p><strong>Example #3.</strong>Copy a file. In the first argument, put the original name of the file. In the second argument, put the name of the new duplicate file (and new file path if desired).</p>
 <pre><code>$ cp [original] [new]</code></pre>
 								<p><strong>Example #4</strong> Copy a directory and all its contents.</p>
@@ -145,13 +145,13 @@ mkdir example
 									<ul>Use -n [#] to specify the number of lines.</ul></li>
 								<li><code>$ tail [file]</code>: displays the last 10 lines. 
 									<ul>Use -n [#] to specify the number of lines.</ul></li>
-							<p></p><h2 id="variables">10. Variables</h2>
+							<p></p><h2 id="variables">3 Variables</h2>
 								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number.</p>
 								<p><strong>Declaring Variables</strong>: to create a variable, use the following syntax:</p>
 <pre><code>$ [variable_name]=value</code><p>Note: No spaces are allowed betwen the variable name, the equals sign, and the value. Use consistent and simple filenames to facilitate looping.</p></pre>
 								<p><strong>Accessing Values</strong>: to retrieve the value of a variable, prefix its name with a dollar sign <code>$</code>, as seen below </p>
 <pre><code>$ echo $variable_name</code></pre>	
-							<h2>9. Pipes and Filters</h2>
+							<h2>4. Pipes and Filters</h2>
 								<ul>
 								<li>Pipe Operator: <code>$ [command] | [command]</code>: Redirect the output of one command into another. 
 									<ul><li>Example: <code>ls | wc</code></li></ul>
@@ -173,7 +173,7 @@ mkdir example
 								<li><code>$ cut -d , -f 2 [file].csv | sort | uniq</code>: Remove duplicates</li>
 								</lu></p>
 													
-							<h2 id="for loops">11. For Loops</h2>
+							<h2 id="for loops">5. For Loops</h2>
 								<p>For Loops allow us to execute a series of commands repeatedly for each item in a list. For loops are often used in scripts. Below is a for loop syntax template. In this example, <code>'variable'</code> represents each item in the <code>'list'</code> during each iteration</p>
 <pre><code>for variable in list
 do
