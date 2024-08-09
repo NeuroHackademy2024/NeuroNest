@@ -52,33 +52,35 @@
 						<div class="inner">
 							<h1>Bash/Command Line</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+							<p>Welcome to the NeuroNest tutorial on Bash and Command Line! This tutorial will show the basics of Bash scripting, allowing beginners to master the concepts of the Bash shell on Linux. </p>
 							<h2>Introduction to Bash<h2>
 							<h3>What is Bash?</h3>
 								<p>The name Bash stands for “Bourne Again SHell,” a reference to its predecessor, the Bourne shell (sh), written by Stephen Bourne. Bash is a commonly-used command-line interface (CLI) and scripting language that allows you to efficiently execute commands, manage files, and automate tasks in Unix-like systems. A command line interface (CLI) is a text-based interface where you can input commands that interact with a computer's operating system. The command line or terminal is where you write <code>Bash</code> commands that the computer then executes.</p>
 							<h3>What is a shell?</h3>
-								<p>A “shell”  is a computer program that provides a way for users to interact with the computer's operating system. It can be a command-line interface (CLI) or a graphical user interface (GUI). The CLI allows users to type commands to run processes and manage the system, while the GUI provides a more visual approach.</p>
+								<p>A “shell” is a program that provides a way for users to interact with the computer's operating system. It can be a command-line interface (CLI) or a graphical user interface (GUI). The CLI allows users to type commands to run processes and manage the system, while the GUI provides a more visual approach. Bash is one of the most commonly used Unix/Linux shells.</p>
 							<h3>What is Unix?</h3>
 								<p>Unix is a powerful operating system known for its multitasking and multiuser capabilities. It provides a command-line interface and a scripting language, which allows users to automate tasks and manage complex workflows efficiently. Bash is often the default shell in many Unix-like systems, including Linux and MacOS, and is also available on Windows through tools like Git for Windows.</p>
-							<h2>Getting Started?</h2>
+							<h2>Getting Started</h2>
 								<p>This tutorial will guide you through basic and advanced commands to help you get comfortable using the command line.</p>
-								<p>To get started, let's open the command line.</p>
-								<p><ul>
+								To follow along with this tutorial, you will need a running version of Linux with access to the command line. If you do not already have the shell software installed, you will need to download and install it.								<ul>
 									<li><p><strong>macOS:</strong> The shell application is called “Terminal,” located in Applications > Utilities, or you can search for "Terminal" using Spotlight.</p></li>
 									<li><p><strong>Linux:</strong> Terminal applications are usually pre-installed. You can open it from the application menu or by pressing <code>Ctrl + Alt + T</code>.</p></li>
 									<li><p><strong>Windows:</strong> Install <a href="https://gitforwindows.org/">git for Windows</a> to get Git Bash or use Windows Subsystem for Linux (WSL) for a more comprehensive Unix-like environment.</p></li>
-								</ul></p>
+								</ul>
 								<p>For troubleshooting and installation assistance, refer to these resources: </p>
 								<ul>
 									<li><a href="https://swcarpentry.github.io/shell-novice/#install-software">Software Carpentry Installation Tutorial</a></li>
 									<li><a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">Carpentries Workshop Installation Instructions</a></li>
 								</ul>
-								<p>Upon opening the shell application, you will see a prompt, which indicates that the shell is ready for input. This prompt is also called the “command line”. The prompt typically ends in a $, but can also end with #, &gt;, %, or >>>.</p>								
-<pre><code>$ `test`</code></pre>
-								<p>Your prompt might look different. Most  shell environments  put your user name and the host name before the $. For example, your prompt might look like:									
+								<p>To get started, open the command line. You should see a prompt, which typically ends in a <code>$/code>, but can also end with <code>#</code>code>, <code>&gt;</code>, <code>%</code>, or <code>>>></code>. The prompt indicates that the shell is ready for input. This prompt is also called the “command line”. It should look something like this: </p>								
+<pre><code>$</code></pre>
+								<p>Your prompt might look different. Most shell environments put your user name and the host name before the prompt symbol. For example, your prompt might look like:									
 <pre><code>amordy@localhost $</code></pre>									
-								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs. In some of the example code, you will see file and directory names in brackets (e.g., [username]). Text in brackets should be replaced with your own names.</p>   
+								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. 
+									You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs. In some of the example code, you will see file and directory names in brackets (e.g., [username]). Text in brackets should be replaced with your own names.</p>   
 								<p>Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
 							<h2 id="keyboard-shortcuts-for-the-command-window">Keyboard Shortcuts for the Command Window</h2>
+							<p>Before we get started, here are some helpful tips for navigating the command window:</p>
 							<h3 id="for-windows-users">For Windows Users</h3>
 								<table>
 								<thead>
@@ -181,9 +183,10 @@
 								</table>
 							<h2 id="navigating files and directories">Navigating Files and Directories</h2>
 								<p>Commands are executed through the command line. To execute a command, type it into the command line after the prompt and press <code>return</code> or <code>enter</code>.</p>
-								<p>The file system organizes data on the disk in files and folders. Files can be placed in folders, which we call <i>directories</i>. Directories can also store other directories, making a directory tree. </p>
-								<p>At the top of the file system/directory tree is the root directory, which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).
-								<p>While we are using the shell, we can only be in one directory at a time (unless multiple windows are open). This is called our <i>current working directory</i>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
+								<p>Your computer organizes data in files and folders. Files can be placed in folders, which we call <i>directories</i>. Basically, a directory is a location in the file system that can contain files and other directories (subdirectories), creating a 'directory tree'. It's essentially a folder where files and other folders are organized.</p>
+								<p>At the top of the directory tree is the "root directory", which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).
+								<img src="images/file-tree-1.jpg" alt="folders" /><img src="images/file-tree-3.png" alt="tree" />
+								<p>While we are using the shell, we can only be in one directory at a time (unless multiple windows are open). This is called our <strong>current working directory</strong>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
 								<p>Most home directories follow this path format: <code>/Users/[name]</code>. In this example, we know that /Users/amordy is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
 								<p>To see your current working directory, we will execute the command that will <i>print the working directory</i>, <code>pwd</code>.</p>								
 <pre><code>$ pwd </code></pre>								
