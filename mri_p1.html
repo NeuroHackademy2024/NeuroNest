@@ -66,7 +66,7 @@
                   <li><strong>Longitudinal Magnetization Decreases:</strong> More protons align anti-parallel, canceling out some of the parallel protons.</li>
                   <li><strong>Transversal Magnetization Forms:</strong> The RF pulse synchronizes the protons, causing them to precess together.</li>
               </ul>
-              <img src="images/magnetic_field_MRI.png" alt="Workflow" style="width: 35%;"> <img src="images/magnetization_MRI.png" style="width: 35%;">
+              <img src="images/magnetic_field_MRI.png" alt="Workflow" style="width: 40%;"> <img src="images/magnetization_MRI.png" style="width: 40%;">
               <p> </p>
               <h2>Key Terms in MRI:</h2>
                 <ul>
@@ -81,7 +81,7 @@
                     <li><strong>Radiofrequency Coils:</strong> These coils transmit and receive radiofrequency pulses that perturb and detect the protons' magnetic alignment. They come in various shapes and sizes tailored for specific body parts or imaging purposes.</li> 
                     <li><strong>Computer System:</strong> The MRI scanner’s computer system controls the hardware, processes the signals received from the radiofrequency coils, and reconstructs the images for display and analysis. It includes powerful processors and advanced software algorithms for image reconstruction and enhancement.</li> 
                 </ul> 
-                <img src="images/MRI_SCANNER.png" alt="MRI Scanner" /> 
+                <img src="images/MRI_SCANNER.png" alt="MRI Scanner", style="width: 50%;"> 
                 <h2>2. MRI Protocols and Sequences</h2>
                   <h3>Protocol Selection:</h3>
                   <p>Choosing the right MRI protocols and sequences is crucial for obtaining the best possible images for the clinical question or research objective. For instance, T1-weighted imaging is ideal for anatomical detail, while T2-weighted imaging is better for identifying pathologies such as edema or tumors. The choice of protocol should consider tissue type, desired contrast, and anatomical area. Additionally, standardized acquisition parameters and logical axioms for different MRI types are essential to ensure reproducibility and interoperability.</p>
@@ -127,32 +127,30 @@
                       </ul>
                   </li>
               </ul>
-              <h3>Structural MRI (sMRI):</h3>
-                <p>OVERVIEW: sMRI utilizes magnetic fields and radio waves to create detailed images of the brain's anatomy. This technique allows for high-resolution examination of brain structures, providing essential information about the size, shape, and integrity of various brain regions.</p>
-                <p>TECHNIQUES: cortical thickness (CT) [1], diffusion tensor imaging (DTI) [2], surface-based morphometry (SBM) [3,4], and voxel-based morphometry (VBM) [5,6].</p>
-                <p>APPLICATIONS: It is particularly useful for identifying abnormalities such as tumors, brain injuries, and neurodegenerative diseases.</p>
-                <p>EXAMPLE: A study using VBM to identify brain volume reductions in patients with Alzheimer's disease.</p>
-
-                <h3>Diffusion MRI:</h3>
-                <p>OVERVIEW: Diffusion MRI maps the local diffusion properties of the water molecules in biological tissues [11].</p>
-                <p>TECHNIQUES:</p>
+              <h2>Structural MRI (sMRI):</h2>
+                Structural MRI (sMRI) utilizes magnetic fields and radio waves to create detailed images of the brain's anatomy. This technique allows for high-resolution examination of brain structures, providing essential information about the size, shape, and integrity of various brain regions.
+                <p>Techniques: cortical thickness (CT) [1], diffusion tensor imaging (DTI) [2], surface-based morphometry (SBM) [3,4], and voxel-based morphometry (VBM) [5,6].</p>
+                <p>Applications: It is particularly useful for identifying abnormalities such as tumors, brain injuries, and neurodegenerative diseases.</p>
+                <p>Example: A study using VBM to identify brain volume reductions in patients with Alzheimer's disease.</p>
+                <h2>Functional MRI (fMRI):</h2>
+                <p>Functional MRI (fMRI) detects changes in blood oxygen levels (BOLD signal) to visualize and measure brain activity in real time [7,8]. There are two main types of fMRI:</p>
+                <p>Techniques:</p>
+		<ul>
+                    <li><strong>Task-based fMRI</strong>: Involves participants performing specific tasks while their brain activity is measured, providing insights into brain function related to cognitive and motor tasks [9].</li>
+                    <li><strong>Resting-state fMRI</strong>: Measures brain activity when a person is not performing any explicit tasks, capturing the brain's intrinsic functional connectivity [10].</li>
+                </ul>
+                <p>Applications: It can be used in cognitive and behavioral studies, mapping brain functions, and pre-surgical planning.</p>
+                <p>Example: Task-based fMRI identifying regions activated during language tasks in epilepsy patients for surgical planning.</p>
+               <h2>Diffusion MRI:</h2>
+                <p>Diffusion MRI maps the local diffusion properties of the water molecules in biological tissues [11].</p>
+                <p>Techniques:</p>
                 <ul>
                     <li><strong>DWI</strong> (Diffusion Weighted Imaging): Detects differences in the degree of movement of water molecules (speed) [12].</li>
                     <li><strong>DTI</strong> (Diffusion Tensor Imaging): Maps the diffusion of water along white matter tracts. Reports information on the degree of diffusion (speed) + main (preferential) direction of movement of water molecules [2,13].</li>
                     <li><strong>DSI</strong> (Diffusion Spectrum Imaging) and <strong>QBI</strong> (Imaging q-ball): Captures more complex diffusion patterns [14,15].</li>
                 </ul>
-                <p>COMPUTATIONAL ANALYSIS: Tools like FSL, MRtrix, and DSI Studio for tractography and tensor analysis.</p>
-                <p>EXAMPLE: DTI used to map white matter changes in patients with multiple sclerosis.</p>
-
-                <h3>Functional MRI (fMRI):</h3>
-                <p>OVERVIEW: fMRI detects changes in blood oxygen levels (BOLD signal) to visualize and measure brain activity in real time [7,8]. There are two main types of fMRI:</p>
-                <ul>
-                    <li><strong>Task-based</strong> fMRI: Involves participants performing specific tasks while their brain activity is measured, providing insights into brain function related to cognitive and motor tasks [9].</li>
-                    <li><strong>Resting-state</strong> fMRI: Measures brain activity when a person is not performing any explicit tasks, capturing the brain's intrinsic functional connectivity [10].</li>
-                </ul>
-                <p>APPLICATIONS: Used in cognitive and behavioral studies, mapping brain functions, and pre-surgical planning.</p>
-                <p>EXAMPLE: Task-based fMRI identifying regions activated during language tasks in epilepsy patients for surgical planning.</p>
-               
+                <p>Computational Analysis: Tools like FSL, MRtrix, and DSI Studio for tractography and tensor analysis.</p>
+                <p>Example: DTI used to map white matter changes in patients with multiple sclerosis.</p>
 						</div>
 					</div>
 
