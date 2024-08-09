@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Intro to MRI</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Introduction to MRI</h1>
+							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+              <span class="image main"><img src="images/mri_info_small.png" alt="" /></span>
+              <h2>1. MRI Basics</h2>
+              <p>Atoms are made up of a nucleus and a shell of electrons. Inside the nucleus, there are protons, which have a positive electrical charge. These protons are constantly spinning around an axis, which creates a spin (see figure).</p>
+              <p>Because protons are moving electrical charges, they generate an electrical current. This current creates a magnetic field, making each proton act like a tiny bar magnet with its own magnetic field.</p>
+              <p>When protons are placed in an MRI scanner, they align with the external magnetic field. There are two ways they can align:</p>
+              <ul>
+                  <li>Parallel to the magnetic field (lower energy state)</li>
+                  <li>Anti-parallel to the magnetic field (higher energy state)</li>
+              </ul>
+              <p>The protons also precess (spin) along the magnetic field lines, similar to how a spinning top behaves under Earth's gravity.</p>
+              <p>When a person is inside the MRI machine, a strong magnetic field aligns the protons in their body. If we send a radio-frequency (RF) pulse at the same frequency as the protons' precessing frequency, two things happen:</p>
+              <ul>
+                  <li><strong>Longitudinal Magnetization Decreases:</strong> More protons align anti-parallel, canceling out some of the parallel protons.</li>
+                  <li><strong>Transversal Magnetization Forms:</strong> The RF pulse synchronizes the protons, causing them to precess together.</li>
+              </ul>
+              <img src="images/magnetic_field_MRI.png" alt="Workflow" style="width: 35%;"> <img src="images/magnetization_MRI.png" style="width: 35%;">
+              <p> </p>
+              <h2>Key Terms in MRI:</h2>
+                <ul>
+                    <li><strong>Gradients:</strong> Gradient magnets are used to spatially encode the signals received from the protons, allowing for the construction of an image.</li>
+                    <li><strong>Resonance:</strong> This phenomenon occurs when the RF pulse matches the protons' frequency, allowing them to absorb energy from the radio waves. This is where the term "resonance" in "magnetic resonance" comes from.</li>
+                    <li><strong>Proton Resonance:</strong> Hydrogen protons in the body align with a magnetic field and then resonate when exposed to radiofrequency pulses (RF).</li>
+                </ul>
+              <h2>MRI Equipment and Technologies</h2> 
+                <h3>Main components of an MRI scanner:</h3> 
+                <ul> 
+                    <li><strong>Magnet:</strong> The core component of the MRI scanner generating a powerful magnetic field to align the protons in the body. The strength of the magnet is typically measured in tesla (T) with common strengths ranging from 1.5T to 3T in clinical settings and up to 7T or more in research settings. Higher magnetic field strengths (e.g., 7T) provide better signal-to-noise ratio and spatial resolution, allowing for more detailed and precise imaging of the brain and other organs.</li> </li>
+                    <li><strong>Gradient Coils:</strong> These coils create variable magnetic fields that allow for spatial encoding of the MRI signal. They are essential for slice selection, spatial resolution, and imaging speed.</li> 
+                    <li><strong>Radiofrequency Coils:</strong> These coils transmit and receive radiofrequency pulses that perturb and detect the protons' magnetic alignment. They come in various shapes and sizes tailored for specific body parts or imaging purposes.</li> 
+                    <li><strong>Computer System:</strong> The MRI scanner’s computer system controls the hardware, processes the signals received from the radiofrequency coils, and reconstructs the images for display and analysis. It includes powerful processors and advanced software algorithms for image reconstruction and enhancement.</li> 
+                </ul> 
+                <img src="images/MRI_SCANNER.png" alt="MRI Scanner" /> 
+                <h2>2. MRI Protocols and Sequences</h2>
+                  <h3>Protocol Selection:</h3>
+                  <p>Choosing the right MRI protocols and sequences is crucial for obtaining the best possible images for the clinical question or research objective. For instance, T1-weighted imaging is ideal for anatomical detail, while T2-weighted imaging is better for identifying pathologies such as edema or tumors. The choice of protocol should consider tissue type, desired contrast, and anatomical area. Additionally, standardized acquisition parameters and logical axioms for different MRI types are essential to ensure reproducibility and interoperability.</p>
+                  <ul>
+                  <li>
+                      <strong>Spin Echo (SE)</strong>
+                      <ul>
+                          <li><strong>T1-Weighted Imaging:</strong> Highlights fat and provides clear images of the brain's anatomy.</li>
+                          <li><strong>T2-Weighted Imaging:</strong> Highlights fluid and is useful for detecting edema and inflammation.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>Diffusion-Weighted Imaging (DWI)</strong>
+                      <ul>
+                          <li><strong>Conventional DWI:</strong> Detects the movement of water molecules in tissue, helpful in identifying acute stroke and other brain pathologies.</li>
+                          <li><strong>Diffusion Tensor Imaging (DTI):</strong> Maps the orientation and integrity of white matter tracts in the brain.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>Inversion Recovery (IR)</strong>
+                      <ul>
+                          <li><strong>FLAIR (Fluid Attenuated Inversion Recovery):</strong> Suppresses fluids, enhancing the visibility of lesions.</li>
+                          <li><strong>DIR (Double Inversion Recovery):</strong> Suppresses both CSF and white matter signals, making it easier to detect cortical lesions.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>Perfusion Imaging</strong>
+                      <ul>
+                          <li><strong>Arterial Spin Labeling (ASL):</strong> Non-invasively measures blood flow in tissues, useful for assessing perfusion in various brain regions.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>Functional MRI (fMRI)</strong>
+                      <ul>
+                          <li><strong>BOLD (Blood Oxygenation Level Dependent):</strong> Measures brain activity by detecting changes in blood oxygen levels, commonly used in functional brain mapping.</li>
+                      </ul>
+                  </li>
+                  <li>
+                      <strong>Gradient Echo (GRE)</strong>
+                      <ul>
+                          <li><strong>T2 (T2 Star-Weighted Imaging):</strong> Sensitive to magnetic field inhomogeneities, useful for detecting hemorrhage or iron deposition.</li>
+                          <li><strong>SWI (Susceptibility-Weighted Imaging):</strong> Enhances sensitivity to blood products and other paramagnetic substances, useful in detecting microbleeds and vascular abnormalities.</li>
+                      </ul>
+                  </li>
+              </ul>
+              <h3>Structural MRI (sMRI):</h3>
+                <p>OVERVIEW: sMRI utilizes magnetic fields and radio waves to create detailed images of the brain's anatomy. This technique allows for high-resolution examination of brain structures, providing essential information about the size, shape, and integrity of various brain regions.</p>
+                <p>TECHNIQUES: cortical thickness (CT) [1], diffusion tensor imaging (DTI) [2], surface-based morphometry (SBM) [3,4], and voxel-based morphometry (VBM) [5,6].</p>
+                <p>APPLICATIONS: It is particularly useful for identifying abnormalities such as tumors, brain injuries, and neurodegenerative diseases.</p>
+                <p>EXAMPLE: A study using VBM to identify brain volume reductions in patients with Alzheimer's disease.</p>
+
+                <h3>Diffusion MRI:</h3>
+                <p>OVERVIEW: Diffusion MRI maps the local diffusion properties of the water molecules in biological tissues [11].</p>
+                <p>TECHNIQUES:</p>
+                <ul>
+                    <li><strong>DWI</strong> (Diffusion Weighted Imaging): Detects differences in the degree of movement of water molecules (speed) [12].</li>
+                    <li><strong>DTI</strong> (Diffusion Tensor Imaging): Maps the diffusion of water along white matter tracts. Reports information on the degree of diffusion (speed) + main (preferential) direction of movement of water molecules [2,13].</li>
+                    <li><strong>DSI</strong> (Diffusion Spectrum Imaging) and <strong>QBI</strong> (Imaging q-ball): Captures more complex diffusion patterns [14,15].</li>
+                </ul>
+                <p>COMPUTATIONAL ANALYSIS: Tools like FSL, MRtrix, and DSI Studio for tractography and tensor analysis.</p>
+                <p>EXAMPLE: DTI used to map white matter changes in patients with multiple sclerosis.</p>
+
+                <h3>Functional MRI (fMRI):</h3>
+                <p>OVERVIEW: fMRI detects changes in blood oxygen levels (BOLD signal) to visualize and measure brain activity in real time [7,8]. There are two main types of fMRI:</p>
+                <ul>
+                    <li><strong>Task-based</strong> fMRI: Involves participants performing specific tasks while their brain activity is measured, providing insights into brain function related to cognitive and motor tasks [9].</li>
+                    <li><strong>Resting-state</strong> fMRI: Measures brain activity when a person is not performing any explicit tasks, capturing the brain's intrinsic functional connectivity [10].</li>
+                </ul>
+                <p>APPLICATIONS: Used in cognitive and behavioral studies, mapping brain functions, and pre-surgical planning.</p>
+                <p>EXAMPLE: Task-based fMRI identifying regions activated during language tasks in epilepsy patients for surgical planning.</p>
+               
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
