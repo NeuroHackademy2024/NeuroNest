@@ -48,20 +48,20 @@
             </nav>
 
             <!-- Main -->
-           <div id="main">
-    <div class="inner">
-        <h1>Welcome to the NeuroNest Tutorial on PET Data Analysis and Visualization!</h1>
-        <span class="image main"><img src="images/PET_BANNER.png" alt="" /></span>
-        <p>Welcome to the NeuroNest tutorial on PET Data Analysis and Visualization!</p>
+            <div id="main">
+                <div class="inner">
+                    <h1>Welcome to the NeuroNest Tutorial on PET Data Analysis and Visualization!</h1>
+                    <span class="image main"><img src="images/PET_BANNER.png" alt="PET Banner" /></span>
+                    <p>Welcome to the NeuroNest tutorial on PET Data Analysis and Visualization!</p>
 
-        <h2>Tutorial Time: 45 min</h2>
-        <p>In this tutorial, we'll cover fundamental concepts essential for processing and visualizing Positron Emission Tomography (PET) data. The tutorial aims to bridge the gap between beginners and advanced researchers by providing hands-on learning, including modality overviews, relevant coding examples, and valuable resources.</p>
+                    <h2>Tutorial Time: 45 min</h2>
+                    <p>In this tutorial, we'll cover fundamental concepts essential for processing and visualizing Positron Emission Tomography (PET) data. The tutorial aims to bridge the gap between beginners and advanced researchers by providing hands-on learning, including modality overviews, relevant coding examples, and valuable resources.</p>
 
-        <h2>What Positron Emission Tomography (PET) Is and How It Works</h2>
-        <p>Positron Emission Tomography (PET) is an advanced imaging technique that employs positron-emitting radionuclides to visualize and measure metabolic processes within the body. It is widely used in medical diagnostics, particularly for examining brain function, cancer detection, and heart conditions.</p>
+                    <h2>What Positron Emission Tomography (PET) Is and How It Works</h2>
+                    <p>Positron Emission Tomography (PET) is an advanced imaging technique that employs positron-emitting radionuclides to visualize and measure metabolic processes within the body. It is widely used in medical diagnostics, particularly for examining brain function, cancer detection, and heart conditions.</p>
 
                     <h3>Basic Principles of PET Imaging</h3>
-	            <img src="images/PET_basis.png" alt="PET scanning process" style="width: 45%/>
+                    <img src="images/PET_basis.png" alt="PET scanning process" style="width: 80%; max-width: 800px; height: auto;" />
                     <ul>
                         <li><strong>Radiotracer Injection:</strong> PET involves the administration of radiotracers, which are radioactive substances that emit positrons as they decay.</li>
                         <li><strong>Positron-Electron Interaction:</strong> Once inside the body, these positrons interact with electrons, resulting in the production of gamma rays.</li>
@@ -75,6 +75,7 @@
                         <li><strong>Detectors:</strong> Usually made of scintillating crystals, these components capture the gamma rays produced by positron-electron interactions.</li>
                         <li><strong>Data Acquisition System:</strong> Collects and processes the signals from the detectors, converting them into digital images for analysis.</li>
                     </ul>
+                    <img src="images/PET_Scanner.png" alt="PET Scanner" style="width: 80%; max-width: 600px; height: auto;" />
 
                     <h4>Overview of PET Radiotracers and Their Functions</h4>
                     <ul>
@@ -148,9 +149,7 @@
                         <li><strong>Cancer:</strong> Detecting and monitoring brain tumors through their metabolic activity.</li>
                     </ul>
 
-                    <h3>Blood Flow Imaging with PET</
-
-h3>
+                    <h3>Blood Flow Imaging with PET</h3>
                     <h4>How PET is Used to Measure Blood Flow in the Brain</h4>
                     <ul>
                         <li><strong>Cerebral Perfusion:</strong> PET can assess blood flow to different brain regions, crucial for understanding various neurological conditions.</li>
@@ -205,7 +204,7 @@ h3>
                         <li><strong>Neurology:</strong> Measuring changes in brain function and metabolism in neurological diseases.</li>
                     </ul>
 
-                    <h3>Comparison of PET with Other Imaging Modalities</h4>
+                    <h3>Comparison of PET with Other Imaging Modalities</h3>
                     <h4>Differences and Similarities Between PET and Other Imaging Techniques</h4>
                     <ul>
                         <li><strong>PET vs. MRI:</strong> PET provides functional imaging, while MRI offers detailed structural images.</li>
@@ -316,17 +315,15 @@ plt.show()</code></pre>
 
                     <h2>Additional Resources</h2>
                     <ul>
-                        <li>SNMMI Procedure Standards</li>
-                        <li>EANM Tech Principles and Practice of PET/CT</li>
-                        <li>NiftyPET GitHub Repository</li>
+                        <li><a href="https://snmmi.org/Web/Clinical-Practice/Procedure-Standards/Standards/Brain--18F-FDG-PET-Imaging-2-0-guideline">SNMMI Procedure Standards</a></li>
+                        <li><a href="https://eanm.org/wp-content/uploads/2024/06/EANM_2010_Tech_Principles_and_Practice_of_PET-CT_Part_1.pdf">EANM Tech Principles and Practice of PET/CT</a></li>
+                        <li><a href="https://github.com/NiftyPET/NiftyPET">NiftyPET GitHub Repository</a></li>
                     </ul>
 
                     <h2>FAQ and Practical Tips</h2>
                     <p><strong>Q:</strong> How do I handle missing data files?<br><strong>A:</strong> Ensure all paths are correct and data files are available. Re-download the dataset if necessary.</p>
                     <p><strong>Q:</strong> What should I do if the reconstructed image looks distorted?<br><strong>A:</strong> Check the reconstruction parameters and ensure the attenuation map is correctly applied.</p>
-                    <p><strong>Q:</strong> How can I improve the quality of the reconstructed image?<br><strong
-
->A:</strong> Adjust the reconstruction parameters such as iteration number and FWHM to achieve better results.</p>
+                    <p><strong>Q:</strong> How can I improve the quality of the reconstructed image?<br><strong>A:</strong> Adjust the reconstruction parameters such as iteration number and FWHM to achieve better results.</p>
 
                     <h2>References</h2>
                     <ul>
@@ -341,17 +338,17 @@ plt.show()</code></pre>
             <footer id="footer">
                 <div class="inner">
                     <section>
-								<h2>Funding</h2>
-								<p> We would like to express our heartfelt gratitude to <strong>Neurohackademy</strong> at the <strong>University of Washington eScience Institute</strong> for providing invaluable training and support. This experience has significantly enriched our understanding of neuroimaging and data science. We also acknowledge the support of the National Institute of Mental Health (NIMH) grant number <strong>5R25MH112480-08</strong>, which made this opportunity possible.</p>
-							</section>
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<li><a href="https://x.com/Neuro_Nest" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="https://github.com/NeuroHackademy2024/NeuroNest" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="mailto:sopkoc@umich.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							  </section>
+                        <h2>Funding</h2>
+                        <p> We would like to express our heartfelt gratitude to <strong>Neurohackademy</strong> at the <strong>University of Washington eScience Institute</strong> for providing invaluable training and support. This experience has significantly enriched our understanding of neuroimaging and data science. We also acknowledge the support of the National Institute of Mental Health (NIMH) grant number <strong>5R25MH112480-08</strong>, which made this opportunity possible.</p>
+                    </section>
+                    <section>
+                        <h2>Follow</h2>
+                        <ul class="icons">
+                            <li><a href="https://x.com/Neuro_Nest" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="https://github.com/NeuroHackademy2024/NeuroNest" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="mailto:sopkoc@umich.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+                        </ul>
+                    </section>
                     <ul class="copyright">
                         <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
                     </ul>
