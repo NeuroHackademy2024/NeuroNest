@@ -94,95 +94,12 @@
 									<ul><code>$ rm -i [path]</code>: interactive mode - prompts for confirmation before deletion</ul>
 									<ul><code>$ rm -r [directory]</code>: permanently delete a directory and all its contents</ul>
 								</ul>
-								<h2 id="using-flags-and-arguments-in-commands">
-							5. Using Flags and Arguments in Commands</h2>
-								<p>Most commands follow the same format: command, then flags/options, then arguments.</p>
-<pre><code>$ command [flags/options] [arguments]</code></pre>
-								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
-<pre><code>$ ls</code></pre>									
-								<p><strong>With Arguments </strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
-<pre><code>$ cd /path/to/directory </code></pre>
-								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
-<pre><code>$ ls -l </code></pre>
-								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
-								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to list all files, including hidden ones, in the Desktop directory:<p>
-<pre><code>$ ls -a Desktop </code></pre>
-								<p><strong>Combing Flags</strong>: You can combine multiple flags with a single -, with no spaces between flags. For example:</p>
-<pre><code>$ ls -Fa </code></pre>
-								<p><strong>Examples</strong>: Here are some examples of using commands with flags and arguments:</p>
-
-								<p>To list contents of the 'Desktop' directory:</p>
-<pre><code>$ ls -F Desktop</code></pre>
-								<p>To make a new directory:</p>
-<pre><code>$ mkdir -p Desktop/practice/example</code></pre>
-								<p>To move into the 'Desktop' directory:</p>
-<pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
-								
-							<h2 id="working-with-files-and-directories">7. Working With Files and Directories</h2>
-								<ul>
-								<li><code>$ mkdir [dirname]</code>: Make (create) a new directory.Avoid using spaces; underscores are not recommended.
-									<ul>Example: <code>mkdir results</code></ul></li>
-								<li><code>$ cp [old] [new]</code>: make a copy of the file
-									<ul>
-										<li>Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></li>
-									</ul></li>
-								<li><code>$ cp -r [source] [destination]</code>: copy a directory
-									<ul>
-										<li>Copies a directory and all its contents.</li>
-									</ul></li>
-								<li><code>$ mv [old] [new]</code>: move or rename a file or directory:</li>
-								<li><code>$ rmdir [directory]</code>: remove an empty directory</li>
-								<li><code>$ rm [path]</code>: remove a file permanently</li>
-								<ul>
-									Important Note: Deleted files are gone forever! There is no trash or recycle bin.
-									<ul><code>$ rm -i [path]</code>: interactive mode - prompts for confirmation before deletion</ul>
-									<ul><code>$ rm -r [directory]</code>: permanently delete a directory and all its contents</ul>
-								</ul>
-								<li><code>$ touch [filename]</code>: create an empty file 
-									<ul>
-										<p>Useful for generating placeholder files required by some programs.</p>	
-									</ul></li>
-								<li><code>$ nano [filename]</code>: Create or edit a file. If the file does not exist, it will be created. Type your content, then save and exit.
-									Shortcut Keys in Nano:
-									<table>
-									<thead>
-									<tr>
-									<th>Command</th>
-									<th>Description</th>
-									</tr>
-									</thead>
-									<tbody>
-									<tr>
-									<td><code>Ctrl + O</code></td>
-									<td>Save the file (into a current or new name).</td>
-									</tr>
-									<tr>
-									<td><code>Ctrl + X</code></td>
-									<td>Exit the editor. If unsaved, nano will prompt to save.</td>
-									</tr>
-									<tr>
-									<td><code>Ctrl + K</code></td>
-									<td>Cut (“kill”) a line of text. Repeated use cuts multiple lines.</td>
-									</tr>
-									<tr>
-									<td><code>Ctrl + U</code></td>
-									<td>Paste the cut text.</td>
-									</tr>
-									</tbody>
-									</table>
-									</li></li></ul>
-							
-								
-								<li><code>$ cat</code>: print the contents of files. 
-									<ul><li>Example: <code>cat file1.txt file2.txt</code></li></ul></li>
-								<li><code>$ more </code>: similar to cat, but displays one page at a time, use spacebar to continue </li>
-								<li><code>$ less -N [file]</code>: displays content page by page with line numbers. Use q to exit.</li>
-								<li><code>$ sort [file]</code>: sorts file contents alphanumerically. 
-									<ul>Use -n for numerical sorting.</ul></li>
-								<li><code>$ head [file]</code>: displays the first 10 lines. 
-									<ul>Use -n [#] to specify the number of lines.</ul></li>
-								<li><code>$ tail [file]</code>: displays the last 10 lines. 
-									<ul>Use -n [#] to specify the number of lines.</ul></li>
+							<h2 id="variables">10. Variables</h2>
+								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number.</p>
+								<p><strong>Declaring Variables</strong>: to create a variable, use the following syntax:</p>
+<pre><code>$ [variable_name]=value</code><p>Note: No spaces are allowed betwen the variable name, the equals sign, and the value. Use consistent and simple filenames to facilitate looping.</p></pre>
+								<p><strong>Accessing Values</strong>: to retrieve the value of a variable, prefix its name with a dollar sign <code>$</code>, as seen below </p>
+<pre><code>$ echo $variable_name</code></pre>	
 							<h2>9. Pipes and Filters</h2>
 								<ul>
 								<li>Pipe Operator: <code>$ [command] | [command]</code>: Redirect the output of one command into another. 
@@ -275,12 +192,7 @@
 								<li><code>$ cat filename.list | grep keyword &gt; filefound.list</code>: Pipe output to another command</li>
 								<li><code>$ cut -d , -f 2 [file].csv | sort | uniq</code>: Remove duplicates</li>
 								</lu></p>
-							<h2 id="variables">10. Variables</h2>
-								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number.</p>
-								<p><strong>Declaring Variables</strong>: to create a variable, use the following syntax:</p>
-<pre><code>$ [variable_name]=value</code><p>Note: No spaces are allowed betwen the variable name, the equals sign, and the value. Use consistent and simple filenames to facilitate looping.</p></pre>
-								<p><strong>Accessing Values</strong>: to retrieve the value of a variable, prefix its name with a dollar sign <code>$</code>, as seen below </p>
-<pre><code>$ echo $variable_name</code></pre>								
+													
 							<h2 id="for loops">11. For Loops</h2>
 								<p>For Loops allow us to execute a series of commands repeatedly for each item in a list. For loops are often used in scripts. Below is a for loop syntax template. In this example, <code>'variable'</code> represents each item in the <code>'list'</code> during each iteration</p>
 <pre><code>for variable in list
