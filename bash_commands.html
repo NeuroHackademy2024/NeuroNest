@@ -51,28 +51,36 @@
 					<div id="main">
 						<div class="inner">
 							<h1>Introduction to Command Line</h1>
-              						<h2 id="using-flags-and-arguments-in-commands">1. Using Flags and Arguments in Commands</h2>
+              						<h2 id="learning-commands">1. Learning Commands</h2>
 								<p>Most commands follow the same format: command, then flags/options, then arguments.</p>
 <pre><code>$ command [flags/options] [arguments]</code></pre>
 								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
-<pre><code>$ ls</code></pre>									
+<pre><code>$ ls</code></pre>
+								<p>Because there is no argument, this command would print the names of the files and directories within our the current working directory.</p>
 								<p><strong>With Arguments </strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
 <pre><code>$ cd /path/to/directory </code></pre>
+								<p>By including the file path in the argument, we are telling the shell where to move our location in the file structure. Notice this is an absolute path, because it starts at the root directory.</p>
 								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
 <pre><code>$ ls -l </code></pre>
 								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
-								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to list all files, including hidden ones, in the Desktop directory:<p>
+								<p><strong>With Arguments and Flags </strong>: You can combine arguments and flags. Flags generally precede any arguments passed to a UNIX command. For example, to <i>list all files</i>, including hidden ones, in the <i>Desktop</i> directory:<p>
 <pre><code>$ ls -a Desktop </code></pre>
-								<p><strong>Combing Flags</strong>: You can combine multiple flags with a single -, with no spaces between flags. For example:</p>
+								<p><strong>Combing Flags</strong>: We can combine multiple flags with a single - (dash), with no spaces between flags. For example:</p>
 <pre><code>$ ls -Fa </code></pre>
-								<p><strong>Examples</strong>: Here are some examples of using commands with flags and arguments:</p>
+								<p>In this example, <code>ls -F</code> prints each type of file, where directories are indicated with a <code>/</code> before the name. In addition, <code>ls -a</code> prints all files, including the hidden ones.</p>
+								<p><strong>Examples</strong>: Here are some more examples of using commands with flags and arguments:</p>
 
-								<p>To list contents of the 'Desktop' directory:</p>
-<pre><code>$ ls -F Desktop</code></pre>
-								<p>To make a new directory:</p>
-<pre><code>$ mkdir -p Desktop/practice/example</code></pre>
 								<p>To move into the 'Desktop' directory:</p>
 <pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
+								<p>To make a new directory:</p>
+<pre><code>$ mkdir -p ~/Desktop/practice/example</code></pre>
+								<p>In this example, we are attempting to create a directory named "example". By adding the -p flag, we are able to create a path of directories. Instead of only making one directory, "example", we are able to create a parent directory "practice" <i>and</i> the subdirectory "example" in one line of code. Otherwise, our could would look like this (which is also an acceptable way to make directories):
+<pre><code>$ cd ~/Desktop
+mkdir practice
+cd practice
+mkdir example	
+code></pre>									
+								
 								
 							<h2 id="working-with-files-and-directories">2. Working With Files and Directories</h2>
 								<ul>
