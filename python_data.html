@@ -50,22 +50,40 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Python Tutorials </h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<ul>
-								<li>
-									<a href="ct_python.html">CT Imaging Classification using Artificial Neural Networks</a>
-									- This project uses PyTorch to create a neural network to process CT data.
-								</li>
-								<li>
-									<a href="seaborn_python_data.html">Seaborn Library for Data Visualization</a>
-									- Seaborn is a Python visualization library based on matplotlib that provides a high-level interface for drawing attractive and informative statistical graphics.
-								</li>
-								<li>
-									<a href="mne_python_data.html">MNE EEG/MEG Analysis and Visulatization Package Tutorial</a>
-									- MNE is an open-source Python library for processing, analyzing, and visualizing EEG and MEG data, widely used in neuroscience research for advanced signal processing and brain activity visualization.
-								</li>
-							</ul>
+<h1 id="python-for-neuroimaging">Python for Neuroimaging</h1>
+<h2 id="what-is-python-">What is Python?</h2>
+<p>Python is a versatile, high-level programming language widely used for a range of tasks, including web development, data analysis, machine learning, automation, and scientific computing. Known for its readability and ease of use, Python is a popular choice for both beginners and experienced programmers. In the context of neuroscience and psychology research, Python is invaluable due to its extensive ecosystem of libraries and tools designed for data analysis, visualization, machine learning, and more.</p>
+<p><strong>Applications in Research</strong>
+-<em>Data Preprocessing and Analysis</em>: Python offers a comprehensive toolkit for neuroimaging data handling, from loading and manipulating formats like NIfTI with <a href="https://nipy.org/nibabel/"><strong>Nibabel</strong></a> to efficiently processing large arrays with <a href="https://numpy.org/"><strong>NumPy</strong></a>. Data manipulation is streamlined with <a href="https://pandas.pydata.org/"><strong>Pandas</strong></a>, while <a href="https://www.statsmodels.org/stable/index.html"><strong>Statsmodels</strong></a> and <a href="https://scipy.org/"><strong>SciPy</strong></a> support robust statistical modeling and hypothesis testing. Additionally, tools for automating neuroimaging processing like <a href="https://fmriprep.org/en/stable/"><strong>fMRIPrep</strong></a> and <a href="https://mriqc.readthedocs.io/en/stable/"><strong>MRIQC</strong></a> are also Python-based.</p>
+<p>-<em>Visualization</em>: Python offers a variety of tools for visualizing statistical and brain data, such as <a href="https://matplotlib.org/"><strong>Matplotlib</strong></a>, <a href="https://seaborn.pydata.org/"><strong>Seaborn</strong></a>, and <a href="https://plotly.com/python/"><strong>Plotly</strong></a>. For neuroimaging-specific needs, <a href="https://nilearn.github.io/"><strong>Nilearn</strong></a> is particularly valuable, offering capabilities for visualizing statistical maps and connectomes.</p>
+<p>-<em>Reproducible Research</em>: Python&#39;s <a href="https://jupyter.org/"><strong>Jupyter Notebooks</strong></a> environment allows researchers to create interactive documents that combine code, narrative, and visualizations, ensuring analyses are reproducible and easy to share. Tools like <a href="https://docs.pytest.org/en/stable/"><strong>Pytest</strong></a> for testing, <a href="https://pylint.pycqa.org/en/latest/"><strong>Pylint</strong></a> for code analysis, and formatting tools like <a href="https://black.readthedocs.io/en/stable/"><strong>Black</strong></a> and <a href="https://github.com/grantjenks/blue"><strong>Blue</strong></a> contribute to creating clean, maintainable, and reproducible research code.<a href="https://bids-standard.github.io/pybids/"><strong>PyBIDS</strong></a> is another useful library for handling datasets organized according to the BIDS (Brain Imaging Data Structure) standard.</p>
+<p>-<em>Machine Learning, Predictive Modeling, and Simulation</em>: Python can facilitate the classification, regression, and modeling of complex brain functions. Python&#39;s extensive libraries like <a href="https://scikit-learn.org/stable/"><strong>Scikit-learn</strong></a>, <a href="https://www.tensorflow.org/"><strong>TensorFlow</strong></a>, and <a href="https://pytorch.org/"><strong>PyTorch</strong></a> enable the implementation of machine learning and deep learning techniques for predictive analytics in neuroimaging.</p>
+<p>-<em>Integration with Other Tools</em>: Python can easily integrate with other neuroimaging software, allowing researchers to create scripts that automate the execution of tools like <a href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/"><strong>FSL</strong></a>, <a href="https://www.fil.ion.ucl.ac.uk/spm/"><strong>SPM</strong></a>, or <a href="https://afni.nimh.nih.gov/"><strong>AFNI</strong></a>. Python’s <a href="https://nipype.readthedocs.io/en/latest/"><strong>Nipype</strong></a> library is particularly useful for creating and managing these workflows.</p>
+<p>This resource gives a basic overview of Python programming and relevant packages for neuroimaging and provides several step-by-step tutorials on using Python to work with neuroimaging data.</p>
+<h2 id="-python-environment-and-setup-python_environment-html-"><a href="python_environment.html">Python Environment and Setup</a></h2>
+<p>This section will guide you through the process of installing Python, setting up your development environment, and managing packages. It will cover tools like Conda, Jupyter, and command-line interfaces to ensure you are ready to begin programming in Python.</p>
+<h2 id="-basic-syntax-and-elements-python_elements-html-"><a href="python_elements.html">Basic Syntax and Elements</a></h2>
+<p>Learn the fundamental building blocks of Python, including variables, data types, loops, and functions. This section will provide a solid foundation for understanding how Python code is structured and how to manipulate basic data structures.</p>
+<h2 id="-core-python-programming-python_programming-html-"><a href="python_programming.html">Core Python Programming</a></h2>
+<p>This section delves into essential programming concepts, including error handling, debugging, and writing efficient code. It also covers best practices for coding style and introduces more advanced data structures like dictionaries and classes.</p>
+<h2 id="-developing-python-libraries-python_libraries-html-"><a href="python_libraries.html">Developing Python Libraries</a></h2>
+<p>Explore how to design, implement, and distribute your own Python libraries. This section covers key libraries in Python, such as NumPy, Pandas, and Matplotlib, and teaches you how to create reusable code for data analysis and scientific research.</p>
+<h2 id="-python-for-neuroimaging-python_neuroimaging-html-"><a href="python_neuroimaging.html">Python for Neuroimaging</a></h2>
+<p>Focused on the application of Python in neuroimaging research, this section covers tools like NiBabel, Nilearn, and fMRIPrep. You will learn how to preprocess neuroimaging data, implement machine learning models, and visualize brain imaging results using Python.</p>
+<h2 id="-tutorial-ct-imaging-classification-using-artificial-neural-networks-ct_python-html-"><a href="ct_python.html">Tutorial: CT Imaging Classification using Artificial Neural Networks</a></h2>
+<p>This tutorial uses PyTorch to create a neural network to process CT data.</p>
+<h2 id="-tutorial-seaborn-library-for-data-visualization-seaborn_python_data-html-"><a href="seaborn_python_data.html">Tutorial: Seaborn Library for Data Visualization</a></h2>
+<p>This tutorial walks through how to use Seaborn, a Python visualization library based on matplotlib that provides a high-level interface for drawing attractive and informative statistical graphics.</p>
+<h2 id="-tutorial-mne-for-meg-and-eeg-analysis-mne_python_data-html-"><a href="mne_python_data.html">Tutorial: MNE for MEG and EEG analysis</a></h2>
+<p>This tutorial demonstrates how to use the MNE Python library for processing, analyzing, and visualizing EEG and MEG data. This package is widely used in neuroscience research for advanced signal processing and brain activity visualization.</p>
+<h3 id="supplemental-resources-and-references-">Supplemental Resources and References:</h3>
+<ul>
+<li><a href="https://andysbrainbook.readthedocs.io/en/latest/PythonForNeuroimagers/PythonForNeuroimagers_Overview.html">Andy&#39;s Brain Book: Python for Neuroimagers Overview</a></li>
+<li><a href="https://www.python.org/about/">Documentation:Python Overview</a></li>
+<li><a href="https://www.youtube.com/watch?v=_uQrJ0TkZlc">Video: Introduction to Python Programming</a></li>
+</ul>
+
+							
 						</div>
 					</div>
 
