@@ -51,8 +51,7 @@
 					<div id="main">
 						<div class="inner">
 						<h1 id="matlab-elements-and-syntax">MATLAB Elements and Syntax</h1>
-              <span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<h3 id="1-basic-elements">1. Basic Elements</h3>
+							<h2 id="1-basic-elements">1. Basic Elements</h2>
 <p><strong>Comment:</strong> A comment in MATLAB is a piece of text in a script or function that is not executed. Comments are used to explain code and are created using the percent sign. For example, <code>x = 10 % This is a comment</code> assigns 10 to x and includes a comment. You can also write a block of comments using the block comment operators % { and % }.</p>
 <p><strong>Variable:</strong> A variable in MATLAB is a storage location identified by a name that can hold different types of data such as numbers, arrays, or strings. Variables are created by assignment statements, for example, <code>x = 5</code> creates a variable x with a value of 5. </p>
 <p><strong>String:</strong> A string is a series of characters, sometimes called a character vector or character array. Strings are created using single quotes, e.g., <code>str = &#39;hello&#39;</code> creates a string variable <code>str</code> with the text <code>hello</code>.</p>
@@ -78,7 +77,7 @@
 <li>Comments are green.</li>
 </ul>
 <p><img width="295" alt="image" src="https://github.com/user-attachments/assets/be066590-ca88-4ac0-8d40-7ee8c90022ee"></p>
-<h3 id="2-special-characters">2. Special Characters</h3>
+<h2 id="2-special-characters">2. Special Characters</h2>
 <p>Below are some of the key special characters you should be familiar with, including delimiters which are what the lists of variables are enclosed by when creating arrays and cells. For detailed information about other special characters, see <a href="https://www.mathworks.com/help/matlab/matlab_prog/matlab-operators-and-special-characters.html">MATLAB Operators and Special Characters</a>. </p>
 <p><strong>Square Brackets <code>[]</code>:</strong> </p>
 <ul>
@@ -156,7 +155,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-accessing-and-manipulating-elements">3. Accessing and Manipulating Elements</h3>
+<h2 id="3-accessing-and-manipulating-elements">3. Accessing and Manipulating Elements</h2>
 <p><strong>Indicies</strong>: Indices are used to specify the position of the element(s) so that you can retrieve them without processing the entire dataset. This capability enables you to easily update or modify specific elements within data structures or extract relevant portions of data for analysis or visualization.</p>
 <p>For one-dimensional arrays or cells, you specify the element&#39;s position using a single index, which corresponds to the element&#39;s position in that dimension. For example:</p>
 <pre><code class="lang-matlab">rowVector = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>];
@@ -232,7 +231,7 @@ multiCellArray = {<span class="hljs-number">1</span>, '<span class="hljs-built_i
 multiCellArray{<span class="hljs-number">2</span>, <span class="hljs-number">1</span>} = <span class="hljs-number">20</span>;   % Modifies <span class="hljs-keyword">the</span> element <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">second</span> row, <span class="hljs-keyword">first</span> column, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> {<span class="hljs-number">1</span>, '<span class="hljs-built_in">text</span>'; <span class="hljs-number">20</span>, 'more <span class="hljs-built_in">text</span>'; <span class="hljs-number">3</span>, 'even more <span class="hljs-built_in">text</span>'}
 multiCellArray{<span class="hljs-number">2</span>:<span class="hljs-number">3</span>, <span class="hljs-number">2</span>} = {'new <span class="hljs-built_in">text</span>', 'latest <span class="hljs-built_in">text</span>'}; % Modifies elements <span class="hljs-keyword">from</span> rows <span class="hljs-number">2</span> <span class="hljs-keyword">to</span> <span class="hljs-number">3</span> <span class="hljs-keyword">in</span> column <span class="hljs-number">2</span>, <span class="hljs-literal">result</span> <span class="hljs-keyword">is</span> {<span class="hljs-number">1</span>, '<span class="hljs-built_in">text</span>'; <span class="hljs-number">20</span>, 'new <span class="hljs-built_in">text</span>'; <span class="hljs-number">3</span>, 'latest <span class="hljs-built_in">text</span>'}
 </code></pre>
-<h3 id="4-case-and-space-sensitivity">4. Case and Space Sensitivity</h3>
+<h2 id="4-case-and-space-sensitivity">4. Case and Space Sensitivity</h2>
 <p>MATLAB is <strong>case-sensitive</strong>, meaning that variable and function names like <code>VariableName</code> and <code>variablename</code> are considered different.</p>
 <p>Additionally, MATLAB is <em>somewhat</em> <strong>space-sensitive</strong>, meaning spaces around operators, assignments, and in-function calls are mostly optional and do not affect code execution. While spaces are generally not significant in MATLAB syntax, improper placement can sometimes cause errors or affect readability. For Example:</p>
 <pre><code class="lang-matlab">     % These are all equivalent
@@ -272,12 +271,12 @@ multiCellArray{<span class="hljs-number">2</span>:<span class="hljs-number">3</s
 <p><strong>Code Style</strong>: </p>
 <p>Note that while MATLAB allows for flexible spacing, consistent use of spaces enhances code readability and maintainability. This is especially important in collaborative environments or when sharing code with others. </p>
 <p>Adopting a consistent coding style, including the use of spaces, helps in maintaining clean and understandable code. MATLAB&#39;s <a href="https://www.mathworks.com/help/matlab/matlab_prog/use-the-matlab-code-analyzer.html">code analyzer</a> provides guidelines and warnings to improve code quality, including spacing issues. </p>
-<h3 id="5-code-suggestions-and-completions">5. Code Suggestions and Completions</h3>
+<h2 id="5-code-suggestions-and-completions">5. Code Suggestions and Completions</h2>
 <p>MATLAB offers real-time syntax checking and code suggestions. As you type in the Command Window or Editor, MATLAB will suggest function names, variable names, and other elements. MATLAB also indicates matched and mismatched delimiters (e.g., parentheses and brackets) and paired language keywords (e.g., for, if, while, else, and end statements). For more information, see <a href="https://www.mathworks.com/help/matlab/matlab_env/check-syntax-as-you-type.html">Check Syntax as You Type</a>.</p>
-<h3 id="6-scripts-vs-functions">6. Scripts vs Functions</h3>
+<h2 id="6-scripts-vs-functions">6. Scripts vs Functions</h2>
 <p><strong>Scripts</strong>: Scripts are collections of MATLAB commands executed exactly as if they were typed into the Command Window. They operate within the current workspace, which means they can modify any existing variables or create new ones. Scripts do not accept inputs directly (though they can work with data already in the workspace) and do not return outputs. Scripts are useful for automating a series of MATLAB commands and for writing code that does not need to be modular or reusable, like data manipulation and plotting. </p>
 <p><strong>Functions</strong>: Functions, on the other hand, are more versatile and encapsulate their code within a separate workspace. They can accept inputs and return outputs, making them essential for modular programming. Functions prevent potential conflicts with the main workspace by keeping variables local, except those explicitly returned. They are ideal for reusing code, enhancing code readability, and managing larger projects where data encapsulation is necessary.</p>
-<h3 id="7-command-cheat-sheet">7. Command Cheat Sheet</h3>
+<h2 id="7-command-cheat-sheet">7. Command Cheat Sheet</h2>
 <table>
 <thead>
 <tr>
@@ -341,10 +340,10 @@ multiCellArray{<span class="hljs-number">2</span>:<span class="hljs-number">3</s
 </tr>
 </tbody>
 </table>
-<h3 id="8-suggested-tutorials">8. Suggested Tutorials</h3>
+<h2 id="8-suggested-tutorials">8. Suggested Tutorials</h2>
 <p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=3">Tutorial: Creating and Manipulating Arrays</a></p>
 <p><a href="https://matlabacademy.mathworks.com/details/matlab-fundamentals/mlbe#module=4">Tutorial: Accessing Data in Arrays</a></p>
-<h3 id="9-supplemental-materials">9. Supplemental Materials</h3>
+<h2 id="9-supplemental-materials">9. Supplemental Materials</h2>
 <p><a href="https://learnxinyminutes.com/docs/matlab/">Cheat Sheet: Example of Code Syntax and Formatting</a></p>
 <p><a href="https://www.tutorialspoint.com/matlab/matlab_syntax.htm">Live Demo: Basic Syntax</a></p>
 <p><a href="https://www.tutorialspoint.com/matlab/matlab_variables.htm">Live Demo: Variables Overview</a></p>
