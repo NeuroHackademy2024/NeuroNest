@@ -1,1 +1,395 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>MATLAB Tutorial</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1 id="MATLAB Workspace Basics">MATLAB Workspace Basics</h1>
+							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+<h1 id="fmri-data-analysis-in-matlab-using-spm">fMRI Data Analysis in MATLAB using SPM</h1>
+<p>This tutorial guides you through the process of analyzing fMRI data using MATLAB and SPM (Statistical Parametric Mapping). The focus is on scripting and using MATLAB commands rather than the SPM GUI. We will use a dataset from OpenNeuro and process it using pre-written batch scripts. All necessary code is available on the <strong>matlab-spm-scripts-jsh-modified</strong> github repository.</p>
+<p>The goal here is to use batch scripting in MATLAB to practice running automated pipelines that preprocess and analyze task-based fMRI data with minimal user input, using steps that one would typically have completed through the SPM12 GUI (e.g., Realign, Smooth, Segment, Specify 1st-level, Estimate, or Results).</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="install-spm">Install SPM</h3>
+<p>To follow this tutorial, you need to have <a href="https://www.fil.ion.ucl.ac.uk/spm/software/download/">SPM12</a> installed and added to your MATLAB path. Instructions on how to install SPM are available in the <a href="https://www.fil.ion.ucl.ac.uk/spm/docs/installation/">SPM Online Documentation.</a></p>
+<ol>
+<li>Download <code>spm12.zip</code> from the <a href="https://www.fil.ion.ucl.ac.uk/spm/software/download/">SPM website</a>.</li>
+<li>Unzip <code>spm12.zip</code> into a folder of your choice, such as <code>C:\Users\&lt;login&gt;\Documents\MATLAB\spm12</code>.</li>
+<li>Start MATLAB and add SPM to your path using the following MATLAB command:</li>
+</ol>
+<pre><code class="lang-matlab">addpath('C:<span class="hljs-tag">\<span class="hljs-name">Users</span></span><span class="hljs-tag">\<span class="hljs-name">&lt;</span></span>login&gt;<span class="hljs-tag">\<span class="hljs-name">Documents</span></span><span class="hljs-tag">\<span class="hljs-name">MATLAB</span></span><span class="hljs-tag">\<span class="hljs-name">spm</span></span>12')
+savepath <span class="hljs-comment">% if you want to save the current MATLAB path</span>
+</code></pre>
+<h3 id="access-batch-script-files">Access Batch Script Files</h3>
+<p>For this tutorial, all necessary code is available on GitHub in the <a href="https://github.com/smwong4/matlab-spm-scripts-jsh-modified">matlab-spm-scripts-jsh repository</a>. You have two options to access these files: download them directly to your local machine or use Git source control within MATLAB.</p>
+<h4 id="option-1-clone-the-git-repository-recommended-">Option 1: Clone the Git Repository (Recommended)</h4>
+<p>Using MATLAB&#39;s Current Folder browser, you can clone an existing remote repository, add files to your local repository, commit changes, and push or pull changes to and from the remote repository. Even if you don’t plan on modifying these scripts, using Git with MATLAB is good practice.</p>
+<p><em>First, if you haven&#39;t already set up Git source control in MATLAB, follow these steps:</em></p>
+<ol>
+<li>Ensure Git is installed on your system. You can download it from <a href="https://git-scm.com/">git-scm.com</a>.</li>
+<li>In MATLAB, go to the <strong>Home</strong> tab.</li>
+<li>Click on <strong>Environment</strong> and then <strong>Preferences</strong>.</li>
+<li>In the <strong>Preferences</strong> dialog, select <strong>MATLAB &gt; General &gt; Source Control</strong>.</li>
+<li>Choose <strong>Enable MathWorks source control integration</strong>.</li>
+</ol>
+<p><em>To clone the <a href="https://github.com/smwong4/matlab-spm-scripts-jsh-modified">matlab-spm-scripts-jsh repository</a>, follow these steps:</em></p>
+<ol>
+<li>In the MATLAB Current Folder browser, right-click on the white space and select <strong>Source Control &gt; Manage Files</strong>. MATLAB will open the <strong>Manage Files Using Source Control</strong> dialog box.</li>
+<li>Set the <strong>Source control integration</strong> option to <strong>Git</strong>.</li>
+<li>Click the <strong>Change</strong> button next to the <strong>Repository path</strong> field. This will open the <strong>Select a Repository</strong> dialog box.</li>
+<li>Enter the URL of the repository you want to clone: <code>https://github.com/smwong4/matlab-spm-scripts-jsh-modified</code>.</li>
+<li>Click the <strong>Validate</strong> button to check the remote repository path.</li>
+<li>In the <strong>Sandbox</strong> field, enter the path of the working folder where you want to store the retrieved files. The folder must be empty. For this tutorial, you can create a new folder called <code>neuronest-matlab-tutorial</code>. Enter the desired path, e.g., <code>C:\Users\&lt;login&gt;\Documents\MATLAB\neuronest-matlab-tutorial</code>, into the <strong>Sandbox</strong> field.</li>
+<li>Click the <strong>Retrieve</strong> button. If prompted, confirm the creation of the new folder.</li>
+<li>After cloning the repository, you can change the path to the remote repository if needed by right-clicking in the working folder, selecting <strong>Source Control &gt; Remote</strong>, and specifying the new path.</li>
+</ol>
+<p><img width="629" alt="image" src="https://github.com/user-attachments/assets/0d12846f-28c5-495c-a542-bbbd0b718e82"></p>
+<h4 id="option-2-download-all-files-locally">Option 2: Download All Files Locally</h4>
+<p>Alternatively, you can download all the files and create a folder named <code>neuronest-matlab-tutorial</code> to store them. You will need to add this folder to your MATLAB path. If the folder is already within your MATLAB directory, you can refer to the files by name rather than using the absolute path.</p>
+<pre><code class="lang-matlab">addpath(<span class="hljs-string">'neuronest-matlab-tutorial'</span>)
+savepath <span class="hljs-comment">% if you want to save the current MATLAB path</span>
+</code></pre>
+<h3 id="open-the-main-script-file-spm_batchscriptingexample_jsh">Open the Main Script File: spm_batchScriptingExample_jsh</h3>
+<p>Once you have all the script files in your MATLAB folder, identify the main script file, <code>spm_batchScriptingExample_jsh.m</code>. This file serves as the pipeline, sequentially calling all the necessary steps, which include:</p>
+<ol>
+<li><strong>Initializing the data</strong>: Pointing the script to the correct fMRI timeseries data.</li>
+<li><strong>Preprocessing the data</strong>: This includes steps such as realignment, smoothing, and segmentation, handled by <code>spm_standardPreproc_jsh</code>.</li>
+<li><strong>Creating the first-level statistical design</strong>: Analyzing the preprocessed data with <code>spm_specify1stlevel_jsh</code>.</li>
+<li><strong>Running the group-level analysis</strong>:<ul>
+<li>Estimating the model fit with <code>spm_estimateModel_jsh</code>.</li>
+<li>Creating the task contrast for statistical testing with <code>spm_setupTaskContrast_jsh</code>.</li>
+<li>Running and displaying the results with <code>spm_runResults_jsh</code>, which generates a 3D map of thresholded t-values indicating task-related brain activity.</li>
+</ul>
+</li>
+</ol>
+<p>This tutorial page includes code that can be copied into your MATLAB command line for each step, but it is recommended that you open the main script directly and run each chunk as you follow the tutorial steps instead.</p>
+<h2 id="step-1-import-and-initialize-data-files">Step 1: Import and Initialize Data Files</h2>
+<h3 id="download-openneuro-dataset">Download OpenNeuro Dataset</h3>
+<p>Find the <a href="https://openneuro.org/datasets/ds000157/versions/00001">&quot;ds000157&quot;</a> dataset on OpenNeuro. This dataset includes NIfTI files for each subject’s functional and anatomical MRI scans, organized in <a href="bids_data.html">BIDS format</a>.</p>
+<p><img width="600" alt="image" src="https://github.com/user-attachments/assets/42300427-c8c2-488c-83b1-49190113f1c0"></p>
+<p>You need to download the <em>entire dataset</em> using the provided options, either directly with your browser or using DataLad.</p>
+<h4 id="option-1-browser">Option 1: Browser</h4>
+<p>  <img width="600" alt="image" src="https://github.com/user-attachments/assets/70f82229-58cf-4c32-a9b6-d3c91f724046"></p>
+<p>If you download the data directly with your browser, ensure that the files are unzipped correctly in a folder named <code>ds000157</code> and are properly organized within the MATLAB folder structure.</p>
+<h4 id="option-2-datalad">Option 2: DataLad</h4>
+<p><img width="773" alt="image" src="https://github.com/user-attachments/assets/4e841224-520b-4313-8d1d-68ef6658321f"></p>
+<p>If you do not already have <a href="datalad_data.html">DataLad</a> installed, you will need to install it using your terminal. Download the dataset using DataLad and navigate to the dataset directory. You will then download the dataset contents recursively.</p>
+<pre><code class="lang-bash"><span class="hljs-meta"># Install datalad</span>
+pip install datalad
+
+<span class="hljs-meta"># Download the dataset</span>
+datalad install https:<span class="hljs-comment">//github.com/OpenNeuroDatasets/ds000157.git</span>
+cd ds000157
+datalad <span class="hljs-keyword">get</span> -r .
+</code></pre>
+<p>For more detailed instructions on using DataLad to download OpenNeuro datasets, refer to the <a href="https://handbook.datalad.org/en/latest/usecases/openneuro.html">DataLad Handbook</a>.</p>
+<h3 id="add-the-dataset-to-matlab-s-search-path">Add the Dataset to MATLAB&#39;s Search Path</h3>
+<p>Once the dataset is downloaded, ensure all the files are in a folder named <code>ds000157</code>. Add this folder to your MATLAB path. By adding the folder to the path, you ensure that MATLAB can access all the necessary data files without needing to specify the full directory paths each time.</p>
+<pre><code class="lang-matlab"><span class="hljs-comment">% Add data to MATLAB search path</span>
+addpath(<span class="hljs-string">'ds000157'</span>)
+savepath <span class="hljs-comment">% if you want to save the current MATLAB path</span>
+</code></pre>
+<h3 id="initialize-file-locations-and-other-variables">Initialize File Locations and Other Variables</h3>
+<p>Before running the preprocessing, ensure that the data is unzipped and the necessary file paths are set. The script you will run takes care of these steps automatically, including checking that the data files were downloaded and extracted properly and that MATLAB can access them before moving onto the next step.</p>
+<pre><code class="lang-matlab">
+disp(<span class="hljs-symbol">'CONFIGURING</span> PATHS <span class="hljs-keyword">AND</span> PARAMETERS')
+
+% Configure paths <span class="hljs-keyword">for</span> dataset, SPM, <span class="hljs-keyword">and</span> git repository
+% Example <span class="hljs-keyword">of</span> using absolute path <span class="hljs-keyword">if</span> the directory <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> already <span class="hljs-keyword">in</span> MATLAB path:
+% spm_dir = '/Users/candylab/Documents/MATLAB/spm12' 
+spm_dir = <span class="hljs-symbol">'spm12</span>'  % Path <span class="hljs-keyword">to</span> SPM.
+data_dir = '<span class="hljs-symbol">'ds000157</span>';  % Path <span class="hljs-keyword">to</span> data. 
+git_dir = <span class="hljs-symbol">'neuronest</span>-matlab-tutorial';  % Path <span class="hljs-keyword">to</span> github repository
+addpath(spm_dir);
+addpath(data_dir);
+addpath(git_dir);
+
+% Configure parameters
+subj = <span class="hljs-symbol">'sub</span>-<span class="hljs-number">01</span>';                                         % Subject ID. Can be changed <span class="hljs-keyword">to</span> any subject id <span class="hljs-keyword">in</span> data set
+fwhm = <span class="hljs-number">6</span>;                                                % Smoothing kernel (mm)
+
+% Unzip nifty files
+gunzip([data_dir filesep subj filesep <span class="hljs-symbol">'anat</span>' filesep subj '_T1w.nii.gz']); 
+gunzip([data_dir filesep subj filesep <span class="hljs-symbol">'func</span>' filesep subj '_task-passiveimageviewing_bold.nii.gz'])
+
+% Creating elements <span class="hljs-keyword">for</span> <span class="hljs-keyword">file</span> locations
+s_fn = [data_dir filesep subj filesep <span class="hljs-symbol">'anat</span>' filesep subj '_T1w.nii'];
+f_fn = [data_dir filesep subj filesep <span class="hljs-symbol">'func</span>' filesep subj '_task-passiveimageviewing_bold.nii'];
+stats_dir = [data_dir filesep subj filesep <span class="hljs-symbol">'stats</span>'];
+
+% Create stats directory <span class="hljs-keyword">if</span> it doesn<span class="hljs-symbol">'t</span> exist
+<span class="hljs-keyword">if</span> ~exist(stats_dir,<span class="hljs-symbol">'dir</span>')
+    mkdir(stats_dir)
+<span class="hljs-keyword">end</span>
+
+disp(<span class="hljs-symbol">'CHECKING</span> <span class="hljs-keyword">FOR</span> FILES')
+
+% Check <span class="hljs-keyword">for</span> the anatomical image <span class="hljs-keyword">file</span>
+<span class="hljs-keyword">if</span> exist(s_fn, <span class="hljs-symbol">'file</span>')
+    fprintf(<span class="hljs-symbol">'Anatomical</span> image <span class="hljs-keyword">file</span> exists: %s\n', s_fn);
+<span class="hljs-keyword">else</span>
+    <span class="hljs-literal">error</span>(<span class="hljs-symbol">'Anatomical</span> image <span class="hljs-keyword">file</span> <span class="hljs-keyword">not</span> found: %s\n', s_fn);
+<span class="hljs-keyword">end</span>
+
+% Check <span class="hljs-keyword">for</span> the functional image <span class="hljs-keyword">file</span>
+<span class="hljs-keyword">if</span> exist(f_fn, <span class="hljs-symbol">'file</span>')
+    fprintf(<span class="hljs-symbol">'Functional</span> image <span class="hljs-keyword">file</span> exists: %s\n', f_fn);
+<span class="hljs-keyword">else</span>
+    <span class="hljs-literal">error</span>(<span class="hljs-symbol">'Functional</span> image <span class="hljs-keyword">file</span> <span class="hljs-keyword">not</span> found: %s\n', f_fn);
+<span class="hljs-keyword">end</span>
+
+% Check <span class="hljs-keyword">file</span> sizes (optional)
+anat_info = dir(s_fn);
+func_info = dir(f_fn);
+fprintf(<span class="hljs-symbol">'Anatomical</span> image <span class="hljs-keyword">file</span> size: %d bytes\n', anat_info.bytes);
+fprintf(<span class="hljs-symbol">'Functional</span> image <span class="hljs-keyword">file</span> size: %d bytes\n', func_info.bytes);
+
+disp(<span class="hljs-symbol">'Files</span> are <span class="hljs-keyword">all</span> set!')
+</code></pre>
+<h2 id="step-2-run-preprocessing-scripts">Step 2: Run Preprocessing Scripts</h2>
+<p>The preprocessing pipeline includes several critical steps: slice-time correction, motion correction, coregistration, normalization, and smoothing. These processes ensure that the fMRI data is aligned, normalized, and prepared for statistical analysis.</p>
+<p>The preprocessing script will check if these steps have already been completed. If the data has already been processed, the script will skip the redundant steps. Otherwise, it will proceed with preprocessing the structural and functional images, ensuring that they are ready for subsequent analysis.</p>
+<pre><code class="lang-matlab"><span class="hljs-comment">%% PREPROCESSING</span>
+disp(<span class="hljs-string">'PREPROCESSING'</span>)
+
+<span class="hljs-comment">% Preprocess structural and functional images (if not already)</span>
+[d, f, e] = fileparts(s_fn);
+[d1, f1, e1] = fileparts(f_fn);
+
+if exist([d filesep <span class="hljs-string">'rc1'</span> f e], <span class="hljs-string">'file'</span>)
+    disp(<span class="hljs-string">'...preproc already done, saving variables...'</span>)
+    preproc_data = struct;
+    <span class="hljs-comment">% Structural filenames</span>
+    preproc_data.forward_transformation = [d filesep <span class="hljs-string">'y_'</span> f e];
+    preproc_data.inverse_transformation = [d filesep <span class="hljs-string">'iy_'</span> f e];
+    preproc_data.gm_fn = [d filesep <span class="hljs-string">'c1'</span> f e];
+    preproc_data.wm_fn = [d filesep <span class="hljs-string">'c2'</span> f e];
+    preproc_data.csf_fn = [d filesep <span class="hljs-string">'c3'</span> f e];
+    preproc_data.bone_fn = [d filesep <span class="hljs-string">'c4'</span> f e];
+    preproc_data.soft_fn = [d filesep <span class="hljs-string">'c5'</span> f e];
+    preproc_data.air_fn = [d filesep <span class="hljs-string">'c6'</span> f e];
+    preproc_data.rstructural_fn = [d filesep <span class="hljs-string">'r'</span> f e];
+    preproc_data.rgm_fn = [d filesep <span class="hljs-string">'rc1'</span> f e];
+    preproc_data.rwm_fn = [d filesep <span class="hljs-string">'rc2'</span> f e];
+    preproc_data.rcsf_fn = [d filesep <span class="hljs-string">'rc3'</span> f e];
+    preproc_data.rbone_fn = [d filesep <span class="hljs-string">'rc4'</span> f e];
+    preproc_data.rsoft_fn = [d filesep <span class="hljs-string">'rc5'</span> f e];
+    preproc_data.rair_fn = [d filesep <span class="hljs-string">'rc6'</span> f e];
+    <span class="hljs-comment">% Functional filenames</span>
+    preproc_data.rfunctional_fn = [d1 filesep <span class="hljs-string">'r'</span> f1 e1];
+    preproc_data.srfunctional_fn = [d1 filesep <span class="hljs-string">'sr'</span> f1 e1];
+    preproc_data.mp_fn = [d1 filesep <span class="hljs-string">'rp_'</span> f1 <span class="hljs-string">'.txt'</span>];
+    preproc_data.<span class="hljs-symbol">MP</span> = load(preproc_data.mp_fn);
+else
+    disp(<span class="hljs-string">'...running preprocessing batch jobs...'</span>)
+    preproc_data = spm_standardPreproc_jsh(f_fn, s_fn, fwhm, spm_dir);
+end
+
+<span class="hljs-comment">% Check coregistration and segmentation</span>
+spm_check_registration(s_fn, [preproc_data.rfunctional_fn <span class="hljs-string">',1'</span>], preproc_data.rgm_fn, preproc_data.rwm_fn, preproc_data.rcsf_fn)
+disp(<span class="hljs-string">'Preprocessing done!'</span>)
+</code></pre>
+<h2 id="step-3-run-a-first-level-analysis-batch-script">Step 3: Run a First-Level Analysis Batch Script</h2>
+<p>The first-level analysis script sets up the statistical design parameters based on the task data. It then processes the preprocessed data to create a model of brain activity during the task. This model will be used to identify which brain regions are activated by the task.</p>
+<p>The script will display and allow you to explore the design matrix, providing insights into the experimental design and the structure of the data.</p>
+<pre><code class="lang-matlab">disp('SETTING UP <span class="hljs-number">1</span>ST LEVEL STATS DESIGN');
+
+% Set up statistical design parameters, based on task data
+sess_params = struct;
+sess_params.timing_units = 'secs';
+sess_params.timing_RT = <span class="hljs-number">1.6</span>;
+sess_params.cond_name = 'Pictures';
+sess_params.cond_onset = [<span class="hljs-number">0</span>; <span class="hljs-number">40.1</span>; <span class="hljs-number">77.2</span>; <span class="hljs-number">111.3</span>; <span class="hljs-number">143.3</span>; <span class="hljs-number">179.4</span>; <span class="hljs-number">218.5</span>; <span class="hljs-number">251.5</span>; <span class="hljs-number">299.6</span>; <span class="hljs-number">334.7</span>; <span class="hljs-number">374.8</span>; <span class="hljs-number">411.9</span>; <span class="hljs-number">445.9</span>; <span class="hljs-number">478.0</span>; <span class="hljs-number">514.1</span>; <span class="hljs-number">553.2</span>];
+sess_params.cond_duration = [<span class="hljs-number">24.1000</span>; <span class="hljs-number">24.06</span>; <span class="hljs-number">24.07</span>; <span class="hljs-number">24.06</span>; <span class="hljs-number">24.06</span>; <span class="hljs-number">24.07</span>; <span class="hljs-number">24.04</span>; <span class="hljs-number">24.06</span>; <span class="hljs-number">24.07</span>; <span class="hljs-number">24.10</span>; <span class="hljs-number">24.06</span>; <span class="hljs-number">24.06</span>; <span class="hljs-number">24.09</span>; <span class="hljs-number">24.09</span>; <span class="hljs-number">24.06</span>; <span class="hljs-number">24.07</span>];
+
+% Call script to set up design
+spm_specify1stlevel_jsh(stats_dir, preproc_data.srfunctional_fn, preproc_data.mp_fn, sess_params);
+
+% Display/explore design matrix 
+load([stats_dir filesep 'SPM.mat']);
+spm_DesRep('fMRIDesMtx', SPM, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+
+disp('<span class="hljs-number">1</span>st level stats done!')
+</code></pre>
+<h2 id="step-4-run-a-group-level-analysis-batch-script">Step 4: Run a Group-Level Analysis Batch Script</h2>
+<h3 id="estimate-model">Estimate Model</h3>
+<p>The model estimation process involves running a general linear model (GLM) on the first-level data to estimate the brain&#39;s response to the task. This step is crucial for identifying significant brain activity patterns across the subject&#39;s data.</p>
+<pre><code class="lang-matlab"><span class="hljs-selector-tag">disp</span>(<span class="hljs-string">'ESTIMATING MODEL'</span>);
+
+<span class="hljs-selector-tag">spm_estimateModel_jsh</span>(stats_dir);
+
+<span class="hljs-selector-tag">disp</span>(<span class="hljs-string">'Model estimation done!'</span>)
+`
+</code></pre>
+<h3 id="set-up-task-contrast">Set Up Task Contrast</h3>
+<p>Task contrasts are used to compare different conditions within the experimental design. This script sets up the necessary contrasts to test hypotheses about brain activity during the task. The contrast is then applied to the model to generate statistical maps that highlight task-related brain regions.</p>
+<pre><code class="lang-matlab"><span class="hljs-built_in">disp</span>(<span class="hljs-string">'SETTING UP TASK CONTRAST'</span>);
+
+[Ntt, Nregr] = <span class="hljs-built_in">size</span>(SPM.xX.X);
+contrast_params = struct;
+contrast_params.weights = <span class="hljs-built_in">zeros</span>(<span class="hljs-number">1</span>, Nregr); 
+contrast_params.weights(<span class="hljs-number">1</span>) = <span class="hljs-number">1</span>;
+contrast_params.name = <span class="hljs-string">'Picture viewing'</span>;
+spm_setupTaskContrast_jsh(stats_dir, contrast_params);
+
+<span class="hljs-built_in">disp</span>(<span class="hljs-string">'Task contrast set up done!'</span>)
+`
+</code></pre>
+<h3 id="run-results">Run Results</h3>
+<p>Finally, the results script runs the contrasts and displays the thresholded statistical maps. These maps indicate which brain areas are likely to be involved in the task based on the fMRI data. After completing this step, you will have a full analysis of the fMRI dataset, from preprocessing to results visualization.</p>
+<pre><code class="lang-matlab"><span class="hljs-selector-tag">disp</span>(<span class="hljs-string">'RUNNING RESULTS'</span>);
+
+<span class="hljs-selector-tag">spm_runResults_jsh</span>(stats_dir)
+
+<span class="hljs-selector-tag">disp</span>(<span class="hljs-string">'Results displayed! Good job on making it through the tutorial!'</span>)
+`
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>By following this tutorial, you have learned how to set up and execute a complete fMRI data analysis pipeline in MATLAB using SPM12. This process involved downloading and preparing the data, running preprocessing steps, performing first-level analysis to model individual subject data, and conducting group-level analysis to draw broader conclusions about brain activity. Mastery of these techniques allows for efficient and reproducible fMRI data analysis, which is essential for advancing research in psychology and neuroscience.</p>
+<h2 id="resources-and-references">Resources and References</h2>
+<ul>
+<li><a href="https://www.fil.ion.ucl.ac.uk/spm/doc/">SPM12 Documentation</a></li>
+<li><a href="https://www.fil.ion.ucl.ac.uk/spm/doc/spm12_manual.pdf#Chap:data:auditory">SPM12 Manual - Auditory Data Example</a></li>
+<li><a href="https://openneuro.org/">OpenNeuro</a></li>
+<li><a href="https://andysbrainblog.blogspot.com/2014/06/running-spm-first-level-analyses-from.html">Andy&#39;s Brain Blog: Running SPM First-Level Analyses from Batch Scripts</a></li>
+<li><a href="https://jsheunis.github.io/2018-06-28-spm12-matlab-scripting-tutorial-1/">SPM MATLAB Scripting Tutorials by Janina Sheunis</a><ul>
+<li><a href="https://jsheunis.github.io/2018-06-28-spm12-matlab-scripting-tutorial-1/">Tutorial 1: Introduction to MATLAB and SPM Scripting</a></li>
+<li><a href="https://jsheunis.github.io/2018-06-28-spm12-matlab-scripting-tutorial-2/">Tutorial 2: Batch Processing with SPM and MATLAB</a></li>
+<li><a href="https://jsheunis.github.io/2018-06-28-spm12-matlab-scripting-tutorial-3/">Tutorial 3: Advanced Scripting Techniques</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/phildean/SPM_fMRI_Example_Pipeline/tree/master">GitHub Repository: SPM fMRI Example Pipeline by Phil Dean</a></li>
+<li><a href="https://myguide.bagarinao.com/batch-processing-in-spm/">Batch Processing in SPM</a></li>
+<li><a href="https://en.wikibooks.org/wiki/SPM/Programming_intro">SPM Programming Intro on Wikibooks</a></li>
+<li><a href="https://github.com/mikexcohen/EssentialsOfNeuroscienceWithMATLAB/tree/main/module4_FMRI">Essentials of Neuroscience with MATLAB</a></li>
+<li><a href="https://www.fil.ion.ucl.ac.uk/spm/data/">SPM Datasets and Tutorials</a><ul>
+<li><a href="https://www.fil.ion.ucl.ac.uk/spm/data/face_rep/">Face Representation Dataset</a></li>
+<li><a href="https://www.fil.ion.ucl.ac.uk/spm/data/auditory/">Auditory Dataset</a></li>
+<li><a href="https://www.fil.ion.ucl.ac.uk/spm/data/attention/">Attention Dataset</a></li>
+<li><a href="https://www.fil.ion.ucl.ac.uk/spm/data/face_rfx/">Face RFX Dataset</a></li>
+<li><a href="https://www.fil.ion.ucl.ac.uk/spm/data/dcm_bms/">DCM BMS Dataset</a></li>
+</ul>
+</li>
+<li><a href="https://imaging.mrc-cbu.cam.ac.uk/imaging/AnalysisPrinciples">Principles of fMRI Analysis - Rik Henson</a></li>
+<li><a href="https://www.bobspunt.com/resources/teaching/group-analysis/#:~:text=Visualization%20of%20Results%20using%20bspmview,fMRI%20results%20estimated%20in%20SPM.">SPM fMRI Analysis - Visualization of Results</a></li>
+<li><a href="https://github.com/CPernet">SPM and MATLAB Functions - Christophe Pernet</a><ul>
+<li><a href="https://github.com/CPernet/spmrt">SPM Real-Time</a></li>
+<li><a href="https://github.com/CPernet/pilab">PiLab</a></li>
+<li><a href="https://github.com/CPernet/various_matlab_functions">Various MATLAB Functions</a></li>
+<li><a href="https://github.com/CPernet/SPMPC">SPMPC</a></li>
+</ul>
+</li>
+<li><a href="https://www.mathworks.com/matlabcentral/fileexchange/154381-essentials-of-neuroscience-with-matlab?s_tid=srchtitle">Essentials of Neuroscience with MATLAB on MATLAB Central</a></li>
+<li><a href="https://en.wikibooks.org/wiki/SPM/How-to">SPM Cheat Sheets and Tutorials on Wikibooks</a></li>
+<li><a href="https://nipy.org/nibabel/devel/spm_use.html">SPM and Nibabel Usage Guide</a></li>
+</ul>
+
+
+
+				<!-- Place the bird image and text anywhere on the page -->
+    <div style="text-align: right; padding-right: 40px;">
+        <a href="matlab_elements.html">
+            <img src="images/small_bird_arrow.png" alt="Next Page" style="width: 100px; height: 100px;">
+            <div style="font-size: 18px; margin-top: 10px;">Next Page</div>
+        </a>
+    </div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
 
