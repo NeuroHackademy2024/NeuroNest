@@ -105,7 +105,7 @@
 <pre><code>$ pwd </code></pre>								
 								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
 								<p>Next, to see the files <i>within</i> our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code>. Your output is a list of the files and directories within your current working directory.</p>								
-<pre><code>$ ls</code></pre>				<h3 id="commands-for-navigating-directories">Commands for Navigating Directories</h3>
+<pre><code>$ ls</code></pre>				<h2 id="Common Commands">Common Commands</h3>
 								<table>
 								<thead>
 								<tr>
@@ -115,40 +115,96 @@
 								</thead>
 								<tbody>
 								<tr>
+								<td>strong>Navigating Directories</strong></td>
+								<td></td>
+								</tr>
+								<tr>
 								<td><code>pwd</code></td>
-								<td>Prints the current working directory path.</td>
-								</tr>
-								<tr>
-								<td><code>cd foldername</code></td>
-								<td>Changes the current working directory a subdirectory called "foldername".</td>
-								</tr>
-								<tr>
-								<td><code>cd ~</code></td>
-								<td>Changes the current working directory to the user&#39;s home directory.</td>
-								</tr>
-								<tr>
-								<td><code>cd .</code></td>
-								<td>Refers to the current directory.</td>
-								</tr>
-								<tr>
-								<td><code>cd ..</code></td>
-								<td>Moves up one level in the directory tree.</td>
+								<td>Print working directory path.</td>
 								</tr>
 								<tr>
 								<td><code>ls</code></td>
-								<td>Lists files and directories in the current directory.</td>
+								<td>List files and directories in the current directory.</td>
 								</tr>
 								<tr>
-								<td><code>mkdir dirname</code></td>
-								<td>Creates a new directory named "dirname";.</td>
+								<td><code>ls .</code></td>
+								<td>List the contents of the current working directory</td>
 								</tr>
 								<tr>
-								<td><code>rmdir dirname</code></td>
-								<td>Removes the directory named "dirname", if empty.</td>
+								<td><code>cd</code></td>
+								<td>Change directory.</td>
 								</tr>
 								<tr>
-								<td><code>nano filename</code></td>
-								<td>Opens the specified file ("filename") in the nano text editor.</td>
+								<td><code>cd ~</code></td>
+								<td>Change directory to home directory.</td>
+								</tr>
+								<tr>
+								<td><code>cd ..</code></td>
+								<td>Move up one level in the directory tree.</td>
+								</tr>
+								<tr>
+								<td><code>mkdir</code></td>
+								<td>Make directory;.</td>
+								</tr>
+								<tr>
+								<td><code>rmdir</code></td>
+								<td>Remove directory (only if empty)</td>
+								</tr>
+								<tr>
+								<td><strong>Working with Files</strong></td>
+								<td></td>
+								</tr>
+								<tr>
+								<td><code>nano</code></td>
+								<td>Opens the specified file in the nano text editor.</td>
+								</tr>
+								<tr>
+							        <td><code>cp</code></td>
+							        <td>Copy files or directories</td>
+							        </tr>
+								<tr>
+						                <td><code>rm</code></td>
+						                <td>Remove files or directories</td>
+						        	</tr>
+								<tr>
+						                <td><code>mv</code></td>
+						                <td>Move or rename files or directories</td>
+						          	</tr>
+								<tr>
+						                <td><code>grep</code></td>
+						                <td>Search text using patterns</td>
+						           	</tr>
+								<tr>
+						                <td><code>find</code></td>
+						                <td>Search for files in a directory hierarchy</td>
+						            	</tr>
+								<tr>
+						                <td><code>echo</code></td>
+						                <td>Display a line of text</td>
+						           	</tr>
+								<tr>
+								<td><code>cat</code></td>
+						                <td>Display file</td>
+						           	</tr>
+								<tr>
+						                <td><code>less</code></td>
+						                <td>Display a few lines of file at a time</td>
+						           	</tr>
+								<tr>
+								<td><code>head</code></td>
+								<td>Display first 10 lines of file.</td>
+								</tr>
+								<tr>
+								<td><code>tail</code></td>
+								<td>Display last 10 lines of file.</td>
+								</tr>
+								<tr>
+								<td><code>echo $NAME</code></td>
+								<td>Prints the value of the variable "NAME".</td>
+								</tr>
+								<tr>
+								<td><strong>Command Help</strong></td>
+								<td></td>
 								</tr>
 								<tr>
 								<td><code>man command</code></td>
@@ -159,16 +215,16 @@
 								<td>Displays help text for "command".</td>
 								</tr>
 								<tr>
-								<td><code>exit</code></td>
-								<td>Exits the terminal.</td>
-								</tr>
-								<tr>
-								<td><code>echo $NAME</code></td>
-								<td>Prints the value of the variable "NAME".</td>
+								<td>Managing Workspace</td>
+								<td></td>
 								</tr>
 								<tr>
 								<td><code>clear</code></td>
 								<td>Clears the terminal screen, keeping command history</td>
+								</tr>
+								<tr>
+								<td><code>exit</code></td>
+								<td>Exits the terminal.</td>
 								</tr>
 								</tbody>
 								</table>			
@@ -200,8 +256,28 @@
 								<ul>
 								<li><code>$ mkdir [dirname]</code>: Make (create) a new directory.Avoid using spaces; underscores are not recommended.
 									<ul>Example: <code>mkdir results</code></ul></li>
+								<li><code>$ cp [old] [new]</code>: make a copy of the file
+									<ul>
+										<li>Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></li>
+									</ul></li>
+								<li><code>$ cp -r [source] [destination]</code>: copy a directory
+									<ul>
+										<li>Copies a directory and all its contents.</li>
+									</ul></li>
+								<li><code>$ mv [old] [new]</code>: move or rename a file or directory:</li>
+								<li><code>$ rmdir [directory]</code>: remove an empty directory</li>
+								<li><code>$ rm [path]</code>: remove a file permanently</li>
+								<ul>
+									Important Note: Deleted files are gone forever! There is no trash or recycle bin.
+									<ul><code>$ rm -i [path]</code>: interactive mode - prompts for confirmation before deletion</ul>
+									<ul><code>$ rm -r [directory]</code>: permanently delete a directory and all its contents</ul>
+								</ul>
+								<li><code>$ touch [filename]</code>: create an empty file 
+									<ul>
+										<p>Useful for generating placeholder files required by some programs.</p>	
+									</ul></li>
 								<li><code>$ nano [filename]</code>: Create or edit a file. If the file does not exist, it will be created. Type your content, then save and exit.
-									<li>Shortcut Keys in Nano:
+									Shortcut Keys in Nano:
 									<table>
 									<thead>
 									<tr>
@@ -229,27 +305,7 @@
 									</tbody>
 									</table>
 									</li></li></ul>
-								<ul>
-								<li><code>$ touch [filename]</code>: create an empty file 
-									<ul>
-										<p>Useful for generating placeholder files required by some programs.</p>	
-									</ul></li>
-								<li><code>$ cp [old] [new]</code>: make a copy of the file
-									<ul>
-										<li>Copies a file to a new location. Example: <code>cp [old].txt ../[new].txt</code></li>
-									</ul></li>
-								<li><code>$ cp -r [source] [destination]</code>: copy a directory
-									<ul>
-										<li>Copies a directory and all its contents.</li>
-									</ul></li>
-								<li><code>$ mv [old] [new]</code>: move or rename a file or directory:</li>
-								<li><code>$ rmdir [directory]</code>: remove an empty directory</li>
-								<li><code>$ rm [path]</code>: remove a file permanently</li>
-								<ul>
-									Important Note: Deleted files are gone forever! There is no trash or recycle bin.
-									<ul><code>$ rm -i [path]</code>: interactive mode - prompts for confirmation before deletion</ul>
-									<ul><code>$ rm -r [directory]</code>: permanently delete a directory and all its contents</ul>
-								</ul></ul>
+							
 								<ul>Wildcard Characters
 									<li> <code>*</code>: Matches zero or more characters. Example: <code>*.txt</code> matches all <code>.txt</code> files.</li>
 									<li><code>?</code>: Matches any single character. Example: <code>?.txt</code> matches <code>a.txt</code> but not <code>any.txt</code>.</li>
