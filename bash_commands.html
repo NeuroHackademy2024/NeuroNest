@@ -57,9 +57,9 @@
 								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
 <pre><code>$ ls</code></pre>
 								<p>Because there is no argument, this command would print the names of the files and directories within our the current working directory.</p>
-								<p><strong>With Arguments </strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
-<pre><code>$ cd /path/to/directory </code></pre>
-								<p>By including the file path in the argument, we are telling the shell where to move our location in the file structure. Notice this is an absolute path, because it starts at the root directory.</p>
+								<p><strong>With Arguments</strong>: Commands can accept arguments that modify their behavior. For example, the <code>cd</code> command changes the directory, requiring a path as an argument:<p>
+<pre><code>$ ls ~/path/to/directory </code></pre>
+								<p>By including the file path in the argument, we are specifying what directory we would like to see. This code will print the contents of "directory", even though it is not our current working directory.</p>
 								<p><strong>With Flags </strong>: Flags modify the way a command runs. They start with <code>-</code> followed by a letter, or <code><--</code> followed by a word. For example:<p>
 <pre><code>$ ls -l </code></pre>
 								<p> The <code>-l</code> flag makes <code>ls</code> display detailed information about the contents of the current working directory.
