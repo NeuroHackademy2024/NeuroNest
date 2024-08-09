@@ -1,1 +1,212 @@
+<!DOCTYPE HTML>
+<!--
+    Phantom by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>Introduction to sEEG</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+        <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Header -->
+            <header id="header">
+                <div class="inner">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+                    </a>
+                    <!-- Nav -->
+                    <nav>
+                        <ul>
+                            <li><a href="#menu">Menu</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <!-- Menu -->
+            <nav id="menu">
+                <h2>Menu</h2>
+                <ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+                    <h1>Introduction to Scalp EEG (sEEG)</h1>
+                    <p>In this tutorial, we will introduce core concepts essential in understanding scalp EEG. The aim of this tutorial is to provide practical information on scalp EEG for researchers new to this modality. Included is an overview of key concepts, learning exercises, and resources for further training in scalp EEG related research. <em>Correct answers for the learning exercises are at the end of this tutorial.</em></p>
+                    <span class="image main"><img src="images/ieeg_banner.jpg" alt="" /></span>
+                    <h2>INTRODUCTION</h2>
+    
+                    <h3>What is scalp EEG and how does it work?</h3>
+                    <p>Scalp electroencephalography (sEEG) is a non-invasive method used to record electrical activity of the brain over time with electrodes placed on the scalp.</p>
 
+                    <h4>Basic Concept:</h4>
+                    <ul>
+                    <li><strong>Electrode Placement:</strong> Electrodes are positioned on the scalp according to the 10-20 system or other electrode placement systems. Each system arranges electrodes in a standardized pattern to ensure consistent coverage of the scalp.</li>
+                    <li><strong>Recording Electrical Activity:</strong> The electrodes detect electrical activity (measured in microvolts µV over time) from neurons. Neurons carry electrical activity through various means, where each is defined further in part 3.</li>
+                    <li><strong>Signal Detection:</strong></li>
+                    <ul>
+                    <li><strong>Signal Generation:</strong> When many neurons fire in a synchronized manner, their electrical activity generates an extracellular field that can be detected by the electrodes.</li>
+                    <li><strong>Amplification:</strong> The electrical signals detected by the electrodes are very weak (microvolts). Thus, they are amplified by the EEG system to make them measurable. A caveat to amplification is that everything electrical on the scalp is amplified, including electrical signals not from the brain called artifacts.</li>
+                    </ul>
+                    </ul>
+
+                    <!-- Key Terms Table -->
+                    <h4>Key sEEG Terms</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Term</th>
+                                <th>Definition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Action-potentials</td>
+                                <td>brief local current with a temporary change in the electrical charge in the axon </td>
+                            </tr>
+                            <tr>
+                                <td>Post-synaptic potentials (PSPs)</td>
+                                <td>are electrical charges in a neuron that last longer than action potentials and are stronger in their effect. *This source contributes the most to the electrical activity within neurons.</td>
+                            </tr>
+                            <tr>
+                                <td>Chronic depolarization: </td>
+                                <td>occurs when the neuron’s electrical charge stays more positive than normal for a long time. Normally, a neuron’s resting state is more negative inside compared to the outside. However, when it’s chronically depolarized, this balance is disturbed, making the inside of the neuron more positive over an extended period. </td>
+                            </tr>
+                            <tr>
+                                <td>Montage:</td>
+                                <td>the specific way electrodes are arranged and connected to record EEG data. Different montages can show different views of brain activity. </td>
+                            </tr>
+                            <tr>
+                                <td>Frequency</td>
+                                <td>the number of cycles a brainwave completes in one second, measured in Hertz (Hz). It helps classify different types of brainwaves. </td>
+                            </tr>
+                            <tr>
+                                <td>Amplitude</td>
+                                <td>the measure of the electrical signal’s strength, recorded in microvolts (uV). Higher amplitude indicates stronger or more synchronized brain activity.</td>
+                  
+                            </tr>
+                            <tr>
+                                <td>Event-Related Potential (ERP): </td>
+                                <td>A brain response directly related to a specific event, like a sound or a visual stimuli. It’s measured by averaging EEG signals that occur after the event.</td>
+                            </tr>
+                            <tr>
+                                <td>Power Spectral Density (PSD)</td>
+                                <td>A measure that shows how power (or energy) is distributed across different frequencies in the EEG signal. It helps identify dominant brainwave frequencies.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+                    
+                    <h2>How iEEG Works</h2>
+                    <p>The iEEG process begins with the surgical implantation of electrodes. These electrodes can be placed subdurally (on the brain's surface) or depth electrodes can be inserted into brain tissue. The placement is guided by neuroimaging techniques like MRI and CT scans, ensuring precision in targeting the regions of interest<sup>[2]</sup>. The electrodes capture electrical signals generated by neuronal activity, which are then recorded and analyzed to understand brain function and identify abnormalities.</p>
+                    
+                    <h3>Types of Electrodes</h3>
+                    <p>There are two main types of electrodes used in iEEG:</p>
+                    <ul>
+                        <li><b>Subdural Electrodes:</b> These are placed on the surface of the brain to record activity from the cortical areas. They are often used in grid or strip configurations to cover larger surface areas.</li>
+                        <li><b>Depth Electrodes:</b> These are inserted into the brain tissue to record from deeper structures. They are used to target specific brain regions, such as the hippocampus, which is often involved in epilepsy<sup>[3]</sup>.</li>
+                    </ul>
+                    
+                    <h3>Recording and Analysis</h3>
+                    <p>Once the electrodes are in place, the electrical activity of the brain is recorded over a period of time, which can range from a few days to several weeks. The data is then analyzed to identify patterns of abnormal activity, such as epileptic spikes and seizures<sup>[4]</sup>. Advanced software and algorithms are used to process the vast amounts of data collected, providing detailed maps of brain activity.</p>
+                    
+                    <h2>Applications of iEEG</h2>
+                    <p>iEEG is most commonly used in epilepsy surgery evaluations. By identifying the precise regions where seizures originate, surgeons can plan more effective interventions<sup>[5]</sup>. Additionally, iEEG is used in research to study brain function, cognition, and to map out critical brain areas before neurosurgery<sup>[6]</sup>. These applications extend our understanding of the brain and improve outcomes for patients undergoing surgical treatments.</p>
+                    
+                    <h3>Epilepsy Surgery</h3>
+                    <p>In cases where medication is not effective in controlling seizures, iEEG is used to locate the seizure focus. This allows for precise surgical removal of the epileptogenic zone, which can significantly reduce or eliminate seizures<sup>[7]</sup>. The detailed information provided by iEEG helps neurosurgeons avoid critical brain regions, minimizing the risk of post-surgical deficits.</p>
+                    
+                    <h3>Research Applications</h3>
+                    <p>iEEG is also a valuable tool in neuroscience research. It is used to study the neural mechanisms underlying various cognitive processes, such as memory, language, and sensory perception. iEEG provides high temporal and spatial resolution, making it ideal for investigating the dynamics of brain activity<sup>[8]</sup>. Researchers use iEEG to explore brain connectivity, neuroplasticity, and the effects of different stimuli on brain function.</p>
+                    
+                    <h2>Advantages of iEEG</h2>
+                    <p>iEEG offers several advantages over non-invasive EEG, including:</p>
+                    <ul>
+                        <li>Higher spatial resolution: iEEG provides detailed localization of brain activity<sup>[9]</sup>.</li>
+                        <li>Less interference: iEEG recordings are less affected by artifacts from muscle activity or external electrical sources<sup>[10]</sup>.</li>
+                        <li>Direct measurement: iEEG measures the electrical activity directly from the brain, providing a more accurate reflection of neuronal activity<sup>[11]</sup>.</li>
+                    </ul>
+                    
+                    <h2>Challenges and Risks</h2>
+                    <p>While iEEG is a valuable tool, it comes with inherent risks and challenges. The surgical procedure carries risks of infection, bleeding, and damage to brain tissue. Additionally, the high cost and invasiveness limit its use to specific clinical and research scenarios<sup>[12]</sup>.</p>
+                    
+                    <h3>Surgical Risks</h3>
+                    <p>The implantation of electrodes involves a craniotomy, which is a major surgical procedure. Risks include infection, bleeding, and potential damage to brain tissue. Careful surgical planning and post-operative care are essential to minimize these risks<sup>[13]</sup>. Despite these challenges, the benefits of iEEG often outweigh the risks, particularly for patients with severe, drug-resistant epilepsy.</p>
+                    
+                    <h3>Cost and Accessibility</h3>
+                    <p>iEEG is an expensive procedure that requires specialized equipment and expertise. This limits its availability to major medical centers and research institutions. Efforts are ongoing to develop less invasive and more cost-effective alternatives<sup>[14]</sup>. Advances in technology and surgical techniques continue to improve the safety and feasibility of iEEG, potentially expanding its use in the future.</p>
+                    
+                    <h2>Future Directions</h2>
+                    <p>Advancements in iEEG technology and techniques continue to improve its safety and efficacy. Innovations such as high-density electrode arrays and wireless recording systems are expanding the possibilities for iEEG in both clinical and research contexts. As our understanding of the brain deepens, iEEG will remain a crucial method for unlocking the mysteries of neural function<sup>[15]</sup>.</p>
+                    
+                    <h3>Technological Innovations</h3>
+                    <p>Recent developments include high-density electrode arrays that provide even greater spatial resolution. Wireless recording systems are also being developed to allow for more naturalistic recordings, free from the constraints of wired connections<sup></sup>. These advancements enhance the ability of researchers and clinicians to monitor brain activity in real-time and in more natural settings.</p>
+                    
+                    <h3>Clinical Applications</h3>
+                    <p>Beyond epilepsy, iEEG is being explored for use in other neurological and psychiatric conditions, such as depression and obsessive-compulsive disorder. These applications involve targeting specific brain regions for therapeutic interventions<sup></sup>. As research progresses, iEEG may provide new insights and treatment options for a wide range of brain disorders.</p>
+
+                    <h2>References</h2>
+                    <ol>
+                        <li>Engel, J. (1993). Surgical Treatment of the Epilepsies. Raven Press.</li>
+                        <li>Spencer, S. S. (1994). "Neural networks in human epilepsy: evidence of and implications for treatment." Epilepsia, 35(S4), S48-S58.</li>
+                        <li>Fried, I., Wilson, C. L., MacDonald, K. A., & Behnke, E. J. (1997). "Single neuron activity in human hippocampus and amygdala during recognition of faces and objects." Neuron, 18(5), 753-765.</li>
+                        <li>Lachaux, J. P., Rudrauf, D., & Kahane, P. (2003). "Intracranial EEG and human brain mapping." Journal of Physiology-Paris, 97(4-6), 613-628.</li>
+                        <li>Lüders, H. O., Najm, I., Nair, D., Widdess-Walsh, P., & Bingman, W. (2006). "The epileptogenic zone: general principles." Epileptic Disorders, 8(S2), S1-S9.</li>
+                        <li>Engel, J., McDermott, M. P., Wiebe, S., Langfitt, J. T., Stern, J. M., Dewar, S., ... & Jacobson, M. (2012). "Early surgical therapy for drug-resistant temporal lobe epilepsy: a randomized trial." JAMA, 307(9), 922-930.</li>
+                        <li>Jerbi, K., Ossandón, T., Hamamé, C. M., Senova, S., Dalal, S. S., Jung, J., ... & Lachaux, J. P. (2009). "Task-related gamma-band dynamics from an intracerebral perspective: review and implications for surface EEG and MEG." Human Brain Mapping, 30(6), 1758-1771.</li>
+                        <li>Creutzfeldt, O., & Houchin, J. (1974). "Neuronal basis of EEG waves." Mechanisms of Action of Neuroleptic Agents, 1-26.</li>
+                        <li>Niedermeyer, E., & da Silva, F. L. (2005). Electroencephalography: Basic Principles, Clinical Applications, and Related Fields. Lippincott Williams & Wilkins.</li>
+                        <li>Fisher, R. S., Webber, W. R. S., Lesser, R. P., Arroyo, S., & Uematsu, S. (1992). "High-frequency EEG activity at the start of seizures." Journal of Clinical Neurophysiology, 9(3), 441-448.</li>
+                        <li>Blume, W. T., Lüders, H. O., Mizrahi, E., Tassinari, C., van Emde Boas, W., & Engel, J. (2001). "Glossary of descriptive terminology for ictal semiology: report of the ILAE task force on classification and terminology." Epilepsia, 42(9), 1212-1218.</li>
+                        <li>Asano, E., Juhász, C., Shah, A., Muzik, O., Chugani, D. C., Shah, J., & Sood, S. (2005). "Surgical treatment of West syndrome." Brain and Development, 27(5), 317-322.</li>
+                        <li>Cardinale, F., Casaceli, G., Raneri, F., Miller, J., & Cossu, M. (2019). "Brain stereo-electroencephalography." World Neurosurgery, 123, 156-165.</li>
+                        <li>Chang, E. F., & Rao, V. R. (2017). "Electrical stimulation of the brain: clinical applications and safety." Brain Stimulation: Handbook of Clinical Neurology, 140, 107-120.</li>
+                        <li>Parvizi, J., & Kastner, S. (2018). "Human intracranial EEG: promise and limitations." Nature Neuroscience, 21(4), 474-483.</li>
+                        
+                    </ol>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <section>
+								<h2>Funding</h2>
+								<p> We would like to express our heartfelt gratitude to <strong>Neurohackademy</strong> at the <strong>University of Washington eScience Institute</strong> for providing invaluable training and support. This experience has significantly enriched our understanding of neuroimaging and data science. We also acknowledge the support of the National Institute of Mental Health (NIMH) grant number <strong>5R25MH112480-08</strong>, which made this opportunity possible.</p>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://x.com/Neuro_Nest" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://github.com/NeuroHackademy2024/NeuroNest" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://sopkoc.wixsite.com/neuronest/contact" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							 </section>
+                    <ul class="copyright">
+                        <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
