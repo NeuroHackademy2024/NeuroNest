@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fMRI Data Preprocessing Tutorial</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <a href="index.html" class="logo">
+                    <span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource_menu.html">Resources</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+                <li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1>fMRI Data Preprocessing Tutorial</h1>
+
+                <h3>Step 1: Install Necessary Libraries</h3>
+                <p>Before beginning the analysis, you'll need to install several Python libraries that are essential for working with fMRI data. These libraries include Nilearn, MNE, and Nipype, among others.</p>
+                <pre><code>!pip install nilearn
+!pip install mne
+!pip install nipype</code></pre>
+
+                <h3>Step 2: Access and Download a Dataset from OpenNeuro</h3>
+                <p>OpenNeuro is a repository of neuroimaging datasets that are freely available to the public. To practice preprocessing with FMRIPREP, you can use the dataset available at <a href="https://openneuro.org/datasets/ds005375/versions/1.0.0" target="_blank">OpenNeuro</a>.</p>
+                <p>To download the dataset, use the following Python code. This code synchronizes the dataset from the OpenNeuro repository to your local machine:</p>
+                <pre><code>import os
+
+# Define the OpenNeuro dataset ID
+dataset_id = "ds005375"
+
+# Define the path where the dataset will be downloaded
+download_path = f"{dataset_id}-download/"
+
+# Download the dataset using AWS S3 sync
+os.system(f'aws s3 sync --no-sign-request s3://openneuro.org/{dataset_id} {download_path}')
+</code></pre>
+
+                <h3>Step 3: Understand the Dataset Structure</h3>
+                <p>After downloading the dataset, navigate through the folder structure to locate the functional MRI (fMRI) and anatomical (T1w) images. The data is organized according to the BIDS (Brain Imaging Data Structure) format. For preprocessing, you'll typically work with files located in the <code>func</code> and <code>anat</code> subdirectories of each subject's folder.</p>
+                <p>For example:</p>
+                <ul>
+                    <li>Anatomical Image: <code>sub-POL1015/anat/sub-POL1015_T1w.nii.gz</code></li>
+                    <li>Functional Image: <code>sub-POL1015/func/sub-POL1015_task-cyberball_bold.nii.gz</code></li>
+                </ul>
+
+                <h3>Step 4: Run FMRIPREP on the Dataset</h3>
+                <p>FMRIPREP is a powerful tool for preprocessing fMRI data. It automates several preprocessing steps, ensuring that the data is ready for analysis. The following command can be used to run FMRIPREP on the downloaded dataset:</p>
+                <pre><code># Command to run FMRIPREP
+os.system("""
+fmriprep {download_path} /output participant \
+--participant-label POL1015 \
+--output-spaces MNI152NLin2009cAsym:res-2 anat \
+--use-syn-sdc --fs-no-reconall \
+--nthreads 8 --mem-mb 16000 \
+--resource-monitor --write-graph --stop-on-first-crash
+""")
+</code></pre>
+
+                <p><strong>Explanation of Command Options:</strong></p>
+                <ul>
+                    <li><strong>--participant-label POL1015:</strong> Specifies the subject ID to be processed.</li>
+                    <li><strong>--output-spaces MNI152NLin2009cAsym:res-2 anat:</strong> Outputs data in a standard space (MNI) with a resolution of 2mm.</li>
+                    <li><strong>--use-syn-sdc:</strong> Applies susceptibility distortion correction.</li>
+                    <li><strong>--fs-no-reconall:</strong> Disables FreeSurfer's surface reconstruction to speed up processing.</li>
+                    <li><strong>--nthreads 8:</strong> Specifies the number of CPU threads to use.</li>
+                    <li><strong>--mem-mb 16000:</strong> Allocates 16 GB of RAM for the process.</li>
+                </ul>
+
+                <h3>Step 5: Perform Quality Control with MRIQC</h3>
+                <p>After running FMRIPREP, it's essential to assess the quality of your preprocessed data. MRIQC is a tool designed for this purpose, generating various quality metrics and visual reports.</p>
+                <p>Use the following command to run MRIQC on the dataset:</p>
+                <pre><code># Command to run MRIQC
+os.system("""
+mriqc {download_path} /output participant \
+--participant-label POL1015 \
+--n_procs 8 --mem_gb 16 \
+--fd_thres 0.2 --ica
+""")
+</code></pre>
+
+                <p><strong>Explanation of Command Options:</strong></p>
+                <ul>
+                    <li><strong>--n_procs 8:</strong> Uses 8 CPU cores for processing.</li>
+                    <li><strong>--mem_gb 16:</strong> Allocates 16 GB of RAM.</li>
+                    <li><strong>--fd_thres 0.2:</strong> Sets a threshold for framewise displacement to detect motion artifacts.</li>
+                    <li><strong>--ica:</strong> Applies Independent Component Analysis (ICA) to decompose the data and identify noise sources.</li>
+                </ul>
+
+                <h3>Step 6: Preprocess Data with Custom Pipelines (Optional, For more advanced users)</h3>
+                <p>You might want to customize the preprocessing steps. Below is an example of a basic pipeline using Nilearn to load and preprocess fMRI data:</p>
+                <pre><code>from nilearn.image import resample_to_img
+from nilearn.plotting import plot_stat_map
+import nibabel as nib
+
+# Load the dataset
+func_img = nib.load(f'{download_path}/sub-POL1015/func/sub-POL1015_task-cyberball_bold.nii.gz')
+anat_img = nib.load(f'{download_path}/sub-POL1015/anat/sub-POL1015_T1w.nii.gz')
+
+# Resample functional image to the anatomical image
+resampled_func_img = resample_to_img(func_img, anat_img)
+
+# Plot the resampled functional image on top of the anatomical image
+plot_stat_map(resampled_func_img, bg_img=anat_img, title="Resampled Functional Image")
+</code></pre>
+
+                <h3>Step 7: Artifact Removal Using ICA</h3>
+                <p>Artifact removal is a crucial step in preprocessing fMRI data. Independent Component Analysis (ICA) can help identify and remove noise components from the data.</p>
+                <pre><code>from mne.preprocessing import ICA
+import mne
+
+# Load raw fMRI data using MNE
+raw = mne.io.read_raw_fif('path_to_fif_file.fif', preload=True)
+
+# Apply ICA
+ica = ICA(n_components=20, random_state=97)
+ica.fit(raw)
+raw_clean = ica.apply(raw)
+
+# Save the cleaned data
+raw_clean.save('path_to_cleaned_data.fif', overwrite=True)
+</code></pre>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Get in touch</h2>
+                    <form method="post" action="#">
+                        <div class="fields">
+                            <div class="field half">
+                                <input type="text" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div class="field half">
+                                <input type="email" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="message" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="Send" class="primary" /></li>
+                        </ul>
+                    </form>
+                </section>
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram"></span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble"></span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub"></span></a></li>
+                        <li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px"></span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone"></span></a></li>
+                        <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email"></span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; NeuroNest. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
