@@ -53,17 +53,18 @@
 							<h1>Bash/Command Line</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
 							<p>Welcome to the NeuroNest tutorial on Bash and Command Line! This tutorial will show the basics of Bash scripting, allowing beginners to master the concepts of the Bash shell on Linux. </p>
-							<h2>Introduction to Bash<h2>
+							<h2>1. Introduction to Bash<h2>
 							<h3>What is Bash?</h3>
-								<p>The name Bash stands for “Bourne Again SHell,” a reference to its predecessor, the Bourne shell (sh), written by Stephen Bourne. Bash is a commonly-used command-line interface (CLI) and scripting language that allows you to efficiently execute commands, manage files, and automate tasks in Unix-like systems. A command line interface (CLI) is a text-based interface where you can input commands that interact with a computer's operating system. The command line or terminal is where you write <code>Bash</code> commands that the computer then executes.</p>
+								<p>The name Bash stands for “Bourne Again SHell,” a reference to its predecessor, the Bourne shell (sh), written by Stephen Bourne. Bash is a commonly-used command-line interface (CLI) and scripting language that allows you to efficiently execute commands, manage files, and automate tasks in Unix-like systems. A command line interface (CLI) is a text-based interface where you can input commands that interact with a computer's operating system. The command line or terminal is where you write Bash commands that the computer then executes.</p>
 								<ul>For more information about the history of Bash, visit <a href="https://ubuntu.com/tutorials/command-line-for-beginners#2-a-brief-history-lesson">Ubuntu's Brief History Lesson</a>.</ul>
 							<h3>What is a shell?</h3>
 								<p>A “shell” is a program that provides a way for users to interact with the computer's operating system. It can be a command-line interface (CLI) or a graphical user interface (GUI). The CLI allows users to type commands to run processes and manage the system, while the GUI provides a more visual approach. Bash is one of the most commonly used Unix/Linux shells.</p>
 							<h3>What is Unix?</h3>
 								<p>Unix is a powerful operating system known for its multitasking and multiuser capabilities. It provides a command-line interface and a scripting language, which allows users to automate tasks and manage complex workflows efficiently. Bash is often the default shell in many Unix-like systems, including Linux and MacOS, and is also available on Windows through tools like Git for Windows.</p>
-							<h2>Getting Started</h2>
+							<h2>2. Getting Started</h2>
 								<p>This tutorial will guide you through basic and advanced commands to help you get comfortable using the command line.</p>
-								To follow along with this tutorial, you will need a running version of Linux with access to the command line. If you do not already have the shell software installed, you will need to download and install it.								<ul>
+								To follow along with this tutorial, you will need a running version of Linux with access to the command line. If you do not already have the shell software installed, you will need to download and install it.
+								<ul>
 									<li><p><strong>macOS:</strong> The shell application is called “Terminal,” located in Applications > Utilities, or you can search for "Terminal" using Spotlight.</p></li>
 									<li><p><strong>Linux:</strong> Terminal applications are usually pre-installed. You can open it from the application menu or by pressing <code>Ctrl + Alt + T</code>.</p></li>
 									<li><p><strong>Windows:</strong> Install <a href="https://gitforwindows.org/">git for Windows</a> to get Git Bash or use Windows Subsystem for Linux (WSL) for a more comprehensive Unix-like environment.</p></li>
@@ -80,7 +81,7 @@
 								<p>The prompt is followed by a text cursor, a character (usually a flashing or solid block) that indicates the position where your typing will appear. 
 									You can type commands into this prompt and press the <code>enter</code> or <code>return</code> key to execute them. The commands entered at the command line are sent to the computer’s operating system to do a variety of different operations, or to launch various other programs. In some of the example code, you will see file and directory names in brackets (e.g., [username]). Text in brackets should be replaced with your own names.</p>   
 								<p>Do NOT type the prompt when typing commands. Only type the command that follows the prompt.</p>							
-							<h2 id="keyboard-shortcuts-for-the-command-window">Keyboard Shortcuts for the Command Window</h2>
+							<h2 id="keyboard-shortcuts-for-the-command-window">3. Keyboard Shortcuts for the Command Window</h2>
 							<p>Before we get started, here are some helpful tips for navigating the command window:</p>
 							<h3 id="for-windows-users">For Windows Users</h3>
 								<table>
@@ -182,7 +183,7 @@
 								</tr>
 								</tbody>
 								</table>
-							<h2 id="navigating files and directories">Navigating Files and Directories</h2>
+							<h2 id="navigating files and directories">4. Navigating Files and Directories</h2>
 								<p>Commands are executed through the command line. To execute a command, type it into the command line after the prompt and press <code>return</code> or <code>enter</code>.</p>
 								<p>Your computer organizes data in files and folders. Files can be placed in folders, which we call <i>directories</i>. Basically, a directory is a location in the file system that can contain files and other directories (subdirectories), creating a 'directory tree'. It's essentially a folder where files and other folders are organized.</p>
 								<p>At the top of the directory tree is the "root directory", which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).</p>
@@ -195,7 +196,7 @@
 								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
 								<p>Next, to see the files <i>within</i> our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code>. Your output is a list of the files and directories within your current working directory.</p>								
 <pre><code>$ ls</code></pre>							
-							<h2 id="using-flags-and-arguments-in-commands">Using Flags and Arguments in Commands</h2>
+							<h2 id="using-flags-and-arguments-in-commands">5. Using Flags and Arguments in Commands</h2>
 								<p>Most commands follow the same format: command, then flags/options, then arguments.</p>
 <pre><code>$ command [flags/options] [arguments]</code></pre>
 								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
@@ -284,7 +285,7 @@
 								</tr>
 								</tbody>
 								</table>
-								<h2>Path Types</h2>	
+								<h2>6. Path Types</h2>	
 								<ul>
 									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory. Example: <code>$ ls /Users/name</code></p></li>
 									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory.Example: <code>$ cd Desktop</code></p></li>
@@ -294,7 +295,7 @@
 									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory. Example: <code>$ ls . </code></p></li>
 									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory. Example: <code>$ cd .. </code></p></li>
 								</ul>
-							<h2 id="working-with-files-and-directories">Working With Files and Directories</h2>
+							<h2 id="working-with-files-and-directories">7. Working With Files and Directories</h2>
 								<ul>
 								<li><code>$ mkdir [dirname]</code>: Make (create) a new directory.Avoid using spaces; underscores are not recommended.
 									<ul>Example: <code>mkdir results</code></ul></li>
@@ -352,7 +353,7 @@
 									<li> <code>*</code>: Matches zero or more characters. Example: <code>*.txt</code> matches all <code>.txt</code> files.</li>
 									<li><code>?</code>: Matches any single character. Example: <code>?.txt</code> matches <code>a.txt</code> but not <code>any.txt</code>.</li>
 								</ul>
-							<h2>Common Commands:</h2>
+							<h2>8. Common Commands:</h2>
 								<ul>
 								<li><code>$ cat</code>: print the contents of files. 
 									<ul><li>Example: <code>cat file1.txt file2.txt</code></li></ul></li>
@@ -364,7 +365,7 @@
 									<ul>Use -n [#] to specify the number of lines.</ul></li>
 								<li><code>$ tail [file]</code>: displays the last 10 lines. 
 									<ul>Use -n [#] to specify the number of lines.</ul></li>
-							<h2>Pipes and Filters</h2>
+							<h2>9. Pipes and Filters</h2>
 								<ul>
 								<li>Pipe Operator: <code>$ [command] | [command]</code>: Redirect the output of one command into another. 
 									<ul><li>Example: <code>ls | wc</code></li></ul>
@@ -385,13 +386,13 @@
 								<li><code>$ cat filename.list | grep keyword &gt; filefound.list</code>: Pipe output to another command</li>
 								<li><code>$ cut -d , -f 2 [file].csv | sort | uniq</code>: Remove duplicates</li>
 								</lu></p>
-							<h2 id="variables">Variables</h2>
+							<h2 id="variables">10. Variables</h2>
 								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number.</p>
 								<p><strong>Declaring Variables</strong>: to create a variable, use the following syntax:</p>
 <pre><code>$ [variable_name]=value</code><p>Note: No spaces are allowed betwen the variable name, the equals sign, and the value. Use consistent and simple filenames to facilitate looping.</p></pre>
 								<p><strong>Accessing Values</strong>: to retrieve the value of a variable, prefix its name with a dollar sign <code>$</code>, as seen below </p>
 <pre><code>$ echo $variable_name</code></pre>								
-							<h2 id="for loops">For Loops</h2>
+							<h2 id="for loops">11. For Loops</h2>
 								<p>For Loops allow us to execute a series of commands repeatedly for each item in a list. For loops are often used in scripts. Below is a for loop syntax template. In this example, <code>'variable'</code> represents each item in the <code>'list'</code> during each iteration</p>
 <pre><code>for variable in list
 do
@@ -409,7 +410,7 @@ done
 									<li>For each file ('file 1', 'file 2', 'file 3'), this loop prints the file name. Then, it extracts the second line of the file (by getting the first 2 lines and then taking the last line) and appends it to a new file, <code>$filename.txt</code>.</li>
 									<li>Avoid using spaces, quotes, or wildcard characters, <code>*, ?</code>, in filenames to simplify variable expansion.</li>
 								</ul>
-							<h2 id="unix-operating-system-capabilities">Unix Operating System Capabilities</h2>
+							<h2 id="unix-operating-system-capabilities">12. Unix Operating System Capabilities</h2>
 							<h3 id="shell-scripting">Shell Scripting</h2>
 								<p>Shell scripting is a very useful tool for automating tasks. To learn more, visit the <a href="shell_scripting.html">Shell Scripting</a> page.</p>
 							<h3 id="permissions">Permissions</h2>
@@ -419,13 +420,12 @@ done
 							<h3 id="version-control-with-git-and-github">Version Control with Git and GitHub</h3>
 								<p>Bash can be used to access and interact with Git (version control). To get started with Git, GitHub, and version control, see our <a href="git_dock_data.html">Github & Doctor page</a> and explore this resource on <a href="https://neuroimaging-data-science.org/content/002-datasci-toolbox/002-git.html?highlight=unix">version control</a>.</p>
 							<h3 id="working-with-virtual-environments-and-containers">Working with Virtual Environments and Containers</h3>
-								<ul>
-								<p>Here are some resources for working with virtual enviornments and containerization:
+								<ul>Here are some resources for working with virtual enviornments and containerization:
 									<li><a href="docker_data.html">NeuroNest's Docker tutorial</a></li>
 									<li><a href="https://neuroimaging-data-science.org/content/002-datasci-toolbox/003-docker.html?highlight=unix">Neuroimaging and Data Science's tutorial</a> on computational environments and computational containers.</li>
 									<li><a href="https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Earth Lab's git, bash, and conda setup instructions</a>.</li>
 								</ul>
-							<h2 id="suggested-tutorials">Suggested Tutorials</h3>
+							<h2 id="suggested-tutorials">13. Suggested Tutorials</h2>
 								<p>For an in-depth tutorial on how to use the command shell, visit <a href="https://swcarpentry.github.io/shell-novice/index.html">Software Carpentry's "The Unix Shell"</a>.</p>
 								<p>Another great resource is <a href="https://andysbrainbook.readthedocs.io/en/latest/unix/Unix_Intro.html">Andy's Brain Book Unix for Neuroimagers</a>.</p>
 								<p>Here is a tutorial with <a href="https://carpentries-incubator.github.io/shell-extras/">Software Carpentry's Extra Unix Shell Material</a>.</p>
