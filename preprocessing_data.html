@@ -93,22 +93,129 @@
 				</ul>
 
 				<h3>3. Using FMRIPREP:</h3>
-				<p><strong>Overview:</strong> FMRIPREP is a robust and reproducible preprocessing pipeline for functional MRI data.</p>
-				<p><strong>Key Features:</strong> Automated preprocessing, standardized outputs, extensive reporting.</p>
-				<p><strong>Steps in FMRIPREP Pipeline:</strong> Motion Correction, Spatial Normalization, Segmentation, Smoothing, Artifact Removal.</p>
-				<p><strong>Advantages and Disadvantages:</strong> Reproducibility, automation, comprehensive reporting. Resource-intensive, complexity.</p>
 
-				<h3>4. Quality Assessment with MRIQC:</h3>
-				<p><strong>Overview:</strong> MRIQC is a tool designed to assess the quality of MRI data through various metrics and visual reports.</p>
-				<p><strong>Key Features:</strong> Quality assessment, comprehensive metrics, easy-to-interpret reports.</p>
-				<p><strong>Steps in MRIQC Pipeline:</strong> Image Assessment, Quality Metrics Calculation, Reporting.</p>
+<p><strong>Overview:</strong> FMRIPREP is a comprehensive and reproducible preprocessing pipeline specifically designed for functional MRI (fMRI) data. It is part of the BIDS Apps ecosystem and leverages various neuroimaging tools such as FSL, ANTs, and FreeSurfer to provide standardized preprocessing outputs. FMRIPREP aims to minimize manual intervention, automate complex processes, and produce high-quality, reproducible results suitable for downstream analyses.</p>
 
-				<h3>5. Comparison of FMRIPREP and MRIQC:</h3>
-				<p><strong>Purpose:</strong> FMRIPREP focuses on preprocessing functional MRI data to prepare it for analysis. MRIQC focuses on assessing the quality of MRI data to ensure high standards.</p>
-				<p><strong>Functionality:</strong> FMRIPREP includes steps like motion correction, spatial normalization, segmentation, and artifact removal. MRIQC computes quality metrics and generates reports but does not preprocess the data.</p>
-				<p><strong>Use Case:</strong> FMRIPREP is ideal for researchers needing a comprehensive and automated preprocessing solution. MRIQC is ideal for researchers needing to assess and ensure data quality before analysis.</p>
-				<p><strong>Integration:</strong> MRIQC can be used before FMRIPREP to assess data quality and after FMRIPREP to evaluate preprocessing effectiveness.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+    <li>Automated preprocessing with minimal manual intervention required.</li>
+    <li>Standardized outputs that are consistent across different datasets and studies.</li>
+    <li>Extensive reporting, including detailed visual and textual summaries of each preprocessing step.</li>
+    <li>Integration with other BIDS-compatible tools and pipelines.</li>
+</ul>
 
+<p><strong>Steps in FMRIPREP Pipeline:</strong></p>
+<ul>
+    <li><strong>Motion Correction:</strong> FMRIPREP realigns functional images to correct for any subject movement that occurred during scanning, reducing the impact of motion artifacts.</li>
+    <li><strong>Spatial Normalization:</strong> Functional images are aligned to a standard brain template (e.g., MNI152) to facilitate comparison across subjects and studies.</li>
+    <li><strong>Segmentation:</strong> FMRIPREP segments the brain into different tissue types (gray matter, white matter, cerebrospinal fluid) to aid in more detailed analyses.</li>
+    <li><strong>Smoothing:</strong> An optional step where a Gaussian filter is applied to the images to enhance the signal-to-noise ratio, helping to detect consistent patterns across subjects.</li>
+    <li><strong>Artifact Removal:</strong> FMRIPREP includes steps to identify and mitigate artifacts, such as those caused by scanner noise or physiological sources (e.g., cardiac or respiratory cycles).</li>
+</ul>
+
+<p><strong>Advantages and Disadvantages:</strong></p>
+<ul>
+    <li><strong>Advantages:</strong></li>
+    <ul>
+        <li>High reproducibility across different datasets and studies due to standardized procedures.</li>
+        <li>Automation of complex preprocessing steps reduces the need for manual intervention, saving time and reducing the likelihood of human error.</li>
+        <li>Comprehensive reporting provides transparency and aids in quality control, ensuring that each step of the preprocessing is well-documented and can be reviewed.</li>
+    </ul>
+    <li><strong>Disadvantages:</strong></li>
+    <ul>
+        <li>Resource-intensive, requiring substantial computational power, particularly for large datasets or high-resolution images.</li>
+        <li>The complexity of the pipeline may present a steep learning curve for new users unfamiliar with advanced neuroimaging techniques.</li>
+    </ul>
+</ul>
+
+<p><strong>Example FMRIPREP Command:</strong></p>
+<pre><code>
+# Basic command to run FMRIPREP on a BIDS-compliant dataset
+fmriprep /path/to/bids_dataset /path/to/output participant \
+--participant-label 01 \
+--output-spaces MNI152NLin2009cAsym:res-2 anat \
+--use-syn-sdc --fs-no-reconall \
+--nthreads 8 --mem-mb 16000 \
+--resource-monitor \
+--write-graph --stop-on-first-crash
+</code></pre>
+<p>In this command:</p>
+<ul>
+    <li><strong>/path/to/bids_dataset:</strong> The directory containing your BIDS-formatted dataset.</li>
+    <li><strong>/path/to/output:</strong> The directory where FMRIPREP will store the outputs.</li>
+    <li><strong>--participant-label:</strong> Specifies which participant's data to process.</li>
+    <li><strong>--output-spaces:</strong> Specifies the spaces to which the data should be normalized (e.g., MNI152NLin2009cAsym).</li>
+    <li><strong>--use-syn-sdc:</strong> Applies susceptibility distortion correction using the SyN algorithm.</li>
+    <li><strong>--nthreads:</strong> Number of threads to use.</li>
+    <li><strong>--mem-mb:</strong> Memory allocation in MB.</li>
+    <li><strong>--resource-monitor:</strong> Enables resource monitoring.</li>
+    <li><strong>--write-graph:</strong> Generates a visual graph of the workflow.</li>
+    <li><strong>--stop-on-first-crash:</strong> Stops the process if an error is encountered.</li>
+</ul>
+
+<h3>4. Quality Assessment with MRIQC:</h3>
+
+<p><strong>Overview:</strong> MRIQC (Magnetic Resonance Imaging Quality Control) is a tool designed to assess the quality of MRI data. It computes a wide range of quality metrics, such as signal-to-noise ratio (SNR) and contrast-to-noise ratio (CNR), and generates visual reports that help in identifying potential issues with the data. MRIQC is an essential step before preprocessing, ensuring that only high-quality data is processed further.</p>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+    <li>Comprehensive quality assessment with various metrics that evaluate the overall quality of MRI scans.</li>
+    <li>Automated generation of easy-to-interpret reports that provide a visual and statistical summary of data quality.</li>
+    <li>Compatibility with BIDS datasets, facilitating seamless integration with other neuroimaging tools and pipelines.</li>
+</ul>
+
+<p><strong>Steps in MRIQC Pipeline:</strong></p>
+<ul>
+    <li><strong>Image Assessment:</strong> MRIQC evaluates individual MRI images to identify any issues such as artifacts, noise, or motion.</li>
+    <li><strong>Quality Metrics Calculation:</strong> MRIQC calculates various metrics, including SNR, CNR, and measures of spatial artifacts, providing a quantitative assessment of data quality.</li>
+    <li><strong>Reporting:</strong> MRIQC generates comprehensive visual reports that summarize the quality metrics for each scan, making it easier to identify and exclude poor-quality data.</li>
+</ul>
+
+<p><strong>Example MRIQC Command:</strong></p>
+<pre><code>
+# Basic command to run MRIQC on a BIDS-compliant dataset
+mriqc /path/to/bids_dataset /path/to/output participant \
+--participant-label 01 \
+--n_procs 8 \
+--mem_gb 16 \
+--fd_thres 0.2 \
+--ica
+</code></pre>
+<p>In this command:</p>
+<ul>
+    <li><strong>/path/to/bids_dataset:</strong> The directory containing your BIDS-formatted dataset.</li>
+    <li><strong>/path/to/output:</strong> The directory where MRIQC will store the outputs.</li>
+    <li><strong>--participant-label:</strong> Specifies which participant's data to process.</li>
+    <li><strong>--n_procs:</strong> Number of processors to use.</li>
+    <li><strong>--mem_gb:</strong> Memory allocation in GB.</li>
+    <li><strong>--fd_thres:</strong> Framewise displacement threshold for identifying motion artifacts.</li>
+    <li><strong>--ica:</strong> Use Independent Component Analysis (ICA) to decompose the data and identify sources of noise.</li>
+</ul>
+
+<h3>5. Comparison of FMRIPREP and MRIQC:</h3>
+
+<p><strong>Purpose:</strong></p>
+<ul>
+    <li><strong>FMRIPREP:</strong> Primarily focuses on preprocessing functional MRI data, preparing it for analysis by correcting for motion, normalizing to standard templates, segmenting tissues, and removing artifacts.</li>
+    <li><strong>MRIQC:</strong> Concentrates on assessing the quality of MRI data before preprocessing begins, ensuring that only high-quality scans proceed to the analysis stage. It provides quantitative metrics and visual reports that help in evaluating the integrity of the data.</li>
+</ul>
+
+<p><strong>Functionality:</strong></p>
+<ul>
+    <li><strong>FMRIPREP:</strong> Includes multiple preprocessing steps such as motion correction, spatial normalization, segmentation, smoothing, and artifact removal. It outputs data that is ready for further analysis.</li>
+    <li><strong>MRIQC:</strong> Computes quality metrics and generates reports but does not perform preprocessing itself. It serves as a crucial quality control step before running tools like FMRIPREP.</li>
+</ul>
+
+<p><strong>Use Case:</strong></p>
+<ul>
+    <li><strong>FMRIPREP:</strong> Ideal for researchers who need a comprehensive, automated preprocessing solution that prepares functional MRI data for subsequent analysis.</li>
+    <li><strong>MRIQC:</strong> Best suited for researchers who need to assess and ensure the quality of their MRI data before processing it with tools like FMRIPREP.</li>
+</ul>
+
+<p><strong>Integration:</strong></p>
+<ul>
+    <li><strong>MRIQC and FMRIPREP Complementarity:</strong> MRIQC can be used before FMRIPREP to evaluate the quality of the data. By identifying and excluding poor-quality scans, researchers can ensure that only high-quality data is processed by FMRIPREP. After FMRIPREP, MRIQC can also be used to assess the effectiveness of the preprocessing steps.</li>
+</ul>
 				<h3>Frequently Asked Questions (FAQ)</h3>
 				<ul>
 					<li><strong>Q1: Why is preprocessing necessary for neuroimaging data?</strong>
