@@ -56,6 +56,7 @@
 							<h2>Introduction to Bash<h2>
 							<h3>What is Bash?</h3>
 								<p>The name Bash stands for “Bourne Again SHell,” a reference to its predecessor, the Bourne shell (sh), written by Stephen Bourne. Bash is a commonly-used command-line interface (CLI) and scripting language that allows you to efficiently execute commands, manage files, and automate tasks in Unix-like systems. A command line interface (CLI) is a text-based interface where you can input commands that interact with a computer's operating system. The command line or terminal is where you write <code>Bash</code> commands that the computer then executes.</p>
+								<ul>For more information about the history of Bash, visit <a href="https://ubuntu.com/tutorials/command-line-for-beginners#2-a-brief-history-lesson">Ubuntu's Brief History Lesson</a>.</ul>
 							<h3>What is a shell?</h3>
 								<p>A “shell” is a program that provides a way for users to interact with the computer's operating system. It can be a command-line interface (CLI) or a graphical user interface (GUI). The CLI allows users to type commands to run processes and manage the system, while the GUI provides a more visual approach. Bash is one of the most commonly used Unix/Linux shells.</p>
 							<h3>What is Unix?</h3>
@@ -72,7 +73,7 @@
 									<li><a href="https://swcarpentry.github.io/shell-novice/#install-software">Software Carpentry Installation Tutorial</a></li>
 									<li><a href="https://carpentries.github.io/workshop-template/install_instructions/#shell">Carpentries Workshop Installation Instructions</a></li>
 								</ul>
-								<p>To get started, open the command line. You should see a prompt, which typically ends in a <code>$/code>, but can also end with <code>#</code>code>, <code>&gt;</code>, <code>%</code>, or <code>>>></code>. The prompt indicates that the shell is ready for input. This prompt is also called the “command line”. It should look something like this: </p>								
+								<p>To get started, open the command line. You should see a prompt, which typically ends in a <code>$</code>, but can also end with <code>#</code>, <code>&gt;</code>, <code>%</code>, or <code>>>></code>. The prompt indicates that the shell is ready for input. This prompt is also called the “command line”. It should look something like this: </p>								
 <pre><code>$</code></pre>
 								<p>Your prompt might look different. Most shell environments put your user name and the host name before the prompt symbol. For example, your prompt might look like:									
 <pre><code>amordy@localhost $</code></pre>									
@@ -184,17 +185,18 @@
 							<h2 id="navigating files and directories">Navigating Files and Directories</h2>
 								<p>Commands are executed through the command line. To execute a command, type it into the command line after the prompt and press <code>return</code> or <code>enter</code>.</p>
 								<p>Your computer organizes data in files and folders. Files can be placed in folders, which we call <i>directories</i>. Basically, a directory is a location in the file system that can contain files and other directories (subdirectories), creating a 'directory tree'. It's essentially a folder where files and other folders are organized.</p>
-								<p>At the top of the directory tree is the "root directory", which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).
-								<img src="images/file-tree-1.jpg" alt="folders" /><img src="images/file-tree-3.png" alt="tree" />
+								<p>At the top of the directory tree is the "root directory", which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).</p>
+								<img src="images/file-tree-1.jpg style="width: 35%;"" alt="folders" /> <img src="images/file-tree-4.png" alt="tree" style="width: 35%;"/>
 								<p>While we are using the shell, we can only be in one directory at a time (unless multiple windows are open). This is called our <strong>current working directory</strong>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
-								<p>Most home directories follow this path format: <code>/Users/[name]</code>. In this example, we know that /Users/amordy is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
+								<p>A <strong>path</strong> is a string that specifies the location of a file or directory in the file system (e.g., <code>~/Users/[name]/Downloads</code>)</p>
+								<p>Most home directories follow this path format: <code>/Users/[name]</code>. In this example, we know that the directory [name] is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
 								<p>To see your current working directory, we will execute the command that will <i>print the working directory</i>, <code>pwd</code>.</p>								
 <pre><code>$ pwd </code></pre>								
 								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
-								<p>Next, to see the files within our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code>. Your output is a list of the files and directories within your current working directory.</p>								
+								<p>Next, to see the files <i>within</i> our curent working directory, we will execute the command that prints a <i>list</i> of the files and directories within our working directory, <code>ls</code>. Your output is a list of the files and directories within your current working directory.</p>								
 <pre><code>$ ls</code></pre>							
 							<h2 id="using-flags-and-arguments-in-commands">Using Flags and Arguments in Commands</h2>
-								<p>Most commands follow the same format: command, then flags/options, then arguments. </p>
+								<p>Most commands follow the same format: command, then flags/options, then arguments.</p>
 <pre><code>$ command [flags/options] [arguments]</code></pre>
 								<p><strong>Without Arguments or Options</strong>: Simply type the command and hit <code>return</code>. For example:<p>
 <pre><code>$ ls</code></pre>									
@@ -423,10 +425,12 @@ done
 									<li><a href="https://neuroimaging-data-science.org/content/002-datasci-toolbox/003-docker.html?highlight=unix">Neuroimaging and Data Science's tutorial</a> on computational environments and computational containers.</li>
 									<li><a href="https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Earth Lab's git, bash, and conda setup instructions</a>.</li>
 								</ul>
-							<h2 id="additional-resources">Additional Resources</h3>
+							<h2 id="suggested-tutorials">Suggested Tutorials</h3>
 								<p>For an in-depth tutorial on how to use the command shell, visit <a href="https://swcarpentry.github.io/shell-novice/index.html">Software Carpentry's "The Unix Shell"</a>.</p>
 								<p>Another great resource is <a href="https://andysbrainbook.readthedocs.io/en/latest/unix/Unix_Intro.html">Andy's Brain Book Unix for Neuroimagers</a>.</p>
 								<p>Here is a tutorial with <a href="https://carpentries-incubator.github.io/shell-extras/">Software Carpentry's Extra Unix Shell Material</a>.</p>
+							<h2 id="Additional Resources">Additional Resources</h3>
+
 
 						</div>
 					</div>
