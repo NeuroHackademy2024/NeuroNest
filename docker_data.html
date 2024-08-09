@@ -50,49 +50,47 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Introduction to Docker</h1>
+						    <h1>Introduction to Docker: A Beginner's Tutorial with the Docker Whale Say Container</h1>
 							<body>
 								<body>
-    <h1>Introduction to Docker: A Beginner's Tutorial with the Docker Whale Say Container</h1>
-    <p>Docker is a powerful platform for developing, shipping, and running applications in isolated environments called containers. This tutorial will guide you through the basics of Docker, from installation to running your first container using the Docker Whale Say image.</p>
-
+    <p>Docker is a powerful platform for developing, shipping, and running applications in isolated environments called containers. This tutorial will guide you through the basics of Docker, from installation to running your first container using the Docker Whale Say image. For more information about Docker, visit there website <a href="https://www.docker.com/">here</a></p>
+	<p>For a list of useful Docker commands, visit <a href="docker_cheat_data.html">NeuroNest's Docker Command Cheet Sheet</a></p>
+</p>
     <h2>Prerequisites</h2>
     <ul>
-        <li>Basic understanding of the command line.</li>
-        <li>A computer with a modern operating system (Windows, macOS, or Linux).</li>
+	<li>A computer with a modern operating system (Windows, macOS, or Linux).</li>
+        <li>Basic understanding of the <a href="bash_data.html">command line</a>.</li>
     </ul>
 
-    <h2>Step 1: Install Docker</h2>
+    <h2><a href="https://docs.docker.com/desktop/">1: Install Docker</a></h2>
     <h3>Windows:</h3>
     <ol>
-        <li>Download Docker Desktop from the Docker Hub.</li>
-        <li>Run the installer and follow the instructions.</li>
+        <li>Download Docker Desktop for Windows.</li>
+	<li>Follow the <a href="https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows">installation instructions</a>.</li>
         <li>Ensure you have the Windows Subsystem for Linux (WSL) 2 installed and set up.</li>
     </ol>
 
-    <h3>macOS:</h3>
+    <h3>mac OS:</h3>
     <ol>
-        <li>Download Docker Desktop from the Docker Hub.</li>
-        <li>Open the .dmg file and drag Docker to the Applications folder.</li>
-        <li>Launch Docker from the Applications folder.</li>
+        <li>Download <a href="https://docs.docker.com/desktop/install/mac-install/">Docker Desktop for Mac</a></li>
+        <li>Follow the <a href="https://docs.docker.com/desktop/install/mac-install/#install-and-run-docker-desktop-on-mac">installation instructions</a>.</li>
     </ol>
 
     <h3>Linux:</h3>
-    <p>Follow the instructions on the official Docker documentation.</p>
+    <p>Follow the instructions on the <a href="https://docs.docker.com/desktop/install/linux-install/">official Docker documentation</a>.</p>
 
-    <p>After installation, you can verify Docker is installed correctly by opening a terminal and running:</p>
+    <p>After installation, you can verify Docker is installed correctly by opening a terminal window and running:</p>
     <pre><code>docker --version</code></pre>
 
-    <h2>Step 2: Running Your First Docker Container</h2>
+    <h2>2: Running Your First Docker Container</h2>
     <ol>
         <li>Open your terminal.</li>
         <li>Run the following command to pull the Docker Whale Say image from Docker Hub:</li>
         <pre><code>docker pull docker/whalesay</code></pre>
         <p>This command downloads the Docker Whale Say image from Docker Hub to your local machine.</p>
         <li>Once the image is downloaded, you can create and run a container using this image:</li>
-        <pre><code>docker run docker/whalesay cowsay "Hello, Docker!"</code></pre>
+	<pre><code>docker run docker/whalesay cowsay "Hello, Docker!"</code></pre>
         <p>This command starts a new container from the Docker Whale Say image and displays a fun message.</p>
-	    <p><a href="docker_cheat_data.html">Docker Command Cheet Sheet</a></p>
         <pre>
  ___________________
 < Hello, Docker! >
@@ -111,14 +109,14 @@
         </pre>
     </ol>
 
-    <h2>Step 3: Understanding Docker Basics</h2>
+    <h2>3: Understanding Docker Basics</h2>
     <ul>
         <li><strong>Images:</strong> Read-only templates that contain a set of instructions for creating a container. For example, the Docker Whale Say image contains a simple application that displays a fun message.</li>
         <li><strong>Containers:</strong> Runnable instances of images. Containers are lightweight and can be started, stopped, and moved around easily.</li>
         <li><strong>Dockerfile:</strong> A text file that contains instructions for building a Docker image. (Not used in this simple example, but essential for more complex applications.)</li>
     </ul>
 
-    <h2>Step 4: Managing Docker Containers and Images</h2>
+    <h2>4: Managing Docker Containers and Images</h2>
     <h3>List running containers:</h3>
     <pre><code>docker ps</code></pre>
     <p>Since the Docker Whale Say container exits after displaying the message, it won't show up in the list of running containers.</p>
