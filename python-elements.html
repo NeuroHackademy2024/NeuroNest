@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Python Elements</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+<h1 id="python-elements-and-syntax">Python Elements and Syntax</h1>
+<h2 id="1-basic-elements">1. Basic Elements</h2>
+<h3 id="-comment-"><strong>Comment</strong></h3>
+<ul>
+<li><strong>Single-line comments:</strong> Created using the hash symbol (<code>#</code>). Everything after <code>#</code> on that line is ignored by the Python interpreter.</li>
+<li><strong>Multi-line comments:</strong> Though Python does not have a built-in syntax for multi-line comments, you can use multi-line strings (enclosed in triple quotes <code>&#39;&#39;&#39;</code> or <code>&quot;&quot;&quot;</code>) as a workaround.</li>
+</ul>
+<h3 id="-variable-"><strong>Variable</strong></h3>
+<ul>
+<li>Variables are containers for storing data values. Python is dynamically typed, meaning you don’t need to declare the type of a variable explicitly.</li>
+</ul>
+<h3 id="-data-types-"><strong>Data Types</strong></h3>
+<ul>
+<li><strong>Numeric:</strong> <code>int</code>, <code>float</code>, <code>complex</code></li>
+<li><strong>Text:</strong> <code>str</code></li>
+<li><strong>Sequence:</strong> <code>list</code>, <code>tuple</code>, <code>range</code></li>
+<li><strong>Mapping:</strong> <code>dict</code></li>
+<li><strong>Set Types:</strong> <code>set</code>, <code>frozenset</code></li>
+<li><strong>Boolean:</strong> <code>bool</code></li>
+<li><strong>Binary:</strong> <code>bytes</code>, <code>bytearray</code>, <code>memoryview</code></li>
+</ul>
+<h3 id="-string-"><strong>String</strong></h3>
+<ul>
+<li>Strings in Python are immutable sequences of Unicode characters. You can create them using single or double quotes.</li>
+<li><strong>String operations:</strong><ul>
+<li>Concatenation: <code>&#39;Hello&#39; + &#39;World&#39;</code></li>
+<li>Repetition: <code>&#39;Hello&#39; * 3</code></li>
+<li>Slicing: <code>greeting[1:5]</code></li>
+<li>String methods: <code>greeting.upper()</code>, <code>greeting.lower()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="-list-"><strong>List</strong></h3>
+<ul>
+<li>Lists are mutable, ordered collections of items, allowing mixed data types.</li>
+<li><strong>List operations:</strong><ul>
+<li>Accessing elements: <code>fruits[0]</code></li>
+<li>Modifying elements: <code>fruits[1] = &#39;blueberry&#39;</code></li>
+<li>List methods: <code>fruits.append(&#39;orange&#39;)</code>, <code>fruits.remove(&#39;banana&#39;)</code>, <code>len(fruits)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="-tuple-"><strong>Tuple</strong></h3>
+<ul>
+<li>Tuples are immutable, ordered collections of items, often used for fixed data.</li>
+<li><strong>Tuple operations:</strong><ul>
+<li>Accessing elements: <code>coordinates[0]</code></li>
+<li>Tuples do not support item assignment as they are immutable.</li>
+</ul>
+</li>
+</ul>
+<h3 id="-dictionary-"><strong>Dictionary</strong></h3>
+<ul>
+<li>Dictionaries are unordered collections of key-value pairs. Keys must be unique and immutable.</li>
+<li><strong>Dictionary operations:</strong><ul>
+<li>Accessing values: <code>person[&quot;name&quot;]</code></li>
+<li>Adding/changing entries: <code>person[&quot;age&quot;] = 31</code></li>
+<li>Dictionary methods: <code>person.keys()</code>, <code>person.values()</code>, <code>person.items()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="-set-"><strong>Set</strong></h3>
+<ul>
+<li>Sets are unordered collections of unique elements.</li>
+<li><strong>Set operations:</strong><ul>
+<li>Adding elements: <code>unique_numbers.add(5)</code></li>
+<li>Removing elements: <code>unique_numbers.remove(2)</code></li>
+<li>Set operations: union (<code>|</code>), intersection (<code>&amp;</code>), difference (<code>-</code>), symmetric difference (<code>^</code>)</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-special-characters">2. Special Characters</h2>
+<h3 id="-square-brackets-"><strong>Square Brackets <code>[]</code>:</strong></h3>
+<ul>
+<li><strong>Lists and Indexing:</strong> Used to create lists and access elements within sequences.</li>
+</ul>
+<h3 id="-curly-braces-"><strong>Curly Braces <code>{}</code>:</strong></h3>
+<ul>
+<li><strong>Dictionaries and Sets:</strong> Used to create dictionaries and sets.</li>
+</ul>
+<h3 id="-parentheses-"><strong>Parentheses <code>()</code>:</strong></h3>
+<ul>
+<li><strong>Function Calls and Tuples:</strong> Used to call functions and create tuples.</li>
+</ul>
+<h3 id="-colon-"><strong>Colon <code>:</code>:</strong></h3>
+<ul>
+<li><strong>Slicing, Function Definitions, and Control Flow:</strong> Used in slicing, defining functions, and indicating the start of a code block.</li>
+</ul>
+<h3 id="-comma-"><strong>Comma <code>,</code>:</strong></h3>
+<ul>
+<li><strong>Element Separator:</strong> Used to separate elements in lists, tuples, and function arguments.</li>
+</ul>
+<h3 id="-ellipsis-"><strong>Ellipsis <code>...</code>:</strong></h3>
+<ul>
+<li><strong>Continuation:</strong> Indicates continuation in code, often used in slicing.</li>
+</ul>
+<h2 id="3-accessing-and-manipulating-elements">3. Accessing and Manipulating Elements</h2>
+<h3 id="-indices-"><strong>Indices:</strong></h3>
+<ul>
+<li><strong>Accessing Elements in Lists and Tuples:</strong> Access elements using indices. Python supports negative indexing to access elements from the end of the list.</li>
+</ul>
+<h3 id="-slicing-"><strong>Slicing:</strong></h3>
+<ul>
+<li><strong>Extracting Subsets:</strong> Slice lists and strings using <code>start:stop:step</code>.</li>
+</ul>
+<h3 id="-modifying-elements-"><strong>Modifying Elements:</strong></h3>
+<ul>
+<li><strong>Lists and Dictionaries:</strong> Lists and dictionaries are mutable, allowing you to change, add, or remove elements.</li>
+</ul>
+<h2 id="4-case-and-space-sensitivity">4. Case and Space Sensitivity</h2>
+<h3 id="-case-sensitivity-"><strong>Case Sensitivity:</strong></h3>
+<ul>
+<li><strong>Variable and Function Names:</strong> Python is case-sensitive, meaning <code>VariableName</code> and <code>variablename</code> are different identifiers.</li>
+</ul>
+<h3 id="-space-sensitivity-"><strong>Space Sensitivity:</strong></h3>
+<ul>
+<li><strong>Indentation:</strong> Python uses indentation to define code blocks. Consistent use of spaces (or tabs) is crucial for correct code execution.</li>
+</ul>
+<h2 id="5-code-suggestions-and-completions">5. Code Suggestions and Completions</h2>
+<h3 id="-interactive-development-"><strong>Interactive Development:</strong></h3>
+<ul>
+<li><strong>Real-time Syntax Checking:</strong> Tools like Jupyter Notebooks and IDEs such as PyCharm and VS Code offer real-time syntax checking and code suggestions.</li>
+<li><strong>Auto-completion:</strong> As you type, Python IDEs can suggest function names, variable names, and syntax completions, making coding more efficient.</li>
+</ul>
+<h2 id="6-scripts-vs-functions">6. Scripts vs Functions</h2>
+<h3 id="-scripts-"><strong>Scripts:</strong></h3>
+<ul>
+<li><strong>Running Code Directly:</strong> Python scripts are files containing Python code that are executed directly. They are typically used for automating tasks or running a series of commands.</li>
+</ul>
+<h3 id="-functions-"><strong>Functions:</strong></h3>
+<ul>
+<li><strong>Modular Code:</strong> Functions are blocks of reusable code defined using the <code>def</code> keyword. Functions allow for modularity, encapsulation, and code reuse.</li>
+</ul>
+<h2 id="7-command-cheat-sheet">7. Command Cheat Sheet</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Operation</strong></th>
+<th><strong>Command</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Print to Console</strong></td>
+<td><code>print(&quot;Hello, World!&quot;)</code></td>
+</tr>
+<tr>
+<td><strong>Length of List</strong></td>
+<td><code>len(my_list)</code></td>
+</tr>
+<tr>
+<td><strong>Add to List</strong></td>
+<td><code>my_list.append(10)</code></td>
+</tr>
+<tr>
+<td><strong>Remove from List</strong></td>
+<td><code>my_list.remove(10)</code></td>
+</tr>
+<tr>
+<td><strong>Access Dictionary Key</strong></td>
+<td><code>my_dict[&quot;key&quot;]</code></td>
+</tr>
+<tr>
+<td><strong>Check Type</strong></td>
+<td><code>type(variable)</code></td>
+</tr>
+<tr>
+<td><strong>Convert to String</strong></td>
+<td><code>str(100)</code></td>
+</tr>
+<tr>
+<td><strong>Convert to Integer</strong></td>
+<td><code>int(&quot;100&quot;)</code></td>
+</tr>
+<tr>
+<td><strong>Looping</strong></td>
+<td><code>for i in range(5):</code></td>
+</tr>
+<tr>
+<td><strong>Conditional</strong></td>
+<td><code>if x &gt; y:</code></td>
+</tr>
+<tr>
+<td><strong>Function Definition</strong></td>
+<td><code>def my_function():</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-suggested-tutorials">8. Suggested Tutorials</h2>
+<ul>
+<li><a href="https://www.datacamp.com/cheat-sheet/getting-started-with-python-cheat-sheet">Tutorial: Getting Started with Python</a></li>
+<li><a href="https://www.datacamp.com/cheat-sheet/python-for-data-science-a-cheat-sheet-for-beginners">Tutorial: Python for Data Science</a></li>
+<li><a href="https://github.com/rthorst/Introduction-to-Python-for-Scientific-Programming/blob/master/Programming%20Basics%202%20Variable%20Types/Programming%20Basics%202%20Variable%20Types.ipynb">Tutorial: Variable Types</a></li>
+<li><a href="https://github.com/rthorst/Introduction-to-Python-for-Scientific-Programming/blob/master/Programming%20Basics%203%20Data%20Structures/data_structures_9_24_2018.py">Tutorial: Data Structures</a></li>
+</ul>
+<h2 id="9-supplemental-materials">9. Supplemental Materials</h2>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/introduction.html">Documentation: Python Introduction</a></li>
+<li><a href="https://neuroimaging-data-science.org/content/003-programming/001-python-language.html">Textbook Chapter: Python Language Overview</a></li>
+<li><a href="https://quickref.me/python.html">Cheat Sheet: Python Quick Reference</a></li>
+<li><a href="https://learnxinyminutes.com/docs/python/">Cheat Sheet: Learn Python in Y Minutes</a></li>
+<li><a href="https://intellipaat.com/blog/tutorial/python-tutorial/python-cheat-sheet-basics/">Cheat Sheet: Python Basics Cheat Sheet</a></li>
+</ul>
+
+						</div>
+					</div>
+				
+<!-- Place the bird image and text anywhere on the page -->
+    <div style="text-align: right; padding-right: 40px;">
+        <a href="python_environment.html">
+            <img src="images/small_bird_arrow.png" alt="Next Page" style="width: 100px; height: 100px;">
+            <div style="font-size: 18px; margin-top: 10px;">Next Page</div>
+        </a>
+    </div>
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Funding</h2>
+								<p> We would like to express our heartfelt gratitude to <strong>Neurohackademy</strong> at the <strong>University of Washington eScience Institute</strong> for providing invaluable training and support. This experience has significantly enriched our understanding of neuroimaging and data science. We also acknowledge the support of the National Institute of Mental Health (NIMH) grant number <strong>5R25MH112480-08</strong>, which made this opportunity possible.</p>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://x.com/Neuro_Nest" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://github.com/NeuroHackademy2024/NeuroNest" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="mailto:sopkoc@umich.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
