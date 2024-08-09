@@ -58,7 +58,7 @@
 								<p>The name Bash stands for “Bourne Again SHell,” a reference to its predecessor, the Bourne shell (sh), written by Stephen Bourne. Bash is a commonly-used command-line interface (CLI) and scripting language that allows you to efficiently execute commands, manage files, and automate tasks in Unix-like systems. A command line interface (CLI) is a text-based interface where you can input commands that interact with a computer's operating system. The command line or terminal is where you write Bash commands that the computer then executes.</p>
 								<ul>For more information about the history of Bash, visit <a href="https://ubuntu.com/tutorials/command-line-for-beginners#2-a-brief-history-lesson">Ubuntu's Brief History Lesson</a>.</ul>
 							<h3>What is a shell?</h3>
-								<p>A “shell” is a program that provides a way for users to interact with the computer's operating system. It can be a command-line interface (CLI) or a graphical user interface (GUI). The CLI allows users to type commands to run processes and manage the system, while the GUI provides a more visual approach. Bash is one of the most commonly used Unix/Linux shells.</p>
+								<p>A “shell” is a program that provides a way for users to interact with the computer's operating system. Specifically, a shell's primary purpose is to read commands and run other programs. Shells can be a command-line interface (CLI) or a graphical user interface (GUI). The CLI allows users to type commands to run processes and manage the system, while the GUI provides a more visual approach. Bash is one of the most commonly used Unix/Linux shells.</p>
 							<h3>What is Unix?</h3>
 								<p>Unix is a powerful operating system known for its multitasking and multiuser capabilities. It provides a command-line interface and a scripting language, which allows users to automate tasks and manage complex workflows efficiently. Bash is often the default shell in many Unix-like systems, including Linux and MacOS, and is also available on Windows through tools like Git for Windows.</p>
 							<h2>2. Getting Started</h2>
@@ -92,10 +92,9 @@
 								</tr>
 								</thead>
 								<tbody>
-								
 								<tr>
 								<td><code>Enter</code></td>
-								<td>Executes the command typed in the command line</td>
+								<td>Executes the command typed in the command line.</td>
 								</tr>
 								<tr>
 								<td><code>Backspace</code></td>
@@ -104,10 +103,6 @@
 								<tr>
 								<td><code>Delete</code></td>
 								<td>Deletes the character at the cursor position.</td>
-								</tr>
-								<tr>
-								<td><code>Ctrl + C</code></td>
-								<td>Interrupts the current command or script.</td>
 								</tr>
 								<tr>
 								<td><code>Up Arrow</code></td>
@@ -120,6 +115,10 @@
 								<tr>
 								<td><code>Ctrl + L</code></td>
 								<td>Clears the screen, keeping command history. </td>
+								</tr>
+								<tr>
+								<td><code>Ctrl + C</code></td>
+								<td>Interrupts the current command or script.</td>
 								</tr>
 								<tr>
 								<td><code>Single Tab</code></td>
@@ -160,12 +159,12 @@
 								<td>Scrolls down through command history.</td>
 								</tr>
 								<tr>
-								<td><code>Cmd + C</code></td>
-								<td>Interrupts the current command or script.</td>
-								</tr>
-								<tr>
 								<td><code>Cmd + L</code></td>
 								<td>Clears the last executed command from the screen, keeping command history</td>
+								</tr>
+								<tr>
+								<td><code>Cmd + C</code></td>
+								<td>Interrupts the current command or script.</td>
 								</tr>
 								<tr>
 								<td><code>Shift + Return</code></td>
@@ -180,24 +179,24 @@
 								</tr>
 								</tbody>
 								</table>
-							<h2 id="navigating files and directories">4. Navigating Files and Directories</h2>
-								<p>Commands are executed through the command line. To execute a command, type it into the command line after the prompt and press <code>return</code> or <code>enter</code>.</p>
-								<p>Your computer organizes data in files and folders. Files can be placed in folders, which we call <i>directories</i>. Basically, a directory is a location in the file system that can contain files and other directories (subdirectories), creating a 'directory tree'. It's essentially a folder where files and other folders are organized.</p>
-								<p>At the top of the directory tree is the "root directory", which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).</p>
+							<h2 id="file-structure">2. File Structure</h2>
+								<p>Your computer organizes data in files and folders. Files can be placed in folders, which we call <strong>directories</strong>. Basically, a directory is a location in the file system that can contain files and other directories (subdirectories), creating a 'directory tree'. It's essentially a folder where files and other folders are organized.</p>
+								<p>At the top of the directory tree is the <strong>root directory"</strong>, which contains all of our directories. We refer to the root directory using the forward slash <code>/</code>. Inside the root directory are several other directories, such as bin (stores built-in programs) and Users (stores each users' personal directories and files).</p>
 								<!---<img src="images/file-tree-1.jpg" alt="tree" style="width: 35%;" alt="folders" />---> <img src="images/file-tree-4.png" alt="tree" style="width: 35%;"/>
 								<p>While we are using the shell, we can only be in one directory at a time (unless multiple windows are open). This is called our <strong>current working directory</strong>. When you first start the shell, your current working directory will most likely be your home directory. This means that the files and folders in your home directory are immediately accessible to you.</p>
 								<p>A <strong>path</strong> is a string that specifies the location of a file or directory in the file system (e.g., <code>~/Users/[name]/Downloads</code>)</p>
-								<h3>Path Types</h2>	
 								<ul>
-									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory. Example: <code>$ ls /Users/name</code></p></li>
-									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory.Example: <code>$ cd Desktop</code></p></li>
+									<li><p><strong>Absolute Path:</strong> Specifies the full path from the root directory. Example: <code>$ /Users/name/Desktop/subdirectory</code></p></li>
+									<li><p><strong>Relative Path:</strong> Specifies a path relative to the current working directory. Example: <code>$ Desktop/subdirectory</code></p></li>
 									<li><p><strong>Home Directory:</strong> The tilde ~ represents the home directory. 
 										Example: <code>$ cd ~ </code> 
 										<code>$ cd ~/Documents</code></p></li>
-									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory. Example: <code>$ ls . </code></p></li>
-									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory. Example: <code>$ cd .. </code></p></li>
+									<li><p><strong>Current Directory:</strong> <code>.</code> refers to the current working directory.
+									<li><p><strong>Parent Directory:</strong> <code>..</code> refers to the parent directory.
 								</ul>
 								<p>Most home directories follow this path format: <code>/Users/[name]</code>. In this example, we know that the directory [name] is stored within the directory /Users because Users is in the first part of the path. In addition, we know that /Users is within the root directory (/) because its name begins with <code>/</code></p>
+							<h3></h3>
+								<p>Commands are executed through the command line. To execute a command, type it into the command line after the prompt and press <code>return</code> or <code>enter</code>.</p>
 								<p>To see your current working directory, we will execute the command that will <i>print the working directory</i>, <code>pwd</code>.</p>								
 <pre><code>$ pwd </code></pre>								
 								<p>Directories and absolute paths (i.e. exact position in the system) are always prefixed with a /. </p> 
