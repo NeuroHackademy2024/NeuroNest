@@ -69,13 +69,10 @@
 <pre><code>$ ls -Fa </code></pre>
 						
 								<p>In this example, <code>ls -F</code> prints each type of file, where directories are indicated with a <code>/</code> before the name. In addition, <code>ls -a</code> prints all files, including the hidden ones.</p>
-								<h2 id="command-examples">2. Command Examples</h2>
-
-								<p><strong>Examples</strong>: Here are some more examples of using commands with flags and arguments:</p>
-
-								<p>Move into the 'Desktop' directory:</p>
+								<h2 id="command-examples">2.Basic Examples</h2>
+								<p><strong>Example #1.</strong>Move into the 'Desktop' directory.</p>
 <pre><code>$ cd Desktop </code> or <code>cd /Users/name/Desktop</code></pre>
-								<p>Make a new directory. Note: avoid using spaces; underscores are not recommended.</p>
+								<p><strong>Example #2.</strong> Make a new directory. Note: avoid using spaces in file names; underscores are also not recommended.</p>
 <pre><code>$ mkdir -p ~/Desktop/practice/example</code></pre>
 								<p>In this example, we are attempting to create a directory named "example". By adding the <code>-p</code> flag, we are able to create a path of directories. Instead of only making one directory, "example", we are able to create a parent directory "practice" <i>and</i> the subdirectory "example" in one line of code. Otherwise, our could would look like this (which is also an acceptable way to make directories):
 <pre><code>$ cd ~/Desktop
@@ -83,46 +80,21 @@ mkdir practice
 cd practice
 mkdir example	
 </code></pre>									
-								<p> Copy a file. In the first argument, put the original name of the file. In the second argument, put the name of the new duplicate file (and new file path if desired).</p>
+								<p><strong>Example #3.</strong>Copy a file. In the first argument, put the original name of the file. In the second argument, put the name of the new duplicate file (and new file path if desired).</p>
 <pre><code>$ cp [original] [new]</code></pre>
-								<p>Copy a directory and all its contents.</p>
+								<p><strong>Example #4</strong> Copy a directory and all its contents.</p>
 								<code>$ cp -r [source] [destination]</code>
-								<p>Rename or copy a file or directory to a new location. In the first argument, put the original file location and name. In the second argument, put the new location (and new name, if you want).</p>
+								<p><strong>Example #5.</strong> Rename or copy a file or directory to a new location. In the first argument, put the original file location and name. In the second argument, put the new location (and new name, if you want).</p>
 								<code>mv [old].txt ../[new].txt</code>
-								<p>Remove a file permanently</p>
+								<p><strong>Example #6.</strong> Remove a file permanently</p>
 								<code>$ rm [path]</code>
-								<p>Remove a file or directory permanently. The <code>-r</code> flag signals "recursive", resulting in permanently deleting the directory and its contents.</p>
+								<p><strong>Example #7.</strong> Remove a file or directory permanently. The <code>-r</code> flag signals "recursive", resulting in permanently deleting the directory and its contents.</p>
 								<code>$ rm -rf [path]</code>
 									Important Note: Deleted files are gone forever! There is no trash or recycle bin. The <code>-i</code> flag initiates <i>interactive mode</i>, which forces confirmation before permanent deletion. 
 									<code>$ rm -i [path]</code>
 								
-							<h2 id="variables">10. Variables</h2>
-								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number.</p>
-								<p><strong>Declaring Variables</strong>: to create a variable, use the following syntax:</p>
-<pre><code>$ [variable_name]=value</code><p>Note: No spaces are allowed betwen the variable name, the equals sign, and the value. Use consistent and simple filenames to facilitate looping.</p></pre>
-								<p><strong>Accessing Values</strong>: to retrieve the value of a variable, prefix its name with a dollar sign <code>$</code>, as seen below </p>
-<pre><code>$ echo $variable_name</code></pre>	
-							<h2>9. Pipes and Filters</h2>
-								<ul>
-								<li>Pipe Operator: <code>$ [command] | [command]</code>: Redirect the output of one command into another. 
-									<ul><li>Example: <code>ls | wc</code></li></ul>
-								<ul>Counts lines, words, and characters in the output of ls.</ul>
-								</li>		
-								<li><code>$ command &gt; [file]</code>: Redirect output into a file. Note: this will overwrite the file.</li>
-								<li><code>$ command &gt;&gt; [file]</code>: Append output to a file</li>
-								<li><code>$ wc [file]</code>: Count lines, words, and characters.
-								<lu>Example: <code>$ wc -l *.txt</code> Output the line count for every file.</lu></li>
-								<li><code>grep [pattern] [file]</code>: Search for a pattern in files. 
-								<lu>Use -v to exclude lines with the pattern, <p></p>-i for case-insensitivity.</p></lu></li>
-								</ul>
 							
-								<p>Examples:
-								<lu>
-								<li><code>ls | grep &quot;D&quot; | wc</code>: counts the number of words containing &quot;D&quot; in the ls output.</li>	
-								<li><code>$ ls -l &gt; filename.list</code>: Redirect output to a file:</li>
-								<li><code>$ cat filename.list | grep keyword &gt; filefound.list</code>: Pipe output to another command</li>
-								<li><code>$ cut -d , -f 2 [file].csv | sort | uniq</code>: Remove duplicates</li>
-								</lu></p>
+			
 								<li><code>$ touch [filename]</code>: create an empty file 
 									<ul>
 										<p>Useful for generating placeholder files required by some programs.</p>	
@@ -173,6 +145,12 @@ mkdir example
 									<ul>Use -n [#] to specify the number of lines.</ul></li>
 								<li><code>$ tail [file]</code>: displays the last 10 lines. 
 									<ul>Use -n [#] to specify the number of lines.</ul></li>
+							<p></p><h2 id="variables">10. Variables</h2>
+								<p>A variable in the shell is a reference to actual data. You can create, assign, and delete variables without specifying a data type. Variable names can contain letters (a-z, A-Z), numbers (0-9), and underscores (_). However, a variable name must start with a letter or an underscore, not a number.</p>
+								<p><strong>Declaring Variables</strong>: to create a variable, use the following syntax:</p>
+<pre><code>$ [variable_name]=value</code><p>Note: No spaces are allowed betwen the variable name, the equals sign, and the value. Use consistent and simple filenames to facilitate looping.</p></pre>
+								<p><strong>Accessing Values</strong>: to retrieve the value of a variable, prefix its name with a dollar sign <code>$</code>, as seen below </p>
+<pre><code>$ echo $variable_name</code></pre>	
 							<h2>9. Pipes and Filters</h2>
 								<ul>
 								<li>Pipe Operator: <code>$ [command] | [command]</code>: Redirect the output of one command into another. 
