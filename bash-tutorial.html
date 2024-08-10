@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>NAME THAT SHOWS IN THE TAB ABOVE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/NeuroNestLogo.png" alt="NeuroNest Logo" /></span><span class="title">NeuroNest</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resource_menu.html">Resources</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/forum">Ask a Question</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/about">About NeuroNest</a></li>
+							<li><a href="https://sopkoc.wixsite.com/neuronest/contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Generic Page</h1>
+							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+							<h1>Bash Command Line and Scripting Tutorial</h1>
+
+<p>This tutorial will help you learn how to use Bash command line and scripting to work with the dataset available at <a href="https://openneuro.org/datasets/ds000157/versions/00001" target="_blank">OpenNeuro</a>. The dataset is in BIDS (Brain Imaging Data Structure) format, used for neuroimaging data.</p>
+
+<h2>1. Setting Up Your Environment</h2>
+<p>Ensure you have the dataset downloaded and extracted into a directory. For this tutorial, we'll assume you have extracted it into <code>~/datasets/ds000157</code>.</p>
+
+<h2>2. Navigating Directories</h2>
+<p>Learn to navigate directories using Bash commands.</p>
+<pre><code># Navigate to the dataset directory
+cd ~/datasets/ds000157
+
+# List files and directories
+ls
+
+# If you need more details
+ls -lh
+
+# To navigate to a specific directory
+cd sub-01/func
+</code></pre>
+
+<h2>3. Viewing Files and Directories</h2>
+<p>You might need to view the contents of files or check the structure.</p>
+<pre><code># Display the first few lines of a file
+head sub-01_task-rest_bold.nii.gz
+
+# Display the last few lines of a file
+tail sub-01_task-rest_bold.nii.gz
+
+# Check the structure of a directory
+tree
+</code></pre>
+
+<h2>4. File Management</h2>
+<p>Copy, move, or remove files as needed.</p>
+<pre><code># Copy a file
+cp sub-01_task-rest_bold.nii.gz ~/my_data_backup/
+
+# Move a file
+mv sub-01_task-rest_bold.nii.gz ~/my_data_backup/
+
+# Remove a file
+rm ~/my_data_backup/sub-01_task-rest_bold.nii.gz
+
+# Remove a directory and its contents
+rm -r ~/my_data_backup/
+</code></pre>
+
+<h2>5. Searching for Files</h2>
+<p>Find files based on their names or patterns.</p>
+<pre><code># Find all .nii.gz files in the directory
+find . -name "*.nii.gz"
+
+# Search for a specific file
+find . -name "sub-01_task-rest_bold.nii.gz"
+</code></pre>
+
+<h2>6. Viewing and Editing Files</h2>
+<p>For BIDS datasets, you might need to inspect metadata or configuration files.</p>
+<pre><code># View the content of a text file
+cat dataset_description.json
+
+# Use a pager to view large files
+less dataset_description.json
+
+# Edit a file using nano text editor
+nano dataset_description.json
+</code></pre>
+
+<h2>7. Scripting with Bash</h2>
+<p>Automate tasks using Bash scripts. Create a file named <code>process_data.sh</code> and make it executable.</p>
+<pre><code># Create a new Bash script file
+nano process_data.sh
+
+# Add the following script to the file
+#!/bin/bash
+
+# Navigate to the dataset directory
+cd ~/datasets/ds000157
+
+# Find and list all .nii.gz files
+echo "Listing all .nii.gz files:"
+find . -name "*.nii.gz"
+
+# Backup all .nii.gz files to a backup directory
+mkdir -p ~/my_data_backup
+find . -name "*.nii.gz" -exec cp {} ~/my_data_backup/ \;
+
+# Print a completion message
+echo "Backup completed."
+
+# Save and exit nano (Ctrl+X, then Y, then Enter)
+
+# Make the script executable
+chmod +x process_data.sh
+
+# Run the script
+./process_data.sh
+</code></pre>
+
+<h2>8. Using Commands in Scripts</h2>
+<p>Sometimes you need to include commands in a script for more complex operations.</p>
+<pre><code># Example of a more complex script
+#!/bin/bash
+
+# Example of a more complex script
+echo "Starting data processing..."
+
+# Check disk space
+df -h
+
+# Count files in a directory
+file_count=$(ls | wc -l)
+echo "Number of files in the directory: $file_count"
+
+# Compress all .nii.gz files into a tarball
+tar -cvzf fMRI_data_backup.tar.gz *.nii.gz
+
+echo "Data processing completed."
+</code></pre>
+
+<h2>9. Advanced Commands</h2>
+<p>You might need more advanced processing depending on your needs.</p>
+<pre><code># Find files modified in the last 7 days
+find . -type f -mtime -7
+
+# Execute a command on each file found
+find . -name "*.nii.gz" -exec gzip -d {} \;
+</code></pre>
+
+<h2>Conclusion</h2>
+<p>This tutorial covers basic Bash commands and scripting for managing and processing the BIDS-format fMRI dataset. As you become more familiar with Bash, you can create more complex scripts to automate and analyze your data.</p>
+
+<p>If you need more specific examples or have questions about particular tasks, feel free to ask!</p>
+
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Funding</h2>
+								<p> We would like to express our heartfelt gratitude to <strong>Neurohackademy</strong> at the <strong>University of Washington eScience Institute</strong> for providing invaluable training and support. This experience has significantly enriched our understanding of neuroimaging and data science. We also acknowledge the support of the National Institute of Mental Health (NIMH) grant number <strong>5R25MH112480-08</strong>, which made this opportunity possible.</p>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://x.com/Neuro_Nest" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://github.com/NeuroHackademy2024/NeuroNest" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="mailto:sopkoc@umich.edu" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
