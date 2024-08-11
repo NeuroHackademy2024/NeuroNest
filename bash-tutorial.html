@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>NAME THAT SHOWS IN THE TAB ABOVE</title>
+		<title>Bash Tutorial</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -54,10 +54,31 @@
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
 							<h1>Bash Command Line and Scripting Tutorial</h1>
 
-<p>This tutorial will help you learn how to use Bash command line and scripting to work with the dataset available at <a href="https://openneuro.org/datasets/ds000157/versions/00001" target="_blank">OpenNeuro</a>. The dataset is in BIDS (Brain Imaging Data Structure) format, used for neuroimaging data.</p>
 
-<h2>1. Setting Up Your Environment</h2>
-<p>Ensure you have the dataset downloaded and extracted into a directory. For this tutorial, we'll assume you have extracted it into <code>~/datasets/ds000157</code>.</p>
+<h2>1. Download Dataset</h2>
+<p>This tutorial will help you learn how to use Bash command line and scripting to work with the <a href="https://openneuro.org/datasets/ds000157/versions/00001" target="_blank">ds000157 dataset</a> available at OpenNeuro. The dataset is in BIDS (Brain Imaging Data Structure) format, used for neuroimaging data.
+For more information on Open Science and Data Management, visit our <a href="https://neurohackademy2024.github.io/NeuroNest/open_neuro.html">OpenNeuro</a> and <a href="https://neurohackademy2024.github.io/NeuroNest/bids_data.html">BIDS</a> introduction pages.</p>
+<p>Find the <a href="https://openneuro.org/datasets/ds000157/versions/00001">&quot;ds000157&quot; dataset on OpenNeuro.</a>  This dataset includes NIfTI files for each subject’s functional and anatomical MRI scans, organized in <a href="bids_data.html">BIDS format</a>.</p>
+<p><img width="600" alt="image" src="https://github.com/user-attachments/assets/42300427-c8c2-488c-83b1-49190113f1c0"></p>
+<p>You need to download the <em>entire dataset</em> using the provided options, either directly with your browser or using DataLad. Note: this may take a few minutes.</p>
+<h4 id="option-1-browser">Option 1: Browser</h4>
+<p>  <img width="600" alt="image" src="https://github.com/user-attachments/assets/70f82229-58cf-4c32-a9b6-d3c91f724046"></p>
+<p>If you download the data directly with your browser, ensure that the files are unzipped correctly in a folder named <code>ds000157</code> and are properly organized within the MATLAB folder structure.</p>
+<h4 id="option-2-datalad">Option 2: DataLad</h4>
+<p><img width="773" alt="image" src="https://github.com/user-attachments/assets/4e841224-520b-4313-8d1d-68ef6658321f"></p>
+<p>If you do not already have <a href="datalad_data.html">DataLad</a> installed, you will need to install it using your terminal. Then, download the dataset using DataLad and navigate to the dataset directory. You will then download the dataset contents recursively.</p>
+<pre><code class="lang-bash"><span class="hljs-meta"># Install datalad</span>
+$ pip install datalad
+
+<span class="hljs-meta"># Download the dataset</span>
+$ datalad install https:<span class="hljs-comment">//github.com/OpenNeuroDatasets/ds000157.git</span>
+$ cd ds000157
+datalad <span class="hljs-keyword">get</span> -r .
+</code></pre>
+<p>For more detailed instructions on using DataLad to download OpenNeuro datasets, refer to the <a href="https://handbook.datalad.org/en/latest/usecases/openneuro.html">DataLad Handbook</a>.</p>
+<p>Once the dataset is downloaded, ensure all the files are in a folder named <code>ds000157</code>. For this tutorial, we'll assume you have extracted it into <code>~/Downloads/ds000157</code>.</p>
+<p>This OpenNeuro dataset was collected by the <a href="http://www.openfmri.org">OpenfMRI project</a>. For the study, 30 female subjects performed a passive viewing task with blcoks of food andnonfood images.
+Cite: Smeets PA, Kroese FM, Evers C, de Ridder DT. Behav Brain Res. 2013 Jul 1;248:41-5. doi: 10.1016/j.bbr.2013.03.041. Epub 2013 Apr 8. http://www.ncbi.nlm.nih.gov/pubmed/23578759</p>
 
 <h2>2. Navigating Directories</h2>
 <p>Learn to navigate directories using Bash commands.</p>
